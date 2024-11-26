@@ -11,10 +11,24 @@ config_version=5
 [application]
 
 config/name="TakinGodotTemplate"
+run/main_scene="res://scenes/screen/boot_splash/boot_splash.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://assets/image/boot_splash_2560_1440.png"
+config/icon="res://assets/image/icon_1024_1024.png"
+boot_splash/minimum_display_time=1000
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="viewport"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=2
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/decals/filter=5
