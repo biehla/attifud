@@ -4,7 +4,7 @@
 
 # Takin Godot Template
 
-**Godot 4.3+** template for game projects.
+**Godot 4.3+** template for game projects (GDScript).
 
 
 ### Features
@@ -56,6 +56,7 @@
 
 Godot Engine
 - [Godot Engine](https://github.com/godotengine/godot)
+- [Redot Engine](https://github.com/Redot-Engine/redot-engine)
 
 Godot Templates
 - [Bitbrain Godot Game Jam Template](https://github.com/bitbrain/godot-gamejam)
