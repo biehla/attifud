@@ -9,7 +9,7 @@
 
 ### Features
 
-- TODO
+- **TODO:** This template is a work in progress.
 
 
 ### File Structure
@@ -23,12 +23,11 @@
 	- **autoload**
 	- **resources** *(.tres, .gd)*
 	- **scenes** *(.tscn, .gd)*
-	- **scripts** *(.gd)*
-		- const *(const .gd)*
-		- utility *(static .gd)*
+	- **scripts** *(static/const .gd)*
 	- **shaders** *(.gdshader)*
 	- export_presets.cfg
-	- project.godot
+	- gdlintrc
+	- project.godot *(project settings)*
 - .gitattributes
 - .gitignore
 - CREDITS.md
@@ -36,14 +35,21 @@
 - README.md
 
 
+### Requirements
+
+- **GDScript Toolkit** *(Optional)*
+	- This project uses the [Format on Save](https://github.com/ryan-haskell/gdformat-on-save) and [gdLinter](https://github.com/el-falso/gdlinter) addons.
+	- They require [GDScript Toolkit](https://github.com/Scony/godot-gdscript-toolkit) python package being installed.
+
+
 ### Get Started
 
-- TODO
+- Click "Use this template" in Github, then open the project in Godot Engine.
 
 
 ### Contribute
 
-- TODO
+- Open a new Issue for discussion first, later Fork and open a pull request.
 
 
 ### Acknowledgements
