@@ -1,10 +1,12 @@
 
-![](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/takin_godot_template_logo.png)
+![](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/readme_logo.png)
 
 
-# Takin Godot Template
+# Takin - Godot Template
 
 **Godot 4.3+** template for game projects (GDScript).
+
+**Made to the highest standards.** To be the best in functionality, readability and everything else.
 
 
 ## ✨ Features
