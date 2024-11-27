@@ -7,12 +7,12 @@
 **Godot 4.3+** template for game projects (GDScript).
 
 
-### Features
+## ✨ Features
 
 - **TODO:** This template is a work in progress.
 
 
-### File Structure
+## 📂 File Structure
 
 - **.github**
 	- **docs**
@@ -34,18 +34,18 @@
 - README.md
 
 
-### Conventions
+## 📜 Conventions
 
-Naming
-- **snake_case** for files system (file, folder) & code instances (variable, function).
-- **PascalCase** for nodes & code definitions (class, type).
+- Naming
+	- **snake_case** for files system (file, folder) & code instances (variable, function).
+	- **PascalCase** for nodes & code definitions (class, type).
 
-Code
-- **typed** types such as variable types, return types.
-- **style** inspired by [GDScript Style](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html) (open *gdlintrc* file as txt to see ruleset).
+- Code
+	- **typed** types such as variable types, return types.
+	- **style** inspired by [GDScript Style](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html) (open *gdlintrc* file as txt to see ruleset).
 
 
-### Plugins
+## 🧩 Plugins
 
 - **GDScript Toolkit**
 	- This project uses addons [Format on Save](https://github.com/ryan-haskell/gdformat-on-save) and [gdLinter](https://github.com/el-falso/gdlinter) (enforces *gdlintrc*).
@@ -61,28 +61,28 @@ Code
 	- TODO
 
 
-### Deployment
+## 🚀 Deployment
 
 - **TODO**
 
 
-### Get Started
+## 📖 Get Started
 
 - Click "Use this template" in Github, then open the project in Godot Engine.
 
 
-### Contribute
+## 🫂 Contribute
 
 - Open a new Issue for discussion first, later Fork and open a pull request.
 
 
-### Acknowledgements
+## 💕 Acknowledgements
 
-Godot Engine
-- [Godot Engine](https://github.com/godotengine/godot)
-- [Redot Engine](https://github.com/Redot-Engine/redot-engine)
+- Godot Engine
+	- [Godot Engine](https://github.com/godotengine/godot)
+	- [Redot Engine](https://github.com/Redot-Engine/redot-engine)
 
-Godot Templates
-- [Bitbrain Godot Game Jam Template](https://github.com/bitbrain/godot-gamejam)
-- [CrystalBit Godot Game Template](https://github.com/crystal-bit/godot-game-template)
-- [Maaack Godot Game Template](https://github.com/Maaack/Godot-Game-Template)
+- Godot Templates
+	- [Bitbrain Godot Game Jam Template](https://github.com/bitbrain/godot-gamejam)
+	- [CrystalBit Godot Game Template](https://github.com/crystal-bit/godot-game-template)
+	- [Maaack Godot Game Template](https://github.com/Maaack/Godot-Game-Template)
