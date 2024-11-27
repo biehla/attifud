@@ -18,6 +18,10 @@ boot_splash/image="res://assets/image/boot_splash_2560_1440.png"
 config/icon="res://assets/image/icon_1024_1024.png"
 boot_splash/minimum_display_time=1000
 
+[debug]
+
+gdscript/warnings/untyped_declaration=1
+
 [display]
 
 window/size/viewport_width=1920

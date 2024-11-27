@@ -18,28 +18,52 @@
 	- **docs**
 	- **workflows**
 - **godot**
-	- **addons**
-	- **assets**
-	- **autoload**
+	- **addons** (Plugins)
+	- **assets** *(.png, .mp3, .csv, .ttf, ...)*
+	- **autoload** (Globals)
 	- **resources** *(.tres, .gd)*
 	- **scenes** *(.tscn, .gd)*
 	- **scripts** *(static/const .gd)*
 	- **shaders** *(.gdshader)*
 	- export_presets.cfg
 	- gdlintrc
-	- project.godot *(project settings)*
+	- project.godot (ProjectSettings)
 - .gitattributes
 - .gitignore
-- CREDITS.md
 - LICENSE
 - README.md
 
 
-### Requirements
+### Conventions
 
-- **GDScript Toolkit** *(Optional)*
-	- This project uses the [Format on Save](https://github.com/ryan-haskell/gdformat-on-save) and [gdLinter](https://github.com/el-falso/gdlinter) addons.
+Naming
+- **snake_case** for files system (file, folder) & code instances (variable, function).
+- **PascalCase** for nodes & code definitions (class, type).
+
+Code
+- **typed** types such as variable types, return types.
+- **style** inspired by [GDScript Style](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html) (open *gdlintrc* file as txt to see ruleset).
+
+
+### Plugins
+
+- **GDScript Toolkit**
+	- This project uses addons [Format on Save](https://github.com/ryan-haskell/gdformat-on-save) and [gdLinter](https://github.com/el-falso/gdlinter) (enforces *gdlintrc*).
 	- They require [GDScript Toolkit](https://github.com/Scony/godot-gdscript-toolkit) python package being installed.
+
+- **Scene Manager**
+	- TODO
+
+- **Audio Manager**
+	- TODO
+
+- **Persistence Manager**
+	- TODO
+
+
+### Deployment
+
+- **TODO**
 
 
 ### Get Started
