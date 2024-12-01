@@ -29,6 +29,11 @@ boot_splash/image="res://assets/image/boot_splash_2560_1440.png"
 config/icon="res://assets/image/icon_1024_1024.png"
 boot_splash/minimum_display_time=1000
 
+[autoload]
+
+SceneManager="*res://addons/scene_manager/scene_manager.tscn"
+Scenes="*res://addons/scene_manager/scenes.gd"
+
 [debug]
 
 gdscript/warnings/untyped_declaration=1
@@ -43,7 +48,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/format_on_save/plugin.cfg", "res://addons/gdLinter/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg", "res://addons/script-ide/plugin.cfg")
+enabled=PackedStringArray("res://addons/format_on_save/plugin.cfg", "res://addons/gdLinter/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg", "res://addons/scene_manager/plugin.cfg", "res://addons/script-ide/plugin.cfg")
 
 [rendering]
 

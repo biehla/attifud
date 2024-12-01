@@ -45,7 +45,7 @@
 
 ## 🧩 Plugins
 
-### Editor
+### 🔧 Editor
 
 - **Script IDE**
 	- The [Script-IDE](https://github.com/Maran23/script-ide) improves scripting, e.g. Ctrl+U, Ctrl+O.
@@ -57,10 +57,10 @@
 	- This project uses addons [Format on Save](https://github.com/ryan-haskell/gdformat-on-save) and [gdLinter](https://github.com/el-falso/gdlinter) (enforces *gdlintrc*).
 	- They require [GDScript Toolkit](https://github.com/Scony/godot-gdscript-toolkit) python package being installed.
 
-### Engine
+### ⚙️ Engine
 
 - **Scene Manager**
-	- TODO
+	- The [Scene Manager](https://github.com/maktoobgar/scene_manager) handles scene transitions and loadings.
 
 - **Audio Manager**
 	- TODO
