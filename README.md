@@ -6,8 +6,6 @@
 
 **Godot 4.3+** template for game projects (GDScript).
 
-**Made to the highest standards.** To be the best in functionality, readability and everything else.
-
 
 ## ✨ Features
 
@@ -38,20 +36,25 @@
 
 ## 📜 Conventions
 
-- Naming
-	- **snake_case** for files system (file, folder) & code instances (variable, function).
-	- **PascalCase** for nodes & code definitions (class, type).
-
 - Code
-	- **typed** types such as variable types, return types.
-	- **style** inspired by [GDScript Style](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html) (open *gdlintrc* file as txt to see ruleset).
+	- Use **snake_case** for files, folders, variables, functions.
+	- Use **PascalCase** for nodes, classes, enums, types.
+	- Use **typed** variables and functions.
+	- Use **style** inspired by [GDScript Style](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html) (see *gdlintrc*).
 
 
 ## 🧩 Plugins
 
+### Editor
+
+- **Script IDE**
+	- The [Script-IDE](https://github.com/Maran23/script-ide) plugin makes coding in Godot Editor more convenient.
+
 - **GDScript Toolkit**
 	- This project uses addons [Format on Save](https://github.com/ryan-haskell/gdformat-on-save) and [gdLinter](https://github.com/el-falso/gdlinter) (enforces *gdlintrc*).
 	- They require [GDScript Toolkit](https://github.com/Scony/godot-gdscript-toolkit) python package being installed.
+
+### Engine
 
 - **Scene Manager**
 	- TODO
