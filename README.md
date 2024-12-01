@@ -48,7 +48,10 @@
 ### Editor
 
 - **Script IDE**
-	- The [Script-IDE](https://github.com/Maran23/script-ide) plugin makes coding in Godot Editor more convenient.
+	- The [Script-IDE](https://github.com/Maran23/script-ide) improves scripting, e.g. Ctrl+U, Ctrl+O.
+
+- **Resource Tables**
+	- The [Edit Resources as Table](https://github.com/don-tnowe/godot-resources-as-sheets-plugin/tree/Godot-4) adds view for managing resources.
 
 - **GDScript Toolkit**
 	- This project uses addons [Format on Save](https://github.com/ryan-haskell/gdformat-on-save) and [gdLinter](https://github.com/el-falso/gdlinter) (enforces *gdlintrc*).
