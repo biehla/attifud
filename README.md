@@ -59,6 +59,9 @@
 
 ### ⚙️ Engine
 
+- **Logger**
+	- The [Log](https://github.com/albinaask/Log) inspired by Log4J allows logging.
+
 - **Scene Manager**
 	- The [Scene Manager](https://github.com/maktoobgar/scene_manager) handles scene transitions and loadings.
 
