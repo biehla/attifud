@@ -51,7 +51,7 @@
 	- The [Script-IDE](https://github.com/Maran23/script-ide) improves scripting, e.g. Ctrl+U, Ctrl+O.
 
 - **Resource Tables**
-	- The [Edit Resources as Table](https://github.com/don-tnowe/godot-resources-as-sheets-plugin/tree/Godot-4) adds view for managing resources.
+	- The [Edit Resources as Table](https://github.com/don-tnowe/godot-resources-as-sheets-plugin/tree/Godot-4) adds view for managing Resources.
 
 - **GDScript Toolkit**
 	- This project uses addons [Format on Save](https://github.com/ryan-haskell/gdformat-on-save) and [gdLinter](https://github.com/el-falso/gdlinter) (enforces *gdlintrc*).
@@ -63,7 +63,7 @@
 	- The [Log](https://github.com/albinaask/Log) inspired by Log4J allows logging.
 
 - **Scene Manager**
-	- The [Scene Manager](https://github.com/maktoobgar/scene_manager) handles scene transitions and loadings.
+	- The [SceneManager](https://github.com/maktoobgar/scene_manager) handles Scenes transitions and loadings.
 
 - **Audio Manager**
 	- TODO
@@ -71,6 +71,31 @@
 - **Persistence Manager**
 	- TODO
 
+## 💎 Globals
+
+- **Configuration**
+	- Configure Plugins & Project depending on environment.
+
+- **Reference**
+	- Preloads & holds references to Resources.
+	- When creating a new Resource type, create a getter method here.
+
+- **SignalBus**
+	- TODO
+
+- **Wrapper**
+	- **SceneManagerWrapper** - call SceneManager with options presets Resource.
+
+## 🎬 Scenes
+
+- **BootSplash**
+	- Main Scene, smoothly transitions from boot to true main scene.
+
+- **MainMenu**
+	- TODO
+
+- **OptionsMenu**
+	- TODO
 
 ## 🚀 Deployment
 

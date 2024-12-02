@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://xqntvyuo85wg"]
 
-[ext_resource type="Script" path="res://scenes/screen/boot_splash/boot_splash.gd" id="1_lhijl"]
+[ext_resource type="Script" path="res://scenes/view/boot_splash/boot_splash.gd" id="1_lhijl"]
 
 [node name="BootSplash" type="Control"]
 layout_mode = 3

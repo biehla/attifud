@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvlar5co6bwq0"]
+
+[ext_resource type="Script" path="res://autoload/reference/reference.gd" id="1_ggr1a"]
+
+[node name="Reference" type="Node"]
+script = ExtResource("1_ggr1a")
