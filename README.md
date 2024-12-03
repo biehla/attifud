@@ -107,10 +107,31 @@
 - **RandomUtils**
 
 
-## 🚀 Deployment
+## 🎉 CI/CD
 
-- **TODO**
+### 🚀 Deployment
 
+- **Github Pages**
+	- TODO
+
+- **Itch.io**
+	- TODO
+
+### ✅ Workflows
+
+- **gdlint**
+	- On git push, automatically check *gdlintrc* coding style standards.
+
+### ⚡ Hacks
+
+- **Web Export (Presets)**
+	- There is [Godot 4.3 Issue](https://github.com/godotengine/godot/issues/96874) with Boot Splash properties (background and loading bar color) not being passed to Web Export. A workaround includes css in **Head Include**:
+		```
+		<style id=boot_splash>
+		#status { background-color: black; }
+		progress { accent-color: white; }
+		</style>
+		```
 
 ## 📖 Get Started
 
