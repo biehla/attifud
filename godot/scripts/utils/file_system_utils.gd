@@ -7,8 +7,8 @@ const EXTENSION_SEPARATOR = "."
 ## Converts full file path to file name, removing the path prefix and the extension suffix.
 static func get_file_name(path: String) -> String:
 	var parts: PackedStringArray = path.split(PATH_SEPARATOR)
-	var output: String = parts[parts.size() - 1]
-	return output.split(EXTENSION_SEPARATOR)[0]
+	var file_name: String = parts[parts.size() - 1]
+	return file_name.split(EXTENSION_SEPARATOR)[0]
 
 
 ## Returns full file paths of all files under path, with given extension.

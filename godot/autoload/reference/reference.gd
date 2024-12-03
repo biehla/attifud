@@ -6,19 +6,18 @@ var _resource_references: Dictionary = {}
 
 
 func get_scene_manager_options(resource_name: String) -> SceneManagerOptions:
-	var key: String = _get_key(resource_name, SceneManagerOptions)
+	return _get_resource(resource_name, SceneManagerOptions)
+
+
+func _get_resource(resource_name: String, type: Variant) -> Resource:
+	var key: String = _get_key(resource_name, type)
 	return _resource_references[key]
 
 
 func _ready() -> void:
 	Log.debug("AUTOLOAD READY: ", name)
 
-	_init()
-
-
-func _init() -> void:
-	var root_path: String = PathConsts.RESOURCES
-	var paths: Array[String] = FileSystemUtils.get_paths(root_path, RESOURCE_EXTENSION)
+	var paths: Array[String] = FileSystemUtils.get_paths(PathConsts.RESOURCES, RESOURCE_EXTENSION)
 	_resource_references = _load_resources(paths)
 
 

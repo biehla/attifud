@@ -71,7 +71,9 @@
 - **Persistence Manager**
 	- TODO
 
-## 💎 Globals
+## 🤖 Code
+
+### 💎 Globals
 
 - **Configuration**
 	- Configure Plugins & Project depending on environment.
@@ -86,7 +88,7 @@
 - **Wrapper**
 	- **SceneManagerWrapper** - call SceneManager with options presets Resource.
 
-## 🎬 Scenes
+### 🎬 Scenes
 
 - **BootSplash**
 	- Main Scene, smoothly transitions from boot to true main scene.
@@ -96,6 +98,14 @@
 
 - **OptionsMenu**
 	- TODO
+
+### 📄 Scripts
+
+- **FileSystemUtils**
+- **MathUtils**
+- **NodeUtils**
+- **RandomUtils**
+
 
 ## 🚀 Deployment
 
