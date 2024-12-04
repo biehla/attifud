@@ -27,8 +27,8 @@ config/name="TakinGodotTemplate"
 run/main_scene="res://scenes/view/boot_splash/boot_splash.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/image="res://assets/image/boot_splash_2560_1440.png"
-config/icon="res://assets/image/icon_1024_1024.png"
+boot_splash/image="res://assets/image/boot_splash/boot_splash_2560_1440.png"
+config/icon="res://assets/image/boot_splash/icon_1024_1024.png"
 boot_splash/minimum_display_time=1000
 
 [autoload]

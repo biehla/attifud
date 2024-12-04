@@ -76,13 +76,18 @@
 
 ## 🤖 Code
 
+The Globals (autoload Scenes) and Scripts (static/const Objects) can be called from anywhere in the project. The latter is independent of (not managed by) the Scene Tree.
+
+Otherwise, Scenes must be loaded or added to the Scene Tree.
+
 ### 💎 Globals
 
 - **Configuration**
+	- First autoload after Plugin autoloads.
 	- Configure Plugins & Project depending on environment.
 
 - **Reference**
-	- Preloads & holds references to Resources.
+	- Preloads & holds references to Resources in dictionary by name.
 	- When creating a new Resource type, create a getter method here.
 
 - **SignalBus**
@@ -93,8 +98,8 @@
 
 ### 🎬 Scenes
 
-- **BootSplash**
-	- Main Scene, smoothly transitions from Boot Splash to true main scene.
+- **BootSplash** *(Main Scene)*
+	- Smoothly transitions from Project Boot Splash to MainMenu scene.
 
 - **MainMenu**
 	- TODO
@@ -104,11 +109,16 @@
 
 ### 📄 Scripts
 
-- **FileSystemUtils**
-- **MathUtils**
-- **NodeUtils**
-- **RandomUtils**
+- **Objects**
+	- **ConfigManager** - Use to persist (save & load) app settings, stats, etc.
+		- **AppLogConfig** - TODO
+		- TODO
 
+- **Utils**
+	- **FileSystemUtils**
+	- **MathUtils**
+	- **NodeUtils**
+	- **RandomUtils**
 
 ## 🎉 CI/CD
 
@@ -128,17 +138,19 @@
 ### ⚡ Hacks
 
 - **Web Export (Presets)**
-	- There is [Godot 4.3 Issue](https://github.com/godotengine/godot/issues/96874) with Boot Splash properties (background and loading bar color) not being passed to Web Export. A workaround includes css in **Head Include**:
-		```
-		<style id=boot_splash>
-		#status { background-color: black; }
-		progress { accent-color: white; }
-		</style>
-		```
+	- There is [Godot 4.3 Issue](https://github.com/godotengine/godot/issues/96874) with Boot Splash, workaround is CSS in **Head Include**.
 
-## 📖 Get Started
+
+## 📖 Instructions
+
+### 📘 Get Started
 
 - Click "Use this template" in Github, then open the project in Godot Engine.
+
+### ❓ FAQ
+
+- I have errors/warnings when opening the project for the first time?
+	- Try (re)enable all Plugins and then select "Reload Current Project".
 
 
 ## 🫂 Contribute
