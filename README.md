@@ -71,6 +71,9 @@
 - **Persistence Manager**
 	- TODO
 
+- **Post-Processing**
+	- TODO
+
 ## 🤖 Code
 
 ### 💎 Globals
@@ -91,7 +94,7 @@
 ### 🎬 Scenes
 
 - **BootSplash**
-	- Main Scene, smoothly transitions from boot to true main scene.
+	- Main Scene, smoothly transitions from Boot Splash to true main scene.
 
 - **MainMenu**
 	- TODO
