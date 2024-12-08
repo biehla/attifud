@@ -17,8 +17,8 @@ static func get_paths(path: String, extension: String, recursive: bool = true) -
 	for file: String in DirAccess.get_files_at(path):
 		file = _sanitize_extension(file)
 		if file.ends_with(extension):
-			var full_file_path: String = path + file
-			file_paths.append(full_file_path)
+			var file_path: String = path + file
+			file_paths.append(file_path)
 	if recursive:
 		for dir: String in DirAccess.get_directories_at(path):
 			var sub_path: String = path + dir + PATH_SEPARATOR

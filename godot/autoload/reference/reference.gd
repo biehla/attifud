@@ -1,17 +1,11 @@
+## Preloads all resources (.tres files) in /resources.
+## Holds references to resources in dictionary by name as key.
+## The key also holds a prefix to avoid conflicts of equal names across different resources types.
 extends Node
 
 const RESOURCE_EXTENSION = ".tres"
 
 var _resource_references: Dictionary = {}
-
-
-func get_scene_manager_options(resource_name: String) -> SceneManagerOptions:
-	return _get_resource(resource_name, SceneManagerOptions)
-
-
-func _get_resource(resource_name: String, type: Variant) -> Resource:
-	var key: String = _get_key(resource_name, type)
-	return _resource_references[key]
 
 
 func _ready() -> void:
@@ -21,13 +15,22 @@ func _ready() -> void:
 	_resource_references = _load_resources(paths)
 
 
+func get_scene_manager_options(resource_id: String) -> SceneManagerOptions:
+	return get_resource(resource_id, SceneManagerOptions)
+
+
+func get_resource(resource_id: String, type: Variant) -> Resource:
+	var key: String = _get_key(resource_id, type)
+	return _resource_references[key]
+
+
 static func _load_resources(paths: Array[String]) -> Dictionary:
 	var resource_references: Dictionary = {}
 	for path: String in paths:
 		var resource: Resource = load(path) as Resource
 		if resource != null:
-			var resource_name: String = FileSystemUtils.get_file_name(path)
-			var key: String = _get_key(resource_name, _get_type(resource))
+			var resource_id: String = FileSystemUtils.get_file_name(path)
+			var key: String = _get_key(resource_id, _get_type(resource))
 			if resource_references.has(key):
 				Log.warn("Duplicate resource reference key: ", key)
 				continue
@@ -42,5 +45,5 @@ static func _get_type(resource: Resource) -> Variant:
 	return resource.get_script()
 
 
-static func _get_key(resource_name: String, type: Variant) -> String:
-	return type.get_global_name() + "-" + resource_name
+static func _get_key(resource_id: String, type: Variant) -> String:
+	return type.get_global_name() + "-" + resource_id

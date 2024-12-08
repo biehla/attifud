@@ -36,11 +36,12 @@
 
 ## 📜 Conventions
 
-- Code
+- Readable Code
 	- Use **snake_case** for files, folders, variables, functions.
 	- Use **PascalCase** for nodes, classes, enums, types.
 	- Use **typed** variables and functions.
 	- Use **style** inspired by [GDScript Style](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html) (see *gdlintrc*).
+	- Function definition order: [override](https://docs.godotengine.org/en/stable/tutorials/scripting/overridable_functions.html), public, private, static.
 
 
 ## 🧩 Plugins
@@ -83,17 +84,17 @@ Otherwise, Scenes must be loaded or added to the Scene Tree.
 ### 💎 Globals
 
 - **Configuration**
-	- First autoload after Plugin autoloads.
-	- Configure Plugins & Project depending on environment.
+	- First autoload (after Plugin autoloads).
+	- Configure Plugins, Assets & Project here, depending on needs.
 
 - **Reference**
 	- Preloads & holds references to Resources in dictionary by name.
-	- When creating a new Resource type, create a getter method here.
+	- When creating a new Resource type, consider creating a getter here.
 
 - **SignalBus**
 	- TODO
 
-- **Wrapper**
+- **Wrapper** : *Extend functionality of a Plugin without modifying the original.*
 	- **SceneManagerWrapper** - call SceneManager with options presets Resource.
 
 ### 🎬 Scenes
@@ -110,9 +111,11 @@ Otherwise, Scenes must be loaded or added to the Scene Tree.
 ### 📄 Scripts
 
 - **Objects**
-	- **ConfigManager** - Use to persist (save & load) app settings, stats, etc.
-		- **AppLogConfig** - TODO
-		- TODO
+	- **ConfigManager** - Persists (save & load) app settings (global app data).
+		- **ConfigManagerAppLog**
+		- **ConfigManagerSettingsAudio**
+		- **ConfigManagerSettingsControl**
+		- **ConfigManagerSettingsVideo**
 
 - **Utils**
 	- **FileSystemUtils**
@@ -132,8 +135,8 @@ Otherwise, Scenes must be loaded or added to the Scene Tree.
 
 ### ✅ Workflows
 
-- **gdlint**
-	- On git push, automatically check *gdlintrc* coding style standards.
+- **quality_check.yml**
+	- Automatically check *gdlintrc* coding style standards.
 
 ### ⚡ Hacks
 
@@ -149,7 +152,7 @@ Otherwise, Scenes must be loaded or added to the Scene Tree.
 
 ### ❓ FAQ
 
-- I have errors/warnings when opening the project for the first time?
+-  Opening the project for the first time, I have errors/warnings?
 	- Try (re)enable all Plugins and then select "Reload Current Project".
 
 

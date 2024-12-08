@@ -1,12 +1,13 @@
-﻿# Workflow to automatically lint gdscript code
-name: gdlint on push
+﻿# Workflow to ensure quality of the code.
+name: quality-check
 
 on:
   [push, pull_request]
 
 jobs:
+  # Job to automatically lint gdscript code
   gdlint:
-    name: gdlint code
+    name: checkstyle gdlint
     runs-on: ubuntu-latest
 
     # The allowed amount of linter problems

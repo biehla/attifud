@@ -4,6 +4,8 @@ extends Node
 func _ready() -> void:
 	Log.debug("AUTOLOAD READY: ", name)
 
+	ConfigManagerAppLog.app_opened()
+
 	if OS.is_debug_build():
 		_init_debug_configuration()
 	else:
