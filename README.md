@@ -10,17 +10,19 @@
 
 ![](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/readme_preview.png)
 
+
+
 ## ⭐ Features
 
 
 - **Core**
-	- 🌄 **Scene Manager** - Custom transitions and loading screens.
+	- 🌄 [**Scene Manager**](https://github.com/maktoobgar/scene_manager) - Custom transitions and loading screens.
 	- 🎵 **Audio Manager** - TODO: ...
 	- 💾 **Save Files** - TODO: ...
 	- 📢 **Signal Bus** - Observer pattern for cleaner global signals.
 	- 📖 **References** - Map of preloaded resources for convenience.
 - **Localization**
-	- 🌍 [**Polygot Template**](https://github.com/agens-no/PolyglotUnity) with 28 languages and over 600 common game words.
+	- 🌍 [**Polygot Template**](https://github.com/agens-no/PolyglotUnity) with 28 languages and over 600 common [game words](https://docs.google.com/spreadsheets/d/17f0dQawb-s_Fd7DHgmVvJoEGDMH_yoSd8EYigrb0zmM/edit?gid=296134756#gid=296134756).
 	- ✏️ [**Google Noto Sans**](https://fonts.google.com/) fonts for all glyphs (Arabic, Hebrew, HK, JP, KR, SC, TC, Thai).
 - **Accessibility**
 	- 🎮 **Controller Support** -  Grab focus for a control node on entering scene.
@@ -37,10 +39,10 @@
 	- 🎨 **Theme** - TODO: ...
 	- 📽️ **Post-Processing** - TODO: ...
 - **Tools**
-	- 🐛 **Logger** - Easier debugging and troubleshooting.
-	- 🧩 **IDE Plugin** - Improves scripting in GDScript in editor.
-	- 📋 **Resource View** - Better resource management in editor.
-	- ✨ **GDScript Toolkit** - Code style formatting on save and in editor.
+	- 🐛 [**Logger**](https://github.com/albinaask/Log) - Easier debugging and troubleshooting.
+	- 🧩 [**IDE Plugin**](https://github.com/Maran23/script-ide) - Improves scripting in GDScript in editor.
+	- 📋 [**Resource View**](https://github.com/don-tnowe/godot-resources-as-sheets-plugin/tree/Godot-4) - Better resource management in editor.
+	- ✨ [**GDScript Toolkit**](https://github.com/Scony/godot-gdscript-toolkit) - Code style [formatting](https://github.com/ryan-haskell/gdformat-on-save) on save and [linter](https://github.com/el-falso/gdlinter).
 - **Workflow**
 	- 🚀 **Deployment** - TODO: ...
 	- ✅ **Actions** - Verify style and formatting in GDScript code on push to Github.
