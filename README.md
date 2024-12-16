@@ -178,7 +178,8 @@ Otherwise, Scenes must be loaded or added to the Scene Tree.
 
 ### 📘 Get Started
 
-- Click "Use this template" in Github, then open the project in Godot Engine.
+- Click [Use this template](https://github.com/new?template_name=TakinGodotTemplate&template_owner=TinyTakinTeller) in Github, then open the project in Godot Engine.
+- Setup [GDScript Toolkit](https://github.com/Scony/godot-gdscript-toolkit) python package to use formatter and linter plugins.
 
 ### ❓ FAQ
 
