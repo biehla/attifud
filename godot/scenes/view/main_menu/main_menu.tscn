@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://b88kuy67g4l8f"]
+[gd_scene load_steps=7 format=3 uid="uid://b88kuy67g4l8f"]
 
+[ext_resource type="Theme" uid="uid://downo5rrvt4lo" path="res://resources/theme/theme.tres" id="1_ed2md"]
 [ext_resource type="Script" path="res://scenes/view/main_menu/main_menu.gd" id="1_j1c5u"]
+[ext_resource type="PackedScene" uid="uid://bv7d4vxqjocks" path="res://scenes/component/control/control_grab_focus/control_grab_focus.tscn" id="3_jhg6y"]
+[ext_resource type="PackedScene" uid="uid://k5xt8llrybgm" path="res://scenes/component/menu/menu_button/menu_button.tscn" id="3_u405l"]
+[ext_resource type="PackedScene" uid="uid://bdh62o75gsq3g" path="res://scenes/component/control/control_resize_text_font/control_resize_text_font.tscn" id="4_nktr1"]
+[ext_resource type="PackedScene" uid="uid://cjo0dka4vld2w" path="res://scenes/view/main_menu/language_option_button/language_option_button.tscn" id="5_b23r4"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -9,9 +14,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_ed2md")
 script = ExtResource("1_j1c5u")
 
-[node name="MainMenuMarginContainer" type="MarginContainer" parent="."]
+[node name="RootMarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,9 +26,121 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MainMenuLabel" type="Label" parent="MainMenuMarginContainer"]
+[node name="FooterMarginContainer" type="MarginContainer" parent="RootMarginContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 70
-text = "Main Menu"
+size_flags_vertical = 8
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="FooterHBoxContainer" type="HBoxContainer" parent="RootMarginContainer/FooterMarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AuthorLabel" type="Label" parent="RootMarginContainer/FooterMarginContainer/FooterHBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "TinyTakinTeller"
+vertical_alignment = 1
+
+[node name="PaddingMarginContainer" type="MarginContainer" parent="RootMarginContainer/FooterMarginContainer/FooterHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="VersionLabel" type="Label" parent="RootMarginContainer/FooterMarginContainer/FooterHBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 16
+text = "v?.?"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MainMenuMarginContainer" type="MarginContainer" parent="RootMarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="MainMenuVBoxContainer" type="VBoxContainer" parent="RootMarginContainer/MainMenuMarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="MainMenuLabelsVBoxContainer" type="VBoxContainer" parent="RootMarginContainer/MainMenuMarginContainer/MainMenuVBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="TitleLabel" type="Label" parent="RootMarginContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuLabelsVBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Game Template"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="SeparationMarginContainer" type="MarginContainer" parent="RootMarginContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuLabelsVBoxContainer"]
+layout_mode = 2
+
+[node name="MainMenuButtonsVBoxContainer" type="VBoxContainer" parent="RootMarginContainer/MainMenuMarginContainer/MainMenuVBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 16
+
+[node name="PlayMenuButton" parent="RootMarginContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("3_u405l")]
+layout_mode = 2
+text = "       Play       "
+id = "main_menu_play"
+label = "MENU_LABEL_PLAY"
+
+[node name="OptionsMenuButton" parent="RootMarginContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("3_u405l")]
+layout_mode = 2
+text = "       Options       "
+id = "main_menu_options"
+label = "MENU_OPTIONS"
+
+[node name="CreditsMenuButton" parent="RootMarginContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("3_u405l")]
+layout_mode = 2
+text = "       Credits       "
+id = "main_menu_credits"
+label = "MENU_LABEL_CREDITS"
+
+[node name="QuitMenuButton" parent="RootMarginContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("3_u405l")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "       Quit       "
+id = "main_menu_quit"
+label = "MENU_LABEL_QUIT"
+
+[node name="ControlGrabFocus" parent="RootMarginContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("3_jhg6y")]
+
+[node name="HeaderMarginContainer" type="MarginContainer" parent="RootMarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HeaderBoxContainer" type="HBoxContainer" parent="RootMarginContainer/HeaderMarginContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="PaddingMarginContainer" type="MarginContainer" parent="RootMarginContainer/HeaderMarginContainer/HeaderBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="LanguageOptionButton" parent="RootMarginContainer/HeaderMarginContainer/HeaderBoxContainer" instance=ExtResource("5_b23r4")]
+layout_mode = 2
+
+[node name="ControlResizeTextFont" parent="." node_paths=PackedStringArray("auto_minimum_width") instance=ExtResource("4_nktr1")]
+unique_name_in_owner = true
+auto_minimum_width = NodePath("../RootMarginContainer/MainMenuMarginContainer")

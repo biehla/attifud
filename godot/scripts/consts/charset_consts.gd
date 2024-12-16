@@ -1,3 +1,4 @@
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 class_name CharsetConsts
 
 const DIGITS: String = "0123456789"

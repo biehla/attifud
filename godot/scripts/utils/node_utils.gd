@@ -1,3 +1,4 @@
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 class_name NodeUtils
 
 
@@ -47,16 +48,20 @@ static func add_child_back(child: Node, parent: Node) -> void:
 static func add_child_front(child: Node, parent: Node) -> void:
 	parent.add_child(child)
 	parent.move_child(child, 0)
+	
+## add child to given node to first spot
+static func add_child_at(child: Node, parent: Node, index: int) -> void:
+	parent.add_child(child)
+	parent.move_child(child, index)
 
 
 ## add child to given node such that children remain sorted (assumes children are sorted before add)
 static func add_child_sorted(child: Node, parent: Node, compare_func: Callable) -> void:
-	parent.add_child(child)
 	var children: Array[Node] = parent.get_children()
 	if children.size() == 0:
-		return
+		parent.add_child(child)
 	var position: int = children.bsearch_custom(child, compare_func)
-	parent.move_child(child, position)
+	add_child_at(child, parent, position)
 
 
 ## returns active theme of control node (control nodes inheirt parent theme if theirs is null)

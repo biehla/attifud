@@ -24,7 +24,7 @@ Log/break_on_error=false
 [application]
 
 config/name="TakinGodotTemplate"
-config/version="0.0"
+config/version="0.1"
 run/main_scene="res://scenes/view/boot_splash/boot_splash.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
@@ -39,10 +39,13 @@ Scenes="*res://addons/scene_manager/scenes.gd"
 Log="*res://addons/logger/logger.gd"
 Configuration="*res://autoload/configuration/configuration.tscn"
 Reference="*res://autoload/reference/reference.tscn"
+SignalBus="*res://autoload/signal_bus/signal_bus.tscn"
 SceneManagerWrapper="*res://autoload/wrapper/scene_manager_wrapper/scene_manager_wrapper.tscn"
+TranslationServerWrapper="*res://autoload/wrapper/translation_server_wrapper/translation_server_wrapper.tscn"
 
 [debug]
 
+gdscript/warnings/unused_signal=0
 gdscript/warnings/untyped_declaration=1
 
 [display]
@@ -51,12 +54,32 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/window_width_override=1280
 window/size/window_height_override=720
-window/stretch/mode="viewport"
-window/stretch/aspect="expand"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/format_on_save/plugin.cfg", "res://addons/gdLinter/plugin.cfg", "res://addons/logger/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg", "res://addons/scene_manager/plugin.cfg", "res://addons/script-ide/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://addons/": "gray",
+"res://assets/": "green",
+"res://autoload/": "blue",
+"res://resources/": "teal",
+"res://scenes/": "orange",
+"res://scripts/": "yellow",
+"res://shaders/": "red"
+}
+
+[gui]
+
+theme/default_font_antialiasing=2
+theme/default_font_multichannel_signed_distance_field=true
+theme/default_font_generate_mipmaps=true
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://assets/i18n/localization.ar.translation", "res://assets/i18n/localization.bg.translation", "res://assets/i18n/localization.bs.translation", "res://assets/i18n/localization.cs.translation", "res://assets/i18n/localization.da.translation", "res://assets/i18n/localization.de.translation", "res://assets/i18n/localization.el.translation", "res://assets/i18n/localization.en.translation", "res://assets/i18n/localization.es.translation", "res://assets/i18n/localization.fi.translation", "res://assets/i18n/localization.fr.translation", "res://assets/i18n/localization.he.translation", "res://assets/i18n/localization.hu.translation", "res://assets/i18n/localization.it.translation", "res://assets/i18n/localization.ja.translation", "res://assets/i18n/localization.ko.translation", "res://assets/i18n/localization.nb.translation", "res://assets/i18n/localization.nl.translation", "res://assets/i18n/localization.pl.translation", "res://assets/i18n/localization.pt.translation", "res://assets/i18n/localization.ptBR.translation", "res://assets/i18n/localization.ro.translation", "res://assets/i18n/localization.ru.translation", "res://assets/i18n/localization.sv.translation", "res://assets/i18n/localization.th.translation", "res://assets/i18n/localization.tr.translation", "res://assets/i18n/localization.zh.translation", "res://assets/i18n/localization.zhZH.translation")
 
 [rendering]
 

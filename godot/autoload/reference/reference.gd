@@ -1,3 +1,5 @@
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
+##
 ## Preloads all resources (.tres files) in /resources.
 ## Holds references to resources in dictionary by name as key.
 ## The key also holds a prefix to avoid conflicts of equal names across different resources types.
@@ -5,14 +7,14 @@ extends Node
 
 const RESOURCE_EXTENSION = ".tres"
 
-var _resource_references: Dictionary = {}
+var _resource_references_map: Dictionary = {}
 
 
 func _ready() -> void:
 	Log.debug("AUTOLOAD READY: ", name)
 
 	var paths: Array[String] = FileSystemUtils.get_paths(PathConsts.RESOURCES, RESOURCE_EXTENSION)
-	_resource_references = _load_resources(paths)
+	_resource_references_map = _load_resources(paths)
 
 
 func get_scene_manager_options(resource_id: String) -> SceneManagerOptions:
@@ -21,7 +23,7 @@ func get_scene_manager_options(resource_id: String) -> SceneManagerOptions:
 
 func get_resource(resource_id: String, type: Variant) -> Resource:
 	var key: String = _get_key(resource_id, type)
-	return _resource_references[key]
+	return _resource_references_map[key]
 
 
 static func _load_resources(paths: Array[String]) -> Dictionary:
@@ -46,4 +48,6 @@ static func _get_type(resource: Resource) -> Variant:
 
 
 static func _get_key(resource_id: String, type: Variant) -> String:
+	if type == null:
+		return resource_id
 	return type.get_global_name() + "-" + resource_id

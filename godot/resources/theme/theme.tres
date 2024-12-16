@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://downo5rrvt4lo"]
+
+[ext_resource type="FontFile" uid="uid://2c5vnycnys53" path="res://assets/font/noto_sans/noto_sans.ttf" id="1_wofax"]
+
+[resource]
+default_font = ExtResource("1_wofax")

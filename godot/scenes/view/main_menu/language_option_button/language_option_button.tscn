@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjo0dka4vld2w"]
+
+[ext_resource type="Script" path="res://scenes/view/main_menu/language_option_button/language_option_button.gd" id="1_0ivng"]
+
+[node name="LanguageOptionButton" type="OptionButton"]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 16
+alignment = 1
+selected = 0
+item_count = 1
+popup/item_0/text = "ENGLISH"
+script = ExtResource("1_0ivng")

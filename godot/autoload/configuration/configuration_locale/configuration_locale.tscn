@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://nlakak1rbfyp"]
+
+[ext_resource type="Script" path="res://autoload/configuration/configuration_locale/configuration_locale.gd" id="1_rlg7o"]
+
+[node name="ConfigurationLocale" type="Node"]
+script = ExtResource("1_rlg7o")

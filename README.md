@@ -6,10 +6,45 @@
 
 **Godot 4.3+** template for game projects (GDScript).
 
+**TODO:** This template is a work in progress. (Full version in 2025.)
 
-## ✨ Features
+![](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/readme_preview.png)
 
-- **TODO:** This template is a work in progress.
+## ⭐ Features
+
+
+- **Core**
+	- 🌄 **Scene Manager** - Custom transitions and loading screens.
+	- 🎵 **Audio Manager** - TODO: ...
+	- 💾 **Save Files** - TODO: ...
+	- 📢 **Signal Bus** - Observer pattern for cleaner global signals.
+	- 📖 **References** - Map of preloaded resources for convenience.
+- **Localization**
+	- 🌍 [**Polygot Template**](https://github.com/agens-no/PolyglotUnity) with 28 languages and over 600 common game words.
+	- ✏️ [**Google Noto Sans**](https://fonts.google.com/) fonts for all glyphs (Arabic, Hebrew, HK, JP, KR, SC, TC, Thai).
+- **Accessibility**
+	- 🎮 **Controller Support** -  Grab focus for a control node on entering scene.
+	- 🔍 **Smooth Font** - Dynamic font size (keep aspect ratio) on window resize.
+- **UI/UX**
+	- 🎬 **Boot Splash** - The main scene, allowing custom transition to main menu.
+	- ⚙️ **Options Menu** - TODO: ...
+	- 📜 **Credits Menu** - TODO: ...
+	- ⏸️ **Pause Menu** - TODO: ...
+- **Utility**
+	- 🧰 **Scripts** - RNG (Weighted Loot Table), Maths, Files, Nodes, Strings.
+	- 🛠️ **Objects** - ConfigManager (INI File), LinkedMap.
+- **Graphics**
+	- 🎨 **Theme** - TODO: ...
+	- 📽️ **Post-Processing** - TODO: ...
+- **Tools**
+	- 🐛 **Logger** - Easier debugging and troubleshooting.
+	- 🧩 **IDE Plugin** - Improves scripting in GDScript in editor.
+	- 📋 **Resource View** - Better resource management in editor.
+	- ✨ **GDScript Toolkit** - Code style formatting on save and in editor.
+- **Workflow**
+	- 🚀 **Deployment** - TODO: ...
+	- ✅ **Actions** - Verify style and formatting in GDScript code on push to Github.
+
 
 
 ## 📂 File Structure
@@ -50,10 +85,8 @@
 
 - **Script IDE**
 	- The [Script-IDE](https://github.com/Maran23/script-ide) improves scripting, e.g. Ctrl+U, Ctrl+O.
-
 - **Resource Tables**
 	- The [Edit Resources as Table](https://github.com/don-tnowe/godot-resources-as-sheets-plugin/tree/Godot-4) adds view for managing Resources.
-
 - **GDScript Toolkit**
 	- This project uses addons [Format on Save](https://github.com/ryan-haskell/gdformat-on-save) and [gdLinter](https://github.com/el-falso/gdlinter) (enforces *gdlintrc*).
 	- They require [GDScript Toolkit](https://github.com/Scony/godot-gdscript-toolkit) python package being installed.
@@ -62,18 +95,14 @@
 
 - **Logger**
 	- The [Log](https://github.com/albinaask/Log) inspired by Log4J allows logging.
-
 - **Scene Manager**
 	- The [SceneManager](https://github.com/maktoobgar/scene_manager) handles Scenes transitions and loadings.
-
 - **Audio Manager**
-	- TODO
-
-- **Persistence Manager**
-	- TODO
-
+	- TODO: ...
+- **Save Files**
+	- TODO: ...
 - **Post-Processing**
-	- TODO
+	- TODO: ...
 
 ## 🤖 Code
 
@@ -86,52 +115,53 @@ Otherwise, Scenes must be loaded or added to the Scene Tree.
 - **Configuration**
 	- First autoload (after Plugin autoloads).
 	- Configure Plugins, Assets & Project here, depending on needs.
-
 - **Reference**
 	- Preloads & holds references to Resources in dictionary by name.
 	- When creating a new Resource type, consider creating a getter here.
-
 - **SignalBus**
-	- TODO
-
-- **Wrapper** : *Extend functionality of a Plugin without modifying the original.*
-	- **SceneManagerWrapper** - call SceneManager with options presets Resource.
+	- Exchange global signals for cleaner observer pattern.
+- **Wrapper** : *Extend functionality without modifying the original.*
+	- **SceneManagerWrapper** - Calls SceneManager with options presets Resource.
+	- **TranslationServerWrapper** - Extends `tr()` to work in tool scripts.
 
 ### 🎬 Scenes
 
-- **BootSplash** *(Main Scene)*
-	- Smoothly transitions from Project Boot Splash to MainMenu scene.
+- **Component**
+	- **Control**
+		- **ControlGrabFocus** - Grabs focus of UI node for controller support.
+		- **ControlResizeTextFont** - Smooth text scaling with window resolution.
+	- **Menu**
+		- **MenuButton** - Localized menu button.
+- **View**
+	- **BootSplash** *(Main Scene)*  - Smooth transition to MainMenu scene.
+	- **MainMenu**
+		- **OptionsMenu** - TODO: ...
+		- **CreditsMenu** - TODO: ...
+	- **PlayScene** - TODO: ...
+		- **PauseMenu** - TODO: ...
 
-- **MainMenu**
-	- TODO
-
-- **OptionsMenu**
-	- TODO
 
 ### 📄 Scripts
 
 - **Objects**
+	- **LinkedMap** - Dictionary data structure that tracks order of keys.
 	- **ConfigManager** - Persists (save & load) app settings (global app data).
-		- **ConfigManagerAppLog**
-		- **ConfigManagerSettingsAudio**
-		- **ConfigManagerSettingsControl**
-		- **ConfigManagerSettingsVideo**
 
 - **Utils**
 	- **FileSystemUtils**
 	- **MathUtils**
 	- **NodeUtils**
 	- **RandomUtils**
+	- **StringUtils**
 
 ## 🎉 CI/CD
 
 ### 🚀 Deployment
 
 - **Github Pages**
-	- TODO
-
+	- TODO: ...
 - **Itch.io**
-	- TODO
+	- TODO: ...
 
 ### ✅ Workflows
 

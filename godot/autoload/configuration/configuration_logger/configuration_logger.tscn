@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnwf6070alvyp"]
+
+[ext_resource type="Script" path="res://autoload/configuration/configuration_logger/configuration_logger.gd" id="1_1l51i"]
+
+[node name="ConfigurationLogger" type="Node"]
+script = ExtResource("1_1l51i")

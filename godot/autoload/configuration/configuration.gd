@@ -1,20 +1,14 @@
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 extends Node
+
+const GAME_TITLE: String = "GAME_TITLE"
+const GAME_AUTHOR: String = "TinyTakinTeller"
+
+@onready var configuration_locale: ConfigurationLocale = %ConfigurationLocale
+@onready var configuration_logger: ConfigurationLogger = %ConfigurationLogger
 
 
 func _ready() -> void:
 	Log.debug("AUTOLOAD READY: ", name)
 
 	ConfigManagerAppLog.app_opened()
-
-	if OS.is_debug_build():
-		_init_debug_configuration()
-	else:
-		_init_release_configuration()
-
-
-func _init_debug_configuration() -> void:
-	Log.current_log_level = Log.LogLevel.DEBUG
-
-
-func _init_release_configuration() -> void:
-	Log.current_log_level = Log.LogLevel.INFO

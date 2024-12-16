@@ -1,3 +1,4 @@
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 class_name FileSystemUtils
 
 const PATH_SEPARATOR = "/"
