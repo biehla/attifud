@@ -140,6 +140,7 @@ mouse_filter = 2
 
 [node name="LanguageOptionButton" parent="RootMarginContainer/HeaderMarginContainer/HeaderBoxContainer" instance=ExtResource("5_b23r4")]
 layout_mode = 2
+allow_reselect = true
 
 [node name="ControlResizeTextFont" parent="." node_paths=PackedStringArray("auto_minimum_width") instance=ExtResource("4_nktr1")]
 unique_name_in_owner = true

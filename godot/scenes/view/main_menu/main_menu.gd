@@ -24,11 +24,6 @@ func _refresh_labels() -> void:
 	title_label.text = tr(Configuration.GAME_TITLE)
 	author_label.text = Configuration.GAME_AUTHOR
 	version_label.text = VERSION_PREFIX + ProjectSettings.get_setting("application/config/version")
-	call_deferred("_set_auto")
-
-
-func _set_auto() -> void:
-	control_resize_text_font.set_auto()
 
 
 func _connect_signals() -> void:

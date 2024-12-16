@@ -27,6 +27,7 @@ func _set_locale(locale: String) -> void:
 
 func _refresh_size() -> void:
 	self.get_popup().max_size.y = get_viewport().size.y - self.size.y - 32
+	# self.get_popup().visible = false # ERROR: _sub_window_update: Condition "index == -1" is true.
 
 
 func _init_options(locale_text: LinkedMap, current_locale: String) -> void:
