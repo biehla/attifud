@@ -31,7 +31,7 @@ static func get_paths(path: String, extension: String, recursive: bool = true) -
 ## Removes appended file extensions, keeping only the original file extension.
 ## For example, in Web Exports the Godot Engine will append .remap or .import to some files.
 static func _sanitize_extension(file: String) -> String:
-	var file_split: PackedStringArray = file.split(".")
+	var file_split: PackedStringArray = file.split(EXTENSION_SEPARATOR)
 	if file_split.size() > 2:
-		file = file_split[0] + "." + file_split[1]
+		file = file_split[0] + EXTENSION_SEPARATOR + file_split[1]
 	return file

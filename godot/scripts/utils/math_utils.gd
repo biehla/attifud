@@ -2,7 +2,7 @@
 class_name MathUtils
 
 
-## integer power (edge cases in order: 0^x = 0, 1^x = 0, x^0 = 1)
+## integer power (edge cases in order: 0^x = 0, 1^x = 1, x^0 = 1)
 static func pow_int(base: int, exponent: int) -> int:
 	if base == 0 or exponent < 0:
 		return 0

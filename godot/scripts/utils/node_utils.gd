@@ -48,7 +48,8 @@ static func add_child_back(child: Node, parent: Node) -> void:
 static func add_child_front(child: Node, parent: Node) -> void:
 	parent.add_child(child)
 	parent.move_child(child, 0)
-	
+
+
 ## add child to given node to first spot
 static func add_child_at(child: Node, parent: Node, index: int) -> void:
 	parent.add_child(child)
