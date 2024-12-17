@@ -5,7 +5,7 @@
 class_name MenuButtonClass
 extends Button
 
-@export var id: String
+@export var id: MenuButtonEnum.ID = MenuButtonEnum.ID.UNKNOWN
 
 @export var label: String:
 	set(value):
@@ -42,7 +42,10 @@ func _connect_signals() -> void:
 
 
 func _on_button_pressed() -> void:
-	Log.debug("Button ID '%s' pressed." % id)
+	if id == null or id == MenuButtonEnum.ID.UNKNOWN:
+		return
+
+	Log.debug("%s: menu button ID '%s' pressed." % [name, MenuButtonEnum.ID.keys()[id]])
 
 	SignalBus.menu_button_pressed.emit(id)
 

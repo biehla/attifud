@@ -29,6 +29,7 @@
 	- 🔍 **Smooth Font** - Dynamic font size (keep aspect ratio) on window resize.
 - **UI/UX**
 	- 🎬 **Boot Splash** - The main scene, allowing custom transition to main menu.
+	- 🏠 **Main Menu** - Display buttons to enter other menus, version and author.
 	- ⚙️ **Options Menu** - TODO: ...
 	- 📜 **Credits Menu** - TODO: ...
 	- ⏸️ **Pause Menu** - TODO: ...
@@ -73,12 +74,13 @@
 
 ## 📜 Conventions
 
-- Readable Code
+- Clean Code
 	- Use **snake_case** for files, folders, variables, functions.
 	- Use **PascalCase** for nodes, classes, enums, types.
 	- Use **typed** variables and functions.
 	- Use **style** inspired by [GDScript Style](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html) (see *gdlintrc*).
 	- Function definition order: [override](https://docs.godotengine.org/en/stable/tutorials/scripting/overridable_functions.html), public, private, static.
+	- Consider using [**good design patterns**](https://refactoring.guru/design-patterns) when programming.
 
 
 ## 🧩 Plugins
@@ -134,11 +136,13 @@ Otherwise, Scenes must be loaded or added to the Scene Tree.
 		- **ControlResizeTextFont** - Smooth text scaling with window resolution.
 	- **Menu**
 		- **MenuButton** - Localized menu button.
-- **View**
-	- **BootSplash** *(Main Scene)*  - Smooth transition to MainMenu scene.
-	- **MainMenu**
+- **Scene**
+	- **BootSplashScene** *(Main Scene)*  - Smooth transition to main menu scene.
+	- **MenuScene**
+		- **MainMenu** - Display buttons to enter other menus or next scene.
 		- **OptionsMenu** - TODO: ...
 		- **CreditsMenu** - TODO: ...
+		- **SaveFilesMenu** - TODO: ...
 	- **PlayScene** - TODO: ...
 		- **PauseMenu** - TODO: ...
 

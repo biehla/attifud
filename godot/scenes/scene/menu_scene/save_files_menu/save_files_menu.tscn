@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6f713ef85lcj"]
+
+[ext_resource type="Theme" uid="uid://downo5rrvt4lo" path="res://resources/theme/theme.tres" id="1_8g4l0"]
+[ext_resource type="Script" path="res://scenes/scene/menu_scene/save_files_menu/save_files_menu.gd" id="1_e3gbg"]
+[ext_resource type="PackedScene" uid="uid://k5xt8llrybgm" path="res://scenes/component/menu/menu_button/menu_button.tscn" id="3_eqnf7"]
+[ext_resource type="PackedScene" uid="uid://bv7d4vxqjocks" path="res://scenes/component/control/control_grab_focus/control_grab_focus.tscn" id="4_3rsfr"]
+[ext_resource type="PackedScene" uid="uid://bdh62o75gsq3g" path="res://scenes/component/control/control_resize_text_font/control_resize_text_font.tscn" id="5_1r0qn"]
+
+[node name="SaveFilesMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_8g4l0")
+script = ExtResource("1_e3gbg")
+
+[node name="RootMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="RootMarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RootMarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="CreditsMarginContainer" type="MarginContainer" parent="RootMarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="RootMarginContainer/VBoxContainer/CreditsMarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RootMarginContainer/VBoxContainer/CreditsMarginContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="RootMarginContainer/VBoxContainer/CreditsMarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="Label" type="Label" parent="RootMarginContainer/VBoxContainer/CreditsMarginContainer/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "TODO: SAVE FILES"
+
+[node name="FooterHSeparator" type="HSeparator" parent="RootMarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="FooterMarginContainer" type="MarginContainer" parent="RootMarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RootMarginContainer/VBoxContainer/FooterMarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="BackMenuButton" parent="RootMarginContainer/VBoxContainer/FooterMarginContainer/HBoxContainer" instance=ExtResource("3_eqnf7")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "       Back       "
+id = 8
+label = "MENU_LABEL_BACK"
+
+[node name="MarginContainer" type="MarginContainer" parent="RootMarginContainer/VBoxContainer/FooterMarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ControlGrabFocus" parent="RootMarginContainer/VBoxContainer/FooterMarginContainer/HBoxContainer" instance=ExtResource("4_3rsfr")]
+
+[node name="ControlResizeTextFont" parent="." instance=ExtResource("5_1r0qn")]

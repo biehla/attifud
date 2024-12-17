@@ -16,13 +16,12 @@ extends Node
 const DEFAULT_FONT_SIZE: int = 16
 const DEFAULT_SEPARATION: int = 0
 
-@export var minimum_font_size: int = 12
+@export var minimum_font_size: int = 16
 @export var minimum_width: int = 0
 @export var minimum_height: int = 0
 @export var auto_minimum_width: Control
 @export var auto_minimum_height: Control
 @export var resize_separation: bool = true
-@export var resize_delay_seconds: float = 0.1
 
 var _new_auto_minimum: bool = false
 var _resize_factor: float = 1.0
@@ -60,14 +59,15 @@ func resize_font(new_width: int, new_height: int) -> void:
 		return
 	_resize_factor = resize_factor
 
-	Log.debug("Resize font for: %d x %d" % [new_width, new_height])
+	Log.debug("Resize %s font for %d x %d" % [get_parent().name, new_width, new_height])
 	for node_instance_id: int in _original_font_size_map.keys():
 		var node: Node = instance_from_id(node_instance_id)
 		var original_font_size: int = _original_font_size_map.get(node_instance_id)
 		var original_separation_size: int = _original_separation_map.get(node_instance_id)
 
 		var new_font_size: int = max(
-			round(float(original_font_size) * resize_factor), minimum_font_size
+			round(float(original_font_size) * resize_factor),
+			min(original_font_size, minimum_font_size)
 		)
 		node.set("theme_override_font_sizes/font_size", new_font_size)
 
@@ -104,7 +104,7 @@ func _add_to_font_size_map(node: Node) -> void:
 
 
 func _add_to_separation_map(node: Node) -> void:
-	var original_separation: int = _get_font_size(node)
+	var original_separation: int = _get_separation(node)
 	_original_separation_map[node.get_instance_id()] = original_separation
 
 
@@ -113,7 +113,7 @@ func _connect_signals() -> void:
 
 	if auto_minimum_width != null:
 		auto_minimum_width.resized.connect(_on_auto_resized)
-	if auto_minimum_height != null:
+	if auto_minimum_height != null and auto_minimum_height != auto_minimum_width:
 		auto_minimum_height.resized.connect(_on_auto_resized)
 
 

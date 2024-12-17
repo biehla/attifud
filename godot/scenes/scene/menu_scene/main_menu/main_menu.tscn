@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://b88kuy67g4l8f"]
 
 [ext_resource type="Theme" uid="uid://downo5rrvt4lo" path="res://resources/theme/theme.tres" id="1_ed2md"]
-[ext_resource type="Script" path="res://scenes/view/main_menu/main_menu.gd" id="1_j1c5u"]
+[ext_resource type="Script" path="res://scenes/scene/menu_scene/main_menu/main_menu.gd" id="1_j1c5u"]
 [ext_resource type="PackedScene" uid="uid://bv7d4vxqjocks" path="res://scenes/component/control/control_grab_focus/control_grab_focus.tscn" id="3_jhg6y"]
 [ext_resource type="PackedScene" uid="uid://k5xt8llrybgm" path="res://scenes/component/menu/menu_button/menu_button.tscn" id="3_u405l"]
 [ext_resource type="PackedScene" uid="uid://bdh62o75gsq3g" path="res://scenes/component/control/control_resize_text_font/control_resize_text_font.tscn" id="4_nktr1"]
-[ext_resource type="PackedScene" uid="uid://cjo0dka4vld2w" path="res://scenes/view/main_menu/language_option_button/language_option_button.tscn" id="5_b23r4"]
+[ext_resource type="PackedScene" uid="uid://cjo0dka4vld2w" path="res://scenes/scene/menu_scene/main_menu/language_option_button/language_option_button.tscn" id="5_b23r4"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -65,9 +65,9 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
+theme_override_constants/margin_top = 48
 theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
+theme_override_constants/margin_bottom = 48
 
 [node name="MainMenuVBoxContainer" type="VBoxContainer" parent="RootMarginContainer/MainMenuMarginContainer"]
 layout_mode = 2
@@ -97,26 +97,26 @@ theme_override_constants/separation = 16
 [node name="PlayMenuButton" parent="RootMarginContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("3_u405l")]
 layout_mode = 2
 text = "       Play       "
-id = "main_menu_play"
+id = 1
 label = "MENU_LABEL_PLAY"
 
 [node name="OptionsMenuButton" parent="RootMarginContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("3_u405l")]
 layout_mode = 2
 text = "       Options       "
-id = "main_menu_options"
+id = 2
 label = "MENU_OPTIONS"
 
 [node name="CreditsMenuButton" parent="RootMarginContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("3_u405l")]
 layout_mode = 2
 text = "       Credits       "
-id = "main_menu_credits"
+id = 3
 label = "MENU_LABEL_CREDITS"
 
 [node name="QuitMenuButton" parent="RootMarginContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("3_u405l")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "       Quit       "
-id = "main_menu_quit"
+id = 4
 label = "MENU_LABEL_QUIT"
 
 [node name="ControlGrabFocus" parent="RootMarginContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("3_jhg6y")]

@@ -2,7 +2,7 @@
 extends Control
 
 @export_group("Next Scene")
-@export var scene_id: String = "main_menu"
+@export var scene_id: String = "menu_scene"
 @export var scene_manager_options_id: String = "fade_basic"
 
 var _boot_splash_color: Color = ProjectSettings.get("application/boot_splash/bg_color")
