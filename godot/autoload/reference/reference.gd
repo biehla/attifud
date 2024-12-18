@@ -1,10 +1,11 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 ##
-## Preloads all resources (.tres files) in /resources.
+## Preloads all resources (.tres files) in PRELOAD_PATH (res://resources/preload).
 ## Holds references to resources in dictionary by name as key.
 ## The key also holds a prefix to avoid conflicts of equal names across different resources types.
 extends Node
 
+const PRELOAD_PATH = PathConsts.RESOURCES + "preload/"
 const RESOURCE_EXTENSION = ".tres"
 
 var _resource_references_map: Dictionary = {}
@@ -13,7 +14,7 @@ var _resource_references_map: Dictionary = {}
 func _ready() -> void:
 	Log.debug("AUTOLOAD READY: ", name)
 
-	var paths: Array[String] = FileSystemUtils.get_paths(PathConsts.RESOURCES, RESOURCE_EXTENSION)
+	var paths: Array[String] = FileSystemUtils.get_paths(PRELOAD_PATH, RESOURCE_EXTENSION)
 	_resource_references_map = _load_resources(paths)
 
 

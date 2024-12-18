@@ -10,6 +10,7 @@ class_name ControlGrabFocus
 extends Node
 
 @export var target: Control
+@export var remember_last_focus: bool = true
 
 
 func _ready() -> void:
@@ -45,5 +46,5 @@ func _on_visibility_changed() -> void:
 
 
 func _on_gui_focus_changed(control: Control) -> void:
-	if get_parent() == control.get_parent() and target != control:
+	if remember_last_focus and get_parent() == control.get_parent() and target != control:
 		target = control

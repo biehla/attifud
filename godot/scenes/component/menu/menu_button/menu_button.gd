@@ -47,7 +47,7 @@ func _on_button_pressed() -> void:
 
 	Log.debug("%s: menu button ID '%s' pressed." % [name, MenuButtonEnum.ID.keys()[id]])
 
-	SignalBus.menu_button_pressed.emit(id)
+	SignalBus.menu_button_pressed.emit(id, self)
 
 
 func _on_language_selected(_locale: String) -> void:

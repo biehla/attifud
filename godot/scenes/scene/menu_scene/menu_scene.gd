@@ -1,6 +1,6 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 ##
-## Holds menu scenes and manages their transitions.
+## Holds menu scenes and manages their transitions (listens to menu button pressed signal).
 ##
 ## Uses (light) command pattern: (instead of if-else and switch/match statements uses action map)
 ## https://refactoring.guru/design-patterns/command
@@ -63,7 +63,7 @@ func _connect_signals() -> void:
 	SignalBus.menu_button_pressed.connect(_on_menu_button_pressed)
 
 
-func _on_menu_button_pressed(id: MenuButtonEnum.ID) -> void:
+func _on_menu_button_pressed(id: MenuButtonEnum.ID, _source: MenuButtonClass) -> void:
 	var action: Callable = _menu_button_action_map.get(id, _action_unknown)
 	if action != _action_unknown:
 		_log_action(id, action)

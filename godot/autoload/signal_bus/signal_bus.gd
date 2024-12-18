@@ -3,4 +3,4 @@ extends Node
 
 signal language_selected(locale: String)
 
-signal menu_button_pressed(id: MenuButtonEnum.ID)
+signal menu_button_pressed(id: MenuButtonEnum.ID, source: MenuButtonClass)

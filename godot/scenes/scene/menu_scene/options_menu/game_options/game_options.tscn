@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://s26ypj4otfru"]
+
+[ext_resource type="Script" path="res://scenes/scene/menu_scene/options_menu/game_options/game_options.gd" id="1_umgsk"]
+
+[node name="GameOptions" type="MarginContainer"]
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+script = ExtResource("1_umgsk")
+
+[node name="RootVBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="Label" type="Label" parent="RootVBoxContainer"]
+layout_mode = 2
+text = "TODO: GAME OPTIONS"

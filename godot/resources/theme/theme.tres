@@ -1,6 +1,0 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://downo5rrvt4lo"]
-
-[ext_resource type="FontFile" uid="uid://bgf0kb8u1chbp" path="res://assets/font/noto_sans/woff/noto_sans.woff" id="1_8t37s"]
-
-[resource]
-default_font = ExtResource("1_8t37s")

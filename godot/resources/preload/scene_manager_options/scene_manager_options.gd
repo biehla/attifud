@@ -1,4 +1,6 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
+##
+## Resource script that defines reusable options for scene manager wrapper autoload.
 class_name SceneManagerOptions
 extends Resource
 

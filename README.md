@@ -8,37 +8,49 @@
 
 **TODO:** This template is a work in progress. (Full version in 2025.)
 
+<details>
+<summary>Preview Screenshots</summary>
+
 ![](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/readme_preview.png)
+
+</details>
 
 
 
 ## ⭐ Features
 
+### ✨ Gameplay
 
 - **Core**
-	- 🌄 [**Scene Manager**](https://github.com/maktoobgar/scene_manager) - Custom transitions and loading screens.
+	- 🖼️ [**Scene Manager**](https://github.com/maktoobgar/scene_manager) - Custom transitions and loading screens.
 	- 🎵 **Audio Manager** - TODO: ...
+	- ⚙️ **App Settings** - Persistent game options and statistics in INI file.
 	- 💾 **Save Files** - TODO: ...
-	- 📢 **Signal Bus** - Observer pattern for cleaner global signals.
-	- 📖 **References** - Map of preloaded resources for convenience.
 - **Localization**
 	- 🌍 [**Polygot Template**](https://github.com/agens-no/PolyglotUnity) with 28 languages and over 600 common [game words](https://docs.google.com/spreadsheets/d/17f0dQawb-s_Fd7DHgmVvJoEGDMH_yoSd8EYigrb0zmM/edit?gid=296134756#gid=296134756).
 	- ✏️ [**Google Noto Sans**](https://fonts.google.com/) fonts for all glyphs (Arabic, Hebrew, HK, JP, KR, SC, TC, Thai).
 - **Accessibility**
 	- 🎮 **Controller Support** -  Grab focus for a control node on entering scene.
 	- 🔍 **Smooth Font** - Dynamic font size (keep aspect ratio) on window resize.
-- **UI/UX**
-	- 🎬 **Boot Splash** - The main scene, allowing custom transition to main menu.
-	- 🏠 **Main Menu** - Display buttons to enter other menus, version and author.
-	- ⚙️ **Options Menu** - TODO: ...
-	- 📜 **Credits Menu** - TODO: ...
-	- ⏸️ **Pause Menu** - TODO: ...
-- **Utility**
-	- 🧰 **Scripts** - RNG (Weighted Loot Table), Maths, Files, Nodes, Strings.
-	- 🛠️ **Objects** - ConfigManager (INI File), LinkedMap.
 - **Graphics**
 	- 🎨 **Theme** - TODO: ...
 	- 📽️ **Post-Processing** - TODO: ...
+- **UI/UX**
+	- 🎬 **Boot Splash** - The main scene, allowing custom transition to main menu.
+	- 🏠 **Main Menu** - Display buttons to enter other menus, version and author.
+	- 🔧 **Options Menu** - TODO: ...
+	- 📜 **Credits Menu** - TODO: ...
+	- 📓 **Save Files Menu** - TODO: ...
+	- ⏸️ **Pause Menu** - TODO: ...
+
+### 💫 Development
+
+- **Singletons**
+	- 📢 **Signal Bus** - Observer pattern for cleaner global signals.
+	- 📖 **References** - Map of preloaded resources for convenience.
+- **Scripts**
+	- 🧰 **Utility** - RNG (Weighted Loot Table), Maths, Files, Nodes, Strings.
+	- 🛠️ **Objects** - ConfigManager (INI File), LinkedMap.
 - **Tools**
 	- 🐛 [**Logger**](https://github.com/albinaask/Log) - Easier debugging and troubleshooting.
 	- 🧩 [**IDE Plugin**](https://github.com/Maran23/script-ide) - Improves scripting in GDScript in editor.
@@ -126,7 +138,7 @@ Otherwise, Scenes must be loaded or added to the Scene Tree.
 	- Exchange global signals for cleaner observer pattern.
 - **Wrapper** : *Extend functionality without modifying the original.*
 	- **SceneManagerWrapper** - Calls SceneManager with options presets Resource.
-	- **TranslationServerWrapper** - Extends `tr()` to work in tool scripts.
+	- **TranslationServerWrapper** - Extends localization to work in tool scripts.
 
 ### 🎬 Scenes
 
@@ -137,10 +149,14 @@ Otherwise, Scenes must be loaded or added to the Scene Tree.
 	- **Menu**
 		- **MenuButton** - Localized menu button.
 - **Scene**
-	- **BootSplashScene** *(Main Scene)*  - Smooth transition to main menu scene.
-	- **MenuScene**
+	- **BootSplashScene** *(Main Scene)*  - Smooth transition to menu scene.
+	- **MenuScene** - Manages menu scenes as children.
 		- **MainMenu** - Display buttons to enter other menus or next scene.
-		- **OptionsMenu** - TODO: ...
+		- **OptionsMenu** - Manages options (persistent app settings) scenes.
+			- **AudioOptions** - TODO: ...
+			- **VideoOptions** - TODO: ...
+			- **ControlsOptions** - TODO: ...
+			- **GameOptions** - TODO: ...
 		- **CreditsMenu** - TODO: ...
 		- **SaveFilesMenu** - TODO: ...
 	- **PlayScene** - TODO: ...
@@ -150,15 +166,14 @@ Otherwise, Scenes must be loaded or added to the Scene Tree.
 ### 📄 Scripts
 
 - **Objects**
+	- **ConfigManager** - Persists (save & load) app settings in INI file.
 	- **LinkedMap** - Dictionary data structure that tracks order of keys.
-	- **ConfigManager** - Persists (save & load) app settings (global app data).
-
 - **Utils**
-	- **FileSystemUtils**
-	- **MathUtils**
-	- **NodeUtils**
-	- **RandomUtils**
-	- **StringUtils**
+	- **FileSystemUtils** - Robust functions to extract file paths and names.
+	- **MathUtils** - Integer power function.
+	- **NodeUtils** - Collection of node manipulation functions.
+	- **RandomUtils** - Weighted Loot Table and random string functions.
+	- **StringUtils** - String padding function.
 
 ## 🎉 CI/CD
 
@@ -196,7 +211,6 @@ Otherwise, Scenes must be loaded or added to the Scene Tree.
 ## 🫂 Contribute
 
 - Open a new Issue for discussion first, later Fork and open a pull request.
-
 
 ## 💕 Acknowledgements
 

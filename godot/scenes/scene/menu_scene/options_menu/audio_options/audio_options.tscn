@@ -1,0 +1,224 @@
+[gd_scene load_steps=2 format=3 uid="uid://pd1a3fwjkrdl"]
+
+[ext_resource type="Script" path="res://scenes/scene/menu_scene/options_menu/audio_options/audio_options.gd" id="1_1aoep"]
+
+[node name="AudioOptions" type="MarginContainer"]
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+script = ExtResource("1_1aoep")
+
+[node name="RootVBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="RootVBoxContainer"]
+layout_mode = 2
+text = "TODO: AUDIO OPTIONS"
+
+[node name="MasterSliderMarginContainer" type="MarginContainer" parent="RootVBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RootVBoxContainer/MasterSliderMarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="RootVBoxContainer/MasterSliderMarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="RootVBoxContainer/MasterSliderMarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RootVBoxContainer/MasterSliderMarginContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RootVBoxContainer/MasterSliderMarginContainer/HBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+text = "Master"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="RootVBoxContainer/MasterSliderMarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RootVBoxContainer/MasterSliderMarginContainer/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="RootVBoxContainer/MasterSliderMarginContainer/HBoxContainer/MarginContainer3/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "100
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer4" type="MarginContainer" parent="RootVBoxContainer/MasterSliderMarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="HBoxContainer" parent="RootVBoxContainer/MasterSliderMarginContainer/HBoxContainer/MarginContainer4"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Button4" type="Button" parent="RootVBoxContainer/MasterSliderMarginContainer/HBoxContainer/MarginContainer4/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "<<"
+
+[node name="Button3" type="Button" parent="RootVBoxContainer/MasterSliderMarginContainer/HBoxContainer/MarginContainer4/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_right = NodePath("../Button")
+text = "<"
+
+[node name="MarginContainer" type="MarginContainer" parent="RootVBoxContainer/MasterSliderMarginContainer/HBoxContainer/MarginContainer4/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="HSlider" type="HSlider" parent="RootVBoxContainer/MasterSliderMarginContainer/HBoxContainer/MarginContainer4/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+focus_mode = 0
+value = 50.0
+tick_count = 11
+
+[node name="Button" type="Button" parent="RootVBoxContainer/MasterSliderMarginContainer/HBoxContainer/MarginContainer4/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_left = NodePath("../Button3")
+text = ">"
+
+[node name="Button2" type="Button" parent="RootVBoxContainer/MasterSliderMarginContainer/HBoxContainer/MarginContainer4/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = ">>"
+
+[node name="MarginContainer5" type="MarginContainer" parent="RootVBoxContainer/MasterSliderMarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MusicSliderMarginContainer" type="MarginContainer" parent="RootVBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RootVBoxContainer/MusicSliderMarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="RootVBoxContainer/MusicSliderMarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="RootVBoxContainer/MusicSliderMarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RootVBoxContainer/MusicSliderMarginContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RootVBoxContainer/MusicSliderMarginContainer/HBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="RootVBoxContainer/MusicSliderMarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RootVBoxContainer/MusicSliderMarginContainer/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="RootVBoxContainer/MusicSliderMarginContainer/HBoxContainer/MarginContainer3/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "100
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer4" type="MarginContainer" parent="RootVBoxContainer/MusicSliderMarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RootVBoxContainer/MusicSliderMarginContainer/HBoxContainer/MarginContainer4"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Button4" type="Button" parent="RootVBoxContainer/MusicSliderMarginContainer/HBoxContainer/MarginContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "<<"
+
+[node name="Button3" type="Button" parent="RootVBoxContainer/MusicSliderMarginContainer/HBoxContainer/MarginContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_right = NodePath("../Button")
+text = "<"
+
+[node name="MarginContainer" type="MarginContainer" parent="RootVBoxContainer/MusicSliderMarginContainer/HBoxContainer/MarginContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HSlider" type="HSlider" parent="RootVBoxContainer/MusicSliderMarginContainer/HBoxContainer/MarginContainer4/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+focus_mode = 0
+value = 50.0
+tick_count = 11
+
+[node name="Button" type="Button" parent="RootVBoxContainer/MusicSliderMarginContainer/HBoxContainer/MarginContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_left = NodePath("../Button3")
+text = ">"
+
+[node name="Button2" type="Button" parent="RootVBoxContainer/MusicSliderMarginContainer/HBoxContainer/MarginContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = ">>"
+
+[node name="MarginContainer5" type="MarginContainer" parent="RootVBoxContainer/MusicSliderMarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3

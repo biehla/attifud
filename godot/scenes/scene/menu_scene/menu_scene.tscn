@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7e31uh5wrmi5"]
+[gd_scene load_steps=7 format=3 uid="uid://b7e31uh5wrmi5"]
 
+[ext_resource type="Theme" uid="uid://downo5rrvt4lo" path="res://resources/global/theme.tres" id="1_cfhpc"]
 [ext_resource type="Script" path="res://scenes/scene/menu_scene/menu_scene.gd" id="1_tjy2w"]
 [ext_resource type="PackedScene" uid="uid://b88kuy67g4l8f" path="res://scenes/scene/menu_scene/main_menu/main_menu.tscn" id="2_8scvs"]
 [ext_resource type="PackedScene" uid="uid://bea1npdsg7ii1" path="res://scenes/scene/menu_scene/options_menu/options_menu.tscn" id="3_5uviw"]
@@ -15,6 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_cfhpc")
 script = ExtResource("1_tjy2w")
 
 [node name="MainMenu" parent="." instance=ExtResource("2_8scvs")]
