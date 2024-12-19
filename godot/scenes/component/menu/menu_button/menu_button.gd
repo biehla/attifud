@@ -1,6 +1,6 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 ##
-## Localized button that refreshes text on language selected signal, on click emits pressed signal.
+## Localized button that refreshes text on language selected signal, on click emits a global signal.
 @tool
 class_name MenuButtonClass
 extends Button
@@ -36,19 +36,18 @@ func _connect_signals() -> void:
 	if Engine.is_editor_hint():
 		return
 
+	SignalBus.language_changed.connect(_on_language_changed)
+
 	self.pressed.connect(_on_button_pressed)
 
-	SignalBus.language_selected.connect(_on_language_selected)
+
+func _on_language_changed(_locale: String) -> void:
+	_refresh_label()
 
 
 func _on_button_pressed() -> void:
-	if id == null or id == MenuButtonEnum.ID.UNKNOWN:
-		return
-
 	Log.debug("%s: menu button ID '%s' pressed." % [name, MenuButtonEnum.ID.keys()[id]])
 
+	if id == null or id == MenuButtonEnum.ID.UNKNOWN:
+		return
 	SignalBus.menu_button_pressed.emit(id, self)
-
-
-func _on_language_selected(_locale: String) -> void:
-	_refresh_label()

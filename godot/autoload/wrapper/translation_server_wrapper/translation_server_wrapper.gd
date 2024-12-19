@@ -9,7 +9,7 @@ func _ready() -> void:
 	Log.debug("AUTOLOAD READY: ", name)
 
 
-## Alternative to tr() that works when ran in @tool scripts in the editor
+## Alternative to tr() that works when ran in @tool scripts in the editor (return key if not found).
 ## https://github.com/godotengine/godot/issues/46271
 func translate(text: String) -> String:
 	var localized_text: String

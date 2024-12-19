@@ -144,4 +144,5 @@ allow_reselect = true
 
 [node name="ControlResizeTextFont" parent="." node_paths=PackedStringArray("auto_minimum_width") instance=ExtResource("4_nktr1")]
 unique_name_in_owner = true
+resize_separation = true
 auto_minimum_width = NodePath("../RootMarginContainer/MainMenuMarginContainer")

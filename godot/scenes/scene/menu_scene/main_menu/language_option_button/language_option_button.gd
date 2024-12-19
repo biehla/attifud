@@ -13,16 +13,16 @@ func _ready() -> void:
 	_refresh_size()
 
 
-func _set_locale_option(index: int) -> void:
-	var locale_text: LinkedMap = Configuration.configuration_locale.get_locale_text()
-	var locale: String = locale_text.get_key_at(index)
-	_set_locale(locale)
-
-
 func _set_locale(locale: String) -> void:
 	ConfigManagerSettingsGeneral.set_app_locale(locale)
 	TranslationServer.set_locale(locale)
-	SignalBus.language_selected.emit(locale)
+	SignalBus.language_changed.emit(locale)
+
+
+func _set_locale_option(index: int) -> String:
+	var locale_text: LinkedMap = Configuration.configuration_locale.get_locale_text()
+	var locale: String = locale_text.get_key_at(index)
+	return locale
 
 
 func _refresh_size() -> void:
@@ -46,10 +46,11 @@ func _connect_signals() -> void:
 
 
 func _on_language_option_button_item_select(index: int) -> void:
-	Log.debug("Language option selected: ", index)
+	var locale: String = _set_locale_option(index)
+	_set_locale(locale)
 
-	_set_locale_option(index)
+	Log.debug("Language changed: ", locale)
 
 
 func _on_root_size_changed() -> void:
-	_refresh_size()
+	call_deferred("_refresh_size")

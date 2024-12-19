@@ -172,4 +172,3 @@ label = "MENU_LABEL_RESET"
 
 [node name="ControlResizeTextFont" parent="." instance=ExtResource("1_fkmwe")]
 minimum_width = 632
-minimum_height = 480

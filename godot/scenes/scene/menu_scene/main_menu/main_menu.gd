@@ -21,14 +21,14 @@ func _ready() -> void:
 
 
 func _refresh_labels() -> void:
-	title_label.text = tr(Configuration.GAME_TITLE)
+	title_label.text = TranslationServerWrapper.translate(Configuration.GAME_TITLE)
 	author_label.text = Configuration.GAME_AUTHOR
 	version_label.text = VERSION_PREFIX + ProjectSettings.get_setting("application/config/version")
 
 
 func _connect_signals() -> void:
-	SignalBus.language_selected.connect(_on_language_selected)
+	SignalBus.language_changed.connect(_on_language_changed)
 
 
-func _on_language_selected(_locale: String) -> void:
+func _on_language_changed(_locale: String) -> void:
 	_refresh_labels()

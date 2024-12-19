@@ -1,6 +1,64 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://downo5rrvt4lo"]
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://downo5rrvt4lo"]
 
 [ext_resource type="FontFile" uid="uid://bgf0kb8u1chbp" path="res://assets/font/noto_sans/woff/noto_sans.woff" id="1_8t37s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s71xv"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="ImageTexture" id="ImageTexture_i6kbp"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_73bk1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdvbp"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.4)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gtj2s"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3ifkh"]
 
@@ -9,18 +67,10 @@
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jj5vv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1t1yr"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
 bg_color = Color(1, 1, 1, 0.4)
 corner_detail = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_45os7"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
 bg_color = Color(1, 1, 1, 0.4)
 border_width_left = 2
 border_width_top = 2
@@ -28,10 +78,8 @@ border_width_right = 2
 border_width_bottom = 2
 corner_detail = 1
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rkgdm"]
-content_margin_left = 12.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ppk07"]
 content_margin_top = 12.0
-content_margin_right = 12.0
 content_margin_bottom = 12.0
 bg_color = Color(0.1, 0.1, 0.1, 0.6)
 border_color = Color(0, 0, 0, 1)
@@ -48,18 +96,19 @@ content_margin_top = 2.0
 content_margin_right = 2.0
 content_margin_bottom = 2.0
 bg_color = Color(0.1, 0.1, 0.1, 0.6)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
 corner_detail = 6
 
 [resource]
 default_font = ExtResource("1_8t37s")
+Button/styles/hover = SubResource("StyleBoxFlat_s71xv")
+CheckBox/icons/checked = SubResource("ImageTexture_i6kbp")
+CheckBox/icons/unchecked = SubResource("ImageTexture_73bk1")
+CheckBox/styles/normal = SubResource("StyleBoxFlat_mdvbp")
+CheckBox/styles/pressed = SubResource("StyleBoxFlat_gtj2s")
 HSlider/icons/grabber = SubResource("CompressedTexture2D_3ifkh")
 HSlider/icons/grabber_disabled = SubResource("CompressedTexture2D_lo1qr")
 HSlider/icons/grabber_highlight = SubResource("CompressedTexture2D_jj5vv")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_1t1yr")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_45os7")
-HSlider/styles/slider = SubResource("StyleBoxFlat_rkgdm")
+HSlider/styles/slider = SubResource("StyleBoxFlat_ppk07")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_1n6t5")

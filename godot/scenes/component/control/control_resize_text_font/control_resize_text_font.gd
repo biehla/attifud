@@ -5,7 +5,7 @@
 ## Attach to parent node.
 ## Adjusts font size in all children, relative to original window size.
 ## The scaling mode keeps aspect ratio (picks the smaller of the x and y resize ratios).
-## Also resize separation and custom minimum size to make sure no-font UI is scaling too.
+## Can also resize separation and custom minimum size to make sure no-font UI is scaling properly.
 ##
 ## Resize Settings
 ## Configure minimum_width and minimum_height exports to down scale only after a certain threshold.
@@ -20,7 +20,7 @@ const DEFAULT_SEPARATION: int = 0
 const DEFAULT_MINIMUM_SIZE: Vector2 = Vector2(0, 0)
 
 @export_category("Resize Separation")
-@export var resize_separation: bool = true
+@export var resize_separation: bool = false
 
 @export_category("Resize Custom Minimum Size")
 @export var resize_minimum_size: bool = true
