@@ -1,13 +1,10 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 ##
 ## Holds options scenes and manages their transitions (listens to menu button pressed signal).
-##
-## Uses (light) command pattern: (instead of if-else and switch/match statements uses action map)
-## https://refactoring.guru/design-patterns/command
 extends Control
 
 var _current_menu: Control = null
-var _menu_button_action_map: Dictionary = {}
+var _action_handler: ActionHandler = ActionHandler.new()
 
 @onready var tab_h_box_container: HBoxContainer = %TabHBoxContainer
 
@@ -20,14 +17,19 @@ var _menu_button_action_map: Dictionary = {}
 func _ready() -> void:
 	_connect_signals()
 	_toggle_options(audio_options, tab_h_box_container.get_child(0))
-	_init_menu_button_action_map()
+	_init_action_handler()
 
 
-func _init_menu_button_action_map() -> void:
-	_menu_button_action_map[MenuButtonEnum.ID.OPTIONS_MENU_AUDIO_TAB] = _action_audio_menu_button
-	_menu_button_action_map[MenuButtonEnum.ID.OPTIONS_MENU_VIDEO_TAB] = _action_video_menu_button
-	_menu_button_action_map[MenuButtonEnum.ID.OPTIONS_MENU_CONTROLS_TAB] = _action_controls_menu_button
-	_menu_button_action_map[MenuButtonEnum.ID.OPTIONS_MENU_GAME_TAB] = _action_game_menu_button
+func _init_action_handler() -> void:
+	_action_handler.set_register_type("MenuButton")
+	_action_handler.register_actions(
+		{
+			MenuButtonEnum.ID.OPTIONS_MENU_AUDIO_TAB: _action_audio_menu_button,
+			MenuButtonEnum.ID.OPTIONS_MENU_VIDEO_TAB: _action_video_menu_button,
+			MenuButtonEnum.ID.OPTIONS_MENU_CONTROLS_TAB: _action_controls_menu_button,
+			MenuButtonEnum.ID.OPTIONS_MENU_GAME_TAB: _action_game_menu_button
+		}
+	)
 
 
 func _action_audio_menu_button(source: MenuButtonClass) -> void:
@@ -79,20 +81,4 @@ func _on_visibility_changed() -> void:
 
 
 func _on_menu_button_pressed(id: MenuButtonEnum.ID, source: MenuButtonClass) -> void:
-	var action: Callable = _menu_button_action_map.get(id, _action_unknown)
-	if action != _action_unknown:
-		_log_action(id, action)
-		action.call(source)
-
-
-func _log_action(id: MenuButtonEnum.ID, action: Callable) -> void:
-	Log.debug(
-		(
-			"%s: action for menu button ID '%s' called '%s'."
-			% [name, MenuButtonEnum.ID.keys()[id], action]
-		)
-	)
-
-
-static func _action_unknown() -> void:
-	pass
+	_action_handler.handle_action_args("MenuButton", id, self, [source])

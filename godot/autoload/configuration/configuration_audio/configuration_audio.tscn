@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://p82qg3wny3y8"]
+
+[ext_resource type="Script" path="res://autoload/configuration/configuration_audio/configuration_audio.gd" id="1_l13f0"]
+
+[node name="ConfigurationAudio" type="Node"]
+script = ExtResource("1_l13f0")

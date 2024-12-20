@@ -6,21 +6,15 @@ extends OptionButton
 func _ready() -> void:
 	_connect_signals()
 
-	var locale_text: LinkedMap = Configuration.configuration_locale.get_locale_text()
+	var locale_text: LinkedMap = Configuration.locale.get_locale_text()
 	var locale: String = TranslationServer.get_locale()
 	_init_options(locale_text, locale)
 
 	_refresh_size()
 
 
-func _set_locale(locale: String) -> void:
-	ConfigManagerSettingsGeneral.set_app_locale(locale)
-	TranslationServer.set_locale(locale)
-	SignalBus.language_changed.emit(locale)
-
-
 func _set_locale_option(index: int) -> String:
-	var locale_text: LinkedMap = Configuration.configuration_locale.get_locale_text()
+	var locale_text: LinkedMap = Configuration.locale.get_locale_text()
 	var locale: String = locale_text.get_key_at(index)
 	return locale
 
@@ -47,9 +41,7 @@ func _connect_signals() -> void:
 
 func _on_language_option_button_item_select(index: int) -> void:
 	var locale: String = _set_locale_option(index)
-	_set_locale(locale)
-
-	Log.debug("Language changed: ", locale)
+	Configuration.locale.set_locale(locale)
 
 
 func _on_root_size_changed() -> void:

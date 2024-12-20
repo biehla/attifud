@@ -24,7 +24,7 @@ Log/break_on_error=false
 [application]
 
 config/name="TakinGodotTemplate"
-config/version="0.1.5"
+config/version="0.1.6"
 run/main_scene="res://scenes/scene/boot_splash_scene/boot_splash_scene.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
@@ -34,6 +34,7 @@ boot_splash/minimum_display_time=1000
 
 [audio]
 
+buses/default_bus_layout="res://resources/global/audio_bus_layout.tres"
 manager/sound/bus="Sound"
 manager/sound/pool_1D_size=16
 manager/sound/pool_2D_size=16
@@ -46,13 +47,13 @@ manager/music/bus="Music"
 SceneManager="*res://addons/scene_manager/scene_manager.tscn"
 Scenes="*res://addons/scene_manager/scenes.gd"
 Log="*res://addons/logger/logger.gd"
+SoundManager="*res://addons/resonate/sound_manager/sound_manager.gd"
+MusicManager="*res://addons/resonate/music_manager/music_manager.gd"
 Configuration="*res://autoload/configuration/configuration.tscn"
 Reference="*res://autoload/reference/reference.tscn"
 SignalBus="*res://autoload/signal_bus/signal_bus.tscn"
 SceneManagerWrapper="*res://autoload/wrapper/scene_manager_wrapper/scene_manager_wrapper.tscn"
 TranslationServerWrapper="*res://autoload/wrapper/translation_server_wrapper/translation_server_wrapper.tscn"
-SoundManager="*res://addons/resonate/sound_manager/sound_manager.gd"
-MusicManager="*res://addons/resonate/music_manager/music_manager.gd"
 
 [debug]
 

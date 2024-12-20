@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqny02vjtqsld"]
+[gd_scene load_steps=5 format=3 uid="uid://dqny02vjtqsld"]
 
 [ext_resource type="Script" path="res://autoload/configuration/configuration.gd" id="1_7lhyf"]
+[ext_resource type="PackedScene" uid="uid://p82qg3wny3y8" path="res://autoload/configuration/configuration_audio/configuration_audio.tscn" id="2_42ju8"]
 [ext_resource type="PackedScene" uid="uid://nlakak1rbfyp" path="res://autoload/configuration/configuration_locale/configuration_locale.tscn" id="2_u161q"]
 [ext_resource type="PackedScene" uid="uid://bnwf6070alvyp" path="res://autoload/configuration/configuration_logger/configuration_logger.tscn" id="3_doti5"]
 
 [node name="Configuration" type="Node"]
 script = ExtResource("1_7lhyf")
+
+[node name="ConfigurationAudio" parent="." instance=ExtResource("2_42ju8")]
+unique_name_in_owner = true
 
 [node name="ConfigurationLocale" parent="." instance=ExtResource("2_u161q")]
 unique_name_in_owner = true

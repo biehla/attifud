@@ -20,27 +20,26 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="RootVBoxContainer"]
-visible = false
-layout_mode = 2
-text = "TODO: AUDIO OPTIONS"
-
 [node name="MasterMenuSlider" parent="RootVBoxContainer" instance=ExtResource("3_o7sdi")]
+unique_name_in_owner = true
 layout_mode = 2
 id = 1
 label = "MENU_LABEL_MASTER"
 
 [node name="MusicMenuSlider" parent="RootVBoxContainer" instance=ExtResource("3_o7sdi")]
+unique_name_in_owner = true
 layout_mode = 2
 id = 2
 label = "MENU_LABEL_MUSIC"
 
 [node name="SFXMenuSlider" parent="RootVBoxContainer" instance=ExtResource("3_o7sdi")]
+unique_name_in_owner = true
 layout_mode = 2
 id = 3
 label = "MENU_LABEL_EFFECTS"
 
 [node name="MenuToggle" parent="RootVBoxContainer" instance=ExtResource("4_wpfi7")]
+unique_name_in_owner = true
 layout_mode = 2
 id = 1
 label = "MENU_LABEL_AUDIO"

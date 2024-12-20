@@ -12,6 +12,8 @@ extends MarginContainer
 		label = value
 		_refresh_label()
 
+var _last_value: float
+
 @onready var label_label: Label = %LabelLabel
 @onready var value_label: Label = %ValueLabel
 
@@ -24,6 +26,12 @@ extends MarginContainer
 
 func _ready() -> void:
 	_connect_signals()
+	set_value()
+
+
+func set_value(value: float = 0) -> void:
+	_last_value = value
+	h_slider.value = value
 	_refresh_label()
 	_refresh_value()
 
@@ -60,9 +68,13 @@ func _on_slider_value_changed(value: float) -> void:
 
 
 func _on_slider_value_added(increment: float) -> void:
+	var value: float = min(h_slider.max_value, max(h_slider.min_value, h_slider.value + increment))
+	if value == _last_value:
+		return
+
 	Log.debug("%s: menu slider ID '%s' value changed." % [name, MenuSliderEnum.ID.keys()[id]])
 
-	var value: float = min(h_slider.max_value, max(h_slider.min_value, h_slider.value + increment))
+	_last_value = value
 	if h_slider.value != value:
 		h_slider.value = value
 	_refresh_value()

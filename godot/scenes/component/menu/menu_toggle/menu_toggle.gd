@@ -34,6 +34,11 @@ extends MarginContainer
 
 func _ready() -> void:
 	_connect_signals()
+	set_value()
+
+
+func set_value(enabled: bool = false) -> void:
+	toggle_button.button_pressed = enabled
 	_refresh_labels()
 
 

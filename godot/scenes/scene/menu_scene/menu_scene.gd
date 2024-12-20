@@ -1,13 +1,10 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 ##
 ## Holds menu scenes and manages their transitions (listens to menu button pressed signal).
-##
-## Uses (light) command pattern: (instead of if-else and switch/match statements uses action map)
-## https://refactoring.guru/design-patterns/command
 extends Control
 
 var _current_menu: Control = null
-var _menu_button_action_map: Dictionary = {}
+var _action_handler: ActionHandler = ActionHandler.new()
 
 @onready var main_menu: Control = %MainMenu
 @onready var options_menu: Control = %OptionsMenu
@@ -18,18 +15,27 @@ var _menu_button_action_map: Dictionary = {}
 func _ready() -> void:
 	_connect_signals()
 	_toggle_menu(main_menu)
-	_init_menu_button_action_map()
+	_init_action_handler()
 
 
-func _init_menu_button_action_map() -> void:
-	_menu_button_action_map[MenuButtonEnum.ID.MAIN_MENU_PLAY] = _action_main_menu_play
-	_menu_button_action_map[MenuButtonEnum.ID.MAIN_MENU_OPTIONS] = _action_main_menu_options
-	_menu_button_action_map[MenuButtonEnum.ID.MAIN_MENU_CREDITS] = _action_main_menu_credits
-	_menu_button_action_map[MenuButtonEnum.ID.MAIN_MENU_QUIT] = _action_main_menu_quit
-
-	_menu_button_action_map[MenuButtonEnum.ID.OPTIONS_MENU_BACK] = _action_main_menu_back
-	_menu_button_action_map[MenuButtonEnum.ID.CREDITS_MENU_BACK] = _action_main_menu_back
-	_menu_button_action_map[MenuButtonEnum.ID.SAVE_FILES_MENU_BACK] = _action_main_menu_back
+func _init_action_handler() -> void:
+	_action_handler.set_register_type("MenuButton")
+	_action_handler.register_actions(
+		{
+			MenuButtonEnum.ID.MAIN_MENU_PLAY: _action_main_menu_play,
+			MenuButtonEnum.ID.MAIN_MENU_OPTIONS: _action_main_menu_options,
+			MenuButtonEnum.ID.MAIN_MENU_CREDITS: _action_main_menu_credits,
+			MenuButtonEnum.ID.MAIN_MENU_QUIT: _action_main_menu_quit
+		}
+	)
+	_action_handler.register_same_action(
+		[
+			MenuButtonEnum.ID.OPTIONS_MENU_BACK,
+			MenuButtonEnum.ID.CREDITS_MENU_BACK,
+			MenuButtonEnum.ID.SAVE_FILES_MENU_BACK
+		],
+		_action_main_menu_back
+	)
 
 
 func _action_main_menu_play() -> void:
@@ -64,20 +70,4 @@ func _connect_signals() -> void:
 
 
 func _on_menu_button_pressed(id: MenuButtonEnum.ID, _source: MenuButtonClass) -> void:
-	var action: Callable = _menu_button_action_map.get(id, _action_unknown)
-	if action != _action_unknown:
-		_log_action(id, action)
-		action.call()
-
-
-func _log_action(id: MenuButtonEnum.ID, action: Callable) -> void:
-	Log.debug(
-		(
-			"%s: action for menu button ID '%s' called '%s'."
-			% [name, MenuButtonEnum.ID.keys()[id], action]
-		)
-	)
-
-
-static func _action_unknown() -> void:
-	pass
+	_action_handler.handle_action("MenuButton", id, self)

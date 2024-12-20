@@ -4,11 +4,12 @@ extends Node
 const GAME_TITLE: String = "GAME_TITLE"
 const GAME_AUTHOR: String = "TinyTakinTeller"
 
-@onready var configuration_locale: ConfigurationLocale = %ConfigurationLocale
-@onready var configuration_logger: ConfigurationLogger = %ConfigurationLogger
+@onready var audio: ConfigurationAudio = %ConfigurationAudio
+@onready var locale: ConfigurationLocale = %ConfigurationLocale
+@onready var logger: ConfigurationLogger = %ConfigurationLogger
 
 
 func _ready() -> void:
 	Log.debug("AUTOLOAD READY: ", name)
 
-	ConfigManagerAppLog.app_opened()
+	ConfigStorageAppLog.app_opened()

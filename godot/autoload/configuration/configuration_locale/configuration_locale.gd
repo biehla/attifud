@@ -1,6 +1,6 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 ##
-## Provides a list of locales sorted by their english name text.
+## Provides locales sorted by their english name text.
 class_name ConfigurationLocale
 extends Node
 
@@ -10,14 +10,25 @@ var _locale_text_linked_map: LinkedMap = LinkedMap.new()
 
 
 func _ready() -> void:
-	var app_locale: String = ConfigManagerSettingsGeneral.get_app_locale()
-	TranslationServer.set_locale(app_locale)
-
+	_load_locale()
 	_init_locales()
 
 
 func get_locale_text() -> LinkedMap:
 	return _locale_text_linked_map
+
+
+func set_locale(locale: String) -> void:
+	Log.debug("Language changed: ", locale)
+
+	ConfigStorageSettingsLocale.set_locale(locale)
+	TranslationServer.set_locale(locale)
+	SignalBus.language_changed.emit(locale)
+
+
+func _load_locale() -> void:
+	var app_locale: String = ConfigStorageSettingsLocale.get_locale()
+	TranslationServer.set_locale(app_locale)
 
 
 func _init_locales() -> void:

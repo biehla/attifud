@@ -19,12 +19,12 @@
 
 ## ⭐ Features
 
-### ✨ Gameplay
+### ✨ Game
 
-- **Core**
+- **Foundation**
 	- 🖼️ [**Scene Manager**](https://github.com/maktoobgar/scene_manager) - Custom transitions and loading screens.
-	- 🎵 **Audio Manager** - TODO: ...
-	- ⚙️ **App Settings** - Persistent game options and statistics in INI file.
+	- 🎵 [**Audio Manager**](https://github.com/hugemenace/resonate) - Reliable music tracks and sound effects.
+	- ⚙️ **Configuration** - Persistent game options and statistics in INI file.
 	- 💾 **Save Files** - TODO: ...
 - **Localization**
 	- 🌍 [**Polygot Template**](https://github.com/agens-no/PolyglotUnity) with 28 languages and over 600 common [game words](https://docs.google.com/spreadsheets/d/17f0dQawb-s_Fd7DHgmVvJoEGDMH_yoSd8EYigrb0zmM/edit?gid=296134756#gid=296134756).
@@ -32,8 +32,9 @@
 - **Accessibility**
 	- 🎮 **Controller Support** -  Grab focus for a control node on entering scene.
 	- 🔍 **Smooth Font** - Dynamic font size (keep aspect ratio) on window resize.
-- **Graphics**
+- **Experience**
 	- 🎨 **Theme** - TODO: ...
+	- 🎶 **Music & SFX** - TODO: ...
 	- 📽️ **Post-Processing** - TODO: ...
 - **UI/UX**
 	- 🎬 **Boot Splash** - The main scene, allowing custom transition to main menu.
@@ -50,7 +51,7 @@
 	- 📖 **References** - Map of preloaded resources for convenience.
 - **Scripts**
 	- 🧰 **Utility** - RNG (Weighted Loot Table), Maths, Files, Nodes, Strings.
-	- 🛠️ **Objects** - ConfigManager (INI File), LinkedMap.
+	- 🛠️ **Objects** - ActionHandler, ConfigStorage (INI File), LinkedMap.
 - **Tools**
 	- 🐛 [**Logger**](https://github.com/albinaask/Log) - Easier debugging and troubleshooting.
 	- 🧩 [**IDE Plugin**](https://github.com/Maran23/script-ide) - Improves scripting in GDScript in editor.
@@ -114,7 +115,8 @@
 - **Scene Manager**
 	- The [SceneManager](https://github.com/maktoobgar/scene_manager) handles Scenes transitions and loadings.
 - **Audio Manager**
-	- TODO: ...
+	- The [Resonate](https://github.com/hugemenace/resonate) addon handles music tracks and sound effects.
+	- For a complex audio project, consider using FMOD or WWise.
 - **Save Files**
 	- TODO: ...
 - **Post-Processing**
@@ -122,7 +124,7 @@
 
 ## 🤖 Code
 
-The Globals (autoload Scenes) and Scripts (static/const Objects) can be called from anywhere in the project. The latter is independent of (not managed by) the Scene Tree.
+The Globals (autoload Scenes) and Scripts (Statics, Consts, Objects) are available from anywhere in the project. The latter is independent of (not managed by) the Scene Tree.
 
 Otherwise, Scenes must be loaded or added to the Scene Tree.
 
@@ -130,7 +132,7 @@ Otherwise, Scenes must be loaded or added to the Scene Tree.
 
 - **Configuration**
 	- First autoload (after Plugin autoloads).
-	- Configure Plugins, Assets & Project here, depending on needs.
+	- Configure Project here and manage ConfigStorage for presistence.
 - **Reference**
 	- Preloads & holds references to Resources in dictionary by name.
 	- When creating a new Resource type, consider creating a getter here.
@@ -146,14 +148,18 @@ Otherwise, Scenes must be loaded or added to the Scene Tree.
 	- **Control**
 		- **ControlGrabFocus** - Grabs focus of UI node for controller support.
 		- **ControlResizeTextFont** - Smooth text scaling with window resolution.
+	- **Expand**
+		- **HSliderExpand** - Expands to fill the parent node (custom UI scaling).
 	- **Menu**
 		- **MenuButton** - Localized menu button.
+		- **MenuSlider** - Localized menu slider with accessibility buttons.
+		- **MenuToggle** - Localized menu toggle button (ON or OFF).
 - **Scene**
 	- **BootSplashScene** *(Main Scene)*  - Smooth transition to menu scene.
 	- **MenuScene** - Manages menu scenes as children.
 		- **MainMenu** - Display buttons to enter other menus or next scene.
 		- **OptionsMenu** - Manages options (persistent app settings) scenes.
-			- **AudioOptions** - TODO: ...
+			- **AudioOptions** - Configure Music and SFX volume or mute.
 			- **VideoOptions** - TODO: ...
 			- **ControlsOptions** - TODO: ...
 			- **GameOptions** - TODO: ...
@@ -166,7 +172,8 @@ Otherwise, Scenes must be loaded or added to the Scene Tree.
 ### 📄 Scripts
 
 - **Objects**
-	- **ConfigManager** - Persists (save & load) app settings in INI file.
+	- **ActionHandler** - Implements the (light) [command pattern](https://refactoring.guru/design-patterns/command) design.
+	- **ConfigStorage** - Persists (save & load) app settings in INI file.
 	- **LinkedMap** - Dictionary data structure that tracks order of keys.
 - **Utils**
 	- **FileSystemUtils** - Robust functions to extract file paths and names.

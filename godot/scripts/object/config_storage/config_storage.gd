@@ -1,8 +1,10 @@
 ## Modified File MIT License Copyright (c) 2024 TinyTakinTeller
 ## Original File MIT License Copyright (c) 2022-present Marek Belski
-
+##
 ## Persists data in a INI-style file.
-class_name ConfigManager
+##
+## Used by Configuration autoload.
+class_name ConfigStorage
 extends Object
 
 const CONFIG_FILE_NAME: String = "config"
@@ -12,13 +14,13 @@ static var config_file: ConfigFile = null
 
 
 static func _init() -> void:
-	_load_config_file()
+	push_error("ConfigStorage is a static object class and cannot be instantiated.")
 
 
 static func increment_config(section: String, key: String) -> void:
 	_load_config_file()
-	var value: int = ConfigManager.get_config(section, key, 0)
-	ConfigManager.set_config(section, key, value + 1)
+	var value: int = ConfigStorage.get_config(section, key, 0)
+	ConfigStorage.set_config(section, key, value + 1)
 	_save_config_file()
 
 

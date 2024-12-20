@@ -1,9 +1,8 @@
 ## Modified File MIT License Copyright (c) 2024 TinyTakinTeller
 ## Original File MIT License Copyright (c) 2022-present Marek Belski
-
+##
 ## Tracks information related to the usage of the app.
-class_name ConfigManagerAppLog
-extends Node
+class_name ConfigStorageAppLog
 
 const APP_LOG_SECTION: String = "AppLog"
 
@@ -21,14 +20,14 @@ static func app_opened() -> void:
 
 
 static func _update_app_opened_count() -> void:
-	ConfigManager.increment_config(APP_LOG_SECTION, APP_OPENED_COUNT_KEY)
+	ConfigStorage.increment_config(APP_LOG_SECTION, APP_OPENED_COUNT_KEY)
 
 
 static func _update_app_first_version_opened(new_value: String) -> void:
-	var value: String = ConfigManager.get_config(APP_LOG_SECTION, APP_FIRST_VERSION_OPENED_KEY, "")
+	var value: String = ConfigStorage.get_config(APP_LOG_SECTION, APP_FIRST_VERSION_OPENED_KEY, "")
 	if value == "":
-		ConfigManager.set_config(APP_LOG_SECTION, APP_FIRST_VERSION_OPENED_KEY, new_value)
+		ConfigStorage.set_config(APP_LOG_SECTION, APP_FIRST_VERSION_OPENED_KEY, new_value)
 
 
 static func _update_app_last_version_opened(new_value: String) -> void:
-	ConfigManager.set_config(APP_LOG_SECTION, APP_LAST_VERSION_OPENED_KEY, new_value)
+	ConfigStorage.set_config(APP_LOG_SECTION, APP_LAST_VERSION_OPENED_KEY, new_value)
