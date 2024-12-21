@@ -4,7 +4,7 @@
 
 # Takin - Godot Template
 
-**Godot 4.3+** template for game projects (GDScript).
+**Godot 4.3** template for game projects (GDScript).
 
 **TODO:** This template is a work in progress. (Full version in 2025.)
 
@@ -34,7 +34,7 @@
 	- 🔍 **Smooth Font** - Dynamic font size (keep aspect ratio) on window resize.
 - **Experience**
 	- 🎨 **Theme** - TODO: ...
-	- 🎶 **Music & SFX** - [CC0](https://creativecommons.org/publicdomain/zero/1.0/) Public Domain: [Kenny](https://kenney.nl/assets/category:Audio) SFX and [OGA](https://opengameart.org/content/menu-doodle-2) Music (looped by me).
+	- 🎶 **Music & SFX** - [CC0](https://creativecommons.org/publicdomain/zero/1.0/) Public Domain: [Kenny](https://kenney.nl/assets/category:Audio) SFX and [OGA](https://opengameart.org/content/menu-doodle-2) Music (looped edit).
 	- 📽️ **Post-Processing** - TODO: ...
 - **UI/UX**
 	- 🎬 **Boot Splash** - The main scene, allowing custom transition to main menu.
@@ -85,6 +85,7 @@
 - README.md
 
 
+
 ## 📜 Conventions
 
 - Clean Code
@@ -94,6 +95,7 @@
 	- Use **style** inspired by [GDScript Style](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html) (see *gdlintrc*).
 	- Function definition order: [override](https://docs.godotengine.org/en/stable/tutorials/scripting/overridable_functions.html), public, private, static.
 	- Consider using [**good design patterns**](https://refactoring.guru/design-patterns) when programming.
+
 
 
 ## 🧩 Plugins
@@ -121,6 +123,8 @@
 	- TODO: ...
 - **Post-Processing**
 	- TODO: ...
+
+
 
 ## 🤖 Code
 
@@ -168,7 +172,6 @@ Otherwise, Scenes must be loaded or added to the Scene Tree.
 	- **PlayScene** - TODO: ...
 		- **PauseMenu** - TODO: ...
 
-
 ### 📄 Scripts
 
 - **Objects**
@@ -181,6 +184,8 @@ Otherwise, Scenes must be loaded or added to the Scene Tree.
 	- **NodeUtils** - Collection of node manipulation functions.
 	- **RandomUtils** - Weighted Loot Table and random string functions.
 	- **StringUtils** - String padding function.
+
+
 
 ## 🎉 CI/CD
 
@@ -196,10 +201,14 @@ Otherwise, Scenes must be loaded or added to the Scene Tree.
 - **quality_check.yml**
 	- Automatically check *gdlintrc* coding style standards.
 
-### ⚡ Hacks
+
+
+## ⚡ Hacks
 
 - **Web Export (Presets)**
 	- There is [Godot 4.3 Issue](https://github.com/godotengine/godot/issues/96874) with Boot Splash, workaround is CSS in **Head Include**.
+	- There is [Godot 4.3 Issue](https://github.com/godotengine/godot/issues/100696) with `play_stream`, workaround was added for now.
+
 
 
 ## 📖 Instructions
@@ -215,9 +224,12 @@ Otherwise, Scenes must be loaded or added to the Scene Tree.
 	- Try (re)enable all Plugins and then select "Reload Current Project".
 
 
+
 ## 🫂 Contribute
 
 - Open a new Issue for discussion first, later Fork and open a pull request.
+
+
 
 ## 💕 Acknowledgements
 
