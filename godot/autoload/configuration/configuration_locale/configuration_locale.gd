@@ -1,5 +1,5 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-##
+## [br][br]
 ## Provides locales sorted by their english name text.
 class_name ConfigurationLocale
 extends Node

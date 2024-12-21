@@ -1,12 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8col31gjtj56"]
+[gd_scene load_steps=7 format=3 uid="uid://b8col31gjtj56"]
 
-[ext_resource type="Script" path="res://scenes/component/menu/menu_slider/menu_slider.gd" id="1_5q5f6"]
+[ext_resource type="Script" path="res://scenes/node/menu/menu_slider/menu_slider.gd" id="1_5q5f6"]
 [ext_resource type="Theme" uid="uid://downo5rrvt4lo" path="res://resources/global/theme.tres" id="1_7r78s"]
-[ext_resource type="PackedScene" uid="uid://biau153siug21" path="res://scenes/component/expand/h_slider_expand/h_slider_expand.tscn" id="1_ut5kh"]
+[ext_resource type="PackedScene" uid="uid://biau153siug21" path="res://scenes/node/expand/h_slider_expand/h_slider_expand.tscn" id="1_ut5kh"]
+[ext_resource type="PackedScene" uid="uid://b4b36g3uhwemg" path="res://scenes/component/audio/button_audio/button_audio.tscn" id="3_gscw3"]
+[ext_resource type="PackedScene" uid="uid://o3ml7kr62sot" path="res://scenes/component/audio/slider_audio/slider_audio.tscn" id="5_jre7n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ipe2a"]
-content_margin_top = 12.0
-content_margin_bottom = 12.0
+content_margin_top = 3.0
+content_margin_bottom = 3.0
 bg_color = Color(0.1, 0.1, 0.1, 0.6)
 border_color = Color(0, 0, 0, 1)
 corner_detail = 1
@@ -55,7 +57,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "50"
+text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -74,6 +76,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "<<"
 
+[node name="ButtonAudio" parent="HBoxContainer/SliderMarginContainer/SliderVBoxContainer/DecrementSliderButton" instance=ExtResource("3_gscw3")]
+
 [node name="DecrementStepSliderButton" type="Button" parent="HBoxContainer/SliderMarginContainer/SliderVBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -81,6 +85,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_neighbor_right = NodePath("../IncrementStepSliderButton")
 text = "<"
+
+[node name="ButtonAudio" parent="HBoxContainer/SliderMarginContainer/SliderVBoxContainer/DecrementStepSliderButton" instance=ExtResource("3_gscw3")]
 
 [node name="SliderMarginContainer" type="MarginContainer" parent="HBoxContainer/SliderMarginContainer/SliderVBoxContainer"]
 layout_mode = 2
@@ -95,8 +101,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 focus_mode = 1
 theme_override_styles/slider = SubResource("StyleBoxFlat_ipe2a")
-value = 50.0
 expand_factor = 0.5
+
+[node name="SliderAudio" parent="HBoxContainer/SliderMarginContainer/SliderVBoxContainer/SliderMarginContainer/HSliderExpand" instance=ExtResource("5_jre7n")]
 
 [node name="IncrementStepSliderButton" type="Button" parent="HBoxContainer/SliderMarginContainer/SliderVBoxContainer"]
 unique_name_in_owner = true
@@ -106,9 +113,13 @@ size_flags_vertical = 4
 focus_neighbor_left = NodePath("../DecrementStepSliderButton")
 text = ">"
 
+[node name="ButtonAudio" parent="HBoxContainer/SliderMarginContainer/SliderVBoxContainer/IncrementStepSliderButton" instance=ExtResource("3_gscw3")]
+
 [node name="IncrementSliderButton" type="Button" parent="HBoxContainer/SliderMarginContainer/SliderVBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = ">>"
+
+[node name="ButtonAudio" parent="HBoxContainer/SliderMarginContainer/SliderVBoxContainer/IncrementSliderButton" instance=ExtResource("3_gscw3")]

@@ -1,5 +1,5 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-##
+## [br][br]
 ## Localized slider with accessibility buttons that emit a global signal.
 @tool
 class_name MenuSlider

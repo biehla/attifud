@@ -1,16 +1,16 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-##
+## [br][br]
 ## Purpose of this node it to scale fonts in projects where Window Stretch Mode is disabled.
-##
+## [br][br]
 ## Attach to parent node.
 ## Adjusts font size in all children, relative to original window size.
 ## The scaling mode keeps aspect ratio (picks the smaller of the x and y resize ratios).
 ## Can also resize separation and custom minimum size (useful for keeping control nodes aligned).
-##
+## [br][br]
 ## Resize Settings
 ## Configure minimum_width and minimum_height exports to down scale only after a certain threshold.
 ## Configure auto exports to automatically adjust minimum exports to given node dimensions.
-##
+## [br][br]
 ## Export vars should be set only once in the editor.
 class_name ControlResizeTextFont
 extends Node

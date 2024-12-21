@@ -1,7 +1,7 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-##
+## [br][br]
 ## Provides accessibility to keyboard players and controller players.
-##
+## [br][br]
 ## Attach to parent node.
 ## Set target as first control node child if target is not already set.
 ## Grabs focus on target control node if visible in tree.

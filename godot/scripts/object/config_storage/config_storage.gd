@@ -1,8 +1,8 @@
 ## Modified File MIT License Copyright (c) 2024 TinyTakinTeller
 ## Original File MIT License Copyright (c) 2022-present Marek Belski
-##
+## [br][br]
 ## Persists data in a INI-style file.
-##
+## [br][br]
 ## Used by Configuration autoload.
 class_name ConfigStorage
 extends Object

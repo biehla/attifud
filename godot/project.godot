@@ -24,7 +24,7 @@ Log/break_on_error=false
 [application]
 
 config/name="TakinGodotTemplate"
-config/version="0.1.6"
+config/version="0.1.7"
 run/main_scene="res://scenes/scene/boot_splash_scene/boot_splash_scene.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
@@ -52,6 +52,7 @@ MusicManager="*res://addons/resonate/music_manager/music_manager.gd"
 Configuration="*res://autoload/configuration/configuration.tscn"
 Reference="*res://autoload/reference/reference.tscn"
 SignalBus="*res://autoload/signal_bus/signal_bus.tscn"
+AudioWrapper="*res://autoload/wrapper/audio_wrapper/audio_wrapper.gd"
 SceneManagerWrapper="*res://autoload/wrapper/scene_manager_wrapper/scene_manager_wrapper.tscn"
 TranslationServerWrapper="*res://autoload/wrapper/translation_server_wrapper/translation_server_wrapper.tscn"
 

@@ -1,4 +1,9 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
+## [br][br]
+## Wraps SceneManager plugin:
+## - uses scene_manager_options resouce id instead of options objects
+## [br][br]
+## TODO: Does not wrap all methods. Wrap other methods from original class if and when needed.
 extends Node
 
 

@@ -1,5 +1,5 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-##
+## [br][br]
 ## Holds options scenes and manages their transitions (listens to menu button pressed signal).
 extends Control
 

@@ -1,5 +1,5 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-##
+## [br][br]
 ## Preloads all resources (.tres files) in PRELOAD_PATH (res://resources/preload).
 ## Holds references to resources in dictionary by name as key.
 ## The key also holds a prefix to avoid conflicts of equal names across different resources types.

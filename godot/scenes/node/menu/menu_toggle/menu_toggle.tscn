@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b678n5udjckfe"]
+[gd_scene load_steps=4 format=3 uid="uid://b678n5udjckfe"]
 
 [ext_resource type="Theme" uid="uid://downo5rrvt4lo" path="res://resources/global/theme.tres" id="1_l33o4"]
-[ext_resource type="Script" path="res://scenes/component/menu/menu_toggle/menu_toggle.gd" id="2_1jsa8"]
+[ext_resource type="Script" path="res://scenes/node/menu/menu_toggle/menu_toggle.gd" id="2_1jsa8"]
+[ext_resource type="PackedScene" uid="uid://b4b36g3uhwemg" path="res://scenes/component/audio/button_audio/button_audio.tscn" id="3_bky3g"]
 
 [node name="MenuToggle" type="MarginContainer"]
 custom_minimum_size = Vector2(600, 0)
@@ -45,5 +46,6 @@ size_flags_horizontal = 10
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 16
 toggle_mode = true
-button_pressed = true
 text = "              "
+
+[node name="ButtonAudio" parent="HBoxContainer/ToggleMarginContainer/ToggleVBoxContainer/ToggleButton" instance=ExtResource("3_bky3g")]

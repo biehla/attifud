@@ -1,9 +1,14 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-##
+## [br][br]
 ## Makes HSlider expand in the same way as ProgressBar expands to fill the parent control.
+## [br][br]
+## Modifies the theme override. If not found at node level, will look at the inherited theme.
 @tool
 class_name HSliderExpand
 extends HSlider
+
+const THEME_OVERRIDE_PROPERTY: String = "theme_override_styles/slider"
+const THEME_INHERITED_PROPERTY: String = "HSlider/styles/slider"
 
 @export var expand_factor: float = 1.0:
 	set(value):
@@ -21,7 +26,7 @@ func _refresh_size() -> void:
 	if _parent_control == null:
 		return
 
-	var override_slider: StyleBox = self.get("theme_override_styles/slider") as StyleBox
+	var override_slider: StyleBox = self.get(THEME_OVERRIDE_PROPERTY) as StyleBox
 	if override_slider != null:
 		return _resize_slider(override_slider)
 
@@ -29,10 +34,10 @@ func _refresh_size() -> void:
 	if inherited_theme == null:
 		return
 
-	var theme_slider: StyleBox = inherited_theme.get("HSlider/styles/slider") as StyleBox
+	var theme_slider: StyleBox = inherited_theme.get(THEME_INHERITED_PROPERTY) as StyleBox
 	if theme_slider != null:
 		override_slider = theme_slider.duplicate()
-		self.set("theme_override_styles/slider", override_slider)
+		self.set(THEME_OVERRIDE_PROPERTY, override_slider)
 		return _resize_slider(override_slider)
 
 

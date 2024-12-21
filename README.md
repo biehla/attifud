@@ -30,7 +30,7 @@
 	- 🌍 [**Polygot Template**](https://github.com/agens-no/PolyglotUnity) with 28 languages and over 600 common [game words](https://docs.google.com/spreadsheets/d/17f0dQawb-s_Fd7DHgmVvJoEGDMH_yoSd8EYigrb0zmM/edit?gid=296134756#gid=296134756).
 	- ✏️ [**Google Noto Sans**](https://fonts.google.com/) fonts for all glyphs (Arabic, Hebrew, HK, JP, KR, SC, TC, Thai).
 - **Accessibility**
-	- 🎮 **Controller Support** -  Grab focus for a control node on entering scene.
+	- 🎮 **Controller Support** - Grab focus for joypad and keyboard users.
 	- 🔍 **Smooth Font** - Dynamic font size (keep aspect ratio) on window resize.
 - **Experience**
 	- 🎨 **Theme** - TODO: ...
@@ -95,6 +95,7 @@
 	- Use **style** inspired by [GDScript Style](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html) (see *gdlintrc*).
 	- Function definition order: [override](https://docs.godotengine.org/en/stable/tutorials/scripting/overridable_functions.html), public, private, static.
 	- Consider using [**good design patterns**](https://refactoring.guru/design-patterns) when programming.
+	- Consider maintaining **enum** values when appropriate.
 
 
 
@@ -128,7 +129,7 @@
 
 ## 🤖 Code
 
-The Globals (autoload Scenes) and Scripts (Statics, Consts, Objects) are available from anywhere in the project. The latter is independent of (not managed by) the Scene Tree.
+The Globals (autoload Scenes) and Scripts (statics, consts, objects) are available from anywhere in the project. The latter is independent of (not managed by) the Scene Tree.
 
 Otherwise, Scenes must be loaded or added to the Scene Tree.
 
@@ -136,22 +137,33 @@ Otherwise, Scenes must be loaded or added to the Scene Tree.
 
 - **Configuration**
 	- First autoload (after Plugin autoloads).
-	- Configure Project here and manage ConfigStorage for presistence.
+	- Configure Project, use ConfigStorage object for user config presistence.
 - **Reference**
 	- Preloads & holds references to Resources in dictionary by name.
 	- When creating a new Resource type, consider creating a getter here.
 - **SignalBus**
 	- Exchange global signals for cleaner observer pattern.
 - **Wrapper** : *Extend functionality without modifying the original.*
+	- **AudioWrapper** - Calls Resonance plugin with enums instead of string names.
 	- **SceneManagerWrapper** - Calls SceneManager with options presets Resource.
 	- **TranslationServerWrapper** - Extends localization to work in tool scripts.
 
 ### 🎬 Scenes
 
+Scenes are split into component, node and scene folders.
+1. Component  : _Add as a child to extend functionality by composition._
+2. Node   : _Add as a standalone building block of a larger construction._
+3. Scene  : _Presentable collection of other scenes, nodes and components._
+
+
 - **Component**
+	- **Audio**
+		- **ButtonAudio** - Emits audio events on signals (focus, click, release).
+		- **SliderAudio** - Emits audio events on signals (drag start, drag end).
 	- **Control**
-		- **ControlGrabFocus** - Grabs focus of UI node for controller support.
+		- **ControlGrabFocus** - Grabs focus of node for controller support.
 		- **ControlResizeTextFont** - Smooth text scaling with window resolution.
+- **Node**
 	- **Expand**
 		- **HSliderExpand** - Expands to fill the parent node (custom UI scaling).
 	- **Menu**
@@ -174,16 +186,18 @@ Otherwise, Scenes must be loaded or added to the Scene Tree.
 
 ### 📄 Scripts
 
-- **Objects**
+- **Const** - Collections of commonly used constants.
+- **Enum** - Collections of organised values.
+- **Object**
 	- **ActionHandler** - Implements the (light) [command pattern](https://refactoring.guru/design-patterns/command) design.
 	- **ConfigStorage** - Persists (save & load) app settings in INI file.
 	- **LinkedMap** - Dictionary data structure that tracks order of keys.
-- **Utils**
+- **Util**
 	- **FileSystemUtils** - Robust functions to extract file paths and names.
 	- **MathUtils** - Integer power function.
 	- **NodeUtils** - Collection of node manipulation functions.
 	- **RandomUtils** - Weighted Loot Table and random string functions.
-	- **StringUtils** - String padding function.
+	- **StringUtils** - String functions for validation and padding.
 
 
 
@@ -246,3 +260,5 @@ Otherwise, Scenes must be loaded or added to the Scene Tree.
 	- [CrystalBit Godot Game Template](https://github.com/crystal-bit/godot-game-template)
 	- [Maaack Godot Game Template](https://github.com/Maaack/Godot-Game-Template)
 	- [MechanicalFlower Template](https://github.com/MechanicalFlower/godot-template?tab=readme-ov-file)
+
+

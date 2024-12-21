@@ -1,5 +1,5 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-##
+## [br][br]
 ## Data structure representing an ordered map (dictionary).
 ## Preserves insertion order of keys and can sort keys by values.
 class_name LinkedMap

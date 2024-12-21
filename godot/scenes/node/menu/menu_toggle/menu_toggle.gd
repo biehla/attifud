@@ -1,5 +1,5 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-##
+## [br][br]
 ## Localized toggle button that emits a global signal.
 @tool
 class_name MenuToggle

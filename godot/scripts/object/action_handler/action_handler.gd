@@ -1,8 +1,8 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-##
+## [br][br]
 ## Encapsulates a map of callable functions (actions).
 ## Register actions by type and id, then call them by type and id (with or without arguments).
-##
+## [br][br]
 ## This is the (light) command pattern: (use action map instead of if-else/switch/match statements)
 ## https://refactoring.guru/design-patterns/command
 class_name ActionHandler

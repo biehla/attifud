@@ -1,5 +1,5 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-##
+## [br][br]
 ## Localized button that refreshes text on language selected signal, on click emits a global signal.
 @tool
 class_name MenuButtonClass

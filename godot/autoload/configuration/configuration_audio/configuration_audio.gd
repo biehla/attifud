@@ -1,7 +1,7 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-##
+## [br][br]
 ## Tracks volume on the scale from 0 to 100.
-##
+## [br][br]
 ## MusicBank holds references to music tracks that can be played by MusicManager.
 class_name ConfigurationAudio
 extends Node

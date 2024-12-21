@@ -1,5 +1,5 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-##
+## [br][br]
 ## Holds menu scenes and manages their transitions (listens to menu button pressed signal).
 extends Control
 
@@ -17,7 +17,7 @@ func _ready() -> void:
 	_toggle_menu(main_menu)
 	_init_action_handler()
 
-	MusicManager.play("music", "menu_doodle_2_loop", 1.0)
+	AudioWrapper.play_music(AudioEnum.Music.MENU_DOODLE_2_LOOP, 1.0)
 
 
 func _init_action_handler() -> void:

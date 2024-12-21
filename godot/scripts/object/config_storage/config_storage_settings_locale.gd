@@ -1,5 +1,5 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-##
+## [br][br]
 ## Persists locale application setting.
 class_name ConfigStorageSettingsLocale
 
