@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://d00qwkkl3n0uc"]
+
+[ext_resource type="Script" path="res://autoload/configuration/configuration_video/configuration_video.gd" id="1_gyndw"]
+[ext_resource type="PackedScene" uid="uid://dlj5hryuujred" path="res://autoload/configuration/configuration_video/configuration_video_display_mode/configuration_video_display_mode.tscn" id="2_suhn7"]
+
+[node name="ConfigurationVideo" type="Node"]
+script = ExtResource("1_gyndw")
+
+[node name="ConfigurationVideoDisplayMode" parent="." instance=ExtResource("2_suhn7")]
+unique_name_in_owner = true

@@ -30,16 +30,16 @@
 	- 🌍 [**Polygot Template**](https://github.com/agens-no/PolyglotUnity) with 28 languages and over 600 common [game words](https://docs.google.com/spreadsheets/d/17f0dQawb-s_Fd7DHgmVvJoEGDMH_yoSd8EYigrb0zmM/edit?gid=296134756#gid=296134756).
 	- ✏️ [**Google Noto Sans**](https://fonts.google.com/) fonts for all glyphs (Arabic, Hebrew, HK, JP, KR, SC, TC, Thai).
 - **Accessibility**
-	- 🎮 **Controller Support** - Grab focus for joypad and keyboard users.
+	- 🎮 **Controller Support** - Grab UI focus for joypad and keyboard users.
 	- 🔍 **Smooth Font** - Dynamic font size (keep aspect ratio) on window resize.
-- **Experience**
+- **Placeholder**
 	- 🎨 **Theme** - TODO: ...
 	- 🎶 **Music & SFX** - [CC0](https://creativecommons.org/publicdomain/zero/1.0/) Public Domain: [Kenny](https://kenney.nl/assets/category:Audio) SFX and [OGA](https://opengameart.org/content/menu-doodle-2) Music (looped edit).
 	- 📽️ **Post-Processing** - TODO: ...
 - **UI/UX**
 	- 🎬 **Boot Splash** - The main scene, allowing custom transition to main menu.
 	- 🏠 **Main Menu** - Display buttons to enter other menus, version and author.
-	- 🔧 **Options Menu** - TODO: ...
+	- 🔧 **Options Menu** - Audio, Video (display, vsync), Controls (keybinds), Game.
 	- 📜 **Credits Menu** - TODO: ...
 	- 📓 **Save Files Menu** - TODO: ...
 	- ⏸️ **Pause Menu** - TODO: ...
@@ -151,7 +151,7 @@ Otherwise, Scenes must be loaded or added to the Scene Tree.
 ### 🎬 Scenes
 
 Scenes are split into component, node and scene folders.
-1. Component  : _Add as a child to extend functionality by composition._
+1. Component  : _Add as a child to extend parent functionality by composition._
 2. Node   : _Add as a standalone building block of a larger construction._
 3. Scene  : _Presentable collection of other scenes, nodes and components._
 
@@ -168,6 +168,7 @@ Scenes are split into component, node and scene folders.
 		- **HSliderExpand** - Expands to fill the parent node (custom UI scaling).
 	- **Menu**
 		- **MenuButton** - Localized menu button.
+		- **MenuDropdown** - Localized dropdown option button.
 		- **MenuSlider** - Localized menu slider with accessibility buttons.
 		- **MenuToggle** - Localized menu toggle button (ON or OFF).
 - **Scene**
@@ -219,10 +220,20 @@ Scenes are split into component, node and scene folders.
 
 ## ⚡ Hacks
 
-- **Web Export (Presets)**
+Godot Engine [has known issues](https://github.com/godotengine/godot/issues) requiring hacks (workarounds) until officially resolved.
+
+Below is a list of issues that have workarounds implemented in this template.
+
+- **Desktop**
+	- TODO: See Godot Issues [#6247](https://github.com/godotengine/godot-proposals/issues/6247), [#3145](https://github.com/godotengine/godot-proposals/issues/3145) i.e.  `window_mode` before boot.
+- **Web**
 	- There is [Godot 4.3 Issue](https://github.com/godotengine/godot/issues/96874) with Boot Splash, workaround is CSS in **Head Include**.
 	- There is [Godot 4.3 Issue](https://github.com/godotengine/godot/issues/100696) with `play_stream`, workaround was added for now.
-
+	- TODO: See Godot Isssue [#43138](https://github.com/godotengine/godot/issues/43138) i.e. `window_mode` restricted to user focus.
+- **Linux**
+- **MacOS**
+- **iOS**
+- **Android**
 
 
 ## 📖 Instructions

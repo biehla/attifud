@@ -1,15 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://b678n5udjckfe"]
+[gd_scene load_steps=4 format=3 uid="uid://ira7b3k2oap7"]
 
-[ext_resource type="Theme" uid="uid://downo5rrvt4lo" path="res://resources/global/theme.tres" id="1_l33o4"]
-[ext_resource type="Script" path="res://scenes/node/menu/menu_toggle/menu_toggle.gd" id="2_1jsa8"]
-[ext_resource type="PackedScene" uid="uid://b4b36g3uhwemg" path="res://scenes/component/audio/button_audio/button_audio.tscn" id="3_bky3g"]
+[ext_resource type="Script" path="res://scenes/node/menu/menu_dropdown/menu_dropdown.gd" id="1_0o5eh"]
+[ext_resource type="Theme" uid="uid://downo5rrvt4lo" path="res://resources/global/theme.tres" id="1_rg0n0"]
+[ext_resource type="PackedScene" uid="uid://b4b36g3uhwemg" path="res://scenes/component/audio/button_audio/button_audio.tscn" id="3_2k7bv"]
 
-[node name="MenuToggle" type="MarginContainer"]
+[node name="MenuDropdown" type="MarginContainer"]
 custom_minimum_size = Vector2(600, 0)
+offset_right = 600.0
+offset_bottom = 51.0
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme = ExtResource("1_l33o4")
-script = ExtResource("2_1jsa8")
+theme = ExtResource("1_rg0n0")
+script = ExtResource("1_0o5eh")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -39,7 +41,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="ToggleButton" type="Button" parent="HBoxContainer/ToggleMarginContainer/ToggleVBoxContainer"]
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer/ToggleMarginContainer/ToggleVBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
@@ -47,7 +49,7 @@ size_flags_vertical = 4
 focus_neighbor_left = NodePath(".")
 focus_neighbor_right = NodePath(".")
 theme_override_font_sizes/font_size = 16
-toggle_mode = true
-text = "              "
+action_mode = 1
+alignment = 1
 
-[node name="ButtonAudio" parent="HBoxContainer/ToggleMarginContainer/ToggleVBoxContainer/ToggleButton" instance=ExtResource("3_bky3g")]
+[node name="ButtonAudio" parent="HBoxContainer/ToggleMarginContainer/ToggleVBoxContainer/OptionButton" instance=ExtResource("3_2k7bv")]

@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://o3ml7kr62sot" path="res://scenes/component/audio/slider_audio/slider_audio.tscn" id="5_jre7n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ipe2a"]
-content_margin_top = 3.0
-content_margin_bottom = 3.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
 bg_color = Color(0.1, 0.1, 0.1, 0.6)
 border_color = Color(0, 0, 0, 1)
 corner_detail = 1
@@ -21,7 +21,7 @@ anti_aliasing = false
 [node name="MenuSlider" type="MarginContainer"]
 custom_minimum_size = Vector2(600, 0)
 size_flags_horizontal = 4
-size_flags_vertical = 3
+size_flags_vertical = 6
 theme = ExtResource("1_7r78s")
 script = ExtResource("1_5q5f6")
 
@@ -74,6 +74,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_neighbor_left = NodePath(".")
 text = "<<"
 
 [node name="ButtonAudio" parent="HBoxContainer/SliderMarginContainer/SliderVBoxContainer/DecrementSliderButton" instance=ExtResource("3_gscw3")]
@@ -120,6 +121,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_neighbor_right = NodePath(".")
 text = ">>"
 
 [node name="ButtonAudio" parent="HBoxContainer/SliderMarginContainer/SliderVBoxContainer/IncrementSliderButton" instance=ExtResource("3_gscw3")]

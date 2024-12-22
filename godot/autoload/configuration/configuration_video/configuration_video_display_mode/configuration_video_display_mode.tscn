@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlj5hryuujred"]
+
+[ext_resource type="Script" path="res://autoload/configuration/configuration_video/configuration_video_display_mode/configuration_video_display_mode.gd" id="1_tlqo5"]
+
+[node name="ConfigurationVideoDisplayMode" type="Node"]
+script = ExtResource("1_tlqo5")

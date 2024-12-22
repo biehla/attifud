@@ -1,20 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxl20qx51clia"]
+[gd_scene load_steps=4 format=3 uid="uid://dxl20qx51clia"]
 
+[ext_resource type="Theme" uid="uid://downo5rrvt4lo" path="res://resources/global/theme.tres" id="1_24sgo"]
 [ext_resource type="Script" path="res://scenes/scene/menu_scene/options_menu/video_options/video_options.gd" id="1_75uy7"]
+[ext_resource type="PackedScene" uid="uid://ira7b3k2oap7" path="res://scenes/node/menu/menu_dropdown/menu_dropdown.tscn" id="3_hfmmd"]
 
 [node name="VideoOptions" type="MarginContainer"]
-size_flags_vertical = 3
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
+offset_right = 616.0
+offset_bottom = 232.0
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = ExtResource("1_24sgo")
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 script = ExtResource("1_75uy7")
 
 [node name="RootVBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="RootVBoxContainer"]
+[node name="DisplayModeMenuDropdown" parent="RootVBoxContainer" instance=ExtResource("3_hfmmd")]
+unique_name_in_owner = true
 layout_mode = 2
-text = "TODO: VIDEO OPTIONS"
+size_flags_horizontal = 1
+id = 1
+label = "MENU_OPTIONS_DISPLAY_MODE"
+option_padding = 3

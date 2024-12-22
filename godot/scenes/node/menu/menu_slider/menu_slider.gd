@@ -26,13 +26,13 @@ var _last_value: float
 
 func _ready() -> void:
 	_connect_signals()
+	_refresh_label()
 	set_value()
 
 
 func set_value(value: float = 0) -> void:
 	_last_value = value
 	h_slider.value = value
-	_refresh_label()
 	_refresh_value()
 
 

@@ -5,7 +5,7 @@
 class_name LinkedMap
 extends Object
 
-var keys: Array = []
+var keys: Array[String] = []
 var key_value_map: Dictionary = {}
 
 
@@ -39,12 +39,23 @@ func sort_by_values() -> void:
 	)
 
 
-func get_keys() -> Array:
+func get_keys() -> Array[String]:
 	return keys
 
 
-func get_values() -> Array:
-	var result: Array = []
+func get_values() -> Array[String]:
+	var result: Array[String] = []
 	for key: Variant in keys:
 		result.append(key_value_map[key])
 	return result
+
+
+func find_key_by_value(value: Variant) -> String:
+	for key: String in keys:
+		if key_value_map.get(key, null) == value:
+			return key
+	return ""
+
+
+func find_by_value(value: Variant) -> int:
+	return keys.find(find_key_by_value(value))
