@@ -6,7 +6,13 @@
 
 **Godot 4.3** template for game projects (GDScript).
 
-**TODO:** This template is a work in progress. (Full version in 2025.)
+Collection of curated plugins and custom features to kick-start new projects.
+
+🚨 **TODO:** This template is a work in progress. (Full version in 2025.)
+
+
+
+## ♦️ Examples
 
 <details>
 <summary>Preview Screenshots</summary>
@@ -14,8 +20,6 @@
 ![](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/readme_preview.png)
 
 </details>
-
-
 
 ## ⭐ Features
 
@@ -74,7 +78,7 @@
 	- **autoload** (Globals)
 	- **resources** *(.tres, .gd)*
 	- **scenes** *(.tscn, .gd)*
-	- **scripts** *(static/const .gd)*
+	- **scripts** *(static/const/object .gd)*
 	- **shaders** *(.gdshader)*
 	- export_presets.cfg
 	- gdlintrc
