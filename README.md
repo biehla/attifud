@@ -31,14 +31,14 @@ Collection of curated plugins and custom features to kick-start new projects.
 	- ⚙️ **Configuration** - Persistent game options and statistics in INI file.
 	- 💾 **Save Files** - TODO: ...
 - **Localization**
-	- 🌍 [**Polygot Template**](https://github.com/agens-no/PolyglotUnity) with 28 languages and over 600 common [game words](https://docs.google.com/spreadsheets/d/17f0dQawb-s_Fd7DHgmVvJoEGDMH_yoSd8EYigrb0zmM/edit?gid=296134756#gid=296134756).
-	- ✏️ [**Google Noto Sans**](https://fonts.google.com/) fonts for all glyphs (Arabic, Hebrew, HK, JP, KR, SC, TC, Thai).
+	- 🌍 [**Polygot Template**](https://github.com/agens-no/PolyglotUnity) with 28 languages and over 600 [game words](https://docs.google.com/spreadsheets/d/17f0dQawb-s_Fd7DHgmVvJoEGDMH_yoSd8EYigrb0zmM/edit?gid=296134756#gid=296134756).
+	- ✏️ [**Google Noto Sans**](https://fonts.google.com/) fonts glyphs (Arabic, Hebrew, HK, JP, KR, SC, TC, Thai).
 - **Accessibility**
 	- 🎮 **Controller Support** - Grab UI focus for joypad and keyboard users.
 	- 🔍 **Smooth Font** - Dynamic font size (keep aspect ratio) on window resize.
 - **Placeholder**
 	- 🎨 **Theme** - TODO: ...
-	- 🎶 **Music & SFX** - [CC0](https://creativecommons.org/publicdomain/zero/1.0/) Public Domain: [Kenny](https://kenney.nl/assets/category:Audio) SFX and [OGA](https://opengameart.org/content/menu-doodle-2) Music (looped edit).
+	- 🎶 **Music & SFX** - [CC0](https://creativecommons.org/publicdomain/zero/1.0/) Public Domain: [Kenny](https://kenney.nl/assets/category:Audio) SFX and [OGA](https://opengameart.org/content/menu-doodle-2) Music (loop).
 	- 📽️ **Post-Processing** - TODO: ...
 - **UI/UX**
 	- 🎬 **Boot Splash** - The main scene, allowing custom transition to main menu.
@@ -149,7 +149,7 @@ Otherwise, Scenes must be loaded or added to the Scene Tree.
 	- Exchange global signals for cleaner observer pattern.
 - **Wrapper** : *Extend functionality without modifying the original.*
 	- **AudioWrapper** - Calls Resonance plugin with enums instead of string names.
-	- **SceneManagerWrapper** - Calls SceneManager with options presets Resource.
+	- **SceneManagerWrapper** - Calls SceneManager plugin with custom resource.
 	- **TranslationServerWrapper** - Extends localization to work in tool scripts.
 
 ### 🎬 Scenes
@@ -231,8 +231,8 @@ Below is a list of issues that have workarounds implemented in this template.
 - **Desktop**
 	- TODO: See Godot Issues [#6247](https://github.com/godotengine/godot-proposals/issues/6247), [#3145](https://github.com/godotengine/godot-proposals/issues/3145) i.e.  `window_mode` before boot.
 - **Web**
-	- There is [Godot 4.3 Issue](https://github.com/godotengine/godot/issues/96874) with Boot Splash, workaround is CSS in **Head Include**.
-	- There is [Godot 4.3 Issue](https://github.com/godotengine/godot/issues/100696) with `play_stream`, workaround was added for now.
+	- There is [Godot 4.3 Issue](https://github.com/godotengine/godot/issues/96874) with Boot Splash, hack is CSS in **Head Include**.
+	- There is [Godot 4.3 Issue](https://github.com/godotengine/godot/issues/100696) with `play_stream`, hack was added for now.
 	- TODO: See Godot Isssue [#43138](https://github.com/godotengine/godot/issues/43138) i.e. `window_mode` restricted to user focus.
 - **Linux**
 - **MacOS**

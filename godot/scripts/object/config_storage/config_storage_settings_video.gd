@@ -8,11 +8,11 @@ const DISPLAY_MODE_KEY: String = "DisplayMode"
 const DEFAULT_DISPLAY_MODE: int = 0
 
 
-static func get_display_mode_option_index() -> int:
+static func get_display_mode_option_value() -> int:
 	return ConfigStorage.get_config(SETTINGS_VIDEO_SECTION, DISPLAY_MODE_KEY, DEFAULT_DISPLAY_MODE)
 
 
-static func set_display_mode_option_index(display_mode: int) -> void:
+static func set_display_mode_option_value(display_mode: int) -> void:
 	ConfigStorage.set_config(SETTINGS_VIDEO_SECTION, DISPLAY_MODE_KEY, display_mode)
 
 

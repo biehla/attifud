@@ -16,8 +16,6 @@ func _ready() -> void:
 
 
 func _load_video_options() -> void:
-	Configuration.video.display_mode.load_display_mode()
-
 	var display_mode_option_index: int = Configuration.video.display_mode.get_option_index()
 
 	display_mode_menu_dropdown.set_option(display_mode_option_index)

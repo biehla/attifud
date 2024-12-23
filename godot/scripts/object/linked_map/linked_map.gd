@@ -50,6 +50,7 @@ func get_values() -> Array[String]:
 	return result
 
 
+## return "" if not found
 func find_key_by_value(value: Variant) -> String:
 	for key: String in keys:
 		if key_value_map.get(key, null) == value:
@@ -57,5 +58,6 @@ func find_key_by_value(value: Variant) -> String:
 	return ""
 
 
-func find_by_value(value: Variant) -> int:
+## return -1 if not found
+func find_key_index_by_value(value: Variant) -> int:
 	return keys.find(find_key_by_value(value))

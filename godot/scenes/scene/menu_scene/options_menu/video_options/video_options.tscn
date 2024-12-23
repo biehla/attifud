@@ -27,4 +27,3 @@ layout_mode = 2
 size_flags_horizontal = 1
 id = 1
 label = "MENU_OPTIONS_DISPLAY_MODE"
-option_padding = 3

@@ -4,6 +4,9 @@
 class_name ConfigurationVideoDisplayMode
 extends Node
 
+const WINDOW_MODE_BORDERLESS_WINDOWED: int = -1
+const WINDOW_MODE_BORDERLESS_MAXIMIZED: int = -2
+
 var options: LinkedMap
 var web_disabled_options: Dictionary
 
@@ -30,19 +33,25 @@ func is_borderless_maximized() -> bool:
 	)
 
 
-func get_option_index() -> int:
-	var display_mode: int = DisplayServer.window_get_mode()
+func get_display_mode() -> int:
 	if is_borderless_windowed():
-		display_mode = -1
-	elif is_borderless_maximized():
-		display_mode = -2
-	return options.find_by_value(display_mode)
+		return WINDOW_MODE_BORDERLESS_WINDOWED
+	if is_borderless_maximized():
+		return WINDOW_MODE_BORDERLESS_MAXIMIZED
+	return DisplayServer.window_get_mode()
+
+
+## return -1 if not found
+func get_option_index() -> int:
+	var display_mode: int = get_display_mode()
+	return options.find_key_index_by_value(display_mode)
 
 
 func set_option_index(index: int) -> void:
 	if index != get_option_index():
-		_set_display_mode(index)
-		ConfigStorageSettingsVideo.set_display_mode_option_index(index)
+		var display_mode: int = options.get_value_at(index)
+		_set_display_mode(display_mode)
+		ConfigStorageSettingsVideo.set_display_mode_option_value(display_mode)
 
 
 func reset() -> void:
@@ -51,10 +60,10 @@ func reset() -> void:
 
 
 func load_display_mode() -> void:
-	var index: int = ConfigStorageSettingsVideo.get_display_mode_option_index()
-	var option_index: int = get_option_index()
-	if index != option_index:
-		_set_display_mode(index)
+	var display_mode: int = ConfigStorageSettingsVideo.get_display_mode_option_value()
+	var index: int = options.find_key_index_by_value(display_mode)
+	if index != get_option_index():
+		_set_display_mode(display_mode)
 
 
 func _reload_display_mode() -> void:
@@ -65,9 +74,8 @@ func _reload_display_mode() -> void:
 
 
 ## Toggles WINDOW_MODE_FULLSCREEN before toggling WINDOW_FLAG_BORDERLESS to adjust unexpected flags
-func _set_display_mode(index: int) -> void:
+func _set_display_mode(window_mode: int) -> void:
 	_manual_set = true
-	var window_mode: int = options.get_value_at(index)
 	if window_mode == DisplayServer.WindowMode.WINDOW_MODE_WINDOWED:
 		DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_FULLSCREEN)
 		DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_WINDOWED)
@@ -76,11 +84,11 @@ func _set_display_mode(index: int) -> void:
 		DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_FULLSCREEN)
 		DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_MAXIMIZED)
 		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
-	elif window_mode == -1:
+	elif window_mode == WINDOW_MODE_BORDERLESS_WINDOWED:
 		DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_FULLSCREEN)
 		DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_WINDOWED)
 		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
-	elif window_mode == -2:
+	elif window_mode == WINDOW_MODE_BORDERLESS_MAXIMIZED:
 		DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_FULLSCREEN)
 		DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_MAXIMIZED)
 		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
@@ -96,8 +104,8 @@ func _init_options() -> void:
 	_init_option("MENU_OPTIONS_WINDOWED", DisplayServer.WindowMode.WINDOW_MODE_WINDOWED, false)
 	_init_option("MENU_OPTIONS_MAXIMIZED", DisplayServer.WindowMode.WINDOW_MODE_MAXIMIZED, true)
 	_init_option("MENU_OPTIONS_FULLSCREEN", DisplayServer.WindowMode.WINDOW_MODE_FULLSCREEN, false)
-	_init_option("MENU_OPTIONS_BORDERLESS_WINDOWED", -1, true)
-	_init_option("MENU_OPTIONS_BORDERLESS_MAXIMIZED", -2, true)
+	_init_option("MENU_OPTIONS_BORDERLESS_WINDOWED", WINDOW_MODE_BORDERLESS_WINDOWED, true)
+	_init_option("MENU_OPTIONS_BORDERLESS_MAXIMIZED", WINDOW_MODE_BORDERLESS_MAXIMIZED, true)
 	_init_option(
 		"MENU_OPTIONS_EXCLUSIVE_FULLSCREEN",
 		DisplayServer.WindowMode.WINDOW_MODE_EXCLUSIVE_FULLSCREEN,
