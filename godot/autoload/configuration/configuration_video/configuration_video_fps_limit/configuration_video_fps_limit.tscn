@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://db3e68tjf0deu"]
+
+[ext_resource type="Script" path="res://autoload/configuration/configuration_video/configuration_video_fps_limit/configuration_video_fps_limit.gd" id="1_u6ur7"]
+
+[node name="ConfigurationVideoFPSLimit" type="Node"]
+script = ExtResource("1_u6ur7")

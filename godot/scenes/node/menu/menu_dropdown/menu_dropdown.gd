@@ -12,7 +12,7 @@ extends MarginContainer
 		label = value
 		_refresh_label()
 
-@export var option_padding: int = 3
+@export var option_padding: int = 1
 
 var _options: Array[String]
 var _disabled_options: Dictionary
@@ -28,6 +28,11 @@ func _ready() -> void:
 	_refresh_label()
 
 
+func disable() -> void:
+	option_button.disabled = true
+	option_button.focus_mode = FocusMode.FOCUS_NONE
+
+
 func init_options(
 	options: Array[String], disabled_options: Dictionary = {}, hide_disabled: bool = false
 ) -> void:
@@ -35,6 +40,10 @@ func init_options(
 	_disabled_options = disabled_options
 	_hide_disabled = hide_disabled
 	_refresh_options()
+
+
+func get_option() -> int:
+	return option_button.selected
 
 
 func set_option(index: int = -1) -> void:
@@ -46,6 +55,7 @@ func _refresh_size() -> void:
 
 
 func _refresh_options() -> void:
+	var selected_index: int = get_option()
 	option_button.clear()
 	for option: String in _options:
 		var is_disabled: bool = _disabled_options.get(option, false)
@@ -55,6 +65,7 @@ func _refresh_options() -> void:
 		option_button.add_item(StringUtils.add_padding(localized_text, option_padding))
 		var item_index: int = option_button.item_count - 1
 		option_button.set_item_disabled(item_index, is_disabled)
+	set_option(selected_index)
 
 
 func _refresh_label() -> void:
@@ -71,7 +82,7 @@ func _connect_signals() -> void:
 
 	option_button.item_selected.connect(_on_option_button_item_selected)
 
-	get_tree().get_root().connect("size_changed", _on_root_size_changed)
+	get_tree().get_root().size_changed.connect(_on_root_size_changed)
 
 
 func _on_language_changed(_locale: String) -> void:

@@ -28,7 +28,7 @@ func _init_options() -> void:
 
 func _connect_signals() -> void:
 	self.item_selected.connect(_on_language_option_button_item_select)
-	get_tree().get_root().connect("size_changed", _on_root_size_changed)
+	get_tree().get_root().size_changed.connect(_on_root_size_changed)
 
 
 func _on_language_option_button_item_select(index: int) -> void:

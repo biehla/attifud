@@ -8,5 +8,9 @@ signal menu_toggle_value_changed(id: MenuToggleEnum.ID, enabled: bool, source: M
 signal menu_dropdown_option_selected(id: MenuDropdownEnum.ID, index: int, source: MenuDropdown)
 
 ## Configuration
+## Language change needs to propagate to all localized nodes.
 signal language_changed(locale: String)
-signal display_mode_reloaded(index: int)
+## External cause of display mode change occured (For example, Fullscreen toggle on windows window).
+signal configuration_display_mode_reloaded(index: int)
+## Custom scale (resize) scripts need to be aware of display size changes.
+signal configuration_display_size_changed

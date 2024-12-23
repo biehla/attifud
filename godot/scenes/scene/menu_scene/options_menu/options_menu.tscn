@@ -40,7 +40,7 @@ layout_mode = 2
 theme_override_constants/separation = 4
 
 [node name="TabMarginContainer" type="MarginContainer" parent="RootMarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(616, 0)
+custom_minimum_size = Vector2(666, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/margin_top = 10
@@ -59,30 +59,30 @@ focus_neighbor_left = NodePath("../../../FooterMarginContainer/HBoxContainer/Res
 theme_override_font_sizes/font_size = 24
 toggle_mode = true
 button_pressed = true
-text = "Audio"
+text = "   Audio   "
 id = 7
 label = "MENU_LABEL_AUDIO"
-padding_spaces = 0
+padding_spaces = 3
 
 [node name="VideoMenuButton" parent="RootMarginContainer/VBoxContainer/TabMarginContainer/TabHBoxContainer" instance=ExtResource("4_m78wu")]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
 toggle_mode = true
-text = "Video"
+text = "   Video   "
 id = 8
 label = "MENU_LABEL_VIDEO"
-padding_spaces = 0
+padding_spaces = 3
 
 [node name="ControlsMenuButton" parent="RootMarginContainer/VBoxContainer/TabMarginContainer/TabHBoxContainer" instance=ExtResource("4_m78wu")]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
 toggle_mode = true
-text = "Controls"
+text = "   Controls   "
 id = 9
 label = "MENU_OPTIONS_CONTROLS"
-padding_spaces = 0
+padding_spaces = 3
 
 [node name="GameMenuButton" parent="RootMarginContainer/VBoxContainer/TabMarginContainer/TabHBoxContainer" instance=ExtResource("4_m78wu")]
 layout_mode = 2
@@ -90,10 +90,10 @@ size_flags_horizontal = 3
 focus_neighbor_right = NodePath("../../../FooterMarginContainer/HBoxContainer/BackMenuButton")
 theme_override_font_sizes/font_size = 24
 toggle_mode = true
-text = "Game"
+text = "   Game   "
 id = 10
 label = "CREDITS_GAME"
-padding_spaces = 0
+padding_spaces = 3
 
 [node name="ControlGrabFocus" parent="RootMarginContainer/VBoxContainer/TabMarginContainer/TabHBoxContainer" instance=ExtResource("2_bpco6")]
 remember_last_focus = false
@@ -109,7 +109,7 @@ size_flags_vertical = 3
 layout_mode = 2
 
 [node name="OptionsMarginContainer" type="MarginContainer" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer/ScrollContainer"]
-custom_minimum_size = Vector2(616, 0)
+custom_minimum_size = Vector2(666, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
@@ -142,7 +142,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="FooterMarginContainer" type="MarginContainer" parent="RootMarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(616, 0)
+custom_minimum_size = Vector2(666, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/margin_top = 4

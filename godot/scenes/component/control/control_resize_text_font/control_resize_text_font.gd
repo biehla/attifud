@@ -73,7 +73,7 @@ func resize(new_width: int, new_height: int) -> void:
 		return
 	_resize_factor = resize_factor
 
-	Log.debug("Resize %s font for %d x %d" % [get_parent().name, new_width, new_height])
+	# Log.debug("Resize %s font for %d x %d" % [get_parent().name, new_width, new_height])
 	for id: int in _original_font_size_map.keys():
 		var node: Node = instance_from_id(id)
 		var original_font_size: int = _original_font_size_map.get(id, DEFAULT_SEPARATION)
@@ -143,6 +143,7 @@ func _add_to_minimum_size_map(node: Node) -> void:
 
 func _connect_signals() -> void:
 	get_parent().resized.connect(_on_viewport_size_changed)
+	SignalBus.configuration_display_size_changed.connect(_on_viewport_size_changed)
 
 	if auto_minimum_width != null:
 		auto_minimum_width.resized.connect(_on_auto_resized)

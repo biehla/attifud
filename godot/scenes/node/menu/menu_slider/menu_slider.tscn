@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://o3ml7kr62sot" path="res://scenes/component/audio/slider_audio/slider_audio.tscn" id="5_jre7n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ipe2a"]
-content_margin_top = 0.0
-content_margin_bottom = 0.0
+content_margin_top = 12.0
+content_margin_bottom = 12.0
 bg_color = Color(0.1, 0.1, 0.1, 0.6)
 border_color = Color(0, 0, 0, 1)
 corner_detail = 1
@@ -19,7 +19,7 @@ expand_margin_bottom = 4.0
 anti_aliasing = false
 
 [node name="MenuSlider" type="MarginContainer"]
-custom_minimum_size = Vector2(600, 0)
+custom_minimum_size = Vector2(650, 0)
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme = ExtResource("1_7r78s")

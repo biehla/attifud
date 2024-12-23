@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca7gocxyd7v8i"]
+
+[ext_resource type="Script" path="res://autoload/configuration/configuration_video/configuration_video_resolution/configuration_video_resolution.gd" id="1_q68ew"]
+
+[node name="ConfigurationVideoResolution" type="Node"]
+script = ExtResource("1_q68ew")

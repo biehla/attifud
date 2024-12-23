@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=14 format=3 uid="uid://downo5rrvt4lo"]
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://downo5rrvt4lo"]
 
 [ext_resource type="FontFile" uid="uid://bgf0kb8u1chbp" path="res://assets/font/noto_sans/woff/noto_sans.woff" id="1_8t37s"]
 
@@ -90,6 +90,18 @@ expand_margin_right = 4.0
 expand_margin_bottom = 4.0
 anti_aliasing = false
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hs7yo"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1n6t5"]
 content_margin_left = 2.0
 content_margin_top = 2.0
@@ -111,4 +123,5 @@ HSlider/icons/grabber_highlight = SubResource("CompressedTexture2D_jj5vv")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_1t1yr")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_45os7")
 HSlider/styles/slider = SubResource("StyleBoxFlat_ppk07")
+OptionButton/styles/normal = SubResource("StyleBoxFlat_hs7yo")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_1n6t5")

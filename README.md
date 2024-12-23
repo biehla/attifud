@@ -140,8 +140,9 @@ Otherwise, Scenes must be loaded or added to the Scene Tree.
 ### 💎 Globals
 
 - **Configuration**
-	- First autoload (after Plugin autoloads).
 	- Configure Project, use ConfigStorage object for user config presistence.
+- **Overlay**
+	- Container for debug elements, e.g. FPS counter.
 - **Reference**
 	- Preloads & holds references to Resources in dictionary by name.
 	- When creating a new Resource type, consider creating a getter here.
@@ -181,7 +182,7 @@ Scenes are split into component, node and scene folders.
 		- **MainMenu** - Display buttons to enter other menus or next scene.
 		- **OptionsMenu** - Manages options (persistent app settings) scenes.
 			- **AudioOptions** - Configure Music and SFX volume or mute.
-			- **VideoOptions** - TODO: ...
+			- **VideoOptions** - Display, Resolution, VSync, FPS Limit, Anti-Alias.
 			- **ControlsOptions** - TODO: ...
 			- **GameOptions** - TODO: ...
 		- **CreditsMenu** - TODO: ...
