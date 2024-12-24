@@ -42,6 +42,10 @@ func get_display_mode() -> int:
 	return DisplayServer.window_get_mode()
 
 
+func get_root_window() -> Window:
+	return get_tree().get_root()
+
+
 func get_saved_index() -> int:
 	var display_mode: int = ConfigStorageSettingsVideo.get_display_mode_option_value()
 	return options.find_key_index_by_value(display_mode)
@@ -77,7 +81,7 @@ func _reload_display_mode() -> void:
 
 func _reload_resolution() -> void:
 	var resolution: Vector2i = ConfigStorageSettingsVideo.get_resolution_option_value()
-	get_tree().get_root().get_window().size = resolution
+	get_root_window().size = resolution
 
 
 func _set_display_mode(window_mode: int) -> void:
@@ -99,12 +103,16 @@ func _set_display_mode(window_mode: int) -> void:
 		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
 	elif window_mode == WINDOW_MODE_BORDERLESS_MAXIMIZED:
 		DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_MAXIMIZED)
+		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+		_reload_resolution()
 		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
 	else:
 		DisplayServer.window_set_mode(window_mode)
 	_manual_set = false
 
-	SignalBus.configuration_display_size_changed.emit()
+	SignalBus.configuration_display_size_changed.emit(
+		DisplayServer.window_get_mode(), get_root_window().size
+	)
 
 
 func _init_options() -> void:
@@ -133,7 +141,7 @@ func _init_option(label: String, window_mode: int, web_disabled: bool) -> void:
 
 
 func _connect_signals() -> void:
-	get_tree().get_root().size_changed.connect(_on_root_size_changed)
+	get_root_window().size_changed.connect(_on_root_size_changed)
 
 
 func _on_root_size_changed() -> void:

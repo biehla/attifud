@@ -13,4 +13,6 @@ signal language_changed(locale: String)
 ## External cause of display mode change occured (For example, Fullscreen toggle on windows window).
 signal configuration_display_mode_reloaded(index: int)
 ## Custom scale (resize) scripts need to be aware of display size changes.
-signal configuration_display_size_changed
+signal configuration_display_size_changed(
+	window_mode: DisplayServer.WindowMode, window_size: Vector2i
+)

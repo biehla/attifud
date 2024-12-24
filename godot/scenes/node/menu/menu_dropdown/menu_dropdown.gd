@@ -18,6 +18,9 @@ var _options: Array[String]
 var _disabled_options: Dictionary
 var _hide_disabled: bool
 
+var _overriden_focus_mode: FocusMode
+var _overriden_option_index: int = -1
+
 @onready var label_label: Label = %LabelLabel
 
 @onready var option_button: OptionButton = %OptionButton
@@ -28,9 +31,35 @@ func _ready() -> void:
 	_refresh_label()
 
 
-func disable() -> void:
+func disable(override_value: String = "") -> void:
+	override_value = StringUtils.add_padding(override_value, option_padding)
+
+	if option_button.disabled:
+		if override_value != "":
+			option_button.set_item_text(option_button.selected, override_value)
+		return
+
 	option_button.disabled = true
+	_overriden_focus_mode = option_button.focus_mode
 	option_button.focus_mode = FocusMode.FOCUS_NONE
+
+	if override_value != "":
+		option_button.add_item(override_value)
+		_overriden_option_index = option_button.selected
+		set_option(option_button.item_count - 1)
+
+
+func enable() -> void:
+	if not option_button.disabled:
+		return
+
+	option_button.disabled = false
+	option_button.focus_mode = _overriden_focus_mode
+
+	if _overriden_option_index != -1:
+		option_button.remove_item(option_button.item_count - 1)
+		set_option(_overriden_option_index)
+		_overriden_option_index = -1
 
 
 func init_options(

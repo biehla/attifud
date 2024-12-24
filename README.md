@@ -8,7 +8,7 @@
 
 Collection of curated plugins and custom features to kick-start new projects.
 
-🚨 **TODO:** This template is a work in progress. (Full version in 2025.)
+🚨 **TODO:** This template is a work in progress.
 
 
 
@@ -276,5 +276,8 @@ Below is a list of issues that have workarounds implemented in this template.
 	- [CrystalBit Godot Game Template](https://github.com/crystal-bit/godot-game-template)
 	- [Maaack Godot Game Template](https://github.com/Maaack/Godot-Game-Template)
 	- [MechanicalFlower Template](https://github.com/MechanicalFlower/godot-template?tab=readme-ov-file)
+	- [Ninetailsrabbit Indie Blueprint](https://github.com/ninetailsrabbit/indie-blueprint)
 
+- Godot Examples
+	- [Godot Demo Projects](https://github.com/godotengine/godot-demo-projects)
 

@@ -1,6 +1,10 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 ## [br][br]
 ## Track window resolution. Relevant only in WINDOW_MODE_WINDOWED display mode.
+## TODO: For 3D games, consider adding options such as get_viewport().scaling_3d_scale and etc.
+## TODO: Instead of "window stretch mode: disabled" project setting, add proper display options:
+## - https://github.com/godotengine/godot-demo-projects/tree/master/gui/multiple_resolutions
+## - https://godotengine.github.io/godot-demo-projects/gui/multiple_resolutions/
 class_name ConfigurationVideoResolution
 extends Node
 
@@ -8,7 +12,6 @@ var options: LinkedMap
 var disabled: bool = false
 
 
-## web cannot change resolution
 func _ready() -> void:
 	if OS.has_feature("web"):
 		disabled = true
@@ -17,8 +20,12 @@ func _ready() -> void:
 	load_resolution()
 
 
+func get_root_window() -> Window:
+	return get_tree().get_root()
+
+
 func get_resolution() -> Vector2i:
-	return get_tree().get_root().size
+	return get_root_window().size
 
 
 func get_saved_index() -> int:
@@ -63,20 +70,22 @@ func _set_resolution(resolution: Vector2i) -> void:
 	if DisplayServer.window_get_mode() != DisplayServer.WindowMode.WINDOW_MODE_WINDOWED:
 		return
 
-	get_tree().get_root().size = resolution
+	get_root_window().size = resolution
 
-	SignalBus.configuration_display_size_changed.emit()
+	SignalBus.configuration_display_size_changed.emit(
+		DisplayServer.window_get_mode(), get_root_window().size
+	)
 
 
 func _init_options() -> void:
 	options = LinkedMap.new()
 
-	_init_option("480p - 854 x 480", Vector2i(854, 480))
-	_init_option("720p - 1280 x 720", Vector2i(1280, 720))
-	_init_option("1080p - 1920 x 1080", Vector2i(1920, 1080))
-	_init_option("1440p - 2560 x 1440", Vector2i(2560, 1440))
-	_init_option("2160p - 3840 x 2160", Vector2i(3840, 2160))
-	_init_option("4320p - 7680 x 4320", Vector2i(7680, 4320))
+	_init_option("(16:9) 854 x 480", Vector2i(854, 480))
+	_init_option("(16:9) 1280 x 720", Vector2i(1280, 720))
+	_init_option("(16:9) 1920 x 1080", Vector2i(1920, 1080))
+	_init_option("(16:9) 2560 x 1440", Vector2i(2560, 1440))
+	_init_option("(16:9) 3840 x 2160", Vector2i(3840, 2160))
+	_init_option("(16:9) 7680 x 4320", Vector2i(7680, 4320))
 
 
 func _init_option(label: String, resolution: Vector2i) -> void:

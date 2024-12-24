@@ -143,7 +143,7 @@ func _add_to_minimum_size_map(node: Node) -> void:
 
 func _connect_signals() -> void:
 	get_parent().resized.connect(_on_viewport_size_changed)
-	SignalBus.configuration_display_size_changed.connect(_on_viewport_size_changed)
+	SignalBus.configuration_display_size_changed.connect(_on_display_size_changed)
 
 	if auto_minimum_width != null:
 		auto_minimum_width.resized.connect(_on_auto_resized)
@@ -153,6 +153,12 @@ func _connect_signals() -> void:
 
 func _on_viewport_size_changed() -> void:
 	resize(get_viewport().size.x, get_viewport().size.y)
+
+
+func _on_display_size_changed(
+	_window_mode: DisplayServer.WindowMode, _window_size: Vector2i
+) -> void:
+	_on_viewport_size_changed()
 
 
 func _on_auto_resized() -> void:
