@@ -17,7 +17,11 @@ Collection of curated plugins and custom features to kick-start new projects.
 <details>
 <summary>Preview Screenshots</summary>
 
-![](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/readme_preview.png)
+![](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/readme_preview_1.png)
+
+![](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/readme_preview_2.png)
+
+![](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/readme_preview_3.png)
 
 </details>
 
@@ -263,6 +267,9 @@ Below is a list of issues that have workarounds implemented in this template.
 
 ## 💕 Acknowledgements
 
+- Godot Examples
+	- [Godot Demo Projects](https://github.com/godotengine/godot-demo-projects)
+
 - Godot Engine
 	- [Godot Engine](https://github.com/godotengine/godot)
 	- [Redot Engine](https://github.com/Redot-Engine/redot-engine)
@@ -278,6 +285,5 @@ Below is a list of issues that have workarounds implemented in this template.
 	- [MechanicalFlower Template](https://github.com/MechanicalFlower/godot-template?tab=readme-ov-file)
 	- [Ninetailsrabbit Indie Blueprint](https://github.com/ninetailsrabbit/indie-blueprint)
 
-- Godot Examples
-	- [Godot Demo Projects](https://github.com/godotengine/godot-demo-projects)
+
 

@@ -20,6 +20,7 @@ func _ready() -> void:
 	_load_video_options()
 	call_deferred("_display_resolution_lock_toggle_check")
 
+
 func _load_video_options() -> void:
 	var anti_alias_option_index: int = Configuration.video.anti_alias.get_option_index()
 	var display_mode_option_index: int = Configuration.video.display_mode.get_option_index()
@@ -119,7 +120,6 @@ func _init_resolution_menu_dropdown() -> void:
 	resolution_menu_dropdown.init_options(resolutions)
 	if Configuration.video.resolution.disabled:
 		resolution_menu_dropdown.disable()
-		
 
 
 func _init_vsync_mode_menu_dropdown() -> void:
@@ -130,18 +130,20 @@ func _init_vsync_mode_menu_dropdown() -> void:
 
 
 func _display_resolution_lock_toggle(
-	window_mode: DisplayServer.WindowMode = , window_size: Vector2i
+	window_mode: DisplayServer.WindowMode, window_size: Vector2i
 ) -> void:
 	if Configuration.video.resolution.disabled:
 		return
-	
+
 	if window_mode == DisplayServer.WindowMode.WINDOW_MODE_WINDOWED:
 		resolution_menu_dropdown.enable()
 	else:
 		resolution_menu_dropdown.disable("%s x %s" % [window_size.x, window_size.y])
 
+
 func _display_resolution_lock_toggle_check() -> void:
 	_display_resolution_lock_toggle(DisplayServer.window_get_mode(), get_tree().get_root().size)
+
 
 func _connect_signals() -> void:
 	SignalBus.configuration_display_mode_reloaded.connect(_on_display_mode_reloaded)
