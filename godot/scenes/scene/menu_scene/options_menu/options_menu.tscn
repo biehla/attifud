@@ -1,6 +1,5 @@
-[gd_scene load_steps=10 format=3 uid="uid://bea1npdsg7ii1"]
+[gd_scene load_steps=9 format=3 uid="uid://bea1npdsg7ii1"]
 
-[ext_resource type="PackedScene" uid="uid://bdh62o75gsq3g" path="res://scenes/component/control/control_resize_text_font/control_resize_text_font.tscn" id="1_fkmwe"]
 [ext_resource type="Theme" uid="uid://downo5rrvt4lo" path="res://resources/global/theme.tres" id="1_p6aqg"]
 [ext_resource type="PackedScene" uid="uid://bv7d4vxqjocks" path="res://scenes/component/control/control_grab_focus/control_grab_focus.tscn" id="2_bpco6"]
 [ext_resource type="Script" path="res://scenes/scene/menu_scene/options_menu/options_menu.gd" id="2_jd1v2"]
@@ -85,6 +84,7 @@ label = "MENU_OPTIONS_CONTROLS"
 padding_spaces = 3
 
 [node name="GameMenuButton" parent="RootMarginContainer/VBoxContainer/TabMarginContainer/TabHBoxContainer" instance=ExtResource("4_m78wu")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_right = NodePath("../../../FooterMarginContainer/HBoxContainer/BackMenuButton")
@@ -105,35 +105,32 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ScrollContainer" type="ScrollContainer" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer"]
-layout_mode = 2
-
-[node name="OptionsMarginContainer" type="MarginContainer" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer/ScrollContainer"]
+[node name="OptionsMarginContainer" type="MarginContainer" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer"]
 custom_minimum_size = Vector2(666, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
-[node name="OptionsVBoxContainer" type="VBoxContainer" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer/ScrollContainer/OptionsMarginContainer"]
+[node name="OptionsVBoxContainer" type="VBoxContainer" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer/OptionsMarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="AudioOptions" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer/ScrollContainer/OptionsMarginContainer/OptionsVBoxContainer" instance=ExtResource("5_kiw17")]
+[node name="AudioOptions" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer/OptionsMarginContainer/OptionsVBoxContainer" instance=ExtResource("5_kiw17")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="VideoOptions" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer/ScrollContainer/OptionsMarginContainer/OptionsVBoxContainer" instance=ExtResource("6_balw6")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
-[node name="ControlsOptions" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer/ScrollContainer/OptionsMarginContainer/OptionsVBoxContainer" instance=ExtResource("7_pspmp")]
+[node name="VideoOptions" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer/OptionsMarginContainer/OptionsVBoxContainer" instance=ExtResource("6_balw6")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="GameOptions" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer/ScrollContainer/OptionsMarginContainer/OptionsVBoxContainer" instance=ExtResource("8_t3ua6")]
+[node name="ControlsOptions" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer/OptionsMarginContainer/OptionsVBoxContainer" instance=ExtResource("7_pspmp")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="GameOptions" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer/OptionsMarginContainer/OptionsVBoxContainer" instance=ExtResource("8_t3ua6")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -173,6 +170,3 @@ theme_override_font_sizes/font_size = 24
 text = "       Reset       "
 id = 6
 label = "MENU_LABEL_RESET"
-
-[node name="ControlResizeTextFont" parent="." instance=ExtResource("1_fkmwe")]
-minimum_width = 632

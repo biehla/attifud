@@ -23,6 +23,8 @@ Collection of curated plugins and custom features to kick-start new projects.
 
 ![](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/readme_preview_3.png)
 
+![](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/readme_preview_4.png)
+
 </details>
 
 ## ⭐ Features
@@ -39,7 +41,7 @@ Collection of curated plugins and custom features to kick-start new projects.
 	- ✏️ [**Google Noto Sans**](https://fonts.google.com/) fonts glyphs (Arabic, Hebrew, HK, JP, KR, SC, TC, Thai).
 - **Accessibility**
 	- 🎮 **Controller Support** - Grab UI focus for joypad and keyboard users.
-	- 🔍 **Smooth Font** - Dynamic font size (keep aspect ratio) on window resize.
+	- 🔍 **Custom Stretch** - Custom UI resize if project "stretch mode: disabled".
 - **Placeholder**
 	- 🎨 **Theme** - TODO: ...
 	- 🎶 **Music & SFX** - [CC0](https://creativecommons.org/publicdomain/zero/1.0/) Public Domain: [Kenny](https://kenney.nl/assets/category:Audio) SFX and [OGA](https://opengameart.org/content/menu-doodle-2) Music (loop).
@@ -171,7 +173,7 @@ Scenes are split into component, node and scene folders.
 		- **SliderAudio** - Emits audio events on signals (drag start, drag end).
 	- **Control**
 		- **ControlGrabFocus** - Grabs focus of node for controller support.
-		- **ControlResizeTextFont** - Smooth text scaling with window resolution.
+		- **ControlResizeTextFont** - Custom UI scaling with window resolution.
 - **Node**
 	- **Expand**
 		- **HSliderExpand** - Expands to fill the parent node (custom UI scaling).
@@ -187,8 +189,8 @@ Scenes are split into component, node and scene folders.
 		- **OptionsMenu** - Manages options (persistent app settings) scenes.
 			- **AudioOptions** - Configure Music and SFX volume or mute.
 			- **VideoOptions** - Display, Resolution, VSync, FPS Limit, Anti-Alias.
-			- **ControlsOptions** - TODO: ...
-			- **GameOptions** - TODO: ...
+			- **ControlsOptions** - Change (add or remove) keybinds.
+			- **GameOptions** - Custom options, e.g. toggle autosave.
 		- **CreditsMenu** - TODO: ...
 		- **SaveFilesMenu** - TODO: ...
 	- **PlayScene** - TODO: ...
@@ -231,7 +233,7 @@ Scenes are split into component, node and scene folders.
 
 Godot Engine [has known issues](https://github.com/godotengine/godot/issues) requiring hacks (workarounds) until officially resolved.
 
-Below is a list of issues that have workarounds implemented in this template.
+Below is a list of issues needing workarounds implemented in this template.
 
 - **Desktop**
 	- TODO: See Godot Issues [#6247](https://github.com/godotengine/godot-proposals/issues/6247), [#3145](https://github.com/godotengine/godot-proposals/issues/3145) i.e.  `window_mode` before boot.
@@ -239,6 +241,8 @@ Below is a list of issues that have workarounds implemented in this template.
 	- There is [Godot 4.3 Issue](https://github.com/godotengine/godot/issues/96874) with Boot Splash, hack is CSS in **Head Include**.
 	- There is [Godot 4.3 Issue](https://github.com/godotengine/godot/issues/100696) with `play_stream`, hack was added for now.
 	- TODO: See Godot Isssue [#43138](https://github.com/godotengine/godot/issues/43138) i.e. `window_mode` restricted to user focus.
+
+TODO: Test the template on following platforms.
 - **Linux**
 - **MacOS**
 - **iOS**
@@ -284,6 +288,7 @@ Below is a list of issues that have workarounds implemented in this template.
 	- [Maaack Godot Game Template](https://github.com/Maaack/Godot-Game-Template)
 	- [MechanicalFlower Template](https://github.com/MechanicalFlower/godot-template?tab=readme-ov-file)
 	- [Ninetailsrabbit Indie Blueprint](https://github.com/ninetailsrabbit/indie-blueprint)
+
 
 
 

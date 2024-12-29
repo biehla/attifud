@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b88kuy67g4l8f"]
+[gd_scene load_steps=6 format=3 uid="uid://b88kuy67g4l8f"]
 
 [ext_resource type="Theme" uid="uid://downo5rrvt4lo" path="res://resources/global/theme.tres" id="1_ed2md"]
 [ext_resource type="Script" path="res://scenes/scene/menu_scene/main_menu/main_menu.gd" id="1_j1c5u"]
 [ext_resource type="PackedScene" uid="uid://bv7d4vxqjocks" path="res://scenes/component/control/control_grab_focus/control_grab_focus.tscn" id="3_jhg6y"]
 [ext_resource type="PackedScene" uid="uid://k5xt8llrybgm" path="res://scenes/node/menu/menu_button/menu_button.tscn" id="3_u405l"]
-[ext_resource type="PackedScene" uid="uid://bdh62o75gsq3g" path="res://scenes/component/control/control_resize_text_font/control_resize_text_font.tscn" id="4_nktr1"]
 [ext_resource type="PackedScene" uid="uid://cjo0dka4vld2w" path="res://scenes/scene/menu_scene/main_menu/language_option_button/language_option_button.tscn" id="5_b23r4"]
 
 [node name="MainMenu" type="Control"]
@@ -61,7 +60,13 @@ text = "v?.?"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="MainMenuMarginContainer" type="MarginContainer" parent="RootMarginContainer"]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="RootMarginContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="RootMarginContainer/AspectRatioContainer"]
+layout_mode = 2
+
+[node name="MainMenuMarginContainer" type="MarginContainer" parent="RootMarginContainer/AspectRatioContainer/CenterContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -70,15 +75,15 @@ theme_override_constants/margin_top = 48
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 48
 
-[node name="MainMenuVBoxContainer" type="VBoxContainer" parent="RootMarginContainer/MainMenuMarginContainer"]
+[node name="MainMenuVBoxContainer" type="VBoxContainer" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="MainMenuLabelsVBoxContainer" type="VBoxContainer" parent="RootMarginContainer/MainMenuMarginContainer/MainMenuVBoxContainer"]
+[node name="MainMenuLabelsVBoxContainer" type="VBoxContainer" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 32
 
-[node name="TitleLabel" type="Label" parent="RootMarginContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuLabelsVBoxContainer"]
+[node name="TitleLabel" type="Label" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuLabelsVBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
@@ -86,41 +91,41 @@ text = "Game Template"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SeparationMarginContainer" type="MarginContainer" parent="RootMarginContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuLabelsVBoxContainer"]
+[node name="SeparationMarginContainer" type="MarginContainer" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuLabelsVBoxContainer"]
 layout_mode = 2
 
-[node name="MainMenuButtonsVBoxContainer" type="VBoxContainer" parent="RootMarginContainer/MainMenuMarginContainer/MainMenuVBoxContainer"]
+[node name="MainMenuButtonsVBoxContainer" type="VBoxContainer" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 16
 
-[node name="PlayMenuButton" parent="RootMarginContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("3_u405l")]
+[node name="PlayMenuButton" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("3_u405l")]
 layout_mode = 2
 text = "       Play       "
 id = 1
 label = "MENU_LABEL_PLAY"
 
-[node name="OptionsMenuButton" parent="RootMarginContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("3_u405l")]
+[node name="OptionsMenuButton" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("3_u405l")]
 layout_mode = 2
 text = "       Options       "
 id = 2
 label = "MENU_OPTIONS"
 
-[node name="CreditsMenuButton" parent="RootMarginContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("3_u405l")]
+[node name="CreditsMenuButton" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("3_u405l")]
 layout_mode = 2
 text = "       Credits       "
 id = 3
 label = "MENU_LABEL_CREDITS"
 
-[node name="QuitMenuButton" parent="RootMarginContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("3_u405l")]
+[node name="QuitMenuButton" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("3_u405l")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "       Quit       "
 id = 4
 label = "MENU_LABEL_QUIT"
 
-[node name="ControlGrabFocus" parent="RootMarginContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("3_jhg6y")]
+[node name="ControlGrabFocus" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("3_jhg6y")]
 
 [node name="HeaderMarginContainer" type="MarginContainer" parent="RootMarginContainer"]
 layout_mode = 2
@@ -142,8 +147,3 @@ mouse_filter = 2
 [node name="LanguageOptionButton" parent="RootMarginContainer/HeaderMarginContainer/HeaderBoxContainer" instance=ExtResource("5_b23r4")]
 layout_mode = 2
 allow_reselect = true
-
-[node name="ControlResizeTextFont" parent="." node_paths=PackedStringArray("auto_minimum_width") instance=ExtResource("4_nktr1")]
-unique_name_in_owner = true
-resize_separation = true
-auto_minimum_width = NodePath("../RootMarginContainer/MainMenuMarginContainer")

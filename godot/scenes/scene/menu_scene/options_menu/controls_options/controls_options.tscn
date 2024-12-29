@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2owjxrhgllgx"]
+[gd_scene load_steps=4 format=3 uid="uid://c2owjxrhgllgx"]
 
 [ext_resource type="Script" path="res://scenes/scene/menu_scene/options_menu/controls_options/controls_options.gd" id="1_g2i3h"]
+[ext_resource type="PackedScene" uid="uid://cle4e26qtpntx" path="res://scenes/scene/menu_scene/options_menu/controls_options/menu_keybinds/menu_keybinds.tscn" id="2_p8ovm"]
+[ext_resource type="PackedScene" uid="uid://b5v0hlvdp1mxx" path="res://scenes/scene/menu_scene/options_menu/controls_options/menu_keybind_dialog/menu_keybind_dialog.tscn" id="3_xhl5h"]
 
 [node name="ControlsOptions" type="MarginContainer"]
 size_flags_vertical = 3
@@ -15,6 +17,22 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 
-[node name="Label" type="Label" parent="RootVBoxContainer"]
+[node name="KeybindsMapMarginContainer" type="MarginContainer" parent="RootVBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(650, 420)
 layout_mode = 2
-text = "TODO: CONTROLS OPTIONS"
+size_flags_vertical = 3
+
+[node name="MenuKeybinds" parent="RootVBoxContainer/KeybindsMapMarginContainer" instance=ExtResource("2_p8ovm")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MenuUnbindDialog" type="ConfirmationDialog" parent="."]
+unique_name_in_owner = true
+title = ""
+initial_position = 1
+
+[node name="MenuKeybindDialog" parent="." instance=ExtResource("3_xhl5h")]
+unique_name_in_owner = true
+size = Vector2i(221, 125)
+dialog_text = ""

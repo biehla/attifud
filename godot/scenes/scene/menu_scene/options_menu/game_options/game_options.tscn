@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://s26ypj4otfru"]
+[gd_scene load_steps=3 format=3 uid="uid://s26ypj4otfru"]
 
 [ext_resource type="Script" path="res://scenes/scene/menu_scene/options_menu/game_options/game_options.gd" id="1_umgsk"]
+[ext_resource type="PackedScene" uid="uid://b678n5udjckfe" path="res://scenes/node/menu/menu_toggle/menu_toggle.tscn" id="2_f0u4i"]
 
 [node name="GameOptions" type="MarginContainer"]
 size_flags_vertical = 3
@@ -15,6 +16,10 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 
-[node name="Label" type="Label" parent="RootVBoxContainer"]
+[node name="AutosaveMenuToggle" parent="RootVBoxContainer" instance=ExtResource("2_f0u4i")]
+unique_name_in_owner = true
 layout_mode = 2
-text = "TODO: GAME OPTIONS"
+id = 3
+label = "MENU_OPTIONS_AUTOSAVE"
+label_on = "MENU_LABEL_ON"
+label_off = "MENU_LABEL_OFF"

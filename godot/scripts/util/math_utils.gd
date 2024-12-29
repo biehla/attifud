@@ -13,3 +13,12 @@ static func pow_int(base: int, exponent: int) -> int:
 	for i: int in range(exponent):
 		result *= base
 	return result
+
+
+## uses factor_x for both dimensions if factor_y is not provided
+static func scale_v2i(vector: Vector2i, factor_x: float, factor_y: float = 0.0) -> Vector2i:
+	if is_equal_approx(factor_y, 0.0):
+		factor_y = factor_x
+	var x: int = int(float(vector.x) * factor_x)
+	var y: int = int(float(vector.y) * factor_y)
+	return Vector2i(x, y)

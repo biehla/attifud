@@ -2,7 +2,7 @@
 ## [br][br]
 ## Corresponds to available audio in [ConfigurationAudio]'s music bank and sound bank nodes.
 ## [br][br]
-## Consider splitting into multiple classes if you have a lot of sounds e.g. UiAudio, GameAudio, ...
+## NOTE: Consider splitting into multiple classes if needed, e.g. UiAudio, GameAudio, ...
 class_name AudioEnum
 
 enum Music { NULL, MENU_DOODLE_2_LOOP }

@@ -18,7 +18,7 @@ func _ready() -> void:
 	_init_menu_nodes()
 	_init_action_handler()
 	_load_video_options()
-	call_deferred("_display_resolution_lock_toggle_check")
+	_display_resolution_lock_toggle_check.call_deferred()
 
 
 func _load_video_options() -> void:
@@ -161,11 +161,11 @@ func _on_display_mode_reloaded(index: int) -> void:
 	var resolution_option_index: int = Configuration.video.resolution.refresh_resolution()
 	resolution_menu_dropdown.set_option(resolution_option_index)
 
-	call_deferred("_display_resolution_lock_toggle_check")
+	_display_resolution_lock_toggle_check.call_deferred()
 
 
 func _on_display_size_changed(window_mode: DisplayServer.WindowMode, window_size: Vector2i) -> void:
-	call_deferred("_display_resolution_lock_toggle", window_mode, window_size)
+	_display_resolution_lock_toggle.call_deferred(window_mode, window_size)
 
 
 func _on_menu_dropdown_option_selected(

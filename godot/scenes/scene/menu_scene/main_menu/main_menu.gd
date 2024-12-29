@@ -7,7 +7,6 @@ const VERSION_PREFIX: String = "v"
 @onready var author_label: Label = %AuthorLabel
 @onready var version_label: Label = %VersionLabel
 @onready var quit_menu_button: MenuButtonClass = %QuitMenuButton
-@onready var control_resize_text_font: ControlResizeTextFont = %ControlResizeTextFont
 
 
 func _ready() -> void:

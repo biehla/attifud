@@ -21,7 +21,7 @@ func _ready() -> void:
 		return
 
 	_connect_signals()
-	call_deferred("_grab_focus")
+	_grab_focus.call_deferred()
 
 
 func _grab_focus() -> void:
@@ -42,7 +42,7 @@ func _connect_signals() -> void:
 
 
 func _on_visibility_changed() -> void:
-	call_deferred("_grab_focus")
+	_grab_focus.call_deferred()
 
 
 func _on_gui_focus_changed(control: Control) -> void:

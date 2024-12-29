@@ -13,6 +13,8 @@ var _action_handler: ActionHandler = ActionHandler.new()
 @onready var controls_options: MarginContainer = %ControlsOptions
 @onready var game_options: MarginContainer = %GameOptions
 
+@onready var game_menu_button: MenuButtonClass = %GameMenuButton
+
 
 func _ready() -> void:
 	_connect_signals()

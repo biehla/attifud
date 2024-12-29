@@ -2,9 +2,9 @@
 ## [br][br]
 ## Track window resolution. Relevant only in WINDOW_MODE_WINDOWED display mode.
 ## TODO: For 3D games, consider adding options such as get_viewport().scaling_3d_scale and etc.
-## TODO: Instead of "window stretch mode: disabled" project setting, add proper display options:
+## - https://github.com/godotengine/godot-demo-projects/tree/4.2-31d1c0c/3d/graphics_settings
+## TODO: For GUI games, consider detailed gui options:
 ## - https://github.com/godotengine/godot-demo-projects/tree/master/gui/multiple_resolutions
-## - https://godotengine.github.io/godot-demo-projects/gui/multiple_resolutions/
 class_name ConfigurationVideoResolution
 extends Node
 
@@ -80,12 +80,12 @@ func _set_resolution(resolution: Vector2i) -> void:
 func _init_options() -> void:
 	options = LinkedMap.new()
 
-	_init_option("(16:9) 854 x 480", Vector2i(854, 480))
-	_init_option("(16:9) 1280 x 720", Vector2i(1280, 720))
-	_init_option("(16:9) 1920 x 1080", Vector2i(1920, 1080))
-	_init_option("(16:9) 2560 x 1440", Vector2i(2560, 1440))
-	_init_option("(16:9) 3840 x 2160", Vector2i(3840, 2160))
-	_init_option("(16:9) 7680 x 4320", Vector2i(7680, 4320))
+	_init_option("854 x 480", Vector2i(854, 480))
+	_init_option("1280 x 720", Vector2i(1280, 720))
+	_init_option("1920 x 1080", Vector2i(1920, 1080))
+	_init_option("2560 x 1440", Vector2i(2560, 1440))
+	_init_option("3840 x 2160", Vector2i(3840, 2160))
+	_init_option("7680 x 4320", Vector2i(7680, 4320))
 
 
 func _init_option(label: String, resolution: Vector2i) -> void:

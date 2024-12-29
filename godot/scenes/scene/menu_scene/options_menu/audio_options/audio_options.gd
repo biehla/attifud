@@ -8,7 +8,7 @@ var _action_handler: ActionHandler = ActionHandler.new()
 @onready var master_menu_slider: MenuSlider = %MasterMenuSlider
 @onready var music_menu_slider: MenuSlider = %MusicMenuSlider
 @onready var sfx_menu_slider: MenuSlider = %SFXMenuSlider
-@onready var menu_toggle: MenuToggle = %MenuToggle
+@onready var audio_menu_toggle: MenuToggle = %AudioMenuToggle
 
 
 func _ready() -> void:
@@ -26,7 +26,7 @@ func _load_audio_options() -> void:
 	master_menu_slider.set_value(master_volume)
 	music_menu_slider.set_value(music_volume)
 	sfx_menu_slider.set_value(sfx_volume)
-	menu_toggle.set_value(audio_enabled)
+	audio_menu_toggle.set_value(audio_enabled)
 
 
 func _init_action_handler() -> void:

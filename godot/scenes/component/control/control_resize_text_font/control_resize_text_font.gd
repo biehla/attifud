@@ -51,7 +51,17 @@ func _ready() -> void:
 	resize_with_new_auto_minimum(get_viewport().size.x, get_viewport().size.y)
 
 
+func is_disabled() -> bool:
+	var stretch_mode: Window.ContentScaleMode = (
+		int(ProjectSettings.get_setting("display/window/stretch/mode")) as Window.ContentScaleMode
+	)
+	return stretch_mode != Window.ContentScaleMode.CONTENT_SCALE_MODE_DISABLED
+
+
 func resize(new_width: int, new_height: int) -> void:
+	if is_disabled():
+		return
+
 	var original_width: int = _original_width
 	var original_heigh: int = _original_height
 
@@ -73,7 +83,7 @@ func resize(new_width: int, new_height: int) -> void:
 		return
 	_resize_factor = resize_factor
 
-	# Log.debug("Resize %s font for %d x %d" % [get_parent().name, new_width, new_height])
+	Log.debug("Resize %s font for %d x %d" % [get_parent().name, new_width, new_height])
 	for id: int in _original_font_size_map.keys():
 		var node: Node = instance_from_id(id)
 		var original_font_size: int = _original_font_size_map.get(id, DEFAULT_SEPARATION)
@@ -101,6 +111,9 @@ func resize(new_width: int, new_height: int) -> void:
 
 
 func resize_with_new_auto_minimum(new_width: int, new_height: int) -> void:
+	if is_disabled():
+		return
+
 	if auto_minimum_width == null and auto_minimum_height == null:
 		resize(get_viewport().size.x, get_viewport().size.y)
 

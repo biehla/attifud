@@ -38,4 +38,4 @@ func _on_language_option_button_item_select(index: int) -> void:
 
 
 func _on_root_size_changed() -> void:
-	call_deferred("_refresh_size")
+	_refresh_size.call_deferred()

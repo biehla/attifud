@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dshg07v6i852i"]
+
+[ext_resource type="Script" path="res://autoload/configuration/configuration_game/configuration_game.gd" id="1_ui2c6"]
+
+[node name="ConfigurationGame" type="Node"]
+script = ExtResource("1_ui2c6")

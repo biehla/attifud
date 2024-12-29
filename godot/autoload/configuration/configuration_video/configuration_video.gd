@@ -24,8 +24,3 @@ func reset() -> void:
 	fps_limit.load_fps_limit()
 	resolution.load_resolution()
 	vsync_mode.load_vsync_mode()
-
-
-func _reload_resolution(window_mode: DisplayServer.WindowMode) -> void:
-	if window_mode == DisplayServer.WindowMode.WINDOW_MODE_WINDOWED:
-		resolution.load_resolution()
