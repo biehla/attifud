@@ -1,11 +1,6 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 extends MarginContainer
 
-const DELETE_DIALOG_LABEL: String = "MENU_OPTIONS_KEYBINDS_DELETE_DIALOG_LABEL"
-const KEYBIND_DIALOG_TITLE: String = "MENU_OPTIONS_KEYBINDS_KEYBIND_DIALOG_TITLE"
-const CONFIRM_LABEL: String = "MENU_LABEL_CONFIRM_BUTTON_YOU"
-const CANCEL_LABEL: String = "MENU_LABEL_CANCEL_YOU"
-
 var _action_handler: ActionHandler = ActionHandler.new()
 
 var _keybinds_action: StringName
@@ -14,7 +9,7 @@ var _keybinds_input: InputEvent
 @onready var keybinds_map_margin_container: MarginContainer = %KeybindsMapMarginContainer
 @onready var menu_keybinds: MenuKeybinds = %MenuKeybinds
 
-@onready var menu_unbind_dialog: ConfirmationDialog = %MenuUnbindDialog
+@onready var menu_unbind_dialog: MenuUnbindDialog = %MenuUnbindDialog
 @onready var menu_keybind_dialog: MenuKeybindDialog = %MenuKeybindDialog
 
 
@@ -50,14 +45,7 @@ func _connect_signals() -> void:
 
 func _on_keybind_item_action_interacted(action: StringName, item_text: String) -> void:
 	_keybinds_action = action
-
-	menu_keybind_dialog.title_label.text = (
-		TranslationServerWrapper.translate(KEYBIND_DIALOG_TITLE) % [item_text]
-	)
-	menu_keybind_dialog.ok_button_text = TranslationServerWrapper.translate(CONFIRM_LABEL)
-	menu_keybind_dialog.cancel_button_text = TranslationServerWrapper.translate(CANCEL_LABEL)
-	var relative_size: Vector2i = MathUtils.scale_v2i(keybinds_map_margin_container.size, 0.75, 0.5)
-	menu_keybind_dialog.popup_centered(relative_size)
+	menu_keybind_dialog.custom_popup(item_text, keybinds_map_margin_container)
 
 
 func _on_keybind_item_input_interacted(
@@ -65,13 +53,7 @@ func _on_keybind_item_input_interacted(
 ) -> void:
 	_keybinds_action = action
 	_keybinds_input = input
-
-	menu_unbind_dialog.dialog_text = (
-		TranslationServerWrapper.translate(DELETE_DIALOG_LABEL) % [parent_item_text, item_text]
-	)
-	menu_unbind_dialog.ok_button_text = TranslationServerWrapper.translate(CONFIRM_LABEL)
-	menu_unbind_dialog.cancel_button_text = TranslationServerWrapper.translate(CANCEL_LABEL)
-	menu_unbind_dialog.popup_centered(Vector2i(1, 1))
+	menu_unbind_dialog.custom_popup(parent_item_text, item_text)
 
 
 func _on_delete_dialog_confirmed() -> void:

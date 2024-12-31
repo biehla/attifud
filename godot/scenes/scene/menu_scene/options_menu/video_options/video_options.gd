@@ -5,6 +5,7 @@ extends MarginContainer
 
 var _action_handler: ActionHandler = ActionHandler.new()
 
+@onready var window_scale_menu_slider: MenuSlider = %WindowScaleMenuSlider
 @onready var display_mode_menu_dropdown: MenuDropdown = %DisplayModeMenuDropdown
 @onready var resolution_menu_dropdown: MenuDropdown = %ResolutionMenuDropdown
 @onready var vsync_mode_menu_dropdown: MenuDropdown = %VsyncModeMenuDropdown
@@ -22,6 +23,7 @@ func _ready() -> void:
 
 
 func _load_video_options() -> void:
+	var window_scale_value: float = Configuration.video.window_zoom.get_window_zoom()
 	var anti_alias_option_index: int = Configuration.video.anti_alias.get_option_index()
 	var display_mode_option_index: int = Configuration.video.display_mode.get_option_index()
 	var fps_count_enabled: bool = Configuration.video.fps_count.is_fps_count_enabled()
@@ -29,6 +31,7 @@ func _load_video_options() -> void:
 	var resolution_option_index: int = Configuration.video.resolution.get_option_index()
 	var vsync_mode_option_index: int = Configuration.video.vsync_mode.get_option_index()
 
+	window_scale_menu_slider.set_value(window_scale_value)
 	anti_alias_menu_dropdown.set_option(anti_alias_option_index)
 	display_mode_menu_dropdown.set_option(display_mode_option_index)
 	fps_count_menu_toggle.set_value(fps_count_enabled)
@@ -38,6 +41,11 @@ func _load_video_options() -> void:
 
 
 func _init_action_handler() -> void:
+	_action_handler.set_register_type("MenuSlider")
+	_action_handler.register_action(
+		MenuSliderEnum.ID.VIDEO_WINDOW_SCALE, _action_window_scale_menu_slider
+	)
+
 	_action_handler.set_register_type("MenuDropdown")
 	_action_handler.register_actions(
 		{
@@ -54,6 +62,10 @@ func _init_action_handler() -> void:
 
 	_action_handler.set_register_type("MenuButton")
 	_action_handler.register_action(MenuButtonEnum.ID.OPTIONS_MENU_RESET, _action_reset_menu_button)
+
+
+func _action_window_scale_menu_slider(value: float) -> void:
+	Configuration.video.window_zoom.set_window_zoom(value)
 
 
 func _action_anti_alias_menu_dropdown(index: int) -> void:
@@ -149,6 +161,7 @@ func _connect_signals() -> void:
 	SignalBus.configuration_display_mode_reloaded.connect(_on_display_mode_reloaded)
 	SignalBus.configuration_display_size_changed.connect(_on_display_size_changed)
 
+	SignalBus.menu_slider_value_changed.connect(_on_menu_slider_value_changed)
 	SignalBus.menu_dropdown_option_selected.connect(_on_menu_dropdown_option_selected)
 	SignalBus.menu_toggle_value_changed.connect(_on_menu_toggle_value_changed)
 	SignalBus.menu_button_pressed.connect(_on_menu_button_pressed)
@@ -166,6 +179,12 @@ func _on_display_mode_reloaded(index: int) -> void:
 
 func _on_display_size_changed(window_mode: DisplayServer.WindowMode, window_size: Vector2i) -> void:
 	_display_resolution_lock_toggle.call_deferred(window_mode, window_size)
+
+
+func _on_menu_slider_value_changed(
+	id: MenuSliderEnum.ID, value: float, _source: MenuSlider
+) -> void:
+	_action_handler.handle_action_args("MenuSlider", id, self, [value])
 
 
 func _on_menu_dropdown_option_selected(

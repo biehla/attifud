@@ -76,6 +76,9 @@ func get_option() -> int:
 
 
 func set_option(index: int = -1) -> void:
+	if index >= option_button.item_count:
+		Log.warn("Index out of bounds: ", index)
+		return
 	option_button.select(index)
 
 

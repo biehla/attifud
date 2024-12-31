@@ -169,14 +169,14 @@ Scenes are split into component, node and scene folders.
 
 - **Component**
 	- **Audio**
-		- **ButtonAudio** - Emits audio events on signals (focus, click, release).
-		- **SliderAudio** - Emits audio events on signals (drag start, drag end).
+		- **ButtonAudio** - Audio events on signals (focus, click, release).
+		- **SliderAudio** - Audio events on signals (drag start, drag end).
+		- **TreeAudio** - Audio events on signals (cell selected, button clicked).
 	- **Control**
+		- **ControlExpandStylebox** - Resize target node to fill parent container.
 		- **ControlGrabFocus** - Grabs focus of node for controller support.
 		- **ControlResizeTextFont** - Custom UI scaling with window resolution.
 - **Node**
-	- **Expand**
-		- **HSliderExpand** - Expands to fill the parent node (custom UI scaling).
 	- **Menu**
 		- **MenuButton** - Localized menu button.
 		- **MenuDropdown** - Localized dropdown option button.
@@ -273,6 +273,8 @@ TODO: Test the template on following platforms.
 
 - Godot Examples
 	- [Godot Demo Projects](https://github.com/godotengine/godot-demo-projects)
+		- [Multiple Resolutions Options](https://github.com/godotengine/godot-demo-projects/tree/master/gui/multiple_resolutions)
+		- [Graphics 3D Options](https://github.com/godotengine/godot-demo-projects/tree/master/3d/graphics_settings)
 
 - Godot Engine
 	- [Godot Engine](https://github.com/godotengine/godot)

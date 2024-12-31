@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxl20qx51clia"]
+[gd_scene load_steps=6 format=3 uid="uid://dxl20qx51clia"]
 
 [ext_resource type="Theme" uid="uid://downo5rrvt4lo" path="res://resources/global/theme.tres" id="1_24sgo"]
 [ext_resource type="Script" path="res://scenes/scene/menu_scene/options_menu/video_options/video_options.gd" id="1_75uy7"]
 [ext_resource type="PackedScene" uid="uid://ira7b3k2oap7" path="res://scenes/node/menu/menu_dropdown/menu_dropdown.tscn" id="3_hfmmd"]
+[ext_resource type="PackedScene" uid="uid://b8col31gjtj56" path="res://scenes/node/menu/menu_slider/menu_slider.tscn" id="3_viv44"]
 [ext_resource type="PackedScene" uid="uid://b678n5udjckfe" path="res://scenes/node/menu/menu_toggle/menu_toggle.tscn" id="4_7rwqq"]
 
 [node name="VideoOptions" type="MarginContainer"]
@@ -34,6 +35,17 @@ unique_name_in_owner = true
 layout_mode = 2
 id = 4
 label = "MENU_OPTIONS_WINDOW_RESOLUTION"
+
+[node name="WindowScaleMenuSlider" parent="RootVBoxContainer" instance=ExtResource("3_viv44")]
+unique_name_in_owner = true
+layout_mode = 2
+id = 4
+min_value = 50.0
+max_value = 120.0
+update_on_release = true
+value_suffix = "%"
+label = "MENU_OPTIONS_WINDOW_SCALE"
+slider_stretch_ratio = 0.75
 
 [node name="DisplayHSeparator" type="HSeparator" parent="RootVBoxContainer"]
 layout_mode = 2

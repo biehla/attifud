@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5v0hlvdp1mxx"]
+[gd_scene load_steps=3 format=3 uid="uid://b5v0hlvdp1mxx"]
 
 [ext_resource type="Script" path="res://scenes/scene/menu_scene/options_menu/controls_options/menu_keybind_dialog/menu_keybind_dialog.gd" id="1_yjloi"]
+[ext_resource type="PackedScene" uid="uid://b4b36g3uhwemg" path="res://scenes/component/audio/button_audio/button_audio.tscn" id="2_y1wjw"]
 
 [node name="MenuKeybindDialog" type="ConfirmationDialog"]
 auto_translate_mode = 1
@@ -40,3 +41,7 @@ size_flags_vertical = 3
 unique_name_in_owner = true
 wait_time = 0.1
 one_shot = true
+
+[node name="OkButtonAudio" parent="." instance=ExtResource("2_y1wjw")]
+
+[node name="CancelButtonAudio" parent="." instance=ExtResource("2_y1wjw")]

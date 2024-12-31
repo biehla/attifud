@@ -5,6 +5,9 @@ extends ConfirmationDialog
 
 signal keybinds_input_recorded(input: InputEvent)
 
+const CONFIRM_LABEL: String = "MENU_LABEL_CONFIRM_BUTTON_YOU"
+const CANCEL_LABEL: String = "MENU_LABEL_CANCEL_YOU"
+const KEYBIND_DIALOG_TITLE: String = "MENU_OPTIONS_KEYBINDS_KEYBIND_DIALOG_TITLE"
 const LISTENING_TEXT: String = "MENU_OPTIONS_KEYBINDS_LISTENING_TEXT"
 const FOCUS_HERE_TEXT: String = "MENU_OPTIONS_KEYBINDS_FOCUS_HERE_TEXT"
 const CONFIRM_INPUT_TEXT: String = "MENU_OPTIONS_KEYBINDS_CONFIRM_INPUT_TEXT"
@@ -24,6 +27,14 @@ var _confirming: bool = false
 func _ready() -> void:
 	_connect_signals()
 	_init_components()
+
+
+func custom_popup(item_text: String, center_target: Control) -> void:
+	self.title_label.text = TranslationServerWrapper.translate(KEYBIND_DIALOG_TITLE) % [item_text]
+	self.ok_button_text = TranslationServerWrapper.translate(CONFIRM_LABEL)
+	self.cancel_button_text = TranslationServerWrapper.translate(CANCEL_LABEL)
+	var relative_size: Vector2i = MathUtils.scale_v2i(center_target.size, 0.75, 0.5)
+	self.popup_centered(relative_size)
 
 
 func _init_components() -> void:

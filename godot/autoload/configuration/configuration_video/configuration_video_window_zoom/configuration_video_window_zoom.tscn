@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3j3w52sla60q"]
+
+[ext_resource type="Script" path="res://autoload/configuration/configuration_video/configuration_video_window_zoom/configuration_video_window_zoom.gd" id="1_euit4"]
+
+[node name="ConfigurationVideoWindowZoom" type="Node"]
+script = ExtResource("1_euit4")

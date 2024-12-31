@@ -3,10 +3,10 @@
 ## Emits audio events on target slider signals (drag started, drag ended).
 ## [br][br]
 ## Attach to parent node.
-## Sets target as parent if target is not already set.
 class_name SliderAudio
 extends Node
 
+## Sets target as parent if target is not already set.
 @export var target: Slider
 
 @export_category("Sounds")

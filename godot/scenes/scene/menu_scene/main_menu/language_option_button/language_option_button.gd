@@ -6,12 +6,8 @@ extends OptionButton
 func _ready() -> void:
 	_connect_signals()
 	_init_options()
-	_refresh_size()
 
-
-func _refresh_size() -> void:
 	self.get_popup().max_size.y = get_viewport().size.y - self.size.y - 32
-	self.get_popup().visible = false
 
 
 func _init_options() -> void:
@@ -38,4 +34,4 @@ func _on_language_option_button_item_select(index: int) -> void:
 
 
 func _on_root_size_changed() -> void:
-	_refresh_size.call_deferred()
+	self.get_popup().visible = false

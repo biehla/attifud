@@ -10,6 +10,7 @@ extends Node
 @onready var fps_limit: ConfigurationVideoFPSLimit = %ConfigurationVideoFPSLimit
 @onready var resolution: ConfigurationVideoResolution = %ConfigurationVideoResolution
 @onready var vsync_mode: ConfigurationVideoVsyncMode = %ConfigurationVideoVsyncMode
+@onready var window_zoom: ConfigurationVideoWindowZoom = %ConfigurationVideoWindowZoom
 
 
 func _ready() -> void:
@@ -24,3 +25,4 @@ func reset() -> void:
 	fps_limit.load_fps_limit()
 	resolution.load_resolution()
 	vsync_mode.load_vsync_mode()
+	window_zoom.load_window_zoom()

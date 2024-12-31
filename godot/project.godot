@@ -24,7 +24,7 @@ Log/break_on_error=false
 [application]
 
 config/name="TakinGodotTemplate"
-config/version="0.2.0"
+config/version="0.2.1"
 run/main_scene="res://scenes/scene/boot_splash_scene/boot_splash_scene.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
@@ -68,6 +68,7 @@ window/size/viewport_width=720
 window/size/viewport_height=720
 window/size/window_width_override=1280
 window/size/window_height_override=720
+window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
 [editor_plugins]

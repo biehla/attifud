@@ -22,7 +22,6 @@ script = ExtResource("1_tjy2w")
 
 [node name="MainMenu" parent="." instance=ExtResource("2_8scvs")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 
 [node name="OptionsMenu" parent="." instance=ExtResource("3_5uviw")]

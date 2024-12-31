@@ -3,6 +3,7 @@ class_name ConfigStorageSettingsVideo
 
 const SETTINGS_VIDEO_SECTION: String = "SettingsVideo"
 
+const WINDOW_ZOOM_KEY: String = "WindowZoom"
 const DISPLAY_MODE_KEY: String = "DisplayMode"
 const RESOLUTION_KEY: String = "Resolution"
 const VSYNC_MODE_KEY: String = "VSyncMode"
@@ -10,12 +11,17 @@ const FPS_LIMIT_KEY: String = "FPSLimit"
 const FPS_COUNT_KEY: String = "FPSCount"
 const ANTI_ALIAS_KEY: String = "AntiAlias"
 
+const DEFAULT_WINDOW_ZOOM: float = 100.0
 const DEFAULT_DISPLAY_MODE: int = DisplayServer.WindowMode.WINDOW_MODE_WINDOWED
 const DEFAULT_RESOLUTION: Vector2i = Vector2i(1280, 720)
 const DEFAULT_VSYNC_MODE: int = DisplayServer.VSyncMode.VSYNC_ENABLED
 const DEFAULT_FPS_LIMIT: int = 0
 const DEFAULT_FPS_COUNT: bool = false
 const DEFAULT_ANTI_ALIAS: int = 0
+
+
+static func get_window_zoom() -> float:
+	return ConfigStorage.get_config(SETTINGS_VIDEO_SECTION, WINDOW_ZOOM_KEY, DEFAULT_WINDOW_ZOOM)
 
 
 static func get_display_mode_option_value() -> int:
@@ -40,6 +46,10 @@ static func get_fps_count_enabled() -> bool:
 
 static func get_anti_alias_option_value() -> int:
 	return ConfigStorage.get_config(SETTINGS_VIDEO_SECTION, ANTI_ALIAS_KEY, DEFAULT_ANTI_ALIAS)
+
+
+static func set_window_zoom(value: float) -> void:
+	ConfigStorage.set_config(SETTINGS_VIDEO_SECTION, WINDOW_ZOOM_KEY, value)
 
 
 static func set_display_mode_option_value(display_mode: int) -> void:

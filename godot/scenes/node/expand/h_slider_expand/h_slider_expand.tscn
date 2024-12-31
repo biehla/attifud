@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://biau153siug21"]
-
-[ext_resource type="Script" path="res://scenes/node/expand/h_slider_expand/h_slider_expand.gd" id="1_d2457"]
-
-[node name="HSliderExpand" type="HSlider"]
-script = ExtResource("1_d2457")

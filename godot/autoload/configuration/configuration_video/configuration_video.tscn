@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d00qwkkl3n0uc"]
+[gd_scene load_steps=9 format=3 uid="uid://d00qwkkl3n0uc"]
 
 [ext_resource type="Script" path="res://autoload/configuration/configuration_video/configuration_video.gd" id="1_gyndw"]
 [ext_resource type="PackedScene" uid="uid://cck6oj1r2vecx" path="res://autoload/configuration/configuration_video/configuration_video_anti_alias/configuration_video_anti_alias.tscn" id="2_4p2i4"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cx37ycckfvo7t" path="res://autoload/configuration/configuration_video/configuration_video_fps_count/configuration_video_fps_count.tscn" id="3_4u2ap"]
 [ext_resource type="PackedScene" uid="uid://db3e68tjf0deu" path="res://autoload/configuration/configuration_video/configuration_video_fps_limit/configuration_video_fps_limit.tscn" id="3_yyuk3"]
 [ext_resource type="PackedScene" uid="uid://ca7gocxyd7v8i" path="res://autoload/configuration/configuration_video/configuration_video_resolution/configuration_video_resolution.tscn" id="4_ybiei"]
+[ext_resource type="PackedScene" uid="uid://d3j3w52sla60q" path="res://autoload/configuration/configuration_video/configuration_video_window_zoom/configuration_video_window_zoom.tscn" id="8_nvqc1"]
 
 [node name="ConfigurationVideo" type="Node"]
 script = ExtResource("1_gyndw")
@@ -27,4 +28,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="ConfigurationVideoVsyncMode" parent="." instance=ExtResource("3_4hiun")]
+unique_name_in_owner = true
+
+[node name="ConfigurationVideoWindowZoom" parent="." instance=ExtResource("8_nvqc1")]
 unique_name_in_owner = true

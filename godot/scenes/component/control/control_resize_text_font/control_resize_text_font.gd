@@ -46,6 +46,10 @@ var _original_height: int = ProjectSettings.get_setting("display/window/size/vie
 
 
 func _ready() -> void:
+	if is_disabled():
+		Log.debug("ControlResizeTextFont is disabled.")
+		return
+
 	_connect_signals()
 	_init_original_font_size_map(get_parent().get_children())
 	resize_with_new_auto_minimum(get_viewport().size.x, get_viewport().size.y)
@@ -55,7 +59,7 @@ func is_disabled() -> bool:
 	var stretch_mode: Window.ContentScaleMode = (
 		int(ProjectSettings.get_setting("display/window/stretch/mode")) as Window.ContentScaleMode
 	)
-	return stretch_mode != Window.ContentScaleMode.CONTENT_SCALE_MODE_DISABLED
+	return stretch_mode == Window.ContentScaleMode.CONTENT_SCALE_MODE_DISABLED
 
 
 func resize(new_width: int, new_height: int) -> void:

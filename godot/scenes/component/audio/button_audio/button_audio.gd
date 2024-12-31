@@ -2,13 +2,15 @@
 ## [br][br]
 ## Emits audio events on target button signals (focus, click, release).
 ## [br][br]
-## Attach to parent node.
-## Sets target as parent if target is not already set.
+## Attach to parent node. (Will target parent or sibling of type [BaseButton].)
 class_name ButtonAudio
 extends Node
 
 enum Interaction { NULL, FOCUS, DOWN, UP }
 
+## Sets target as parent if target is not already set.
+## If parent is not instance of [BaseButton], searches for a sibling instead (recursively).
+## While searching for target, ignores nodes that already have a [ButtonAudio] attached.
 @export var target: Button
 
 @export_category("Sounds")
@@ -34,9 +36,32 @@ func _ready() -> void:
 	last_interaction_timer.wait_time = last_interaction_timeout
 
 	if target == null:
-		target = get_parent()
+		target = _get_parent_or_sibling(get_parent())
+	if target == null:
+		Log.warn("Target not found for parent: ", get_parent().name)
+		return
 
+	target.add_theme_constant_override("button_audio_attached", 1)
 	_connect_signals()
+
+
+func _is_valid_target(node: Node) -> bool:
+	if not "get_theme_constant" in node:
+		return false
+	var is_aready_a_target: bool = node.get_theme_constant("button_audio_attached") == 1
+	return is_instance_of(node, BaseButton) and not is_aready_a_target
+
+
+func _get_parent_or_sibling(parent: Node) -> Node:
+	if _is_valid_target(parent):
+		return parent
+	for sibling: Node in parent.get_children(true):
+		if _is_valid_target(sibling):
+			return sibling
+		var base_button: BaseButton = _get_parent_or_sibling(sibling)
+		if base_button != null:
+			return base_button
+	return null
 
 
 func _connect_signals() -> void:
