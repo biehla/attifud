@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdpe2qrr0gpen"]
+[gd_scene load_steps=6 format=3 uid="uid://cdpe2qrr0gpen"]
 
 [ext_resource type="Theme" uid="uid://downo5rrvt4lo" path="res://resources/global/theme.tres" id="1_i1ggm"]
 [ext_resource type="Script" path="res://scenes/scene/menu_scene/credits_menu/credits_menu.gd" id="1_lim8x"]
 [ext_resource type="PackedScene" uid="uid://k5xt8llrybgm" path="res://scenes/node/menu/menu_button/menu_button.tscn" id="2_vgi8g"]
+[ext_resource type="PackedScene" uid="uid://t2dui8ppm3a4" path="res://scenes/scene/menu_scene/credits_menu/credits/credits.tscn" id="3_b3gxy"]
 [ext_resource type="PackedScene" uid="uid://bv7d4vxqjocks" path="res://scenes/component/control/control_grab_focus/control_grab_focus.tscn" id="3_k32ri"]
 
 [node name="CreditsMenu" type="Control"]
@@ -33,25 +34,17 @@ layout_mode = 2
 theme_override_constants/separation = 8
 
 [node name="CreditsMarginContainer" type="MarginContainer" parent="RootMarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(650, 0)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 8
 
-[node name="ScrollContainer" type="ScrollContainer" parent="RootMarginContainer/VBoxContainer/CreditsMarginContainer"]
+[node name="Credits" parent="RootMarginContainer/VBoxContainer/CreditsMarginContainer" instance=ExtResource("3_b3gxy")]
+unique_name_in_owner = true
 layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="RootMarginContainer/VBoxContainer/CreditsMarginContainer/ScrollContainer"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="RootMarginContainer/VBoxContainer/CreditsMarginContainer/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
-
-[node name="Label" type="Label" parent="RootMarginContainer/VBoxContainer/CreditsMarginContainer/ScrollContainer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 32
-text = "TODO: CREDITS"
 
 [node name="FooterHSeparator" type="HSeparator" parent="RootMarginContainer/VBoxContainer"]
 layout_mode = 2

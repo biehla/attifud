@@ -21,15 +21,15 @@ var _selected_keybinds_tree_item: TreeItem = null
 var _last_focus_metadata: Variant = null
 
 
+func _ready() -> void:
+	_connect_signals()
+	refresh_keybinds()
+
+
 func _process(_delta: float) -> void:
 	if interact_on_ui_input:
 		if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_select"):
 			_ui_interact()
-
-
-func _ready() -> void:
-	_connect_signals()
-	refresh_keybinds()
 
 
 func refresh_keybinds() -> void:

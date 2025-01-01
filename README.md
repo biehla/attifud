@@ -25,6 +25,8 @@ Collection of curated plugins and custom features to kick-start new projects.
 
 ![](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/readme_preview_4.png)
 
+![](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/readme_preview_5.png)
+
 </details>
 
 ## ⭐ Features
@@ -50,7 +52,7 @@ Collection of curated plugins and custom features to kick-start new projects.
 	- 🎬 **Boot Splash** - The main scene, allowing custom transition to main menu.
 	- 🏠 **Main Menu** - Display buttons to enter other menus, version and author.
 	- 🔧 **Options Menu** - Audio, Video (display, vsync), Controls (keybinds), Game.
-	- 📜 **Credits Menu** - TODO: ...
+	- 📜 **Credits Menu** - Renders [CREDITS.md](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/godot/CREDITS.md) file in-game with formatting.
 	- 📓 **Save Files Menu** - TODO: ...
 	- ⏸️ **Pause Menu** - TODO: ...
 
@@ -86,6 +88,7 @@ Collection of curated plugins and custom features to kick-start new projects.
 	- **scenes** *(.tscn, .gd)*
 	- **scripts** *(static/const/object .gd)*
 	- **shaders** *(.gdshader)*
+	- CREDITS.md
 	- export_presets.cfg
 	- gdlintrc
 	- project.godot (ProjectSettings)
@@ -175,7 +178,7 @@ Scenes are split into component, node and scene folders.
 	- **Control**
 		- **ControlExpandStylebox** - Resize target node to fill parent container.
 		- **ControlGrabFocus** - Grabs focus of node for controller support.
-		- **ControlResizeTextFont** - Custom UI scaling with window resolution.
+		- **ControlResizeTextFont** - Custom UI scaling if "stretch mode: disabled".
 - **Node**
 	- **Menu**
 		- **MenuButton** - Localized menu button.
@@ -191,7 +194,7 @@ Scenes are split into component, node and scene folders.
 			- **VideoOptions** - Display, Resolution, VSync, FPS Limit, Anti-Alias.
 			- **ControlsOptions** - Change (add or remove) keybinds.
 			- **GameOptions** - Custom options, e.g. toggle autosave.
-		- **CreditsMenu** - TODO: ...
+		- **CreditsMenu** - Renders `CREDITS.md` file in-game with formatting.
 		- **SaveFilesMenu** - TODO: ...
 	- **PlayScene** - TODO: ...
 		- **PauseMenu** - TODO: ...

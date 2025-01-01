@@ -6,10 +6,10 @@ extends Control
 var _current_menu: Control = null
 var _action_handler: ActionHandler = ActionHandler.new()
 
-@onready var main_menu: Control = %MainMenu
-@onready var options_menu: Control = %OptionsMenu
-@onready var credits_menu: Control = %CreditsMenu
-@onready var save_files_menu: Control = %SaveFilesMenu
+@onready var main_menu: MainMenu = %MainMenu
+@onready var options_menu: OptionsMenu = %OptionsMenu
+@onready var credits_menu: CreditsMenu = %CreditsMenu
+@onready var save_files_menu: SaveFilesMenu = %SaveFilesMenu
 
 
 func _ready() -> void:
@@ -50,6 +50,7 @@ func _action_main_menu_options() -> void:
 
 func _action_main_menu_credits() -> void:
 	_toggle_menu(credits_menu)
+	credits_menu.credits.reset()
 
 
 func _action_main_menu_quit() -> void:

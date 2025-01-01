@@ -1,4 +1,5 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
+class_name MainMenu
 extends Control
 
 const VERSION_PREFIX: String = "v"

@@ -5,6 +5,15 @@ const PATH_SEPARATOR = "/"
 const EXTENSION_SEPARATOR = "."
 
 
+## Returns empty string if load fails.
+static func load_file_as_string(file_path: String) -> String:
+	var file_string: String = FileAccess.get_file_as_string(file_path)
+	if file_string == null:
+		Log.warn("File open error: %s" % FileAccess.get_open_error())
+		return ""
+	return file_string
+
+
 ## Converts full file path to file name, removing the path prefix and the extension suffix.
 static func get_file_name(path: String) -> String:
 	var parts: PackedStringArray = path.split(PATH_SEPARATOR)

@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cle4e26qtpntx"]
 
 [ext_resource type="Script" path="res://scenes/scene/menu_scene/options_menu/controls_options/menu_keybinds/menu_keybinds.gd" id="1_43so3"]
-[ext_resource type="Texture2D" uid="uid://bhwgd4glhplao" path="res://assets/image/ui/addition_symbol.png" id="2_b2edc"]
-[ext_resource type="Texture2D" uid="uid://8p3ikovnqeve" path="res://assets/image/ui/subtraction_symbol.png" id="3_rjxih"]
+[ext_resource type="Texture2D" uid="uid://bhwgd4glhplao" path="res://assets/image/ui/png/addition_symbol.png" id="2_b2edc"]
+[ext_resource type="Texture2D" uid="uid://8p3ikovnqeve" path="res://assets/image/ui/png/subtraction_symbol.png" id="3_rjxih"]
 [ext_resource type="PackedScene" uid="uid://chws140re2uqt" path="res://scenes/component/audio/tree_audio/tree_audio.tscn" id="4_410is"]
 
 [node name="MenuKeybinds" type="Tree"]
