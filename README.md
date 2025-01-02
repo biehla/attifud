@@ -37,7 +37,7 @@ Collection of curated plugins and custom features to kick-start new projects.
 	- 🖼️ [**Scene Manager**](https://github.com/maktoobgar/scene_manager) - Custom transitions and loading screens.
 	- 🎵 [**Audio Manager**](https://github.com/hugemenace/resonate) - Reliable music tracks and sound effects.
 	- ⚙️ **Configuration** - Persistent game options and statistics in INI file.
-	- 💾 **Save Files** - TODO: ...
+	- 💾 **Save Files** - Modular save system for in-game data and metadata.
 - **Localization**
 	- 🌍 [**Polygot Template**](https://github.com/agens-no/PolyglotUnity) with 28 languages and over 600 [game words](https://docs.google.com/spreadsheets/d/17f0dQawb-s_Fd7DHgmVvJoEGDMH_yoSd8EYigrb0zmM/edit?gid=296134756#gid=296134756).
 	- ✏️ [**Google Noto Sans**](https://fonts.google.com/) fonts glyphs (Arabic, Hebrew, HK, JP, KR, SC, TC, Thai).
@@ -133,10 +133,6 @@ Collection of curated plugins and custom features to kick-start new projects.
 - **Audio Manager**
 	- The [Resonate](https://github.com/hugemenace/resonate) addon handles music tracks and sound effects.
 	- For a complex audio project, consider using FMOD or WWise.
-- **Save Files**
-	- TODO: ...
-- **Post-Processing**
-	- TODO: ...
 
 
 
@@ -150,6 +146,8 @@ Otherwise, Scenes must be loaded or added to the Scene Tree.
 
 - **Configuration**
 	- Configure Project, use ConfigStorage object for user config presistence.
+- **Data**
+	- Configure structure of save files, use as setter and getter of save file data.
 - **Overlay**
 	- Container for debug elements, e.g. FPS counter.
 - **Reference**
@@ -194,7 +192,7 @@ Scenes are split into component, node and scene folders.
 			- **VideoOptions** - Display, Resolution, VSync, FPS Limit, Anti-Alias.
 			- **ControlsOptions** - Change (add or remove) keybinds.
 			- **GameOptions** - Custom options, e.g. toggle autosave.
-		- **CreditsMenu** - Renders `CREDITS.md` file in-game with formatting.
+		- **CreditsMenu** - Renders CREDITS.md file in-game with formatting.
 		- **SaveFilesMenu** - TODO: ...
 	- **PlayScene** - TODO: ...
 		- **PauseMenu** - TODO: ...
@@ -208,11 +206,12 @@ Scenes are split into component, node and scene folders.
 	- **ConfigStorage** - Persists (save & load) app settings in INI file.
 	- **LinkedMap** - Dictionary data structure that tracks order of keys.
 - **Util**
+	- **DatetimeUtils** - Useful for save file metadata (e.g. last played at).
 	- **FileSystemUtils** - Robust functions to extract file paths and names.
 	- **MathUtils** - Integer power function.
 	- **NodeUtils** - Collection of node manipulation functions.
 	- **RandomUtils** - Weighted Loot Table and random string functions.
-	- **StringUtils** - String functions for validation and padding.
+	- **StringUtils** - String functions for validation and transformations.
 
 
 
