@@ -11,13 +11,30 @@ extends Node
 
 @export var target: Control
 @export var remember_last_focus: bool = true
+## If target is not focusable, searches among their children until a valid ancestor is found.
+@export var recursive: bool = false
+## Will trigger on ready() method called instead of on _ready() method override.
+@export var manual: bool = false
+
+var _ready_called: bool = false
 
 
 func _ready() -> void:
-	if target == null:
-		_set_target_to_first_control_child()
+	if not manual:
+		ready()
+
+
+func ready() -> void:
+	if _ready_called:
+		Log.warn("Ready already called.")
+		return
+	_ready_called = true
 
 	if target == null:
+		target = _get_focusable_control_child(self.get_parent())
+
+	if target == null:
+		Log.warn("Could not find focusable target for parent: ", self.get_parent().name)
 		return
 
 	_connect_signals()
@@ -29,11 +46,16 @@ func _grab_focus() -> void:
 		target.grab_focus()
 
 
-func _set_target_to_first_control_child() -> void:
-	for child: Node in self.get_parent().get_children():
+func _get_focusable_control_child(node: Node) -> Control:
+	for child: Node in node.get_children(true):
 		if is_instance_of(child, Control):
-			target = child
-			return
+			if (child as Control).focus_mode != Control.FocusMode.FOCUS_NONE:
+				return child
+		if recursive:
+			var focusable: Node = _get_focusable_control_child(child)
+			if focusable != null:
+				return focusable
+	return null
 
 
 func _connect_signals() -> void:

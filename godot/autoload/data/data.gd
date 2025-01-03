@@ -55,6 +55,10 @@ func _ready() -> void:
 	Log.debug("[DATA] Save files initialized: ", _save_files)
 
 
+func get_save_files() -> Array[Dictionary]:
+	return _save_files
+
+
 func select_save_file(index: int, load_after_select: bool = true) -> void:
 	selected_index = index
 	if load_after_select:

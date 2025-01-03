@@ -15,9 +15,11 @@ Collection of curated plugins and custom features to kick-start new projects.
 ## ♦️ Examples
 
 <details>
-<summary>Preview Screenshots</summary>
+<summary> [CLICK HERE] Preview Screenshots </summary>
 
 ![](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/readme_preview_1.png)
+
+![](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/readme_preview_6.png)
 
 ![](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/readme_preview_2.png)
 
@@ -43,18 +45,18 @@ Collection of curated plugins and custom features to kick-start new projects.
 	- ✏️ [**Google Noto Sans**](https://fonts.google.com/) fonts glyphs (Arabic, Hebrew, HK, JP, KR, SC, TC, Thai).
 - **Accessibility**
 	- 🎮 **Controller Support** - Grab UI focus for joypad and keyboard users.
-	- 🔍 **Custom Stretch** - Custom UI resize if project "stretch mode: disabled".
-- **Placeholder**
-	- 🎨 **Theme** - TODO: ...
-	- 🎶 **Music & SFX** - [CC0](https://creativecommons.org/publicdomain/zero/1.0/) Public Domain: [Kenny](https://kenney.nl/assets/category:Audio) SFX and [OGA](https://opengameart.org/content/menu-doodle-2) Music (loop).
-	- 📽️ **Post-Processing** - TODO: ...
+	- 🔍 **Multiple Resolutions** - Video options: display mode, window zoom.
 - **UI/UX**
 	- 🎬 **Boot Splash** - The main scene, allowing custom transition to main menu.
 	- 🏠 **Main Menu** - Display buttons to enter other menus, version and author.
 	- 🔧 **Options Menu** - Audio, Video (display, vsync), Controls (keybinds), Game.
 	- 📜 **Credits Menu** - Renders [CREDITS.md](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/godot/CREDITS.md) file in-game with formatting.
-	- 📓 **Save Files Menu** - TODO: ...
+	- 📓 **Save Files Menu** - List of files: Play, Import, Export, Delete, Rename.
 	- ⏸️ **Pause Menu** - TODO: ...
+- **Placeholder**
+	- 🎨 **Theme** - TODO: ...
+	- 🖌️ **Images** - [CC0](https://creativecommons.org/publicdomain/zero/1.0/) Public Domain: [Dannya](https://openclipart.org/artist/dannya) save file icon, [Maaack](https://github.com/Maaack/Godot-Menus-Template/tree/main/addons/maaacks_menus_template/base/assets/images) icons.
+	- 🎶 **Music & SFX** - [CC0](https://creativecommons.org/publicdomain/zero/1.0/) Public Domain: [Kenny](https://kenney.nl/assets/category:Audio) SFX and [OGA](https://opengameart.org/content/menu-doodle-2) Music (loop).
 
 ### 💫 Development
 
@@ -193,7 +195,7 @@ Scenes are split into component, node and scene folders.
 			- **ControlsOptions** - Change (add or remove) keybinds.
 			- **GameOptions** - Custom options, e.g. toggle autosave.
 		- **CreditsMenu** - Renders CREDITS.md file in-game with formatting.
-		- **SaveFilesMenu** - TODO: ...
+		- **SaveFilesMenu** - List of files: play, import, export, delete, rename.
 	- **PlayScene** - TODO: ...
 		- **PauseMenu** - TODO: ...
 

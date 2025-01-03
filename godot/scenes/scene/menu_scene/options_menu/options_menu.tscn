@@ -102,35 +102,31 @@ remember_last_focus = false
 layout_mode = 2
 
 [node name="OptionsMarginContainer" type="MarginContainer" parent="RootMarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="OptionsMarginContainer" type="MarginContainer" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer"]
 custom_minimum_size = Vector2(666, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3
 
-[node name="OptionsVBoxContainer" type="VBoxContainer" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer/OptionsMarginContainer"]
+[node name="OptionsVBoxContainer" type="VBoxContainer" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 6
 size_flags_vertical = 3
 
-[node name="AudioOptions" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer/OptionsMarginContainer/OptionsVBoxContainer" instance=ExtResource("5_kiw17")]
+[node name="AudioOptions" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer/OptionsVBoxContainer" instance=ExtResource("5_kiw17")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="VideoOptions" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer/OptionsMarginContainer/OptionsVBoxContainer" instance=ExtResource("6_balw6")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
-[node name="ControlsOptions" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer/OptionsMarginContainer/OptionsVBoxContainer" instance=ExtResource("7_pspmp")]
+[node name="VideoOptions" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer/OptionsVBoxContainer" instance=ExtResource("6_balw6")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="GameOptions" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer/OptionsMarginContainer/OptionsVBoxContainer" instance=ExtResource("8_t3ua6")]
+[node name="ControlsOptions" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer/OptionsVBoxContainer" instance=ExtResource("7_pspmp")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="GameOptions" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer/OptionsVBoxContainer" instance=ExtResource("8_t3ua6")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2

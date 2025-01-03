@@ -38,7 +38,7 @@ License: [CC BY 4.0 International](https://github.com/godotengine/godot/blob/mas
 [comment]: # (`boot_splash_2560_1440.png`)
 [comment]: # (`icon_1024_1024.png`)
 
-#### UI Icons (+, -)
+#### UI Iconns: Plus, Minus
 Created by: [Marek Belski](https://github.com/Maaack)  
 Source: [github: Godot Menus Template](https://github.com/Maaack/Godot-Menus-Template/blob/main/addons/maaacks_menus_template/base/assets/images)\
 License: [CC0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/)
@@ -46,6 +46,15 @@ License: [CC0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0
 [comment]: # ()
 [comment]: # (`addition_symbol.png`)
 [comment]: # (`subtraction_symbol.png`)
+
+#### Save File Icon
+Created by: [Danny Allen](https://openclipart.org/artist/dannya)  
+Source: [openclipart.org: File save icon](https://publicdomainvectors.org/en/free-clipart/File-save-icon/88085.html)\
+License: [CC0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/)
+
+[comment]: # ()
+[comment]: # (`save_file_icon.png`)
+[comment]: # (`save_file_icon.svg`)
 
 ### Font:
 

@@ -24,7 +24,7 @@ Log/break_on_error=false
 [application]
 
 config/name="TakinGodotTemplate"
-config/version="0.3.1"
+config/version="0.3.2"
 run/main_scene="res://scenes/scene/boot_splash_scene/boot_splash_scene.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
@@ -62,6 +62,7 @@ TranslationServerWrapper="*res://autoload/wrapper/translation_server_wrapper/tra
 
 gdscript/warnings/unused_signal=0
 gdscript/warnings/untyped_declaration=1
+gdscript/warnings/integer_division=0
 
 [display]
 
