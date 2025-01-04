@@ -6,6 +6,9 @@
 
 [node name="Data" type="Node"]
 script = ExtResource("1_lxqnb")
+use_security = true
+export_secret = "f1c671ac-6eee-4517-af32-8f4f2e348804"
+export_encryption = 1
 
 [node name="MetaSaveData" parent="." instance=ExtResource("2_itpja")]
 unique_name_in_owner = true

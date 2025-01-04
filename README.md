@@ -39,7 +39,7 @@ Collection of curated plugins and custom features to kick-start new projects.
 	- 🖼️ [**Scene Manager**](https://github.com/maktoobgar/scene_manager) - Custom transitions and loading screens.
 	- 🎵 [**Audio Manager**](https://github.com/hugemenace/resonate) - Reliable music tracks and sound effects.
 	- ⚙️ **Configuration** - Persistent game options and statistics in INI file.
-	- 💾 **Save Files** - Modular save system for in-game data and metadata.
+	- 💾 **Save Files** - Modular save system for game data, optional encryption.
 - **Localization**
 	- 🌍 [**Polygot Template**](https://github.com/agens-no/PolyglotUnity) with 28 languages and over 600 [game words](https://docs.google.com/spreadsheets/d/17f0dQawb-s_Fd7DHgmVvJoEGDMH_yoSd8EYigrb0zmM/edit?gid=296134756#gid=296134756).
 	- ✏️ [**Google Noto Sans**](https://fonts.google.com/) fonts glyphs (Arabic, Hebrew, HK, JP, KR, SC, TC, Thai).
@@ -64,7 +64,7 @@ Collection of curated plugins and custom features to kick-start new projects.
 	- 📢 **Signal Bus** - Observer pattern for cleaner global signals.
 	- 📖 **References** - Map of preloaded resources for convenience.
 - **Scripts**
-	- 🧰 **Utility** - RNG (Weighted Loot Table), Maths, Files, Nodes, Strings.
+	- 🧰 **Utility** - Datetime, File, Marshalls, Math, Node, Random, String.
 	- 🛠️ **Objects** - ActionHandler, ConfigStorage (INI File), LinkedMap.
 - **Tools**
 	- 🐛 [**Logger**](https://github.com/albinaask/Log) - Easier debugging and troubleshooting.
@@ -210,6 +210,7 @@ Scenes are split into component, node and scene folders.
 - **Util**
 	- **DatetimeUtils** - Useful for save file metadata (e.g. last played at).
 	- **FileSystemUtils** - Robust functions to extract file paths and names.
+	- **MarshallsUtils** - Convert data formats with optional encryption.
 	- **MathUtils** - Integer power function.
 	- **NodeUtils** - Collection of node manipulation functions.
 	- **RandomUtils** - Weighted Loot Table and random string functions.

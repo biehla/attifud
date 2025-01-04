@@ -10,6 +10,13 @@ static func is_empty(string: String) -> bool:
 	return string == null or string.is_empty()
 
 
+static func join(char_array: Array[String]) -> String:
+	var output: String = ""
+	for c: String in char_array:
+		output += c
+	return output
+
+
 ## Adds suffix and prefix as padding to given text.
 static func add_padding(text: String, n: int, padding: String = " ") -> String:
 	for i: int in range(n):
@@ -45,3 +52,10 @@ static func sanitize_text(
 	if text.length() == 0:
 		text = default_empty
 	return text
+
+
+static func charset_map(charset_keys: String, charset_values: String) -> Dictionary:
+	var map: Dictionary = {}
+	for i: int in range(charset_keys.length()):
+		map[charset_keys[i]] = charset_values[i]
+	return map

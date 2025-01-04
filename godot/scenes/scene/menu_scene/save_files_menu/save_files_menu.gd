@@ -2,8 +2,6 @@
 class_name SaveFilesMenu
 extends Control
 
-const METADATA_CATEGORY: String = "meta"
-
 @export var menu_save_file_pck: PackedScene
 
 var _menu_save_files: Array[MenuSaveFile] = []
@@ -60,10 +58,10 @@ func _action_rename_save_file_menu_button() -> void:
 func _init_menu_save_files() -> void:
 	NodeUtils.remove_children_of(save_files_v_box_container, MenuSaveFile)
 
-	var save_files: Array[Dictionary] = Data.get_save_files()
+	var save_files_metadatas: Array[Dictionary] = Data.get_save_files_metadatas()
 	for index: int in range(Data.save_file_count):
-		var save_file: Dictionary = save_files[index]
-		var menu_save_file: MenuSaveFile = _init_menu_save_file(save_file)
+		var save_file_metadatas: Dictionary = save_files_metadatas[index]
+		var menu_save_file: MenuSaveFile = _init_menu_save_file(save_file_metadatas)
 		menu_save_file.set_index(index)
 		menu_save_file.save_file_button_pressed.connect(_on_save_file_button_pressed)
 		_menu_save_files.append(menu_save_file)
@@ -71,19 +69,19 @@ func _init_menu_save_files() -> void:
 	control_grab_focus.ready()
 
 
-func _init_menu_save_file(save_file: Dictionary) -> MenuSaveFile:
+func _init_menu_save_file(save_file_metadatas: Dictionary) -> MenuSaveFile:
 	var menu_save_file: MenuSaveFile = menu_save_file_pck.instantiate()
 	NodeUtils.add_child_back(menu_save_file, save_files_v_box_container)
 
-	var save_file_meta: Dictionary = save_file.get(METADATA_CATEGORY, {})
-	if save_file_meta.is_empty():
-		Log.warn("Could not read save file metadata '%s': " % [METADATA_CATEGORY], save_file)
+	var save_file_metadata: Dictionary = save_file_metadatas.get(Data.METADATA_CATEGORY, {})
+	if save_file_metadata.is_empty():
+		Log.warn("Could not read metadata '%s': " % [Data.METADATA_CATEGORY], save_file_metadatas)
 		return
 
-	var save_file_name: String = save_file_meta["save_file_name"]
-	var playtime_seconds: int = save_file_meta["playtime_seconds"]
-	var modified_at: Dictionary = save_file_meta["modified_at_datetime"]
-	menu_save_file.set_value_labels(save_file_name, playtime_seconds, modified_at)
+	var save_file_name: String = save_file_metadata[Data.METADATA_SAVE_FILE_NAME]
+	var playtime: int = save_file_metadata[Data.METADATA_SAVE_PLAYTIME]
+	var modified_at: Dictionary = save_file_metadata[Data.METADATA_SAVE_MODIFIED_AT]
+	menu_save_file.set_value_labels(save_file_name, playtime, modified_at)
 
 	return menu_save_file
 

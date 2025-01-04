@@ -23,8 +23,35 @@ static func get_weights_sum(item_weight_dict: Dictionary) -> int:
 
 
 ## Generate random string of given length and charset. (Default charset is ASCII.)
-func random_string(length: int, charset: String = CharsetConsts.ASCII) -> String:
+static func random_string(length: int, charset: String = CharsetConsts.ASCII) -> String:
 	var result: String = ""
 	for i: int in range(length):
 		result += charset[randi() % charset.length()]
 	return result
+
+
+## Generate random string by shuffling characters in the given input.
+static func shuffle_string(input: String, rng: RandomNumberGenerator = null) -> String:
+	var char_array: Array[String]
+	char_array.assign(input.split(""))
+	shuffle_array(char_array, rng)
+	return StringUtils.join(char_array)
+
+
+## Modifies given array to rearrange elements randomly.
+static func shuffle_array(array: Array, rng: RandomNumberGenerator = null) -> void:
+	if rng == null:
+		array.shuffle()
+		return
+
+	for i: int in range(array.size() - 1, 0, -1):
+		var j: int = rng.randi_range(0, i)
+		var temp: Variant = array[i]
+		array[i] = array[j]
+		array[j] = temp
+
+
+static func create_seeded_rng(seed_secret: String) -> RandomNumberGenerator:
+	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
+	rng.seed = seed_secret.hash()
+	return rng

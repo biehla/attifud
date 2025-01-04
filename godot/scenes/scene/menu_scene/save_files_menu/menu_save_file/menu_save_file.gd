@@ -33,13 +33,15 @@ func set_index(new_index: int) -> void:
 
 
 func set_value_labels(
-	save_file_name: String, playtime_seconds: int, modified_at: Dictionary
+	save_file_name: String, playtime_seconds: int, modified_at_datetime: Dictionary
 ) -> void:
 	name_value_label.text = save_file_name
 	playtime_time_label.text = DatetimeUtils.format_seconds(playtime_seconds)
-	playtime_datetime_label.text = DatetimeUtils.format_datetime(modified_at, "{z}.{x}.{y} {h}:{m}")
+	playtime_datetime_label.text = DatetimeUtils.format_datetime(
+		modified_at_datetime, "{z}.{x}.{y} {h}:{m}"
+	)
 
-	var never_played: bool = playtime_seconds == 0 or modified_at.is_empty()
+	var never_played: bool = playtime_seconds == 0 or modified_at_datetime.is_empty()
 	if never_played:
 		playtime_time_label.text = "---------------"
 		playtime_datetime_label.text = "-------------------------"
