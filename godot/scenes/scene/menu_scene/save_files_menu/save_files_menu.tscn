@@ -43,6 +43,7 @@ custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
+horizontal_scroll_mode = 0
 
 [node name="SaveFilesMenuMarginContainer" type="MarginContainer" parent="RootMarginContainer/RootVBoxContainer/SaveFilesMenuScrollContainer"]
 custom_minimum_size = Vector2(666, 0)

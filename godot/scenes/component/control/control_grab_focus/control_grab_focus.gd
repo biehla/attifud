@@ -48,7 +48,7 @@ func _grab_focus() -> void:
 
 func _get_focusable_control_child(node: Node) -> Control:
 	for child: Node in node.get_children(true):
-		if is_instance_of(child, Control):
+		if is_instance_of(child, Control) and child.visible:
 			if (child as Control).focus_mode != Control.FocusMode.FOCUS_NONE:
 				return child
 		if recursive:

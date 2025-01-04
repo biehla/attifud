@@ -22,6 +22,13 @@ func _ready() -> void:
 	_init_action_handler()
 
 
+func get_toggled_save_file() -> MenuSaveFile:
+	for menu_save_file: MenuSaveFile in _menu_save_files:
+		if menu_save_file.save_file_button.button_pressed:
+			return menu_save_file
+	return null
+
+
 func _init_action_handler() -> void:
 	_action_handler.set_register_type("MenuButton")
 	_action_handler.register_actions(
@@ -36,23 +43,41 @@ func _init_action_handler() -> void:
 
 
 func _action_play_save_file_menu_button() -> void:
+	var menu_save_file: MenuSaveFile = get_toggled_save_file()
+	if menu_save_file == null:
+		return
 	Log.info("PLAY SAVE FILE")  #TODO
 
 
 func _action_export_save_file_menu_button() -> void:
+	var menu_save_file: MenuSaveFile = get_toggled_save_file()
+	if menu_save_file == null:
+		return
 	Log.info("EXPORT SAVE FILE")  #TODO
 
 
 func _action_import_save_file_menu_button() -> void:
+	var menu_save_file: MenuSaveFile = get_toggled_save_file()
+	if menu_save_file == null:
+		return
 	Log.info("IMPORT SAVE FILE")  #TODO
 
 
 func _action_delete_save_file_menu_button() -> void:
-	Log.info("DELETE SAVE FILE")  #TODO
+	var menu_save_file: MenuSaveFile = get_toggled_save_file()
+	if menu_save_file == null:
+		return
+	var index: int = menu_save_file.index
+	Data.delete_save_file_index(index)
+	menu_save_file = _reload_menu_save_file(menu_save_file)
+	_menu_save_files[index] = menu_save_file
 
 
 func _action_rename_save_file_menu_button() -> void:
-	Log.info("RENAME SAVE FILE")  #TODO
+	var menu_save_file: MenuSaveFile = get_toggled_save_file()
+	if menu_save_file == null:
+		return
+	menu_save_file.toggle_name_edit(true)
 
 
 func _init_menu_save_files() -> void:
@@ -73,6 +98,19 @@ func _init_menu_save_file(save_file_metadatas: Dictionary) -> MenuSaveFile:
 	var menu_save_file: MenuSaveFile = menu_save_file_pck.instantiate()
 	NodeUtils.add_child_back(menu_save_file, save_files_v_box_container)
 
+	_set_menu_save_file(menu_save_file, save_file_metadatas)
+	return menu_save_file
+
+
+func _reload_menu_save_file(menu_save_file: MenuSaveFile) -> MenuSaveFile:
+	var save_files_metadatas: Array[Dictionary] = Data.get_save_files_metadatas()
+	var save_file_metadatas: Dictionary = save_files_metadatas[menu_save_file.index]
+
+	_set_menu_save_file(menu_save_file, save_file_metadatas)
+	return menu_save_file
+
+
+func _set_menu_save_file(menu_save_file: MenuSaveFile, save_file_metadatas: Dictionary) -> void:
 	var save_file_metadata: Dictionary = save_file_metadatas.get(Data.METADATA_CATEGORY, {})
 	if save_file_metadata.is_empty():
 		Log.warn("Could not read metadata '%s': " % [Data.METADATA_CATEGORY], save_file_metadatas)
@@ -82,8 +120,6 @@ func _init_menu_save_file(save_file_metadatas: Dictionary) -> MenuSaveFile:
 	var playtime: int = save_file_metadata[Data.METADATA_SAVE_PLAYTIME]
 	var modified_at: Dictionary = save_file_metadata[Data.METADATA_SAVE_MODIFIED_AT]
 	menu_save_file.set_value_labels(save_file_name, playtime, modified_at)
-
-	return menu_save_file
 
 
 func _on_save_file_button_pressed(index: int) -> void:

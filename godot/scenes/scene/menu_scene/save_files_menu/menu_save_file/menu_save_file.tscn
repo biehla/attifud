@@ -63,11 +63,24 @@ vertical_alignment = 1
 
 [node name="NameValueLabel" type="Label" parent="VBoxContainer/SaveFileMarginContainer/HBoxContainer/VBoxContainer/NameHBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(338, 0)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 2
 theme_override_font_sizes/font_size = 20
 text = "Save ?"
 vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="NameValueLineEdit" type="LineEdit" parent="VBoxContainer/SaveFileMarginContainer/HBoxContainer/VBoxContainer/NameHBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+max_length = 100
+select_all_on_focus = true
+caret_blink = true
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/SaveFileMarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -158,9 +171,11 @@ theme_override_font_sizes/font_size = 24
 text = "Delete"
 id = 16
 label = "MENU_LABEL_DELETE"
+confirm_label = "MENU_LABEL_ARE_YOU_SURE"
 padding_spaces = 0
 
 [node name="RenameSaveMenuButton" parent="VBoxContainer/ButtonsMarginContainer/HBoxContainer" instance=ExtResource("4_wnyic")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_right = NodePath("../PlaySaveMenuButton")

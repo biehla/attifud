@@ -100,6 +100,9 @@ func exit_save_file() -> void:
 
 
 func select_save_file(index: int, load_after_select: bool = true) -> void:
+	if index < 0 or index >= save_file_count:
+		Log.warn("Invalid index: ", index)
+		return
 	selected_index = index
 	if load_after_select:
 		load_save_file()
@@ -124,13 +127,20 @@ func save_save_file() -> void:
 
 
 func rename_save_file_index(index: int, value: String) -> void:
+	if index < 0 or index >= save_file_count:
+		Log.warn("Invalid index: ", index)
+		return
 	if selected_index != -1:
 		Log.warn("Rename failed: save file must not be selected for index operations.")
 		return
+
 	_system_set_metadata_value(index, value, Data.METADATA_SAVE_FILE_NAME, Data.METADATA_CATEGORY)
 
 
 func delete_save_file_index(index: int) -> void:
+	if index < 0 or index >= save_file_count:
+		Log.warn("Invalid index: ", index)
+		return
 	if selected_index != -1:
 		Log.warn("Delete failed: save file must not be selected for index operations.")
 		return
@@ -145,11 +155,17 @@ func delete_save_file_index(index: int) -> void:
 		dir.remove(file)
 	DirAccess.remove_absolute(path)
 
+	_reload_save_file_metadatas(index)
+
 
 func import_save_file_index(index: int, import: String) -> void:
+	if index < 0 or index >= save_file_count:
+		Log.warn("Invalid index: ", index)
+		return
 	if selected_index != -1:
 		Log.warn("Import failed: save file must not be selected for index operations.")
 		return
+
 	var datas: Dictionary = MarshallsUtils.string_to_dict(import, export_encryption, export_secret)
 	if datas.is_empty():
 		Log.warn("Import failed: could not parse string to data dict: ", import)
@@ -158,9 +174,13 @@ func import_save_file_index(index: int, import: String) -> void:
 
 
 func export_save_file_index(index: int) -> String:
+	if index < 0 or index >= save_file_count:
+		Log.warn("Invalid index: ", index)
+		return ""
 	if selected_index != -1:
 		Log.warn("Export failed: save file must not be selected for index operations.")
 		return ""
+
 	var datas: Dictionary = _load_save_file_datas(index, true)
 	var export: String = MarshallsUtils.dict_to_string(datas, export_encryption, export_secret)
 	Log.debug("Exported index '%s' as: " % [index], export)
