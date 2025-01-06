@@ -19,6 +19,8 @@ func _ready() -> void:
 
 	AudioWrapper.play_music(AudioEnum.Music.MENU_DOODLE_2_LOOP, 1.0)
 
+	LogWrapper.debug(self, "MenuScene: ready.")
+
 
 func _init_action_handler() -> void:
 	_action_handler.set_register_type("MenuButton")

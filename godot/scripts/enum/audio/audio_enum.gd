@@ -7,7 +7,7 @@ class_name AudioEnum
 
 enum Music { NULL, MENU_DOODLE_2_LOOP }
 
-enum Sfx { NULL, SELECT, CLICK }
+enum Sfx { NULL, SELECT, CLICK, SELECT_2, CLICK_2 }
 
 const MUSIC_BANK: String = "music"
 const SOUND_BANK: String = "sfx"

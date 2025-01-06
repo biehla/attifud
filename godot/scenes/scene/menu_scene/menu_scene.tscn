@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7e31uh5wrmi5"]
+[gd_scene load_steps=7 format=3 uid="uid://b7e31uh5wrmi5"]
 
-[ext_resource type="Theme" uid="uid://downo5rrvt4lo" path="res://resources/global/theme.tres" id="1_cfhpc"]
 [ext_resource type="Script" path="res://scenes/scene/menu_scene/menu_scene.gd" id="1_tjy2w"]
 [ext_resource type="PackedScene" uid="uid://b88kuy67g4l8f" path="res://scenes/scene/menu_scene/main_menu/main_menu.tscn" id="2_8scvs"]
 [ext_resource type="PackedScene" uid="uid://bea1npdsg7ii1" path="res://scenes/scene/menu_scene/options_menu/options_menu.tscn" id="3_5uviw"]
 [ext_resource type="PackedScene" uid="uid://cdpe2qrr0gpen" path="res://scenes/scene/menu_scene/credits_menu/credits_menu.tscn" id="4_eej08"]
 [ext_resource type="PackedScene" uid="uid://b6f713ef85lcj" path="res://scenes/scene/menu_scene/save_files_menu/save_files_menu.tscn" id="5_c65oj"]
-[ext_resource type="PackedScene" uid="uid://bdh62o75gsq3g" path="res://scenes/component/control/control_resize_text_font/control_resize_text_font.tscn" id="7_saosi"]
+[ext_resource type="PackedScene" uid="uid://bdh62o75gsq3g" path="res://scenes/component/supplemental/resize_on_disabled_stretch_mode/resize_on_disabled_stretch_mode.tscn" id="7_saosi"]
 
 [node name="MenuScene" type="Control"]
 layout_mode = 3
@@ -15,9 +14,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("1_cfhpc")
 script = ExtResource("1_tjy2w")
 
 [node name="MainMenu" parent="." instance=ExtResource("2_8scvs")]
@@ -39,5 +35,5 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
-[node name="ControlResizeTextFont" parent="." instance=ExtResource("7_saosi")]
+[node name="ResizeOnDisabledStretchMode" parent="." instance=ExtResource("7_saosi")]
 minimum_width = 682

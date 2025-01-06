@@ -6,4 +6,4 @@ extends Control
 
 
 func _ready() -> void:
-	pass
+	LogWrapper.debug(self, "MenuScene: Credits Menu ready.")

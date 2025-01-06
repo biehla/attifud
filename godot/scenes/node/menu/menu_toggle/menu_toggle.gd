@@ -70,7 +70,7 @@ func _on_language_changed(_locale: String) -> void:
 
 
 func _on_check_button_toggled() -> void:
-	Log.debug("%s: menu toggle ID '%s' toggled." % [name, MenuToggleEnum.ID.keys()[id]])
+	LogWrapper.debug(self, "Menu toggle ID '%s' toggled." % [MenuToggleEnum.ID.keys()[id]])
 
 	_refresh_labels()
 

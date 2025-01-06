@@ -8,6 +8,8 @@
 class_name ActionHandler
 extends Object
 
+const NAME: String = "ActionHandler"
+
 const KEY_SEPARATOR: String = "-"
 
 var _action_register_type: String = ""
@@ -40,7 +42,7 @@ func handle_action(type: String, id: int, source: Node) -> void:
 func handle_action_args(type: String, id: int, source: Node, args: Array) -> void:
 	var action: Callable = _action_map.get(_get_key(type, id), _no_action)
 	if action != _no_action:
-		Log.debug("%s: %s action called '%s'." % [source.name, type, action])
+		LogWrapper.debug(NAME, "%s: %s action called '%s'." % [source.name, type, action])
 		action.callv(args)
 
 

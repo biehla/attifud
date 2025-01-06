@@ -1,17 +1,34 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
+## [br][br]
+## Supports [LOCALE_LIST_SEPARATOR] for handling localization concatenations.
+## Supports [translate] working in @tool scripts in the editor (return key if not found).
+## - https://github.com/godotengine/godot/issues/46271
 @tool
 extends Node
+
+const LOCALE_LIST_SEPARATOR: String = "|"
 
 const DEFAULT_EDITOR_LOCALE: String = "en"
 
 
 func _ready() -> void:
-	Log.debug("AUTOLOAD READY: ", name)
+	if Engine.is_editor_hint():
+		return
+
+	LogWrapper.debug(self, "AUTOLOAD READY.")
 
 
-## Alternative to tr() that works when ran in @tool scripts in the editor (return key if not found).
-## https://github.com/godotengine/godot/issues/46271
 func translate(text: String) -> String:
+	if not text.contains(LOCALE_LIST_SEPARATOR):
+		return _translate(text)
+
+	var texts: String = ""
+	for subtext: String in text.split(LOCALE_LIST_SEPARATOR):
+		texts += _translate(subtext)
+	return texts
+
+
+func _translate(text: String) -> String:
 	var localized_text: String
 	if Engine.is_editor_hint():
 		var translation: Translation = TranslationServer.get_translation_object(

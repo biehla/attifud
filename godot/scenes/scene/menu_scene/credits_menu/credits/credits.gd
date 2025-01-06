@@ -247,7 +247,7 @@ func _on_credits_label_meta_clicked(meta: String) -> void:
 	if meta.begins_with("https://"):
 		var err: Error = OS.shell_open(meta)
 		if err != Error.OK:
-			Log.warn("Failed to open URL %s due to error code: " % [meta], err)
+			LogWrapper.debug(self, "Failed to open URL %s due to error code: " % [meta], err)
 
 
 func _on_scroll_reset_timer_timeout() -> void:

@@ -83,10 +83,10 @@ func _ui_interact(selected_tree_item: TreeItem = null) -> void:
 		(_selected_keybinds_tree_item == selected_tree_item or is_click)
 		and (not is_click or interact_on_click)
 	):
-		Log.debug("Menu tree item: interacted.")
+		LogWrapper.debug(self, "Menu tree item: interacted.")
 		_ui_interact_tree_item(selected_tree_item)
 	else:
-		Log.debug("Menu tree item: selected.")
+		LogWrapper.debug(self, "Menu tree item: selected.")
 	_selected_keybinds_tree_item = selected_tree_item
 
 
@@ -121,7 +121,7 @@ func _connect_signals() -> void:
 func _on_keybinds_tree_focus_exited() -> void:
 	self.deselect_all()
 	_selected_keybinds_tree_item = null
-	Log.debug("Menu tree item: deselected.")
+	LogWrapper.debug(self, "Menu tree item: deselected.")
 
 
 func _on_keybinds_tree_cell_selected() -> void:

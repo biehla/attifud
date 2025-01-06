@@ -29,11 +29,17 @@ Fusion of curated plugins, essential features and best practices to kick-start n
 
 ![](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/readme_preview_5.png)
 
+![](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/readme_preview_7.png)
+
 </details>
+
+
 
 ## ⭐ Features
 
-### ✨ Game
+Swap modules with either simpler or advanced alternatives, depending on your project size.
+
+### ✨ Game Modules
 
 - **Foundation**
 	- 🖼️ [**Scene Manager**](https://github.com/maktoobgar/scene_manager) - Custom transitions and loading screens.
@@ -46,29 +52,30 @@ Fusion of curated plugins, essential features and best practices to kick-start n
 - **Accessibility**
 	- 🎮 **Controller Support** - Grab UI focus for joypad and keyboard users.
 	- 🔍 **Multiple Resolutions** - Video options: display mode, window zoom.
-	- ⚡ **Optimizations** - Native web dialog to capture clipboard, and more...
+	- ⚡ **Optimizations** - E.g. Native web dialog to capture clipboard.
 - **UI/UX**
 	- 🎬 **Boot Splash** - The main scene, allowing custom transition to main menu.
 	- 🏠 **Main Menu** - Display buttons to enter other menus, version and author.
 	- 🔧 **Options Menu** - Audio, Video (display, vsync), Controls (keybinds), Game.
 	- 📜 **Credits Menu** - Renders [CREDITS.md](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/godot/CREDITS.md) file in-game with formatting.
 	- 📓 **Save Files Menu** - List of files: Play, Import, Export, Delete, Rename.
+	- 🎲 **Game Scene** - Example incremental game mechanics.
 	- ⏸️ **Pause Menu** - TODO: ...
 - **Placeholder**
 	- 🎨 **Theme** - TODO: ...
 	- 🖌️ **Images** - [CC0](https://creativecommons.org/publicdomain/zero/1.0/) Public Domain: [Dannya](https://openclipart.org/artist/dannya) save file icon, [Maaack](https://github.com/Maaack/Godot-Menus-Template/tree/main/addons/maaacks_menus_template/base/assets/images) icons.
 	- 🎶 **Music & SFX** - [CC0](https://creativecommons.org/publicdomain/zero/1.0/) Public Domain: [Kenny](https://kenney.nl/assets/category:Audio) SFX and [OGA](https://opengameart.org/content/menu-doodle-2) Music (loop).
 
-### 💫 Development
+### 💫 Development Modules
 
 - **Singletons**
 	- 📢 **Signal Bus** - Observer pattern for cleaner global signals.
 	- 📖 **References** - Map of preloaded resources for convenience.
 - **Scripts**
-	- 🧰 **Utility** - Datetime, File, Marshalls, Math, Node, Random, String.
+	- 🧰 **Utility** - Datetime, File, Marshalls, Math, Node, Number, Random, String, Theme.
 	- 🛠️ **Objects** - ActionHandler, ConfigStorage (INI File), LinkedMap.
 - **Tools**
-	- 🐛 [**Logger**](https://github.com/albinaask/Log) - Easier debugging and troubleshooting.
+	- 🐛 [**Logger**](https://github.com/albinaask/Log) - Easier debugging, custom log groups configuration.
 	- 🧩 [**IDE Plugin**](https://github.com/Maran23/script-ide) - Improves scripting in GDScript in editor.
 	- 📋 [**Resource View**](https://github.com/don-tnowe/godot-resources-as-sheets-plugin/tree/Godot-4) - Better resource management in editor.
 	- ✨ [**GDScript Toolkit**](https://github.com/Scony/godot-gdscript-toolkit) - Code style [formatting](https://github.com/ryan-haskell/gdformat-on-save) on save and [linter](https://github.com/el-falso/gdlinter).
@@ -150,6 +157,8 @@ Otherwise, Scenes must be loaded or added to the Scene Tree.
 
 - **Configuration**
 	- Configure Project, use ConfigStorage object for user config presistence.
+	- Logger configuration exports log groups (override log levels).
+	- Game options/settings configurations are tied to the menu UI.
 - **Data**
 	- Configure structure of save files, use as setter and getter of save file data.
 - **Overlay**
@@ -161,15 +170,16 @@ Otherwise, Scenes must be loaded or added to the Scene Tree.
 	- Exchange global signals for cleaner observer pattern.
 - **Wrapper** : *Extend functionality without modifying the original.*
 	- **AudioWrapper** - Calls Resonance plugin with enums instead of string names.
+	- **LogWrapper** - Extends Logger plugin with log groups configuration.
 	- **SceneManagerWrapper** - Calls SceneManager plugin with custom resource.
 	- **TranslationServerWrapper** - Extends localization to work in tool scripts.
 
 ### 🎬 Scenes
 
-Scenes are split into component, node and scene folders.
-1. Component  : _Add as a child to extend parent functionality by composition._
-2. Node   : _Add as a standalone building block of a larger construction._
-3. Scene  : _Presentable collection of other scenes, nodes and components._
+Scenes are split into following categories:
+1. "Component" scenes extend functionality of the parent.
+2. "Node" scenes are reusable as standalone functional units.
+3. "Scene" scenes are larger specialized collections.
 
 
 - **Component**
@@ -180,7 +190,10 @@ Scenes are split into component, node and scene folders.
 	- **Control**
 		- **ControlExpandStylebox** - Resize target node to fill parent container.
 		- **ControlGrabFocus** - Grabs focus of node for controller support.
-		- **ControlResizeTextFont** - Custom UI scaling if "stretch mode: disabled".
+	- **Motion**
+		- **FontSizeMotion** - Animate (tween) font size when interacted with.
+	- **Supplemental**
+		- **ResizeOnDisabledStretchMode** - Custom UI scaling if "stretch mode: disabled".
 - **Node**
 	- **Menu**
 		- **MenuButton** - Localized menu button.
@@ -198,7 +211,7 @@ Scenes are split into component, node and scene folders.
 			- **GameOptions** - Custom options, e.g. toggle autosave.
 		- **CreditsMenu** - Renders CREDITS.md file in-game with formatting.
 		- **SaveFilesMenu** - List of files: play, import, export, delete, rename.
-	- **PlayScene** - TODO: ...
+	- **GameScene** - Example incremental game: clicks per second, animations, ...
 		- **PauseMenu** - TODO: ...
 
 ### 📄 Scripts
@@ -213,10 +226,12 @@ Scenes are split into component, node and scene folders.
 	- **DatetimeUtils** - Useful for save file metadata (e.g. last played at).
 	- **FileSystemUtils** - Robust functions to extract file paths and names.
 	- **MarshallsUtils** - Convert data formats with optional encryption.
-	- **MathUtils** - Integer power function.
+	- **MathUtils** - Integer power function, base conversion and similar.
 	- **NodeUtils** - Collection of node manipulation functions.
+	- **NumberUtils** - Numbers format (digits, metric, scientific), validate.
 	- **RandomUtils** - Weighted Loot Table and random string functions.
 	- **StringUtils** - String functions for validation and transformations.
+	- **ThemeUtils** - Shortcut Theme getters and setters.
 
 ### 🌸 Snippets
 
@@ -247,15 +262,20 @@ Scenes are split into component, node and scene folders.
 
 Godot Engine [has known issues](https://github.com/godotengine/godot/issues) requiring hacks (workarounds) until officially resolved.
 
-Below is a list of issues needing workarounds implemented in this template.
+Below is a list of issues and workarounds implemented in this template.
 
+- **General**
+	- **TODO**: issues of [scene loaders](https://github.com/maktoobgar/scene_manager/issues/38) can cause lag spikes in scene tree.
+		- Possible solution could be a "scene preloader".
 - **Desktop**
 	- **TODO**: issues [#3145](https://github.com/godotengine/godot-proposals/issues/3145), [#6247](https://github.com/godotengine/godot-proposals/issues/6247) with `window_mode` before boot.
+		- Possible solution could be a .cfg override managed by config.
 - **Web**
-	- Issue [#81252](https://github.com/godotengine/godot/issues/81252) with clipboard hacked by native JavaScript dialog.
-	- Issue [#96874](https://github.com/godotengine/godot/issues/96874) with Boot Splash hacked by CSS in Head Include.
-	- Issue [#100696](https://github.com/godotengine/godot/issues/100696) with `play_stream` hacked by explicit args in func.
+	- Issue [#81252](https://github.com/godotengine/godot/issues/81252) with clipboard solved by native JavaScript dialog.
+	- Issue [#96874](https://github.com/godotengine/godot/issues/96874) with Boot Splash solved by CSS in Head Include.
+	- Issue [#100696](https://github.com/godotengine/godot/issues/100696) with `play_stream` solved by explicit args in func.
 	- **TODO**: Issue [#43138](https://github.com/godotengine/godot/issues/43138) with `window_mode` restricted to user focus.
+		- Possible solution could be a "click to continue" boot screen.
 
 **TODO**: Test the template on following platforms.
 - **Linux**
@@ -293,6 +313,8 @@ For questions and help, open a Github Issue or contact my Discord `tiny_takin_te
 
 - Opening the project for the first time, I have errors/warnings?
 	- Try (re)enable all Plugins and then select "Reload Current Project".
+- Warning "ext_resource, invalid UID" when opening the project?
+	- Resolve by re-saving the mentioned scene (.tscn), e.g. rename root node.
 
 
 ### 💼 Editor Layout

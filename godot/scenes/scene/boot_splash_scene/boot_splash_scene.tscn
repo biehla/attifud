@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://xqntvyuo85wg"]
+[gd_scene load_steps=3 format=3 uid="uid://xqntvyuo85wg"]
 
 [ext_resource type="Script" path="res://scenes/scene/boot_splash_scene/boot_splash_scene.gd" id="1_ycea6"]
+[ext_resource type="Texture2D" uid="uid://dtbe1tivagux3" path="res://assets/image/boot_splash/png/boot_splash_2560_1440.png" id="2_o65q5"]
 
 [node name="BootSplash" type="Control"]
 layout_mode = 3
@@ -22,9 +23,11 @@ grow_vertical = 2
 [node name="BootSplashColorRect" type="ColorRect" parent="BootSplashMarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+color = Color(0, 0, 0, 1)
 
 [node name="BootSplashTextureRect" type="TextureRect" parent="BootSplashMarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+texture = ExtResource("2_o65q5")
 expand_mode = 2
 stretch_mode = 5

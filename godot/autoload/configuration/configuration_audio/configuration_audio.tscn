@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://p82qg3wny3y8"]
+[gd_scene load_steps=18 format=3 uid="uid://p82qg3wny3y8"]
 
 [ext_resource type="Script" path="res://autoload/configuration/configuration_audio/configuration_audio.gd" id="1_l13f0"]
 [ext_resource type="Script" path="res://addons/resonate/music_manager/music_bank.gd" id="2_73r41"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://addons/resonate/sound_manager/sound_event_resource.gd" id="7_5rfmr"]
 [ext_resource type="AudioStream" uid="uid://c60x06lxg8pbp" path="res://assets/audio/sfx/kenny_ui/ogg/click4.ogg" id="8_mhkoh"]
 [ext_resource type="AudioStream" uid="uid://bxfhjuk1e7whg" path="res://assets/audio/sfx/kenny_ui/ogg/click5.ogg" id="9_weny0"]
+[ext_resource type="AudioStream" uid="uid://ced1dvacxwaeu" path="res://assets/audio/sfx/kenny_ui/ogg/mouseclick1.ogg" id="10_geadk"]
+[ext_resource type="AudioStream" uid="uid://t5x2o001rg8u" path="res://assets/audio/sfx/kenny_ui/ogg/mouserelease1.ogg" id="11_j271d"]
 
 [sub_resource type="Resource" id="Resource_00y01"]
 script = ExtResource("4_7tjbj")
@@ -39,6 +41,22 @@ volume = 0.0
 pitch = 1.0
 streams = Array[AudioStream]([ExtResource("9_weny0")])
 
+[sub_resource type="Resource" id="Resource_plwwx"]
+script = ExtResource("7_5rfmr")
+name = "select_2"
+bus = ""
+volume = 0.0
+pitch = 1.0
+streams = Array[AudioStream]([ExtResource("10_geadk")])
+
+[sub_resource type="Resource" id="Resource_ajfa0"]
+script = ExtResource("7_5rfmr")
+name = "click_2"
+bus = ""
+volume = 0.0
+pitch = 1.0
+streams = Array[AudioStream]([ExtResource("11_j271d")])
+
 [node name="ConfigurationAudio" type="Node"]
 script = ExtResource("1_l13f0")
 
@@ -52,4 +70,4 @@ tracks = Array[ExtResource("3_nskvx")]([SubResource("Resource_e4xvl")])
 script = ExtResource("6_ltbsi")
 label = "sfx"
 bus = "SFX"
-events = Array[ExtResource("7_5rfmr")]([SubResource("Resource_n3cwq"), SubResource("Resource_vhah6")])
+events = Array[ExtResource("7_5rfmr")]([SubResource("Resource_n3cwq"), SubResource("Resource_vhah6"), SubResource("Resource_plwwx"), SubResource("Resource_ajfa0")])

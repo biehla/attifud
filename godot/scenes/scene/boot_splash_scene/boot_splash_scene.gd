@@ -1,9 +1,10 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
+@tool
 extends Control
 
 @export_group("Next Scene")
 @export var scene_id: String = "menu_scene"
-@export var scene_manager_options_id: String = "fade_basic"
+@export var scene_manager_options_id: String = "fade_boot"
 
 var _boot_splash_color: Color = ProjectSettings.get("application/boot_splash/bg_color")
 var _boot_splash_image_path: String = ProjectSettings.get("application/boot_splash/image")
@@ -14,9 +15,14 @@ var _boot_splash_texture: Texture = load(_boot_splash_image_path)
 
 
 func _ready() -> void:
-	Log.debug("MAIN SCENE READY: ", name)
+	_set_boot_splash()
 
-	boot_splash_color_rect.color = _boot_splash_color
-	boot_splash_texture_rect.texture = _boot_splash_texture
+	if Engine.is_editor_hint():
+		return
 
 	SceneManagerWrapper.change_scene(scene_id, scene_manager_options_id)
+
+
+func _set_boot_splash() -> void:
+	boot_splash_color_rect.color = _boot_splash_color
+	boot_splash_texture_rect.texture = _boot_splash_texture

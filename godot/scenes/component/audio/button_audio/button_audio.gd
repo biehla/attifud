@@ -11,7 +11,7 @@ enum Interaction { NULL, FOCUS, DOWN, UP }
 ## Sets target as parent if target is not already set.
 ## If parent is not instance of [BaseButton], searches for a sibling instead (recursively).
 ## While searching for target, ignores nodes that already have a [ButtonAudio] attached.
-@export var target: Button
+@export var target: BaseButton
 
 @export_category("Sounds")
 @export var focus: AudioEnum.Sfx = AudioEnum.Sfx.SELECT
@@ -38,7 +38,7 @@ func _ready() -> void:
 	if target == null:
 		target = _get_parent_or_sibling(get_parent())
 	if target == null:
-		Log.warn("Target not found for parent: ", get_parent().name)
+		LogWrapper.debug(self, "Target not found for parent: ", get_parent().name)
 		return
 
 	target.add_theme_constant_override("button_audio_attached", 1)
@@ -88,7 +88,7 @@ func _on_target_focus_entered() -> void:
 		AudioWrapper.play_sfx(focus)
 	_new_interaction(Interaction.FOCUS)
 
-	Log.debug("Button sfx focus: ", AudioEnum.sfx_name(focus))
+	LogWrapper.debug(self, "Button sfx focus: ", AudioEnum.sfx_name(focus))
 
 
 func _on_target_button_down() -> void:
@@ -98,7 +98,7 @@ func _on_target_button_down() -> void:
 		AudioWrapper.play_sfx(down)
 	_new_interaction(Interaction.DOWN)
 
-	Log.debug("Button sfx down: ", AudioEnum.sfx_name(down))
+	LogWrapper.debug(self, "Button sfx down: ", AudioEnum.sfx_name(down))
 
 
 func _on_target_button_up(internal: bool = false) -> void:
@@ -108,7 +108,7 @@ func _on_target_button_up(internal: bool = false) -> void:
 		AudioWrapper.play_sfx(up)
 	_new_interaction(Interaction.UP)
 
-	Log.debug("Button sfx up: ", AudioEnum.sfx_name(up))
+	LogWrapper.debug(self, "Button sfx up: ", AudioEnum.sfx_name(up))
 
 
 func _on_target_option_focus_entered(_id: int) -> void:

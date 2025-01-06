@@ -80,7 +80,7 @@ func _ready() -> void:
 
 	reload_save_files_metadatas()
 
-	Log.debug("[DATA] Save files initialized: ", _save_files_metadatas.size())
+	LogWrapper.debug(self, "Save files initialized: ", _save_files_metadatas.size())
 
 
 func get_save_files_metadatas() -> Array[Dictionary]:
@@ -91,7 +91,14 @@ func reload_save_files_metadatas() -> void:
 	_save_files_metadatas = _load_save_files_datas(false)
 
 
-func exit_save_file() -> void:
+func is_save_file_selected() -> bool:
+	return selected_index != -1
+
+
+func exit_save_file(save_on_exit: bool = true) -> void:
+	if save_on_exit:
+		save_save_file()
+
 	var index: int = selected_index
 
 	selected_index = -1
@@ -103,7 +110,7 @@ func exit_save_file() -> void:
 
 func select_save_file(index: int, load_after_select: bool = true) -> void:
 	if index < 0 or index >= save_file_count:
-		Log.warn("Invalid index: ", index)
+		LogWrapper.debug(self, "Invalid index: ", index)
 		return
 	selected_index = index
 	if load_after_select:
@@ -111,8 +118,8 @@ func select_save_file(index: int, load_after_select: bool = true) -> void:
 
 
 func load_save_file() -> void:
-	if selected_index == -1:
-		Log.warn("Load data failed: save file not selected.")
+	if not is_save_file_selected():
+		LogWrapper.debug(self, "Load data failed: save file not selected.")
 		return
 	for save_data: SaveData in _save_datas:
 		_system_read_into_or_create(selected_index, save_data)
@@ -120,8 +127,8 @@ func load_save_file() -> void:
 
 
 func save_save_file() -> void:
-	if selected_index == -1:
-		Log.warn("Save data failed: save file not selected.")
+	if not is_save_file_selected():
+		LogWrapper.debug(self, "Save data failed: save file not selected.")
 		return
 	for save_data: SaveData in _save_datas:
 		_system_write_from(selected_index, save_data)
@@ -130,10 +137,12 @@ func save_save_file() -> void:
 
 func rename_save_file_index(index: int, value: String) -> void:
 	if index < 0 or index >= save_file_count:
-		Log.warn("Invalid index: ", index)
+		LogWrapper.debug(self, "Invalid index: ", index)
 		return
-	if selected_index != -1:
-		Log.warn("Rename failed: save file must not be selected for index operations.")
+	if is_save_file_selected():
+		LogWrapper.debug(
+			self, "Rename failed: save file must not be selected for index operations."
+		)
 		return
 
 	_system_set_metadata_value(index, value, Data.METADATA_SAVE_FILE_NAME, Data.METADATA_CATEGORY)
@@ -141,16 +150,20 @@ func rename_save_file_index(index: int, value: String) -> void:
 
 func delete_save_file_index(index: int) -> void:
 	if index < 0 or index >= save_file_count:
-		Log.warn("Invalid index: ", index)
+		LogWrapper.debug(self, "Invalid index: ", index)
 		return
-	if selected_index != -1:
-		Log.warn("Delete failed: save file must not be selected for index operations.")
+	if is_save_file_selected():
+		LogWrapper.debug(
+			self, "Delete failed: save file must not be selected for index operations."
+		)
 		return
 
 	var path: String = _system_get_save_file_path(index)
 	var dir: DirAccess = DirAccess.open(path)
 	if dir == null:
-		Log.debug("Delete path not found (error code %s): " % [DirAccess.get_open_error()], path)
+		LogWrapper.debug(
+			name, "Delete path not found (error code %s): " % [DirAccess.get_open_error()], path
+		)
 		return
 
 	for file in dir.get_files():
@@ -162,17 +175,19 @@ func delete_save_file_index(index: int) -> void:
 ## Return false if failed.
 func import_save_file_index(index: int, import: String) -> bool:
 	if index < 0 or index >= save_file_count:
-		Log.warn("Invalid index: ", index)
+		LogWrapper.debug(self, "Invalid index: ", index)
 		return false
-	if selected_index != -1:
-		Log.warn("Import failed: save file must not be selected for index operations.")
+	if is_save_file_selected():
+		LogWrapper.debug(
+			self, "Import failed: save file must not be selected for index operations."
+		)
 		return false
 
 	var datas: Dictionary = MarshallsUtils.string_to_dict(
 		import, export_encryption, export_secret, export_salt
 	)
 	if datas.is_empty():
-		Log.warn("Import failed: could not convert string to data dict: ", import)
+		LogWrapper.debug(self, "Import failed: could not convert string to data dict: ", import)
 		return false
 
 	_save_save_file_datas(index, datas)
@@ -183,10 +198,12 @@ func import_save_file_index(index: int, import: String) -> bool:
 ## Return "" if failed.
 func export_save_file_index(index: int) -> String:
 	if index < 0 or index >= save_file_count:
-		Log.warn("Invalid index: ", index)
+		LogWrapper.debug(self, "Invalid index: ", index)
 		return ""
-	if selected_index != -1:
-		Log.warn("Export failed: save file must not be selected for index operations.")
+	if is_save_file_selected():
+		LogWrapper.debug(
+			self, "Export failed: save file must not be selected for index operations."
+		)
 		return ""
 
 	var datas: Dictionary = _load_save_file_datas(index, true)
@@ -226,7 +243,7 @@ func _save_save_file_datas(index: int, datas: Dictionary) -> void:
 		var data: Dictionary = datas[category]
 		var save_data: SaveData = _find_by_category(category)
 		if save_data == null:
-			Log.warn("Could not read category '%s'." % [category])
+			LogWrapper.debug(self, "Could not read category '%s'." % [category])
 			continue
 		save_data.set_from_dict(data)
 		_system_write_from(index, save_data)
@@ -258,13 +275,13 @@ func _system_set_metadata_value(index: int, value: String, key: String, category
 	var save_file_metadatas: Dictionary = save_files_metadatas[index]
 	var save_file_meta: Dictionary = save_file_metadatas.get(Data.METADATA_CATEGORY, {})
 	if save_file_meta.is_empty():
-		Log.warn("Could not read metadata '%s': " % [category], save_files_metadatas)
+		LogWrapper.debug(self, "Could not read metadata '%s': " % [category], save_files_metadatas)
 		return
 	save_file_meta[key] = value
 
 	var save_data: SaveData = _find_by_category(category)
 	if save_data == null:
-		Log.warn("Could not read category '%s'." % [category])
+		LogWrapper.debug(self, "Could not read category '%s'." % [category])
 		return
 	save_data.set_from_dict(save_file_meta)
 	_system_write_from(index, save_data)
@@ -300,7 +317,7 @@ func _system_write_from(index: int, save_data: SaveData) -> void:
 	save_file.store_line(content)
 	save_file.close()
 
-	# Log.debug("[DATA] System write: ", path)
+	LogWrapper.debug(self, "System write: ", path, "_system_write_from")
 
 
 ## If cannot read save file or its data, create a new save file for given index.
@@ -320,7 +337,9 @@ func _system_read_into(index: int, save_data: SaveData) -> bool:
 	if save_file == null:
 		# if loading index for the first time (save file does not exist), it will be created
 		save_data.clear(index)
-		Log.debug("[DATA] Cannot open (error code: %s) at: " % [FileAccess.get_open_error()], path)
+		LogWrapper.debug(
+			name, "Cannot open (error code: %s) at: " % [FileAccess.get_open_error()], path
+		)
 		return false
 	var content: String = save_file.get_as_text()
 	save_file.close()
@@ -331,13 +350,15 @@ func _system_read_into(index: int, save_data: SaveData) -> bool:
 	if json_object == null:
 		# unreadable save file contents (this should never happen)
 		save_data.clear(index)
-		Log.warn("[DATA] Cannot parse (error code: %s) at: " % [FileAccess.get_open_error()], path)
+		LogWrapper.warn(
+			name, "Cannot parse (error code: %s) at: " % [FileAccess.get_open_error()], path
+		)
 		return false
 
 	var data: Dictionary = json_object.get_data()
 	save_data.set_from_dict(data, index)
 
-	Log.debug("[DATA] System read:", path)
+	LogWrapper.debug(self, "System read: ", path)
 	return true
 
 
@@ -345,12 +366,12 @@ func _system_read_into(index: int, save_data: SaveData) -> bool:
 func _system_verify_signature(content: String) -> String:
 	var signature_index: int = content.find(SIGNATURE)
 	if signature_index == -1:
-		Log.warn("No signature found.")
+		LogWrapper.debug(self, "No signature found.")
 		return content
 	var new_content: String = content.substr(0, signature_index + SIGNATURE.length())
 	if content.length() != new_content.length():
 		var corrupt_content: String = content.substr(signature_index, content.length())
-		Log.warn("Save file corruption detected and corrected: ", corrupt_content)
+		LogWrapper.debug(self, "Save file corruption detected and corrected: ", corrupt_content)
 	new_content = content.replace(SIGNATURE, "")
 	return new_content
 
@@ -366,5 +387,5 @@ func _connect_signals() -> void:
 
 
 func _on_autosave_timer_timeout() -> void:
-	if Configuration.game.get_autosave_enabled() and selected_index != -1:
+	if Configuration.game.autosave.get_enabled() and is_save_file_selected():
 		save_save_file()

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bm8qadqrfaq73"]
 
 [ext_resource type="Script" path="res://autoload/overlay/overlay.gd" id="1_dgt80"]
-[ext_resource type="PackedScene" uid="uid://bdh62o75gsq3g" path="res://scenes/component/control/control_resize_text_font/control_resize_text_font.tscn" id="2_yoouq"]
+[ext_resource type="PackedScene" uid="uid://bdh62o75gsq3g" path="res://scenes/component/supplemental/resize_on_disabled_stretch_mode/resize_on_disabled_stretch_mode.tscn" id="2_yoouq"]
 
 [node name="Overlay" type="Control"]
 modulate = Color(0, 1, 0, 1)
@@ -29,4 +29,4 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "60 FPS"
 
-[node name="ControlResizeTextFont" parent="." instance=ExtResource("2_yoouq")]
+[node name="ResizeOnDisabledStretchMode" parent="." instance=ExtResource("2_yoouq")]

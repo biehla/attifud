@@ -94,7 +94,7 @@ func _on_slider_drag_ended(value_changed: bool) -> void:
 
 	var value: float = h_slider.value
 
-	Log.debug("%s: menu slider ID '%s' value changed." % [name, MenuSliderEnum.ID.keys()[id]])
+	LogWrapper.debug(self, "Menu slider ID '%s' value changed." % [MenuSliderEnum.ID.keys()[id]])
 
 	_refresh_value()
 
@@ -114,7 +114,7 @@ func _on_slider_value_added(increment: float) -> void:
 	if value == _last_value:
 		return
 
-	Log.debug("%s: menu slider ID '%s' value changed." % [name, MenuSliderEnum.ID.keys()[id]])
+	LogWrapper.debug(self, "Menu slider ID '%s' value changed." % [MenuSliderEnum.ID.keys()[id]])
 
 	_last_value = value
 	if h_slider.value != value:

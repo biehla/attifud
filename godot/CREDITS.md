@@ -27,6 +27,14 @@ Source: [kenny.nl: UI Audio](https://kenney.nl/assets/ui-audio)\
 License: [CC0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/)
 
 ### Art:
+	
+#### Kenny's Animal Pack
+Created by: [Kenney Vleugels](https://kenney.nl)\
+Source: [kenny.nl: Animal Pack](https://kenney.nl/assets/animal-pack)\
+License: [CC0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/)
+
+[comment]: # ()
+[comment]: # (`image/game/animal/png/*`)
 
 #### Godot Logo (Boot Splash)
 Modified by: [TinyTakinTeller](https://github.com/TinyTakinTeller)\
@@ -38,7 +46,7 @@ License: [CC BY 4.0 International](https://github.com/godotengine/godot/blob/mas
 [comment]: # (`boot_splash_2560_1440.png`)
 [comment]: # (`icon_1024_1024.png`)
 
-#### UI Iconns: Plus, Minus
+#### UI Icons: Plus, Minus
 Created by: [Marek Belski](https://github.com/Maaack)  
 Source: [github: Godot Menus Template](https://github.com/Maaack/Godot-Menus-Template/blob/main/addons/maaacks_menus_template/base/assets/images)\
 License: [CC0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/)

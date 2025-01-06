@@ -2,6 +2,28 @@
 class_name ConfigurationLogger
 extends Node
 
+@export_group("Log Groups")
+@export var default_debug_log_group: Log.LogLevel = Log.LogLevel.DEBUG
+@export var default_prod_log_group: Log.LogLevel = Log.LogLevel.INFO
+@export var debug_log_groups: Dictionary = {
+	"Data": Log.LogLevel.DEBUG,
+	"Reference": LogWrapper.LOG_LEVEL_DISABLED,
+	"ActionHandler": LogWrapper.LOG_LEVEL_DISABLED,
+	"ButtonAudio": LogWrapper.LOG_LEVEL_DISABLED,
+	"OkButtonAudio": LogWrapper.LOG_LEVEL_DISABLED,
+	"CancelButtonAudio": LogWrapper.LOG_LEVEL_DISABLED,
+	"SliderAudio": LogWrapper.LOG_LEVEL_DISABLED,
+	"TreeAudio": LogWrapper.LOG_LEVEL_DISABLED,
+	"MenuKeybinds": LogWrapper.LOG_LEVEL_DISABLED,
+	"ConfirmationDialogJsLoader.eval_snippet": LogWrapper.LOG_LEVEL_DISABLED,
+	"MarshallsUtils.string_to_dict": LogWrapper.LOG_LEVEL_DISABLED,
+	"Data._system_write_from": LogWrapper.LOG_LEVEL_DISABLED
+}
+@export var prod_log_groups: Dictionary = {}
+
+@export_group("Optimizations")
+@export var disable_debug_in_prod: bool = true
+
 
 func _ready() -> void:
 	if OS.is_debug_build():
@@ -11,8 +33,14 @@ func _ready() -> void:
 
 
 func _init_debug_configuration() -> void:
-	Log.current_log_level = Log.LogLevel.DEBUG
+	Log.current_log_level = default_debug_log_group
+	LogWrapper.default_log_group = default_debug_log_group
+	LogWrapper.log_groups = debug_log_groups
+	LogWrapper.disable_debug_logs = false
 
 
 func _init_release_configuration() -> void:
-	Log.current_log_level = Log.LogLevel.INFO
+	Log.current_log_level = default_prod_log_group
+	LogWrapper.default_log_group = default_prod_log_group
+	LogWrapper.log_groups = prod_log_groups
+	LogWrapper.disable_debug_logs = disable_debug_in_prod

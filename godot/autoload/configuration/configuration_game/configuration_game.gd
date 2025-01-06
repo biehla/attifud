@@ -4,18 +4,15 @@
 class_name ConfigurationGame
 extends Node
 
+@onready var autosave: ConfigurationGameAutosave = $ConfigurationGameAutosave
+@onready var number_format: ConfigurationGameNumberFormat = $ConfigurationGameNumberFormat
+
 
 func _ready() -> void:
 	pass
 
 
-func get_autosave_enabled() -> bool:
-	return ConfigStorageSettingsGame.get_autosave_enabled()
-
-
-func set_autosave_enabled(enabled: bool) -> void:
-	ConfigStorageSettingsGame.set_autosave_enabled(enabled)
-
-
 func reset() -> void:
-	ConfigStorageSettingsGame.delete()
+	ConfigStorageSettingsVideo.delete()
+	autosave.load_autosave()
+	number_format.load_number_format()

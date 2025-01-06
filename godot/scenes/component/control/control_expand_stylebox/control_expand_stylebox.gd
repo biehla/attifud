@@ -1,12 +1,12 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 ## [br][br]
-## Makes target node (e.g. [HSlider]) expand same as [ProgressBar] expands to fill parent control.
+## Makes target node theme [StyleBox] expand to fill parent control.
 ## [br][br]
 ## Modifies the theme override. If not found at node level, will look at the inherited theme.
 class_name ControlExpandStylebox
 extends Node
 
-## Uses parent as target if not set.
+## Uses parent as target if not set. (e.g. [HSlider])
 @export var target: Control
 @export var theme_override_property: String = "theme_override_styles/slider"
 @export var theme_inherited_property: String = "HSlider/styles/slider"
@@ -34,7 +34,7 @@ func _refresh_size() -> void:
 	if override_slider != null:
 		return _resize_slider(override_slider)
 
-	var inherited_theme: Theme = NodeUtils.get_inherited_theme(target)
+	var inherited_theme: Theme = ThemeUtils.get_inherited_theme(target)
 	if inherited_theme == null:
 		return
 
@@ -58,6 +58,7 @@ func _connect_signals() -> void:
 	if parent != null and is_instance_of(parent, Control):
 		_parent_control = parent as Control
 		_parent_control.resized.connect(_on_parent_control_resized)
+		_parent_control.visibility_changed.connect(_on_parent_control_resized)
 
 
 func _on_parent_control_resized() -> void:

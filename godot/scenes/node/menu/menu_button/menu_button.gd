@@ -65,7 +65,7 @@ func _on_button_pressed() -> void:
 			confirm = false
 			_refresh_label()
 
-	Log.debug("%s: menu button ID '%s' pressed." % [name, MenuButtonEnum.ID.keys()[id]])
+	LogWrapper.debug(self, "Menu button ID '%s' pressed." % [MenuButtonEnum.ID.keys()[id]])
 
 	if id == null or id == MenuButtonEnum.ID.UNKNOWN:
 		return

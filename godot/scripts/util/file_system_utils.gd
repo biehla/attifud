@@ -1,6 +1,8 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 class_name FileSystemUtils
 
+const NAME: String = "FileSystemUtils"
+
 const PATH_SEPARATOR = "/"
 const EXTENSION_SEPARATOR = "."
 
@@ -9,7 +11,7 @@ const EXTENSION_SEPARATOR = "."
 static func load_file_as_string(file_path: String) -> String:
 	var file_string: String = FileAccess.get_file_as_string(file_path)
 	if file_string == null:
-		Log.warn("File open error: %s" % FileAccess.get_open_error())
+		LogWrapper.warn(NAME, "File open error: %s" % FileAccess.get_open_error())
 		return ""
 	return file_string
 

@@ -77,7 +77,7 @@ func get_option() -> int:
 
 func set_option(index: int = -1) -> void:
 	if index >= option_button.item_count:
-		Log.warn("Index out of bounds: ", index)
+		LogWrapper.debug(self, "Index out of bounds: ", index)
 		return
 	option_button.select(index)
 
@@ -123,7 +123,7 @@ func _on_language_changed(_locale: String) -> void:
 
 
 func _on_option_button_item_selected(index: int) -> void:
-	Log.debug("%s: menu dropdown ID '%s' idx '%s'." % [name, MenuDropdownEnum.ID.keys()[id], index])
+	LogWrapper.debug(self, "Menu dropdown ID '%s' idx '%s'." % [MenuDropdownEnum.ID.keys()[id], index])
 
 	if id == null or id == MenuDropdownEnum.ID.UNKNOWN:
 		return

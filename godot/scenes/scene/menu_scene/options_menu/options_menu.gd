@@ -22,6 +22,8 @@ func _ready() -> void:
 	_toggle_options(audio_options, tab_h_box_container.get_child(0))
 	_init_action_handler()
 
+	LogWrapper.debug(self, "MenuScene: Options Menu ready.")
+
 
 func _init_action_handler() -> void:
 	_action_handler.set_register_type("MenuButton")

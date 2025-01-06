@@ -30,14 +30,14 @@ func _on_cell_selected() -> void:
 	if _is_set(cell_selected):
 		AudioWrapper.play_sfx(cell_selected)
 
-	Log.debug("Tree sfx drag started: ", AudioEnum.sfx_name(cell_selected))
+	LogWrapper.debug(self, "Tree sfx drag started: ", AudioEnum.sfx_name(cell_selected))
 
 
 func _on_button_clicked(_item: TreeItem, _column: int, _id: int, _mouse_button_index: int) -> void:
 	if _is_set(button_clicked):
 		AudioWrapper.play_sfx(button_clicked)
 
-	Log.debug("Tree sfx drag ended: ", AudioEnum.sfx_name(button_clicked))
+	LogWrapper.debug(self, "Tree sfx drag ended: ", AudioEnum.sfx_name(button_clicked))
 
 
 func _is_set(event: AudioEnum.Sfx) -> bool:

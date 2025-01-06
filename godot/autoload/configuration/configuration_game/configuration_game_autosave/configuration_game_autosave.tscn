@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwna4is056o1k"]
+
+[ext_resource type="Script" path="res://autoload/configuration/configuration_game/configuration_game_autosave/configuration_game_autosave.gd" id="1_q6m3e"]
+
+[node name="ConfigurationGameAutosave" type="Node"]
+script = ExtResource("1_q6m3e")

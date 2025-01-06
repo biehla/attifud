@@ -19,7 +19,7 @@ func get_locale_text() -> LinkedMap:
 
 
 func set_locale(locale: String) -> void:
-	Log.debug("Language changed: ", locale)
+	LogWrapper.debug(self, "Language changed: ", locale)
 
 	ConfigStorageSettingsLocale.set_locale(locale)
 	TranslationServer.set_locale(locale)

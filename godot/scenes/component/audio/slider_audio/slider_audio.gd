@@ -30,14 +30,14 @@ func _on_target_drag_started() -> void:
 	if _is_set(drag_started):
 		AudioWrapper.play_sfx(drag_started)
 
-	Log.debug("Slider sfx drag started: ", AudioEnum.sfx_name(drag_started))
+	LogWrapper.debug(self, "Slider sfx drag started: ", AudioEnum.sfx_name(drag_started))
 
 
 func _on_target_drag_ended(_value_changed: bool) -> void:
 	if _is_set(drag_ended):
 		AudioWrapper.play_sfx(drag_ended)
 
-	Log.debug("Slider sfx drag ended: ", AudioEnum.sfx_name(drag_ended))
+	LogWrapper.debug(self, "Slider sfx drag ended: ", AudioEnum.sfx_name(drag_ended))
 
 
 func _is_set(event: AudioEnum.Sfx) -> bool:

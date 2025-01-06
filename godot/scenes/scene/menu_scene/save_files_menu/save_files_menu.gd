@@ -2,6 +2,10 @@
 class_name SaveFilesMenu
 extends Control
 
+@export_group("Play Scene")
+@export var scene_id: String = "game_scene"
+@export var scene_manager_options_id: String = "fade_play"
+
 @export var menu_save_file_pck: PackedScene
 
 var _menu_save_files: Array[MenuSaveFile] = []
@@ -16,7 +20,7 @@ var _action_handler: ActionHandler = ActionHandler.new()
 
 func _ready() -> void:
 	if not menu_save_file_pck:
-		Log.warn("Save File UI packed scene not set.")
+		LogWrapper.debug(self, "Save File UI packed scene not set.")
 		return
 
 	_init_menu_save_files()
@@ -48,7 +52,9 @@ func _action_play_save_file_menu_button() -> void:
 	var menu_save_file: MenuSaveFile = get_toggled_save_file()
 	if menu_save_file == null:
 		return
-	Log.info("PLAY SAVE FILE")  #TODO
+	process_mode = PROCESS_MODE_DISABLED
+	Data.select_save_file(menu_save_file.index)
+	SceneManagerWrapper.change_scene(scene_id, scene_manager_options_id)
 
 
 func _action_export_save_file_menu_button() -> void:
@@ -136,7 +142,9 @@ func _reload_menu_save_file(menu_save_file: MenuSaveFile) -> MenuSaveFile:
 func _set_menu_save_file(menu_save_file: MenuSaveFile, save_file_metadatas: Dictionary) -> void:
 	var save_file_metadata: Dictionary = save_file_metadatas.get(Data.METADATA_CATEGORY, {})
 	if save_file_metadata.is_empty():
-		Log.warn("Could not read metadata '%s': " % [Data.METADATA_CATEGORY], save_file_metadatas)
+		LogWrapper.debug(
+			self, "Could not read metadata '%s': " % [Data.METADATA_CATEGORY], save_file_metadatas
+		)
 		return
 
 	var save_file_name: String = save_file_metadata[Data.METADATA_SAVE_FILE_NAME]

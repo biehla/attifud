@@ -5,6 +5,8 @@
 class_name ConfirmationDialogJsLoader
 extends Object
 
+const NAME: String = "ConfirmationDialogJsLoader"
+
 const ROOT_PATH: String = "res://snippets/js/"
 const FILE_PATH: String = ROOT_PATH + "confirmation_dialog/confirmation_dialog.js"
 
@@ -57,7 +59,7 @@ static func _init() -> void:
 static func eval_snippet(node: Node) -> String:
 	node.get_tree().paused = true
 	var snippet: String = get_snippet()
-	# Log.debug("JavaScriptBridge eval: %s " % [snippet])
+	LogWrapper.debug(NAME, "JavaScriptBridge eval: %s " % [snippet], "eval_snippet")
 	var eval_return: Variant = JavaScriptBridge.eval(snippet)
 	while true:
 		eval_return = JavaScriptBridge.eval(OUTPUT_CONTAINER)

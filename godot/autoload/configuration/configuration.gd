@@ -13,6 +13,6 @@ const GAME_AUTHOR: String = "TinyTakinTeller"
 
 
 func _ready() -> void:
-	Log.debug("AUTOLOAD READY: ", name)
-
 	ConfigStorageAppLog.app_opened()
+
+	LogWrapper.debug(self, "AUTOLOAD READY.")

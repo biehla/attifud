@@ -11,13 +11,13 @@ const VERSION_PREFIX: String = "v"
 
 
 func _ready() -> void:
-	Log.debug("VIEW SCENE READY: ", name)
-
 	_connect_signals()
 	_refresh_labels()
 
 	if OS.has_feature("web"):
 		quit_menu_button.visible = false
+
+	LogWrapper.debug(self, "MenuScene: Main Menu ready.")
 
 
 func _refresh_labels() -> void:

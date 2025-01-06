@@ -3,6 +3,8 @@ class_name MarshallsUtils
 
 enum CIPHER { NONE, MONOALPHABETIC_SUBSTITUTION }
 
+const NAME: String = "MarshallsUtils"
+
 const BASE_64_CHARSET: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="
 
 
@@ -61,12 +63,12 @@ static func string_to_dict(
 
 	var json_string: String = Marshalls.base64_to_utf8(base64_string)
 	if json_string == null:
-		Log.warn("[MarshallsUtils] Failed to convert base64 to utf8: ", base64_string)
+		LogWrapper.warn(NAME, "Failed to convert base64 to utf8: ", base64_string)
 		return {}
 
 	var json_object: JSON = parse_json(json_string)
 	if json_object == null:
-		# Log.warn("[MarshallsUtils] Failed to parse json: ", json_string)
+		LogWrapper.warn(NAME, "Failed to parse json: ", json_string, "string_to_dict")
 		return {}
 
 	return json_object.get_data()
@@ -77,6 +79,6 @@ static func parse_json(json_string: String) -> JSON:
 	var json_object: JSON = JSON.new()
 	var parse_err: Error = json_object.parse(json_string)
 	if parse_err != Error.OK:
-		Log.warn("[MarshallsUtils] Failed parse json (error code: %s):" % [parse_err], json_string)
+		LogWrapper.warn(NAME, "Failed parse json (error code: %s): " % [parse_err], json_string)
 		return null
 	return json_object

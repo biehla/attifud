@@ -26,7 +26,7 @@ func _ready() -> void:
 
 func ready() -> void:
 	if _ready_called:
-		Log.warn("Ready already called.")
+		LogWrapper.debug(self, "Ready already called.")
 		return
 	_ready_called = true
 
@@ -34,7 +34,7 @@ func ready() -> void:
 		target = _get_focusable_control_child(self.get_parent())
 
 	if target == null:
-		Log.warn("Could not find focusable target for parent: ", self.get_parent().name)
+		LogWrapper.debug(self, "Could not find focusable target for parent: ", self.get_parent().name)
 		return
 
 	_connect_signals()

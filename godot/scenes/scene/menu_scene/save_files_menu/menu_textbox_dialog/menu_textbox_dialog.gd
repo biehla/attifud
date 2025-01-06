@@ -27,7 +27,7 @@ func _ready() -> void:
 
 	_connect_signals()
 
-	var node_theme: Theme = NodeUtils.get_inherited_theme(self)
+	var node_theme: Theme = ThemeUtils.get_inherited_theme(self)
 	ConfirmationDialogJsLoader.set_snippet_theme_from_resource(node_theme)
 
 
