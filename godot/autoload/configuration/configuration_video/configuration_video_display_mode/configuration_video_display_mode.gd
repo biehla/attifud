@@ -7,6 +7,8 @@ extends Node
 const WINDOW_MODE_BORDERLESS_WINDOWED: int = -1
 const WINDOW_MODE_BORDERLESS_MAXIMIZED: int = -2
 
+@export var hide_disabled: bool = false
+
 var options: LinkedMap
 var disabled_options: Dictionary
 var _web_disabled_options: Dictionary
@@ -136,6 +138,8 @@ func _init_options() -> void:
 
 
 func _init_option(label: String, window_mode: int, web_disabled: bool) -> void:
+	if web_disabled and hide_disabled:
+		return
 	options.add(label, window_mode)
 	_web_disabled_options[label] = web_disabled
 

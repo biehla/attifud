@@ -24,7 +24,7 @@ Log/break_on_error=false
 [application]
 
 config/name="TakinGodotTemplate"
-config/version="0.3.4"
+config/version="0.3.5"
 run/main_scene="res://scenes/scene/boot_splash_scene/boot_splash_scene.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
@@ -86,7 +86,8 @@ folder_colors={
 "res://resources/": "teal",
 "res://scenes/": "orange",
 "res://scripts/": "yellow",
-"res://shaders/": "red"
+"res://shaders/": "red",
+"res://snippets/": "pink"
 }
 
 [gui]

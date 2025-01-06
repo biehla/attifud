@@ -66,8 +66,8 @@ static func add_child_sorted(child: Node, parent: Node, compare_func: Callable) 
 
 
 ## returns active theme of control node (control nodes inheirt parent theme if theirs is null)
-static func get_inherited_theme(control: Node) -> Resource:
-	var theme: Resource = null
+static func get_inherited_theme(control: Node) -> Theme:
+	var theme: Theme = null
 	while (control != null) and ("theme" in control):
 		theme = control.theme
 		if theme != null:

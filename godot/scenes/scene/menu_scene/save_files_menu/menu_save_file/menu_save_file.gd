@@ -29,21 +29,18 @@ func _ready() -> void:
 	_refresh_title_labels()
 
 
-func toggle_name_edit(enabled: bool, focus: bool = true) -> void:
+func toggle_name_edit(enabled: bool) -> void:
 	if enabled:
 		name_value_line_edit.text = name_value_label.text
 		name_value_label.visible = false
 		name_value_line_edit.visible = true
-		if focus:
-			name_value_line_edit.grab_focus()
+		name_value_line_edit.grab_focus()
 	else:
 		if name_value_label.text != name_value_line_edit.text and name_value_line_edit.text != "":
 			Data.rename_save_file_index(index, name_value_line_edit.text)
 		name_value_label.text = name_value_line_edit.text
 		name_value_label.visible = true
 		name_value_line_edit.visible = false
-		if focus:
-			save_file_button.grab_focus()
 
 
 func set_index(new_index: int) -> void:
@@ -71,7 +68,7 @@ func _refresh_title_labels() -> void:
 	playtime_title_label.text = TranslationServerWrapper.translate(TIME_TITLE)
 
 	buttons_margin_container.visible = false
-	toggle_name_edit(false, false)
+	toggle_name_edit(false)
 
 
 func _connect_signals() -> void:
@@ -95,7 +92,7 @@ func _on_save_file_button_toggled(toggled_on: bool) -> void:
 
 
 func _on_name_value_line_edit_focus_exited() -> void:
-	toggle_name_edit(false, false)
+	toggle_name_edit(false)
 
 
 func _on_name_value_line_edit_text_submitted(_new_text: String) -> void:

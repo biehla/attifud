@@ -118,8 +118,9 @@ func _init_anti_alias_menu_dropdown() -> void:
 func _init_display_mode_menu_dropdown() -> void:
 	var display_modes: Array[String] = Configuration.video.display_mode.options.get_keys()
 	var display_disabled_options: Dictionary = {}
+	var hide_disabled: bool = Configuration.video.display_mode.hide_disabled
 	display_disabled_options = Configuration.video.display_mode.disabled_options
-	display_mode_menu_dropdown.init_options(display_modes, display_disabled_options)
+	display_mode_menu_dropdown.init_options(display_modes, display_disabled_options, hide_disabled)
 
 
 func _init_fps_limit_menu_dropdown() -> void:

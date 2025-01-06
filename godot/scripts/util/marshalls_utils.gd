@@ -40,18 +40,23 @@ static func monoalphabetic_substitution_cipher(
 
 
 static func dict_to_string(
-	dict: Dictionary, cipher: CIPHER = CIPHER.NONE, secret: String = ""
+	dict: Dictionary, cipher: CIPHER = CIPHER.NONE, secret: String = "", salt: bool = false
 ) -> String:
 	var json_string: String = JSON.stringify(dict)
 	var base64_string: String = Marshalls.utf8_to_base64(json_string)
+
+	if salt:
+		secret += str(base64_string.length())
 	base64_string = run_cipher(base64_string, cipher, secret, true, BASE_64_CHARSET)
 
 	return base64_string
 
 
 static func string_to_dict(
-	base64_string: String, cipher: CIPHER = CIPHER.NONE, secret: String = ""
+	base64_string: String, cipher: CIPHER = CIPHER.NONE, secret: String = "", salt: bool = false
 ) -> Dictionary:
+	if salt:
+		secret += str(base64_string.length())
 	base64_string = run_cipher(base64_string, cipher, secret, false, BASE_64_CHARSET)
 
 	var json_string: String = Marshalls.base64_to_utf8(base64_string)
@@ -61,7 +66,7 @@ static func string_to_dict(
 
 	var json_object: JSON = parse_json(json_string)
 	if json_object == null:
-		Log.warn("[MarshallsUtils] Failed to parse json: ", json_string)
+		# Log.warn("[MarshallsUtils] Failed to parse json: ", json_string)
 		return {}
 
 	return json_object.get_data()
@@ -72,6 +77,6 @@ static func parse_json(json_string: String) -> JSON:
 	var json_object: JSON = JSON.new()
 	var parse_err: Error = json_object.parse(json_string)
 	if parse_err != Error.OK:
-		Log.warn("[MarshallsUtils] Failed to parse json string (error code: %s)." % [parse_err])
+		Log.warn("[MarshallsUtils] Failed parse json (error code: %s):" % [parse_err], json_string)
 		return null
 	return json_object

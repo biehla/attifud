@@ -8,8 +8,10 @@ var _menu_save_files: Array[MenuSaveFile] = []
 
 var _action_handler: ActionHandler = ActionHandler.new()
 
+@onready var save_files_menu_scroll_container: ScrollContainer = %SaveFilesMenuScrollContainer
 @onready var save_files_v_box_container: VBoxContainer = %SaveFilesVBoxContainer
 @onready var control_grab_focus: ControlGrabFocus = %ControlGrabFocus
+@onready var menu_textbox_dialog: MenuTextboxDialog = %MenuTextboxDialog
 
 
 func _ready() -> void:
@@ -53,14 +55,34 @@ func _action_export_save_file_menu_button() -> void:
 	var menu_save_file: MenuSaveFile = get_toggled_save_file()
 	if menu_save_file == null:
 		return
-	Log.info("EXPORT SAVE FILE")  #TODO
+	var index: int = menu_save_file.index
+	var export: String = Data.export_save_file_index(index)
+	var center_target: Control = save_files_menu_scroll_container
+	menu_textbox_dialog.custom_popup(export, center_target, false, index)
 
 
-func _action_import_save_file_menu_button() -> void:
+func _export_confirmed(text: String, _index: int) -> void:
+	DisplayServer.clipboard_set(text)
+
+
+func _action_import_save_file_menu_button(retry_flag: bool = false) -> void:
 	var menu_save_file: MenuSaveFile = get_toggled_save_file()
 	if menu_save_file == null:
 		return
-	Log.info("IMPORT SAVE FILE")  #TODO
+	var index: int = menu_save_file.index
+	var center_target: Control = save_files_menu_scroll_container
+	var clipboard: String = ""  # DisplayServer.clipboard_get()
+	menu_textbox_dialog.custom_popup(clipboard, center_target, true, index, retry_flag)
+
+
+func _import_confirmed(text: String, index: int) -> void:
+	var success: bool = Data.import_save_file_index(index, text)
+	if not success:
+		_action_import_save_file_menu_button(true)
+	else:
+		var menu_save_file: MenuSaveFile = _menu_save_files[index]
+		menu_save_file = _reload_menu_save_file(menu_save_file)
+		_menu_save_files[index] = menu_save_file
 
 
 func _action_delete_save_file_menu_button() -> void:
@@ -69,6 +91,7 @@ func _action_delete_save_file_menu_button() -> void:
 		return
 	var index: int = menu_save_file.index
 	Data.delete_save_file_index(index)
+
 	menu_save_file = _reload_menu_save_file(menu_save_file)
 	_menu_save_files[index] = menu_save_file
 
@@ -130,6 +153,7 @@ func _on_save_file_button_pressed(index: int) -> void:
 
 func _connect_signals() -> void:
 	self.visibility_changed.connect(_on_visibility_changed)
+	menu_textbox_dialog.confirmed_action.connect(_on_menu_textbox_dialog_confirmed_action)
 	SignalBus.menu_button_pressed.connect(_on_menu_button_pressed)
 
 
@@ -137,6 +161,15 @@ func _on_visibility_changed() -> void:
 	if not is_visible_in_tree():
 		for menu_save_file: MenuSaveFile in _menu_save_files:
 			menu_save_file.save_file_button.button_pressed = false
+
+
+func _on_menu_textbox_dialog_confirmed_action(
+	textbox_mode: MenuTextboxDialog.TextboxMode, text: String, index: int
+) -> void:
+	if textbox_mode == MenuTextboxDialog.TextboxMode.IMPORT:
+		_import_confirmed(text, index)
+	elif textbox_mode == MenuTextboxDialog.TextboxMode.EXPORT:
+		_export_confirmed(text, index)
 
 
 func _on_menu_button_pressed(id: MenuButtonEnum.ID, _source: MenuButtonClass) -> void:

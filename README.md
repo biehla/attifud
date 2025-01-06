@@ -6,7 +6,7 @@
 
 **Godot 4.3** template for game projects (GDScript).
 
-Collection of curated plugins and custom features to kick-start new projects.
+Fusion of curated plugins, essential features and best practices to kick-start new projects.
 
 🚨 **TODO:** This template is a work in progress.
 
@@ -46,6 +46,7 @@ Collection of curated plugins and custom features to kick-start new projects.
 - **Accessibility**
 	- 🎮 **Controller Support** - Grab UI focus for joypad and keyboard users.
 	- 🔍 **Multiple Resolutions** - Video options: display mode, window zoom.
+	- ⚡ **Optimizations** - Native web dialog to capture clipboard, and more...
 - **UI/UX**
 	- 🎬 **Boot Splash** - The main scene, allowing custom transition to main menu.
 	- 🏠 **Main Menu** - Display buttons to enter other menus, version and author.
@@ -90,6 +91,7 @@ Collection of curated plugins and custom features to kick-start new projects.
 	- **scenes** *(.tscn, .gd)*
 	- **scripts** *(static/const/object .gd)*
 	- **shaders** *(.gdshader)*
+	- **snippets** *(.cpp, .js, ...)*
 	- CREDITS.md
 	- export_presets.cfg
 	- gdlintrc
@@ -216,6 +218,13 @@ Scenes are split into component, node and scene folders.
 	- **RandomUtils** - Weighted Loot Table and random string functions.
 	- **StringUtils** - String functions for validation and transformations.
 
+### 🌸 Snippets
+
+- **ConfirmationDialogJsLoader** 
+	- Native HTML/CSS/JS dialog to access clipboard in web build.
+	- Supports transfer of Theme resource properties to CSS style.
+	- Useful because Godot Nodes cannot read or write to web clipboard.
+
 
 
 ## 🎉 CI/CD
@@ -241,13 +250,14 @@ Godot Engine [has known issues](https://github.com/godotengine/godot/issues) req
 Below is a list of issues needing workarounds implemented in this template.
 
 - **Desktop**
-	- TODO: See Godot Issues [#6247](https://github.com/godotengine/godot-proposals/issues/6247), [#3145](https://github.com/godotengine/godot-proposals/issues/3145) i.e.  `window_mode` before boot.
+	- **TODO**: issues [#3145](https://github.com/godotengine/godot-proposals/issues/3145), [#6247](https://github.com/godotengine/godot-proposals/issues/6247) with `window_mode` before boot.
 - **Web**
-	- There is [Godot 4.3 Issue](https://github.com/godotengine/godot/issues/96874) with Boot Splash, hack is CSS in **Head Include**.
-	- There is [Godot 4.3 Issue](https://github.com/godotengine/godot/issues/100696) with `play_stream`, hack was added for now.
-	- TODO: See Godot Isssue [#43138](https://github.com/godotengine/godot/issues/43138) i.e. `window_mode` restricted to user focus.
+	- Issue [#81252](https://github.com/godotengine/godot/issues/81252) with clipboard hacked by native JavaScript dialog.
+	- Issue [#96874](https://github.com/godotengine/godot/issues/96874) with Boot Splash hacked by CSS in Head Include.
+	- Issue [#100696](https://github.com/godotengine/godot/issues/100696) with `play_stream` hacked by explicit args in func.
+	- **TODO**: Issue [#43138](https://github.com/godotengine/godot/issues/43138) with `window_mode` restricted to user focus.
 
-TODO: Test the template on following platforms.
+**TODO**: Test the template on following platforms.
 - **Linux**
 - **MacOS**
 - **iOS**

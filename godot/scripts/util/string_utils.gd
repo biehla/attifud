@@ -54,6 +54,13 @@ static func sanitize_text(
 	return text
 
 
+static func sanitize_newline(text: String) -> String:
+	text = text.replace("\n", "")
+	text = text.replace("\r\n", "")
+	text = text.replace("\n\r", "")
+	return text
+
+
 static func charset_map(charset_keys: String, charset_values: String) -> Dictionary:
 	var map: Dictionary = {}
 	for i: int in range(charset_keys.length()):

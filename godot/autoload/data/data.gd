@@ -47,6 +47,8 @@ const SIGNATURE = "§§§"
 @export var filesystem_password: String = ""
 ## When exporting save file to base64, it will be encrypted with the [export_secret] keyword (UUID).
 @export var export_secret: String = ""
+## If true, will additionally modify secret based on base64 string that is being encrypted.
+@export var export_salt: bool = false
 ## When exporting save file to base64, it will be encrypted with the [export_encryption] method.
 @export var export_encryption: MarshallsUtils.CIPHER = MarshallsUtils.CIPHER.NONE
 
@@ -154,25 +156,31 @@ func delete_save_file_index(index: int) -> void:
 	for file in dir.get_files():
 		dir.remove(file)
 	DirAccess.remove_absolute(path)
-
 	_reload_save_file_metadatas(index)
 
 
-func import_save_file_index(index: int, import: String) -> void:
+## Return false if failed.
+func import_save_file_index(index: int, import: String) -> bool:
 	if index < 0 or index >= save_file_count:
 		Log.warn("Invalid index: ", index)
-		return
+		return false
 	if selected_index != -1:
 		Log.warn("Import failed: save file must not be selected for index operations.")
-		return
+		return false
 
-	var datas: Dictionary = MarshallsUtils.string_to_dict(import, export_encryption, export_secret)
+	var datas: Dictionary = MarshallsUtils.string_to_dict(
+		import, export_encryption, export_secret, export_salt
+	)
 	if datas.is_empty():
-		Log.warn("Import failed: could not parse string to data dict: ", import)
-		return
+		Log.warn("Import failed: could not convert string to data dict: ", import)
+		return false
+
 	_save_save_file_datas(index, datas)
+	_reload_save_file_metadatas(index)
+	return true
 
 
+## Return "" if failed.
 func export_save_file_index(index: int) -> String:
 	if index < 0 or index >= save_file_count:
 		Log.warn("Invalid index: ", index)
@@ -182,8 +190,9 @@ func export_save_file_index(index: int) -> String:
 		return ""
 
 	var datas: Dictionary = _load_save_file_datas(index, true)
-	var export: String = MarshallsUtils.dict_to_string(datas, export_encryption, export_secret)
-	Log.debug("Exported index '%s' as: " % [index], export)
+	var export: String = MarshallsUtils.dict_to_string(
+		datas, export_encryption, export_secret, export_salt
+	)
 	return export
 
 
@@ -316,7 +325,7 @@ func _system_read_into(index: int, save_data: SaveData) -> bool:
 	var content: String = save_file.get_as_text()
 	save_file.close()
 
-	content = _sanitize_content(content)
+	content = StringUtils.sanitize_newline(content)
 	content = _system_verify_signature(content)
 	var json_object: JSON = MarshallsUtils.parse_json(content)
 	if json_object == null:
@@ -330,13 +339,6 @@ func _system_read_into(index: int, save_data: SaveData) -> bool:
 
 	Log.debug("[DATA] System read:", path)
 	return true
-
-
-func _sanitize_content(content: String) -> String:
-	content = content.replace("\n", "")
-	content = content.replace("\r\n", "")
-	content = content.replace("\n\r", "")
-	return content
 
 
 ## removes corrupt excess data from end of save file (underlying OS can fumble FileAccess operation)
