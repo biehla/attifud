@@ -1,8 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://7r0ywsv3ga6g"]
 
 [ext_resource type="Script" path="res://addons/scene_manager/scene_list.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://d3gg1stbike4i" path="res://addons/scene_manager/icons/ImportFail.svg" id="3"]
-[ext_resource type="Texture2D" uid="uid://gcl7pjrry6ac" path="res://addons/scene_manager/icons/eye_open.png" id="4_u7g41"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e37o1"]
+load_path = "res://.godot/imported/ImportFail.svg-a58b088e7a08954ce8ad982b2c21d94c.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1nhku"]
+load_path = "res://.godot/imported/eye_open.png-20b517dc49702a45cc3da80f46f6920e.ctex"
 
 [node name="scene_list" type="VBoxContainer"]
 anchors_preset = 15
@@ -18,12 +22,12 @@ layout_mode = 2
 [node name="delete_list" type="Button" parent="_title"]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
-icon = ExtResource("3")
+icon = SubResource("CompressedTexture2D_e37o1")
 
 [node name="hidden" type="Button" parent="_title"]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
-icon = ExtResource("4_u7g41")
+icon = SubResource("CompressedTexture2D_1nhku")
 
 [node name="scenes" type="ScrollContainer" parent="."]
 layout_mode = 2

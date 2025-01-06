@@ -1,7 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://ciaqe7l3hugns"]
 
-[ext_resource type="Texture2D" uid="uid://d3gg1stbike4i" path="res://addons/scene_manager/icons/ImportFail.svg" id="1"]
 [ext_resource type="Script" path="res://addons/scene_manager/ignore_item.gd" id="2"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oednc"]
+load_path = "res://.godot/imported/ImportFail.svg-a58b088e7a08954ce8ad982b2c21d94c.ctex"
 
 [node name="item" type="HBoxContainer"]
 offset_top = 24.0
@@ -12,7 +14,7 @@ script = ExtResource("2")
 [node name="remove_at" type="Button" parent="."]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
-icon = ExtResource("1")
+icon = SubResource("CompressedTexture2D_oednc")
 
 [node name="address" type="LineEdit" parent="."]
 layout_mode = 2

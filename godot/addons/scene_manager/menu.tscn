@@ -1,13 +1,17 @@
 [gd_scene load_steps=9 format=3 uid="uid://crnf0w0s44hxx"]
 
 [ext_resource type="PackedScene" path="res://addons/scene_manager/label.tscn" id="2"]
-[ext_resource type="Texture2D" uid="uid://bku46oqn7t5db" path="res://addons/scene_manager/icons/FileDialog.svg" id="3"]
 [ext_resource type="Texture2D" uid="uid://dgqxswaqr2b5r" path="res://addons/scene_manager/icons/Reload.svg" id="5_2r30m"]
-[ext_resource type="Texture2D" uid="uid://cigf7sboi1l0t" path="res://addons/scene_manager/icons/Save.svg" id="5_yw87d"]
 [ext_resource type="Script" path="res://addons/scene_manager/manager.gd" id="6"]
 [ext_resource type="Texture2D" uid="uid://d0044rotlrxx8" path="res://addons/scene_manager/icons/FolderActive.svg" id="7_3r2fd"]
 [ext_resource type="Texture2D" uid="uid://cyyb3w6dot64q" path="res://addons/scene_manager/icons/GuiChecked.svg" id="7_d04a5"]
 [ext_resource type="Texture2D" uid="uid://bn7ph1f8krxa3" path="res://addons/scene_manager/icons/GuiCheckedDisabled.svg" id="7_i0vrp"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0wj1f"]
+load_path = "res://.godot/imported/FileDialog.svg-e5c6d4111d089ae33c76bbe42b055cdd.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e5s11"]
+load_path = "res://.godot/imported/Save.svg-6d1a134e6c4e68646c6ecbe60c7d6466.ctex"
 
 [node name="root_container" type="MarginContainer"]
 anchors_preset = 15
@@ -116,7 +120,7 @@ file_mode = 3
 [node name="file_dialog_button" type="Button" parent="main_container/ignores/ignores_panel/ignore_interactive_section_container/add_ignore_container/dialog_add_ignore_container"]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
-icon = ExtResource("3")
+icon = SubResource("CompressedTexture2D_0wj1f")
 
 [node name="address" type="LineEdit" parent="main_container/ignores/ignores_panel/ignore_interactive_section_container/add_ignore_container/dialog_add_ignore_container"]
 layout_mode = 2
@@ -170,7 +174,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
 text = "Save"
-icon = ExtResource("5_yw87d")
+icon = SubResource("CompressedTexture2D_e5s11")
 
 [node name="hide_unhide" type="Button" parent="main_container/interactive_section_container/margin_refresh_save_container/refresh_save_container/save_refresh_container/save_container"]
 visible = false

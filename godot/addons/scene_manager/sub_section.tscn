@@ -1,9 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b4edho3whn67t"]
 
 [ext_resource type="Script" path="res://addons/scene_manager/sub_section.gd" id="1_kgwwp"]
-[ext_resource type="Texture2D" uid="uid://mcyua35vroup" path="res://addons/scene_manager/icons/GuiOptionArrowRight.png" id="1_yyg5g"]
 [ext_resource type="Script" path="res://addons/scene_manager/sub_section_button.gd" id="3_smgrs"]
-[ext_resource type="Texture2D" uid="uid://d3gg1stbike4i" path="res://addons/scene_manager/icons/ImportFail.svg" id="4_chjuj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uvnds"]
 content_margin_left = 5.0
@@ -25,6 +23,12 @@ content_margin_left = 5.0
 content_margin_right = 5.0
 bg_color = Color(0.156863, 0.176471, 0.207843, 1)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yku8l"]
+load_path = "res://.godot/imported/GuiOptionArrowRight.png-05803e1d03db966db122fc40f552de03.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bswt8"]
+load_path = "res://.godot/imported/ImportFail.svg-a58b088e7a08954ce8ad982b2c21d94c.ctex"
+
 [node name="All" type="VBoxContainer"]
 offset_right = 1024.0
 offset_bottom = 23.0
@@ -42,14 +46,14 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_yqp47")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_kx1we")
 theme_override_styles/normal = SubResource("StyleBoxFlat_u6qci")
 text = "All"
-icon = ExtResource("1_yyg5g")
+icon = SubResource("CompressedTexture2D_yku8l")
 alignment = 0
 script = ExtResource("3_smgrs")
 
 [node name="Delete" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
-icon = ExtResource("4_chjuj")
+icon = SubResource("CompressedTexture2D_bswt8")
 alignment = 0
 
 [node name="List" type="VBoxContainer" parent="."]
