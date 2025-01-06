@@ -271,10 +271,43 @@ Below is a list of issues needing workarounds implemented in this template.
 - Click [Use this template](https://github.com/new?template_name=TakinGodotTemplate&template_owner=TinyTakinTeller) in Github, then open the project in Godot Engine.
 - Setup [GDScript Toolkit](https://github.com/Scony/godot-gdscript-toolkit) python package to use formatter and linter plugins.
 
+
 ### ❓ FAQ
 
 -  Opening the project for the first time, I have errors/warnings?
 	- Try (re)enable all Plugins and then select "Reload Current Project".
+
+
+### 💼 Editor Layout
+
+Editor layout can be changed via "Editor > Editor Layout > ..." in Godot Editor.
+
+To use my layout, locate `editor_layouts.cfg` in [Editor Data Paths](https://docs.godotengine.org/en/latest/tutorials/io/data_paths.html#editor-data-paths) and add:
+
+```
+[takin_godot_template]
+
+dock_1_selected_tab_idx=0
+dock_5_selected_tab_idx=0
+dock_floating={}
+dock_bottom=[]
+dock_closed=[]
+dock_split_1=0
+dock_split_3=0
+dock_hsplit_1=395
+dock_hsplit_2=170
+dock_hsplit_3=-382
+dock_hsplit_4=0
+dock_filesystem_h_split_offset=240
+dock_filesystem_v_split_offset=0
+dock_filesystem_display_mode=0
+dock_filesystem_file_sort=0
+dock_filesystem_file_list_display_mode=1
+dock_filesystem_selected_paths=PackedStringArray("res://")
+dock_filesystem_uncollapsed_paths=PackedStringArray("res://")
+dock_1="FileSystem,Scene,Scene Manager"
+dock_5="Inspector,Node,Import,History"
+```
 
 
 
