@@ -266,15 +266,32 @@ Below is a list of issues needing workarounds implemented in this template.
 
 ## 📖 Instructions
 
+
 ### 📘 Get Started
+
+After setup, you should have no errors and no warnings.
 
 - Click [Use this template](https://github.com/new?template_name=TakinGodotTemplate&template_owner=TinyTakinTeller) in Github, then open the project in Godot Engine.
 - Setup [GDScript Toolkit](https://github.com/Scony/godot-gdscript-toolkit) python package to use formatter and linter plugins.
+- Open (Import) the project for the first time in the Godot Editor.
+- Enable all plugins, then restart the project "Project > Reload Current Project".
+
+
+On Godot 4.3 you must also:
+
+- Do [font uuid workaround](https://github.com/godotengine/godot/issues/80237) by opening `res://resources/global/theme.tres` and clear then set again the font `noto_sans.woff`.
+- Do [font fallbacks workaround](https://github.com/godotengine/godot/issues/92297) by editing `noto_sans.woff.import` and pasting lines:
+```
+Fallbacks=null
+fallbacks=[Resource("res://assets/font/noto_sans/woff/noto_sans_arabic.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_hebrew.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_hk.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_jp.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_kr.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_sc.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_tc.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_thai.woff")]
+```
 
 
 ### ❓ FAQ
 
--  Opening the project for the first time, I have errors/warnings?
+For questions and help, open a Github Issue or contact my Discord `tiny_takin_teller`.
+
+- Opening the project for the first time, I have errors/warnings?
 	- Try (re)enable all Plugins and then select "Reload Current Project".
 
 
