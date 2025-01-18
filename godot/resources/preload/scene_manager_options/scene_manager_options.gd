@@ -6,13 +6,13 @@ extends Resource
 
 @export_group("Fade Out Options")
 @export var fade_out_speed: float = 1.0
-@export var fade_out_pattern: String = "fade"
+@export var fade_out_pattern: SceneManagerEnum.ShaderPattern = SceneManagerEnum.ShaderPattern.FADE
 @export_range(0.0, 1.0) var fade_out_smoothness: float = 0.1
 @export var fade_out_inverted: bool = false
 
 @export_group("Fade In Options")
 @export var fade_in_speed: float = 1.0
-@export var fade_in_pattern: String = "fade"
+@export var fade_in_pattern: SceneManagerEnum.ShaderPattern = SceneManagerEnum.ShaderPattern.FADE
 @export_range(0.0, 1.0) var fade_in_smoothness: float = 0.1
 @export var fade_in_inverted: bool = false
 
@@ -24,14 +24,16 @@ extends Resource
 
 
 func create_fade_out_options() -> SceneManager.Options:
+	var fade_out_pattern_name: String = SceneManagerEnum.shader_pattern_name(fade_out_pattern)
 	return SceneManager.create_options(
-		fade_out_speed, fade_out_pattern, fade_out_smoothness, fade_out_inverted
+		fade_out_speed, fade_out_pattern_name, fade_out_smoothness, fade_out_inverted
 	)
 
 
 func create_fade_in_options() -> SceneManager.Options:
+	var fade_in_pattern_name: String = SceneManagerEnum.shader_pattern_name(fade_in_pattern)
 	return SceneManager.create_options(
-		fade_in_speed, fade_in_pattern, fade_in_smoothness, fade_in_inverted
+		fade_in_speed, fade_in_pattern_name, fade_in_smoothness, fade_in_inverted
 	)
 
 

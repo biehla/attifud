@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bsw2rarqmetlk"]
 
-[ext_resource type="Theme" uid="uid://downo5rrvt4lo" path="res://resources/global/theme.tres" id="1_3odrc"]
+[ext_resource type="Theme" uid="uid://downo5rrvt4lo" path="res://resources/global/theme/tres/theme.tres" id="1_3odrc"]
 [ext_resource type="Script" path="res://scenes/scene/game_scene/game_scene.gd" id="1_cc2ll"]
 [ext_resource type="PackedScene" uid="uid://byy8027e326wd" path="res://scenes/scene/game_scene/game_button/game_button.tscn" id="2_bxdkd"]
 [ext_resource type="PackedScene" uid="uid://bv7d4vxqjocks" path="res://scenes/component/control/control_grab_focus/control_grab_focus.tscn" id="3_tdptl"]
@@ -96,6 +96,7 @@ theme_override_constants/margin_bottom = 16
 layout_mode = 2
 focus_neighbor_top = NodePath("../../CenterMarginContainer/GameButton")
 focus_neighbor_right = NodePath("../../CenterMarginContainer/GameButton")
+theme_override_font_sizes/font_size = 24
 text = " Leave "
 id = 19
 label = "MENU_LABEL_LEAVE"

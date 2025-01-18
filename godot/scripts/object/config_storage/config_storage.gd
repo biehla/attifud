@@ -7,6 +7,8 @@
 class_name ConfigStorage
 extends Object
 
+const NAME: String = "ConfigStorage"
+
 const CONFIG_FILE_NAME: String = "config"
 const CONFIG_FILE_PATH: String = PathConsts.USER + CONFIG_FILE_NAME + ".cfg"
 
@@ -85,8 +87,8 @@ static func _load_config_file(create_on_not_found: bool = true) -> void:
 ## writes config file to file system after it is updated
 static func _save_config_file() -> void:
 	if config_file == null:
-		Log.err("Save config file failed because it is not loaded.")
+		LogWrapper.error(NAME, "Save config file failed because it is not loaded.")
 		return
 	var save_error: int = config_file.save(CONFIG_FILE_PATH)
 	if save_error:
-		Log.err("Save config file failed with error ", save_error)
+		LogWrapper.error(NAME, "Save config file failed with error ", save_error)

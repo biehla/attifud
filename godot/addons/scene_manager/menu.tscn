@@ -1,19 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://crnf0w0s44hxx"]
 
 [ext_resource type="PackedScene" path="res://addons/scene_manager/label.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://caa2swg1ly020" path="res://addons/scene_manager/icons/FileDialog.svg" id="3"]
+[ext_resource type="Texture2D" uid="uid://hmx07uylo8co" path="res://addons/scene_manager/icons/Reload.svg" id="5_2r30m"]
+[ext_resource type="Texture2D" uid="uid://cu7a1l5rhiehe" path="res://addons/scene_manager/icons/Save.svg" id="5_yw87d"]
 [ext_resource type="Script" path="res://addons/scene_manager/manager.gd" id="6"]
-[ext_resource type="Texture2D" uid="uid://d0044rotlrxx8" path="res://addons/scene_manager/icons/FolderActive.svg" id="7_3r2fd"]
-[ext_resource type="Texture2D" uid="uid://cyyb3w6dot64q" path="res://addons/scene_manager/icons/GuiChecked.svg" id="7_d04a5"]
-[ext_resource type="Texture2D" uid="uid://bn7ph1f8krxa3" path="res://addons/scene_manager/icons/GuiCheckedDisabled.svg" id="7_i0vrp"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n44hf"]
-load_path = "res://.godot/imported/FileDialog.svg-e5c6d4111d089ae33c76bbe42b055cdd.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7ao5u"]
-load_path = "res://.godot/imported/Reload.svg-9361612c2a75fa1b37ec576b07a4ee81.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7d4i5"]
-load_path = "res://.godot/imported/Save.svg-6d1a134e6c4e68646c6ecbe60c7d6466.ctex"
+[ext_resource type="Texture2D" uid="uid://dd14groernugi" path="res://addons/scene_manager/icons/GuiChecked.svg" id="7_d04a5"]
+[ext_resource type="Texture2D" uid="uid://1x273yfsbb65" path="res://addons/scene_manager/icons/GuiCheckedDisabled.svg" id="7_t5mmw"]
+[ext_resource type="Texture2D" uid="uid://cgf0h8b1ff6x3" path="res://addons/scene_manager/icons/Folder.svg" id="8_2o8j2"]
 
 [node name="root_container" type="MarginContainer"]
 anchors_preset = 15
@@ -122,7 +116,7 @@ file_mode = 3
 [node name="file_dialog_button" type="Button" parent="main_container/ignores/ignores_panel/ignore_interactive_section_container/add_ignore_container/dialog_add_ignore_container"]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
-icon = SubResource("CompressedTexture2D_n44hf")
+icon = ExtResource("3")
 
 [node name="address" type="LineEdit" parent="main_container/ignores/ignores_panel/ignore_interactive_section_container/add_ignore_container/dialog_add_ignore_container"]
 layout_mode = 2
@@ -165,7 +159,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Refresh"
-icon = SubResource("CompressedTexture2D_7ao5u")
+icon = ExtResource("5_2r30m")
 
 [node name="save_container" type="HBoxContainer" parent="main_container/interactive_section_container/margin_refresh_save_container/refresh_save_container/save_refresh_container"]
 layout_mode = 2
@@ -176,7 +170,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
 text = "Save"
-icon = SubResource("CompressedTexture2D_7d4i5")
+icon = ExtResource("5_yw87d")
 
 [node name="hide_unhide" type="Button" parent="main_container/interactive_section_container/margin_refresh_save_container/refresh_save_container/save_refresh_container/save_container"]
 visible = false
@@ -195,7 +189,7 @@ size_flags_horizontal = 3
 tooltip_text = "If some scene properties update (edit, delete, change list or sublist of a scene and ...), save happens automatically."
 focus_mode = 0
 text = "Auto Save"
-icon = ExtResource("7_i0vrp")
+icon = ExtResource("7_t5mmw")
 metadata/enabled = false
 
 [node name="auto_refresh" type="Button" parent="main_container/interactive_section_container/margin_refresh_save_container/refresh_save_container/auto_save_refresh_container"]
@@ -205,8 +199,8 @@ tooltip_text = "If checked, \"SceneManager\" will listen to \"FileSystem\" chang
 It will save after the refresh if \"Auto Save\" is active too."
 focus_mode = 0
 text = "Reactive"
-icon = ExtResource("7_3r2fd")
-metadata/enabled = true
+icon = ExtResource("8_2o8j2")
+metadata/enabled = false
 
 [node name="accept_dialog" type="AcceptDialog" parent="."]
 dialog_autowrap = true

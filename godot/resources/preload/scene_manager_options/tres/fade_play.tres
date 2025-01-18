@@ -5,11 +5,11 @@
 [resource]
 script = ExtResource("1_gmxcx")
 fade_out_speed = 1.0
-fade_out_pattern = "crooked_tiles"
+fade_out_pattern = 2
 fade_out_smoothness = 0.1
 fade_out_inverted = false
 fade_in_speed = 1.0
-fade_in_pattern = "crooked_tiles"
+fade_in_pattern = 2
 fade_in_smoothness = 0.1
 fade_in_inverted = true
 color = Color(0, 0, 0, 1)

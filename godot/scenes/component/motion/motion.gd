@@ -3,6 +3,7 @@
 ## Base script for all motion components.
 ## Uses a tween to animate some property of given nodes.
 ## Override _get_target_original_value and _motion_transform to setup custom property motion.
+## NOTE: Maybe it is better to use [AnimationPlayer] instead of tweens.
 ## [br][br]
 ## Set export variables to get a desired animation effect.
 ## Use [add_motion] func to increment property. It will start returning to the original over time.

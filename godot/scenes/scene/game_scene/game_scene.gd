@@ -22,10 +22,7 @@ func _init_nodes() -> void:
 	_init_action_handler()
 
 
-# TODO label gain resource(s) particle effect (queue limit and cumulative particles?)
-#
 # TODO shortcut toggle buttons bottom-left (audio, format numbers, ... ?)
-#
 func _init_action_handler() -> void:
 	_action_handler.set_register_type("MenuButton")
 	_action_handler.register_actions(
@@ -36,8 +33,9 @@ func _init_action_handler() -> void:
 	)
 
 
+# TODO pause menu actions and keybind (shortcut) : Esc
 func _action_game_pause_menu_button() -> void:
-	pass  # TODO pause menu actions and keybind (shortcut) : Esc
+	pass
 
 
 func _action_game_leave_menu_button() -> void:

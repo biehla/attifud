@@ -20,13 +20,19 @@ func _ready() -> void:
 	LogWrapper.debug(self, "AUTOLOAD READY.")
 
 
+func get_particle_process_material(particle_id: String) -> ParticleProcessMaterial:
+	return get_resource(particle_id, "ParticleProcessMaterial")
+
+
 func get_scene_manager_options(resource_id: String) -> SceneManagerOptions:
 	return get_resource(resource_id, SceneManagerOptions)
 
 
 func get_resource(resource_id: String, type: Variant) -> Resource:
 	var key: String = _get_key(resource_id, type)
-	return _resource_references_map[key]
+	if _resource_references_map.has(key):
+		return _resource_references_map[key]
+	return null
 
 
 static func _load_resources(paths: Array[String]) -> Dictionary:
@@ -47,10 +53,14 @@ static func _load_resources(paths: Array[String]) -> Dictionary:
 
 
 static func _get_type(resource: Resource) -> Variant:
-	return resource.get_script()
+	return resource.get_script() if resource.get_script() != null else resource
 
 
 static func _get_key(resource_id: String, type: Variant) -> String:
 	if type == null:
 		return resource_id
-	return type.get_global_name() + "-" + resource_id
+	if type is String or type is StringName:
+		return type + "-" + resource_id
+	if "get_global_name" in type:
+		return type.get_global_name() + "-" + resource_id
+	return type.get_class() + "-" + resource_id

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://k6nmnw4kjwjq"]
+
+[ext_resource type="Script" path="res://scenes/node/game/particle_queue/particle_queue.gd" id="1_bltel"]
+
+[node name="ParticleQueue" type="Node2D"]
+script = ExtResource("1_bltel")
+
+[node name="BufferTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true
+
+[node name="DelayTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true
+
+[node name="Queue" type="Node" parent="."]
+unique_name_in_owner = true

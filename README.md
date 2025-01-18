@@ -59,7 +59,7 @@ Swap modules with either simpler or advanced alternatives, depending on your pro
 	- 🔧 **Options Menu** - Audio, Video (display, vsync), Controls (keybinds), Game.
 	- 📜 **Credits Menu** - Renders [CREDITS.md](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/godot/CREDITS.md) file in-game with formatting.
 	- 📓 **Save Files Menu** - List of files: Play, Import, Export, Delete, Rename.
-	- 🎲 **Game Scene** - Example incremental game mechanics.
+	- 🎲 **Game Scene** - Example incremental game mechanics and effects.
 	- ⏸️ **Pause Menu** - TODO: ...
 - **Placeholder**
 	- 🎨 **Theme** - TODO: ...
@@ -195,6 +195,8 @@ Scenes are split into following categories:
 	- **Supplemental**
 		- **ResizeOnDisabledStretchMode** - Custom UI scaling if "stretch mode: disabled".
 - **Node**
+	- **Game**
+		- **ParticleQueue** - Emit any scene via GPU particles as SubViewport.
 	- **Menu**
 		- **MenuButton** - Localized menu button.
 		- **MenuDropdown** - Localized dropdown option button.
@@ -333,9 +335,9 @@ dock_bottom=[]
 dock_closed=[]
 dock_split_1=0
 dock_split_3=0
-dock_hsplit_1=395
+dock_hsplit_1=365
 dock_hsplit_2=170
-dock_hsplit_3=-382
+dock_hsplit_3=-430
 dock_hsplit_4=0
 dock_filesystem_h_split_offset=240
 dock_filesystem_v_split_offset=0

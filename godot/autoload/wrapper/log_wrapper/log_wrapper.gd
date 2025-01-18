@@ -6,8 +6,8 @@
 extends Node
 
 const LOG_SOURCE_SEPARATOR: String = "."
-const LOG_LEVEL_DISABLED: int = -1
-const LOG_LEVEL_NONE: int = -2
+const LOG_LEVEL_DISABLED: int = 9
+const LOG_LEVEL_NONE: int = -1
 
 var default_log_group: Log.LogLevel
 var log_groups: Dictionary
@@ -78,7 +78,7 @@ func _is_log_group_active(source_log_level: Log.LogLevel, source: String) -> boo
 		(value as Log.LogLevel) if value != LOG_LEVEL_NONE else default_log_group
 	)
 
-	return source_log_level <= group_log_level
+	return source_log_level >= group_log_level
 
 ## Commented lines not useful due to: https://github.com/godotengine/godot-proposals/issues/105
 #

@@ -24,7 +24,7 @@ Log/break_on_error=false
 [application]
 
 config/name="TakinGodotTemplate"
-config/version="0.4.0"
+config/version="0.4.1"
 run/main_scene="res://scenes/scene/boot_splash_scene/boot_splash_scene.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
@@ -33,11 +33,11 @@ config/icon="res://assets/image/boot_splash/png/icon_1024_1024.png"
 
 [audio]
 
-buses/default_bus_layout="res://resources/global/audio_bus_layout.tres"
+buses/default_bus_layout="res://resources/global/audio_bus_layout/tres/audio_bus_layout.tres"
 manager/sound/bus="Sound"
-manager/sound/pool_1D_size=16
-manager/sound/pool_2D_size=16
-manager/sound/pool_3D_size=16
+manager/sound/pool_1D_size=32
+manager/sound/pool_2D_size=32
+manager/sound/pool_3D_size=32
 manager/sound/max_polyphony=32
 manager/music/bus="Music"
 

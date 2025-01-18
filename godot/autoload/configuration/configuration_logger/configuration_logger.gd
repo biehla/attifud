@@ -6,8 +6,9 @@ extends Node
 @export var default_debug_log_group: Log.LogLevel = Log.LogLevel.DEBUG
 @export var default_prod_log_group: Log.LogLevel = Log.LogLevel.INFO
 @export var debug_log_groups: Dictionary = {
+	"ParticleQueue": Log.LogLevel.WARN,
 	"Data": Log.LogLevel.DEBUG,
-	"Reference": LogWrapper.LOG_LEVEL_DISABLED,
+	#"Reference": LogWrapper.LOG_LEVEL_DISABLED,
 	"ActionHandler": LogWrapper.LOG_LEVEL_DISABLED,
 	"ButtonAudio": LogWrapper.LOG_LEVEL_DISABLED,
 	"OkButtonAudio": LogWrapper.LOG_LEVEL_DISABLED,

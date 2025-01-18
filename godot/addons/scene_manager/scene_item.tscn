@@ -1,13 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://hh0sw1g7upfc"]
 
 [ext_resource type="Script" path="res://addons/scene_manager/scene_item.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://4o1umceigejq" path="res://addons/scene_manager/icons/GuiTabMenuHl.svg" id="3"]
 [ext_resource type="Script" path="res://addons/scene_manager/popup_button.gd" id="3_nwus0"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ayqw0"]
-load_path = "res://.godot/imported/GuiTabMenuHl.svg-ab5c190741e3a376bd3782c5c2c622c8.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dr0ev"]
-load_path = "res://.godot/imported/PlayOverlay.png-b594e319f2831bebc316dba3e3723173.ctex"
+[ext_resource type="Texture2D" uid="uid://yuwy62dpvad6" path="res://addons/scene_manager/icons/PlayOverlay.png" id="4_pt2e1"]
 
 [node name="item" type="HBoxContainer"]
 offset_right = 280.0
@@ -18,7 +14,7 @@ script = ExtResource("2")
 [node name="popup_button" type="Button" parent="."]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
-icon = SubResource("CompressedTexture2D_ayqw0")
+icon = ExtResource("3")
 script = ExtResource("3_nwus0")
 
 [node name="key" type="LineEdit" parent="."]
@@ -34,7 +30,7 @@ editable = false
 texture_filter = 1
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
-icon = SubResource("CompressedTexture2D_dr0ev")
+icon = ExtResource("4_pt2e1")
 
 [node name="popup_menu" type="PopupMenu" parent="."]
 size = Vector2i(100, 28)
