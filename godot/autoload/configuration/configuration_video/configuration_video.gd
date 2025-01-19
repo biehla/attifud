@@ -19,7 +19,7 @@ func _ready() -> void:
 
 func reset() -> void:
 	ConfigStorageSettingsVideo.delete()
-	anti_alias.load_anti_alias_mode()
+	anti_alias.load_anti_alias()
 	display_mode.load_display_mode()
 	fps_count.load_fps_count()
 	fps_limit.load_fps_limit()

@@ -25,6 +25,7 @@ func _init_options() -> void:
 func _connect_signals() -> void:
 	self.item_selected.connect(_on_language_option_button_item_select)
 	get_tree().get_root().size_changed.connect(_on_root_size_changed)
+	SignalBus.language_changed.connect(_on_language_changed)
 
 
 func _on_language_option_button_item_select(index: int) -> void:
@@ -33,5 +34,11 @@ func _on_language_option_button_item_select(index: int) -> void:
 	Configuration.locale.set_locale(locale)
 
 
+# https://github.com/godotengine/godot/issues/100613
 func _on_root_size_changed() -> void:
 	self.get_popup().visible = false
+
+
+func _on_language_changed(_locale: String) -> void:
+	var language_option_index: int = Configuration.locale.get_locale_option_index()
+	self.select(language_option_index)

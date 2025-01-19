@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://b7soluh72vjfa" path="res://assets/image/game/animal/png/round/panda.png" id="1_3e4ed"]
 [ext_resource type="Texture2D" uid="uid://c1bd0fcvhdp" path="res://assets/image/game/animal/png/round_outline/panda.png" id="2_hxejm"]
-[ext_resource type="Script" path="res://scenes/scene/game_scene/game_button/game_button.gd" id="3_3q41s"]
+[ext_resource type="Script" path="res://scenes/scene/game_scene/game_content/game_button/game_button.gd" id="3_3q41s"]
 [ext_resource type="PackedScene" uid="uid://b4b36g3uhwemg" path="res://scenes/component/audio/button_audio/button_audio.tscn" id="3_4ltph"]
-[ext_resource type="PackedScene" uid="uid://bpci1qpmsjkbg" path="res://scenes/scene/game_scene/game_button/click_counter/ClickCounter.tscn" id="4_4d018"]
+[ext_resource type="PackedScene" uid="uid://bpci1qpmsjkbg" path="res://scenes/scene/game_scene/game_content/game_button/click_counter/ClickCounter.tscn" id="4_4d018"]
 [ext_resource type="PackedScene" uid="uid://k6nmnw4kjwjq" path="res://scenes/node/game/particle_queue/particle_queue.tscn" id="6_gyr2f"]
 [ext_resource type="PackedScene" uid="uid://crvdmtowmw2sc" path="res://scenes/node/game/particle_queue/particle_emitter/label_particle_emitter/label_particle_emitter.tscn" id="7_72cr5"]
 

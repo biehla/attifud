@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bdh62o75gsq3g" path="res://scenes/component/supplemental/resize_on_disabled_stretch_mode/resize_on_disabled_stretch_mode.tscn" id="2_yoouq"]
 
 [node name="Overlay" type="Control"]
+process_mode = 3
 modulate = Color(0, 1, 0, 1)
 z_index = 4096
 layout_mode = 3

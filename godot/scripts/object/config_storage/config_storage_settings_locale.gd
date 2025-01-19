@@ -16,3 +16,7 @@ static func get_locale() -> String:
 
 static func set_locale(locale: String) -> void:
 	ConfigStorage.set_config(SETTINGS_GENERAL_SECTION, LOCALE_KEY, locale)
+
+
+static func delete() -> void:
+	ConfigStorage.erase_section(SETTINGS_GENERAL_SECTION)

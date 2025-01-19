@@ -56,7 +56,21 @@ const JOY_AXIS_NAMES: Dictionary = {
 }
 
 
-static func get_text(event: InputEvent) -> String:
+static func get_text(event: InputEvent, suffix: bool = true) -> String:
+	var text: String = _get_text(event)
+	if not suffix:
+		return text
+
+	if "keycode" in event and event.keycode:
+		pass
+	elif "physical_keycode" in event and event.physical_keycode:
+		text = text + " (%s)" % "Physical"
+	elif "key_label" in event and event.key_label:
+		text = text + " (%s)" % "Unicode"
+	return text
+
+
+static func _get_text(event: InputEvent) -> String:
 	if event is InputEventJoypadButton:
 		if event.button_index in JOY_BUTTON_NAMES:
 			return JOY_BUTTON_NAMES[event.button_index]
@@ -89,8 +103,11 @@ static func get_text(event: InputEvent) -> String:
 			keycode = event.get_keycode_with_modifiers()
 		if _display_server_supports_keycode_from_physical():
 			keycode = DisplayServer.keyboard_get_keycode_from_physical(keycode)
+		if not keycode and "key_label" in event and event.key_label:
+			keycode = event.key_label
 		return OS.get_keycode_string(keycode)
-	return event.as_text()
+	var event_text: String = event.as_text()
+	return event_text
 
 
 static func _display_server_supports_keycode_from_physical() -> bool:

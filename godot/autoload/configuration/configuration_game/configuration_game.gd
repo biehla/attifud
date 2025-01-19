@@ -13,6 +13,6 @@ func _ready() -> void:
 
 
 func reset() -> void:
-	ConfigStorageSettingsVideo.delete()
+	ConfigStorageSettingsGame.delete()
 	autosave.load_autosave()
 	number_format.load_number_format()

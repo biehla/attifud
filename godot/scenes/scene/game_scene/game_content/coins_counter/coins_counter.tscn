@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cle6b4qe3nss5"]
 
-[ext_resource type="Script" path="res://scenes/scene/game_scene/coins_counter/coins_counter.gd" id="1_h5fpb"]
+[ext_resource type="Script" path="res://scenes/scene/game_scene/game_content/coins_counter/coins_counter.gd" id="1_h5fpb"]
 [ext_resource type="PackedScene" uid="uid://bif8wd4q6rxty" path="res://scenes/component/motion/font_size_motion/font_size_motion.tscn" id="2_7ys71"]
 
 [node name="CoinsCounterVBoxContainer" type="VBoxContainer"]

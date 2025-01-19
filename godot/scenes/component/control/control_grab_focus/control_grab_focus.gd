@@ -34,14 +34,16 @@ func ready() -> void:
 		target = _get_focusable_control_child(self.get_parent())
 
 	if target == null:
-		LogWrapper.debug(self, "Could not find focusable target for parent: ", self.get_parent().name)
+		LogWrapper.debug(
+			self, "Could not find focusable target for parent: ", self.get_parent().name
+		)
 		return
 
 	_connect_signals()
-	_grab_focus.call_deferred()
+	grab_focus.call_deferred()
 
 
-func _grab_focus() -> void:
+func grab_focus() -> void:
 	if target.is_visible_in_tree():
 		target.grab_focus()
 
@@ -64,7 +66,7 @@ func _connect_signals() -> void:
 
 
 func _on_visibility_changed() -> void:
-	_grab_focus.call_deferred()
+	grab_focus.call_deferred()
 
 
 func _on_gui_focus_changed(control: Control) -> void:

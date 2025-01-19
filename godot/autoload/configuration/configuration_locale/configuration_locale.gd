@@ -14,8 +14,22 @@ func _ready() -> void:
 	_init_locales()
 
 
+func get_options() -> Array[String]:
+	return _locale_text_linked_map.get_values()
+
+
+func get_locale_option_index() -> int:
+	var locale: String = TranslationServer.get_locale()
+	return _locale_text_linked_map.get_keys().find(locale)
+
+
 func get_locale_text() -> LinkedMap:
 	return _locale_text_linked_map
+
+
+func set_locale_option_index(index: int) -> void:
+	var locale: String = _locale_text_linked_map.get_key_at(index)
+	set_locale(locale)
 
 
 func set_locale(locale: String) -> void:
@@ -26,9 +40,16 @@ func set_locale(locale: String) -> void:
 	SignalBus.language_changed.emit(locale)
 
 
-func _load_locale() -> void:
+func reset() -> void:
+	ConfigStorageSettingsLocale.delete()
+	var locale: String = _load_locale()
+	SignalBus.language_changed.emit(locale)
+
+
+func _load_locale() -> String:
 	var app_locale: String = ConfigStorageSettingsLocale.get_locale()
 	TranslationServer.set_locale(app_locale)
+	return app_locale
 
 
 func _init_locales() -> void:

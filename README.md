@@ -8,7 +8,6 @@
 
 Fusion of curated plugins, essential features and best practices to kick-start new projects.
 
-🚨 **TODO:** This template is a work in progress.
 
 
 
@@ -30,6 +29,8 @@ Fusion of curated plugins, essential features and best practices to kick-start n
 ![](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/readme_preview_5.png)
 
 ![](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/readme_preview_7.png)
+
+![](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/readme_preview_8.png)
 
 </details>
 
@@ -60,9 +61,9 @@ Swap modules with either simpler or advanced alternatives, depending on your pro
 	- 📜 **Credits Menu** - Renders [CREDITS.md](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/godot/CREDITS.md) file in-game with formatting.
 	- 📓 **Save Files Menu** - List of files: Play, Import, Export, Delete, Rename.
 	- 🎲 **Game Scene** - Example incremental game mechanics and effects.
-	- ⏸️ **Pause Menu** - TODO: ...
+	- ⏸️ **Pause Menu** - Pause gameplay, change options. Esc key shortcut.
 - **Placeholder**
-	- 🎨 **Theme** - TODO: ...
+	- 🎨 **Theme** - Godot default theme. Alternatives at [Kenny](https://kenney.nl/assets/tag:interface?sort=update), [Itch](https://itch.io/c/1473270/themes-for-godot-games), [OGA](https://opengameart.org/art-search-advanced?keys=&title=&field_art_tags_tid_op=or&field_art_tags_tid=ui&name=&field_art_type_tid%5B%5D=9&sort_by=count&sort_order=DESC&items_per_page=24&Collection=), ...
 	- 🖌️ **Images** - [CC0](https://creativecommons.org/publicdomain/zero/1.0/) Public Domain: [Dannya](https://openclipart.org/artist/dannya) save file icon, [Maaack](https://github.com/Maaack/Godot-Menus-Template/tree/main/addons/maaacks_menus_template/base/assets/images) icons.
 	- 🎶 **Music & SFX** - [CC0](https://creativecommons.org/publicdomain/zero/1.0/) Public Domain: [Kenny](https://kenney.nl/assets/category:Audio) SFX and [OGA](https://opengameart.org/content/menu-doodle-2) Music (loop).
 
@@ -213,8 +214,8 @@ Scenes are split into following categories:
 			- **GameOptions** - Custom options, e.g. toggle autosave.
 		- **CreditsMenu** - Renders CREDITS.md file in-game with formatting.
 		- **SaveFilesMenu** - List of files: play, import, export, delete, rename.
-	- **GameScene** - Example incremental game: clicks per second, animations, ...
-		- **PauseMenu** - TODO: ...
+	- **GameScene** - Example incremental game mechanics and effects.
+		- **PauseMenu** - Pause gameplay, change options. Esc key shortcut.
 
 ### 📄 Scripts
 
@@ -267,6 +268,7 @@ Godot Engine [has known issues](https://github.com/godotengine/godot/issues) req
 Below is a list of issues and workarounds implemented in this template.
 
 - **General**
+	- Issue [#65390](https://github.com/godotengine/godot/issues/65390) with particles solved with interpolate toggle.
 	- **TODO**: issues of [scene loaders](https://github.com/maktoobgar/scene_manager/issues/38) can cause lag spikes in scene tree.
 		- Possible solution could be a "scene preloader".
 - **Desktop**

@@ -26,6 +26,14 @@ var _sub_viewport: SubViewport = null
 var _particle: Control = null
 
 
+# https://github.com/godotengine/godot/issues/65390
+func _notification(what: int) -> void:
+	if NOTIFICATION_PAUSED == what:
+		self.interpolate = false
+	elif NOTIFICATION_UNPAUSED == what:
+		self.interpolate = true
+
+
 func _process(_delta: float) -> void:
 	if !is_visible_in_tree():
 		stop()

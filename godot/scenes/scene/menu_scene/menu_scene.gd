@@ -12,6 +12,13 @@ var _action_handler: ActionHandler = ActionHandler.new()
 @onready var save_files_menu: SaveFilesMenu = %SaveFilesMenu
 
 
+# Return to main menu if inside any of the sub-menus.
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("game_pause"):
+		if not main_menu.visible:
+			_action_main_menu_back()
+
+
 func _ready() -> void:
 	_connect_signals()
 	_toggle_menu(main_menu)

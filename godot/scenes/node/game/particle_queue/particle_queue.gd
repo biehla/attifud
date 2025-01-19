@@ -62,10 +62,20 @@ var _buffer: Array = []
 var _tasks: Array = []
 var _last_task: Array = []
 var _on_max_queue_size: bool = false
+var _queue_visible: bool = true
 
+# Using Node instead of Node2D to keep position on a separate layer from its parent.
 @onready var queue: Node = %Queue
 @onready var buffer_timer: Timer = %BufferTimer
 @onready var delay_timer: Timer = %DelayTimer
+
+
+# Since Node is used instead of Node2D for [queue], we need to manually propagate visibility.
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_VISIBILITY_CHANGED:
+		if _queue_visible != is_visible_in_tree():
+			_queue_visible = is_visible_in_tree()
+			_set_particles_visibility()
 
 
 func _ready() -> void:
@@ -235,3 +245,10 @@ func _set_particles_position() -> void:
 		queue = %Queue
 	for particle_emitter: ParticleEmitter in queue.get_children():
 		particle_emitter.position = position
+
+
+func _set_particles_visibility() -> void:
+	if queue == null:
+		queue = %Queue
+	for particle_emitter: ParticleEmitter in queue.get_children():
+		particle_emitter.visible = _queue_visible
