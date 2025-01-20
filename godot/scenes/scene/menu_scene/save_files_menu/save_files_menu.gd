@@ -150,7 +150,9 @@ func _set_menu_save_file(menu_save_file: MenuSaveFile, save_file_metadatas: Dict
 	var save_file_name: String = save_file_metadata[Data.METADATA_SAVE_FILE_NAME]
 	var playtime: int = save_file_metadata[Data.METADATA_SAVE_PLAYTIME]
 	var modified_at: Dictionary = save_file_metadata[Data.METADATA_SAVE_MODIFIED_AT]
-	menu_save_file.set_value_labels(save_file_name, playtime, modified_at)
+	var timezone: Dictionary = save_file_metadata[Data.METADATA_SAVE_TIMEZONE]
+	var modified_at_local_time: Dictionary = DatetimeUtils.convert_datetime(modified_at, timezone)
+	menu_save_file.set_value_labels(save_file_name, playtime, modified_at_local_time)
 
 
 func _on_save_file_button_pressed(index: int) -> void:

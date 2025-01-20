@@ -26,6 +26,7 @@ const METADATA_CATEGORY: String = "meta"
 const METADATA_SAVE_FILE_NAME: String = "save_file_name"
 const METADATA_SAVE_PLAYTIME: String = "playtime_seconds"
 const METADATA_SAVE_MODIFIED_AT: String = "modified_at_datetime"
+const METADATA_SAVE_TIMEZONE: String = "modified_at_timezone"
 
 ## Helps verify the integrity of the file contents. (Exists uniquely at the end of the file.)
 const SIGNATURE = "§§§"

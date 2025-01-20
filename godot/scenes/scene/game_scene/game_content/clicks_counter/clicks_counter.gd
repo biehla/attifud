@@ -12,6 +12,11 @@ func _ready() -> void:
 	_load_data()
 
 
+func _a() -> void:
+	font_size_motion.add_motion.call_deferred()
+	font_size_motion.add_motion.call_deferred()
+
+
 func _load_data() -> void:
 	_on_clicks_per_second_updated(Data.game.max_clicks_per_second)
 
@@ -29,6 +34,8 @@ func _connect_signals() -> void:
 
 
 func _on_data_game_coins_set(_value: int) -> void:
+	if not Data.is_save_file_selected():
+		return
 	font_size_motion.add_motion()
 
 

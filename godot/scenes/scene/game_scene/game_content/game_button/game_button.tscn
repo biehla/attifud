@@ -130,6 +130,6 @@ particle_emitter_pck = ExtResource("7_72cr5")
 buffer = true
 buffer_sum_arguments = Array[int]([1])
 lifetime = 3.0
-position_offset = Vector2(182.5, 107.5)
+position_offset = Vector2(0.5, 0.5)
 particles_modulate = Color(1, 0.498039, 1, 1)
 particles_id = "game_button"

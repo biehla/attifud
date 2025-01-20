@@ -12,6 +12,11 @@ func _ready() -> void:
 	_load_data()
 
 
+func _a() -> void:
+	font_size_motion.add_motion.call_deferred()
+	font_size_motion.add_motion.call_deferred()
+
+
 func _load_data() -> void:
 	_on_data_game_coins_set(Data.game.coins)
 

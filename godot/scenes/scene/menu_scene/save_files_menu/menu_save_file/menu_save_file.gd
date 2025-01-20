@@ -21,6 +21,9 @@ var index: int = -1
 
 @onready var buttons_margin_container: MarginContainer = %ButtonsMarginContainer
 @onready var play_save_menu_button: MenuButtonClass = %PlaySaveMenuButton
+@onready var export_save_menu_button: MenuButtonClass = %ExportSaveMenuButton
+@onready var import_save_menu_button: MenuButtonClass = %ImportSaveMenuButton
+@onready var delete_save_menu_button: MenuButtonClass = %DeleteSaveMenuButton
 @onready var rename_save_menu_button: MenuButtonClass = %RenameSaveMenuButton
 
 

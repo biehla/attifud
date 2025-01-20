@@ -13,6 +13,8 @@ Fusion of curated plugins, essential features and best practices to kick-start n
 
 ## ♦️ Examples
 
+Web version: https://tinytakinteller.itch.io/takin-godot-template
+
 <details>
 <summary> [CLICK HERE] Preview Screenshots </summary>
 

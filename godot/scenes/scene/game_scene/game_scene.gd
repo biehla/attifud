@@ -13,6 +13,7 @@ var _action_handler: ActionHandler = ActionHandler.new()
 @onready var options_menu: OptionsMenu = %OptionsMenu
 
 
+# Esc key shortcut toggles pause menu or exits from options via back button.
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("game_pause"):
 		if get_tree().paused:

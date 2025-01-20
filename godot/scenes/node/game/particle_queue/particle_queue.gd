@@ -18,11 +18,15 @@ extends Node2D
 @export var buffer_sum_arguments: Array[int] = []
 
 @export_group("Queue Options")
+## Delete [ParticleEmitter] child from [queue] once it finishes its animation instead of reusing it.
+## NOTE: Seems to improve FPS when visiting Web version of the project via mobile phone browser.
+@export var free_on_finished: bool = true
 @export var delay_time: float = 0.1
 @export var lifetime: float = 2
 ## If false, delay_time is not applied on the first element (if the queue is empty).
 @export var delay_on_empty_queue: bool = false
 ## Treated as unlimited if set to 0.
+## NOTE: You should try to adjust delay time and buffer time instead of setting a hard limit.
 @export var max_queue_size: int = 0
 ## If false, will wait until queue slot is free and resume the task then.
 @export var skip_on_max_queue_size: bool = false
@@ -33,13 +37,13 @@ extends Node2D
 @export var position_target: Node = null:
 	set(value):
 		position_target = value
-		set_position_to_target()
+		set_position_to_target.call_deferred()
 
 ## Adjust position relative to position target.
 @export var position_offset: Vector2 = Vector2(0, 0):
 	set(value):
 		position_offset = value
-		set_position_to_target()
+		set_position_to_target.call_deferred()
 
 @export var particles_theme: Theme = null:
 	set(value):
@@ -64,7 +68,7 @@ var _last_task: Array = []
 var _on_max_queue_size: bool = false
 var _queue_visible: bool = true
 
-# Using Node instead of Node2D to keep position on a separate layer from its parent.
+# Using Node instead of Node2D for [queue] to keep position "on a separate layer" from its parent.
 @onready var queue: Node = %Queue
 @onready var buffer_timer: Timer = %BufferTimer
 @onready var delay_timer: Timer = %DelayTimer
@@ -100,14 +104,20 @@ func _ready() -> void:
 
 	if position_target == null:
 		position_target = get_parent()
-	set_position_to_target()
+	set_position_to_target.call_deferred()
+
+	get_tree().get_root().size_changed.connect(_on_root_size_changed)
 
 
 func set_position_to_target() -> void:
 	if position_target == null:
 		return
 	if "global_position" in position_target:
-		position = position_target.global_position + position_offset
+		position = position_target.global_position
+		if "size" in position_target:
+			var offset_x: float = position_target.size.x * position_offset.x
+			var offset_y: float = position_target.size.y * position_offset.y
+			position += Vector2(offset_x, offset_y)
 		_set_particles_position()
 
 
@@ -173,15 +183,17 @@ func _extend_queue() -> ParticleEmitter:
 		return null
 
 	var particle_emitter: ParticleEmitter = particle_emitter_pck.instantiate()
+	particle_emitter.visible = false
 	queue.add_child(particle_emitter)
 	LogWrapper.debug(name, "Extended to %d particle emitters." % queue_size)
 
-	particle_emitter.finished.connect(_on_task_finished)
+	particle_emitter.finished.connect(_on_task_finished.bind(particle_emitter))
 	particle_emitter.set_particle_theme(particles_theme)
 	particle_emitter.set_particle_modulate(particles_modulate)
 	particle_emitter.particle_process_material_id = particles_id
 	particle_emitter.lifetime = lifetime
 	particle_emitter.position = position
+	particle_emitter.visible = true
 	return particle_emitter
 
 
@@ -203,8 +215,9 @@ func _on_delay_timer_timeout() -> void:
 		_tasks.push_front(arguments)
 
 
-func _on_task_finished() -> void:
-	pass
+func _on_task_finished(particle_emitter: ParticleEmitter) -> void:
+	if free_on_finished:
+		particle_emitter.queue_free.call_deferred()
 
 
 func _init_timers() -> void:
@@ -252,3 +265,8 @@ func _set_particles_visibility() -> void:
 		queue = %Queue
 	for particle_emitter: ParticleEmitter in queue.get_children():
 		particle_emitter.visible = _queue_visible
+
+
+# Needed because [queue] is Node instead of Node2D, so it does not follow position from parents.
+func _on_root_size_changed() -> void:
+	set_position_to_target.call_deferred()

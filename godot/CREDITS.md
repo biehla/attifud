@@ -21,16 +21,16 @@ Created by: [StumpyStrust](https://opengameart.org/users/stumpystrust)\
 Source: [opengameart: Menu Doodle 2](https://opengameart.org/content/menu-doodle-2)\
 License: [CC0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/)
 
-#### SFX: Kenny UI
+#### SFX: Kenney UI
 Created by: [Kenney Vleugels](https://kenney.nl)\
-Source: [kenny.nl: UI Audio](https://kenney.nl/assets/ui-audio)\
+Source: [kenney.nl: UI Audio](https://kenney.nl/assets/ui-audio)\
 License: [CC0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/)
 
 ### Art:
 	
-#### Kenny's Animal Pack
+#### Kenney's Animal Pack
 Created by: [Kenney Vleugels](https://kenney.nl)\
-Source: [kenny.nl: Animal Pack](https://kenney.nl/assets/animal-pack)\
+Source: [kenney.nl: Animal Pack](https://kenney.nl/assets/animal-pack)\
 License: [CC0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/)
 
 [comment]: # ()
@@ -48,7 +48,7 @@ License: [CC BY 4.0 International](https://github.com/godotengine/godot/blob/mas
 
 #### UI Icons: Plus, Minus
 Created by: [Marek Belski](https://github.com/Maaack)  
-Source: [github: Godot Menus Template](https://github.com/Maaack/Godot-Menus-Template/blob/main/addons/maaacks_menus_template/base/assets/images)\
+Source: [github: Godot Menus Template](https://github.com/Maaack/Godot-Menus-Template/tree/main/addons/maaacks_menus_template/base/assets/remapping_input_icons)\
 License: [CC0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/)
 
 [comment]: # ()
@@ -78,7 +78,7 @@ License: [Open Font License](https://openfontlicense.org)
 
 #### Polygot Template
 Modified by: [TinyTakinTeller](https://github.com/TinyTakinTeller)\
-Created by: [Simon Préfontaine, Tuomas Karmakallio and Editors ...](https://docs.google.com/spreadsheets/d/17f0dQawb-s_Fd7DHgmVvJogithubEGDMH_yoSd8EYigrb0zmM/edit)\
+Created by: [Simon Préfontaine, Tuomas Karmakallio and Editors ...](https://docs.google.com/spreadsheets/d/17f0dQawb-s_Fd7DHgmVvJoEGDMH_yoSd8EYigrb0zmM)\
 Source: [docs.google: Spreadsheet](https://docs.google.com/spreadsheets/d/17f0dQawb-s_Fd7DHgmVvJogithubEGDMH_yoSd8EYigrb0zmM/edit)\
 License: [CC0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/)
 
@@ -90,11 +90,11 @@ License: [CC0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0
 
 ### Snippets:
 
-#### Godot Menus Template
+#### Maaack's Godot Game Template
 Modified by: [TinyTakinTeller](https://github.com/TinyTakinTeller)\
 Created by: [Marek Belski](https://github.com/Maaack)\
-Source: [github: Godot Menus Template](https://github.com/Maaack/Godot-Menus-Template)\
-License: [MIT License](https://github.com/Maaack/Godot-Menus-Template/blob/main/LICENSE.txt)
+Source: [github: Godot Game Template](https://github.com/Maaack/Godot-Game-Template)\
+License: [MIT License](https://github.com/Maaack/Godot-Game-Template/blob/main/LICENSE.txt)
 
 [comment]: # ()
 [comment]: # (`credits.gd`)
