@@ -12,7 +12,7 @@ extends Node
 
 signal motion_end
 
-## Uses parent's children as targets if not set.
+@export var target_children: bool = false
 @export var targets: Array[Node] = []
 
 @export_category("Motion")
@@ -40,10 +40,11 @@ func initialize(target_type: Variant) -> void:
 	if target_type == null:
 		return
 	if _is_targets_empty():
-		for child: Node in get_parent().get_children():
+		var filter: Array = get_parent().get_children() if target_children else [get_parent()]
+		for child: Node in filter:
 			if is_instance_of(child, target_type):
 				targets.append(child)
-			_original_target_value[child] = _get_target_original_value(child)
+				_original_target_value[child] = _get_target_original_value(child)
 
 
 func add_motion(motion_factor_increment: float = add_motion_default) -> void:

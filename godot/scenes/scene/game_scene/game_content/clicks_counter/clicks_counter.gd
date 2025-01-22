@@ -3,18 +3,13 @@ extends VBoxContainer
 
 @onready var clicks_counter_title_label: Label = %ClicksCounterTitleLabel
 @onready var clicks_counter_value_label: Label = %ClicksCounterValueLabel
-@onready var font_size_motion: FontSizeMotion = %FontSizeMotion
+@onready var scale_motion: ScaleMotion = %ScaleMotion
 
 
 func _ready() -> void:
 	_connect_signals()
 	_refresh_label()
 	_load_data()
-
-
-func _a() -> void:
-	font_size_motion.add_motion.call_deferred()
-	font_size_motion.add_motion.call_deferred()
 
 
 func _load_data() -> void:
@@ -36,7 +31,7 @@ func _connect_signals() -> void:
 func _on_data_game_coins_set(_value: int) -> void:
 	if not Data.is_save_file_selected():
 		return
-	font_size_motion.add_motion()
+	scale_motion.add_motion()
 
 
 func _on_clicks_per_second_updated(clicks_per_second: int) -> void:

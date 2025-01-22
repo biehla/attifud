@@ -194,7 +194,7 @@ Scenes are split into following categories:
 		- **ControlExpandStylebox** - Resize target node to fill parent container.
 		- **ControlGrabFocus** - Grabs focus of node for controller support.
 	- **Motion**
-		- **FontSizeMotion** - Animate (tween) font size when interacted with.
+		- **ScaleMotion** - Animate (tween) scale of Control node(s) when interacted with.
 	- **Supplemental**
 		- **ResizeOnDisabledStretchMode** - Custom UI scaling if "stretch mode: disabled".
 - **Node**
@@ -267,21 +267,19 @@ Scenes are split into following categories:
 
 Godot Engine [has known issues](https://github.com/godotengine/godot/issues) requiring hacks (workarounds) until officially resolved.
 
-Below is a list of issues and workarounds implemented in this template.
+Below is a list of relevant issues as of Godot 4.3 stable.
 
 - **General**
-	- Issue [#65390](https://github.com/godotengine/godot/issues/65390) with particles solved with interpolate toggle.
-	- **TODO**: issues of [scene loaders](https://github.com/maktoobgar/scene_manager/issues/38) can cause lag spikes in scene tree.
-		- Possible solution could be a "scene preloader".
+	- [x] Issue [#65390](https://github.com/godotengine/godot/issues/65390) **defect GPU particles** solved with interpolate toggle.
+	- [x] Issue [#35836](https://github.com/godotengine/godot/issues/35836#issuecomment-581083643) **font size tween lag** solved by scale tween instead.
+	- [ ] Issues [#75369](https://github.com/godotengine/godot/issues/75369), [#71182](https://github.com/godotengine/godot/issues/71182), [#61929](https://github.com/godotengine/godot/issues/61929) **large scene lag** sometimes.
 - **Desktop**
-	- **TODO**: issues [#3145](https://github.com/godotengine/godot-proposals/issues/3145), [#6247](https://github.com/godotengine/godot-proposals/issues/6247) with `window_mode` before boot.
-		- Possible solution could be a .cfg override managed by config.
+	- [ ] Issues [#3145](https://github.com/godotengine/godot-proposals/issues/3145), [#6247](https://github.com/godotengine/godot-proposals/issues/6247) **boot window mode** TODO: cfg override.
 - **Web**
-	- Issue [#81252](https://github.com/godotengine/godot/issues/81252) with clipboard solved by native JavaScript dialog.
-	- Issue [#96874](https://github.com/godotengine/godot/issues/96874) with Boot Splash solved by CSS in Head Include.
-	- Issue [#100696](https://github.com/godotengine/godot/issues/100696) with `play_stream` solved by explicit args in func.
-	- **TODO**: Issue [#43138](https://github.com/godotengine/godot/issues/43138) with `window_mode` restricted to user focus.
-		- Possible solution could be a "click to continue" boot screen.
+	- [x] Issue [#81252](https://github.com/godotengine/godot/issues/81252) **web clipboard** solved by native JavaScript dialog.
+	- [x] Issue [#96874](https://github.com/godotengine/godot/issues/96874) **web boot splash** solved by CSS in Head Include.
+	- [x] Issue [#100696](https://github.com/godotengine/godot/issues/100696) **play_stream bus** solved by explicit func args.
+	- [ ] Issue [#43138](https://github.com/godotengine/godot/issues/43138) **web user focus** TODO: "click to continue" boot screen.
 
 **TODO**: Test the template on following platforms.
 - **Linux**

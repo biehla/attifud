@@ -3,7 +3,7 @@ class_name GameScene
 extends Control
 
 @export_group("Menu Scene")
-@export var scene_id: String = "menu_scene"
+@export var scene: SceneManagerEnum.Scene = SceneManagerEnum.Scene.MENU_SCENE
 @export var scene_manager_options_id: String = "fade_play"
 
 var _action_handler: ActionHandler = ActionHandler.new()
@@ -83,7 +83,7 @@ func _action_leave_menu_button() -> void:
 	_action_continue_menu_button()
 	process_mode = PROCESS_MODE_DISABLED
 	Data.exit_save_file()
-	SceneManagerWrapper.change_scene("back", scene_manager_options_id)
+	SceneManagerWrapper.change_scene(scene, scene_manager_options_id)
 
 
 func _action_quit_menu_button() -> void:

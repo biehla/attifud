@@ -11,7 +11,8 @@ func _ready() -> void:
 	LogWrapper.debug(self, "AUTOLOAD READY.")
 
 
-func change_scene(scene_id: String, scene_manager_options_id: String) -> void:
+func change_scene(scene: SceneManagerEnum.Scene, scene_manager_options_id: String) -> void:
+	var scene_id: String = SceneManagerEnum.scene_name(scene)
 	LogWrapper.debug(self, "Change scene: ", scene_id)
 
 	var scene_manager_options: SceneManagerOptions = Reference.get_scene_manager_options(

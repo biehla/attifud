@@ -3,8 +3,10 @@
 ## Tracks values related to [SceneManager] and [SceneManagerWrapper].
 class_name SceneManagerEnum
 
-## Tracks "Scenes" of [SceneManager].
-enum SceneID { MENU_SCENE, GAME_SCENE }
+## Tracks "Scenes" (relevant .tscn files) used in [SceneManager] and [SceneManagerWrapper].
+# Special scenes: NULL, BACK, RELOAD, REFRESH, RESTART, EXIT, QUIT
+# Project scenes: MENU_SCENE, GAME_SCENE
+enum Scene { NULL, BACK, RELOAD, REFRESH, RESTART, EXIT, QUIT, MENU_SCENE, GAME_SCENE }
 
 ## Tracks ["res://addons/scene_manager/shader_patterns/"] values used in [SceneManagerOptions].
 enum ShaderPattern {
@@ -22,6 +24,10 @@ enum ShaderPattern {
 	SQUARES,
 	VERTICAL
 }
+
+
+static func scene_name(scene: SceneManagerEnum.Scene) -> String:
+	return (SceneManagerEnum.Scene.keys()[scene] as String).to_lower()
 
 
 static func shader_pattern_name(shader_pattern: SceneManagerEnum.ShaderPattern) -> String:

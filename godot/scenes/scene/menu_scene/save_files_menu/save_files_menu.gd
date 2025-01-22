@@ -3,7 +3,7 @@ class_name SaveFilesMenu
 extends Control
 
 @export_group("Play Scene")
-@export var scene_id: String = "game_scene"
+@export var scene: SceneManagerEnum.Scene = SceneManagerEnum.Scene.GAME_SCENE
 @export var scene_manager_options_id: String = "fade_play"
 
 @export var menu_save_file_pck: PackedScene
@@ -54,7 +54,7 @@ func _action_play_save_file_menu_button() -> void:
 		return
 	process_mode = PROCESS_MODE_DISABLED
 	Data.select_save_file(menu_save_file.index)
-	SceneManagerWrapper.change_scene(scene_id, scene_manager_options_id)
+	SceneManagerWrapper.change_scene(scene, scene_manager_options_id)
 
 
 func _action_export_save_file_menu_button() -> void:
