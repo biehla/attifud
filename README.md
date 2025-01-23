@@ -65,9 +65,9 @@ Swap modules with either simpler or advanced alternatives, depending on your pro
 	- 🎲 **Game Scene** - Example incremental game mechanics and effects.
 	- ⏸️ **Pause Menu** - Pause gameplay, change options. Esc key shortcut.
 - **Placeholder**
-	- 🎨 **Theme** - Godot default theme. Alternatives at [Kenny](https://kenney.nl/assets/tag:interface?sort=update), [Itch](https://itch.io/c/1473270/themes-for-godot-games), [OGA](https://opengameart.org/art-search-advanced?keys=&title=&field_art_tags_tid_op=or&field_art_tags_tid=ui&name=&field_art_type_tid%5B%5D=9&sort_by=count&sort_order=DESC&items_per_page=24&Collection=), ...
+	- 🎨 **Theme** - Godot default theme. Alternatives at [Kenney](https://kenney.nl/assets/tag:interface?sort=update), [Itch](https://itch.io/c/1473270/themes-for-godot-games), [OGA](https://opengameart.org/art-search-advanced?keys=&title=&field_art_tags_tid_op=or&field_art_tags_tid=ui&name=&field_art_type_tid%5B%5D=9&sort_by=count&sort_order=DESC&items_per_page=24&Collection=), ...
 	- 🖌️ **Images** - [CC0](https://creativecommons.org/publicdomain/zero/1.0/) Public Domain: [Dannya](https://openclipart.org/artist/dannya) save file icon, [Maaack](https://github.com/Maaack/Godot-Menus-Template/tree/main/addons/maaacks_menus_template/base/assets/images) icons.
-	- 🎶 **Music & SFX** - [CC0](https://creativecommons.org/publicdomain/zero/1.0/) Public Domain: [Kenny](https://kenney.nl/assets/category:Audio) SFX and [OGA](https://opengameart.org/content/menu-doodle-2) Music (loop).
+	- 🎶 **Music & SFX** - [CC0](https://creativecommons.org/publicdomain/zero/1.0/) Public Domain: [Kenney](https://kenney.nl/assets/category:Audio) SFX and [OGA](https://opengameart.org/content/menu-doodle-2) Music (loop).
 
 ### 💫 Development Modules
 
@@ -132,6 +132,7 @@ Swap modules with either simpler or advanced alternatives, depending on your pro
 
 - **Script IDE**
 	- The [Script-IDE](https://github.com/Maran23/script-ide) improves scripting, e.g. Ctrl+U, Ctrl+O.
+	- Consider using a professional IDE like "JetBrains Rider (GDScript)" instead of Godot Editor.
 - **Resource Tables**
 	- The [Edit Resources as Table](https://github.com/don-tnowe/godot-resources-as-sheets-plugin/tree/Godot-4) adds view for managing Resources.
 - **GDScript Toolkit**
@@ -267,19 +268,22 @@ Scenes are split into following categories:
 
 Godot Engine [has known issues](https://github.com/godotengine/godot/issues) requiring hacks (workarounds) until officially resolved.
 
-Below is a list of relevant issues as of Godot 4.3 stable.
+List of relevant issues (and current hacks/workarounds/solutions) as of Godot 4.3 stable:
 
 - **General**
-	- [x] Issue [#65390](https://github.com/godotengine/godot/issues/65390) **defect GPU particles** solved with interpolate toggle.
-	- [x] Issue [#35836](https://github.com/godotengine/godot/issues/35836#issuecomment-581083643) **font size tween lag** solved by scale tween instead.
-	- [ ] Issues [#75369](https://github.com/godotengine/godot/issues/75369), [#71182](https://github.com/godotengine/godot/issues/71182), [#61929](https://github.com/godotengine/godot/issues/61929) **large scene lag** sometimes.
+	- [x] Issue [#66014](https://github.com/godotengine/godot/issues/66014) **suffixed tres files**. Solved with sanitization.
+	- [x] Issue [#65390](https://github.com/godotengine/godot/issues/65390) **defect GPU particles**. Solved with interpolate toggle.
+	- [x] Issue [#35836](https://github.com/godotengine/godot/issues/35836#issuecomment-581083643) **font size tween lag**. Solved by scale tween instead.
+	- [ ] Issue [#89712](https://github.com/godotengine/godot/issues/89712) **"hicon" is null** sometimes. TODO?
+	- [ ] Issues [#75369](https://github.com/godotengine/godot/issues/75369), [#71182](https://github.com/godotengine/godot/issues/71182), [#61929](https://github.com/godotengine/godot/issues/61929) **large scene lag** sometimes. TODO?
+
 - **Desktop**
-	- [ ] Issues [#3145](https://github.com/godotengine/godot-proposals/issues/3145), [#6247](https://github.com/godotengine/godot-proposals/issues/6247) **boot window mode** TODO: cfg override.
+	- [ ] Issues [#3145](https://github.com/godotengine/godot-proposals/issues/3145), [#6247](https://github.com/godotengine/godot-proposals/issues/6247) **boot window mode**. TODO: cfg override.
 - **Web**
-	- [x] Issue [#81252](https://github.com/godotengine/godot/issues/81252) **web clipboard** solved by native JavaScript dialog.
-	- [x] Issue [#96874](https://github.com/godotengine/godot/issues/96874) **web boot splash** solved by CSS in Head Include.
-	- [x] Issue [#100696](https://github.com/godotengine/godot/issues/100696) **play_stream bus** solved by explicit func args.
-	- [ ] Issue [#43138](https://github.com/godotengine/godot/issues/43138) **web user focus** TODO: "click to continue" boot screen.
+	- [x] Issue [#81252](https://github.com/godotengine/godot/issues/81252) **web clipboard**. Solved by native JavaScript dialog.
+	- [x] Issue [#96874](https://github.com/godotengine/godot/issues/96874) **web boot splash**. Solved by CSS in Head Include.
+	- [x] Issue [#100696](https://github.com/godotengine/godot/issues/100696) **play_stream bus**. Solved by explicit func args.
+	- [ ] Issue [#43138](https://github.com/godotengine/godot/issues/43138) **web user focus**. TODO: "click to continue" boot screen.
 
 **TODO**: Test the template on following platforms.
 - **Linux**
