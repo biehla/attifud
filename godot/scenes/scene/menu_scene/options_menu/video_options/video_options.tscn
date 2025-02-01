@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxl20qx51clia"]
+[gd_scene load_steps=5 format=3 uid="uid://dxl20qx51clia"]
 
-[ext_resource type="Theme" uid="uid://downo5rrvt4lo" path="res://resources/global/theme/tres/theme.tres" id="1_24sgo"]
 [ext_resource type="Script" path="res://scenes/scene/menu_scene/options_menu/video_options/video_options.gd" id="1_75uy7"]
 [ext_resource type="PackedScene" uid="uid://ira7b3k2oap7" path="res://scenes/node/menu/menu_dropdown/menu_dropdown.tscn" id="3_hfmmd"]
 [ext_resource type="PackedScene" uid="uid://b8col31gjtj56" path="res://scenes/node/menu/menu_slider/menu_slider.tscn" id="3_viv44"]
@@ -11,7 +10,6 @@ offset_right = 616.0
 offset_bottom = 232.0
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme = ExtResource("1_24sgo")
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8

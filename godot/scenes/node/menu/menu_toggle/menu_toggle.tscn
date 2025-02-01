@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://b678n5udjckfe"]
+[gd_scene load_steps=3 format=3 uid="uid://b678n5udjckfe"]
 
-[ext_resource type="Theme" uid="uid://downo5rrvt4lo" path="res://resources/global/theme/tres/theme.tres" id="1_l33o4"]
 [ext_resource type="Script" path="res://scenes/node/menu/menu_toggle/menu_toggle.gd" id="2_1jsa8"]
 [ext_resource type="PackedScene" uid="uid://b4b36g3uhwemg" path="res://scenes/component/audio/button_audio/button_audio.tscn" id="3_bky3g"]
 
@@ -8,7 +7,6 @@
 custom_minimum_size = Vector2(650, 0)
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme = ExtResource("1_l33o4")
 script = ExtResource("2_1jsa8")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]

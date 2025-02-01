@@ -97,6 +97,10 @@ static func set_snippet_content(
 
 ## NOTE: Non-nullable properties will fallback (e.g. Color to Black) if not set in the theme.
 static func set_snippet_theme_from_resource(theme: Theme) -> void:
+	if theme == null:
+		LogWrapper.debug(NAME, "Theme not set.")
+		return
+	
 	var button_normal_stylebox: StyleBox = theme.get("Button/styles/normal") as StyleBox
 	if button_normal_stylebox != null:
 		var button_bg_color: Color = button_normal_stylebox.get("bg_color") as Color

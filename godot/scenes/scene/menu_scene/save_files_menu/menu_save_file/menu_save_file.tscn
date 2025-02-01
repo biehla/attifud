@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=3 uid="uid://boueadrfx15jl"]
+[gd_scene load_steps=5 format=3 uid="uid://boueadrfx15jl"]
 
-[ext_resource type="Theme" uid="uid://downo5rrvt4lo" path="res://resources/global/theme/tres/theme.tres" id="1_3piyn"]
 [ext_resource type="Script" path="res://scenes/scene/menu_scene/save_files_menu/menu_save_file/menu_save_file.gd" id="2_orwck"]
 [ext_resource type="Texture2D" uid="uid://186w5v7p2kg2" path="res://assets/image/ui/save_file_icon/svg/save_file_icon.svg" id="3_487ku"]
 [ext_resource type="PackedScene" uid="uid://b4b36g3uhwemg" path="res://scenes/component/audio/button_audio/button_audio.tscn" id="4_vpb3k"]
@@ -10,7 +9,6 @@
 custom_minimum_size = Vector2(666, 0)
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("1_3piyn")
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8

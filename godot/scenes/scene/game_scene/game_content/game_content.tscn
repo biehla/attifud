@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=3 uid="uid://d1qehwioaldlb"]
+[gd_scene load_steps=7 format=3 uid="uid://d1qehwioaldlb"]
 
-[ext_resource type="Theme" uid="uid://downo5rrvt4lo" path="res://resources/global/theme/tres/theme.tres" id="1_k1gmi"]
 [ext_resource type="PackedScene" uid="uid://byy8027e326wd" path="res://scenes/scene/game_scene/game_content/game_button/game_button.tscn" id="1_l5ghq"]
 [ext_resource type="Script" path="res://scenes/scene/game_scene/game_content/game_content.gd" id="1_qs7kg"]
 [ext_resource type="PackedScene" uid="uid://bv7d4vxqjocks" path="res://scenes/component/control/control_grab_focus/control_grab_focus.tscn" id="2_mc8mw"]
@@ -15,7 +14,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_k1gmi")
 script = ExtResource("1_qs7kg")
 
 [node name="CenterMarginContainer" type="MarginContainer" parent="."]

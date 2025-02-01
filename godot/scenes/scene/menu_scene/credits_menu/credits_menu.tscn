@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdpe2qrr0gpen"]
+[gd_scene load_steps=5 format=3 uid="uid://cdpe2qrr0gpen"]
 
-[ext_resource type="Theme" uid="uid://downo5rrvt4lo" path="res://resources/global/theme/tres/theme.tres" id="1_i1ggm"]
 [ext_resource type="Script" path="res://scenes/scene/menu_scene/credits_menu/credits_menu.gd" id="1_lim8x"]
 [ext_resource type="PackedScene" uid="uid://k5xt8llrybgm" path="res://scenes/node/menu/menu_button/menu_button.tscn" id="2_vgi8g"]
 [ext_resource type="PackedScene" uid="uid://t2dui8ppm3a4" path="res://scenes/scene/menu_scene/credits_menu/credits/credits.tscn" id="3_b3gxy"]
@@ -15,7 +14,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("1_i1ggm")
 script = ExtResource("1_lim8x")
 
 [node name="RootMarginContainer" type="MarginContainer" parent="."]

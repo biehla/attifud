@@ -13,11 +13,16 @@ const DEFAULT_MARGIN: int = 0
 ## returns active theme of control node (control nodes inheirt parent theme if theirs is null)
 static func get_inherited_theme(control: Node) -> Theme:
 	var theme: Theme = null
+
 	while (control != null) and ("theme" in control):
 		theme = control.theme
 		if theme != null:
 			break
 		control = control.get_parent()
+
+	if theme == null:
+		theme = ThemeDB.get_project_theme()
+
 	return theme
 
 

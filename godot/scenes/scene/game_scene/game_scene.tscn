@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsw2rarqmetlk"]
+[gd_scene load_steps=5 format=3 uid="uid://bsw2rarqmetlk"]
 
-[ext_resource type="Theme" uid="uid://downo5rrvt4lo" path="res://resources/global/theme/tres/theme.tres" id="1_3odrc"]
 [ext_resource type="Script" path="res://scenes/scene/game_scene/game_scene.gd" id="1_cc2ll"]
 [ext_resource type="PackedScene" uid="uid://d1qehwioaldlb" path="res://scenes/scene/game_scene/game_content/game_content.tscn" id="3_33wd1"]
 [ext_resource type="PackedScene" uid="uid://bo52utxeld0r0" path="res://scenes/scene/game_scene/pause_menu/pause_menu.tscn" id="4_bipq8"]
@@ -14,7 +13,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_3odrc")
 script = ExtResource("1_cc2ll")
 
 [node name="GameContent" parent="." instance=ExtResource("3_33wd1")]
