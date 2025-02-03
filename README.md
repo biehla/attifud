@@ -83,7 +83,7 @@ Swap modules with either simpler or advanced alternatives, depending on your pro
 	- 📋 [**Resource View**](https://github.com/don-tnowe/godot-resources-as-sheets-plugin/tree/Godot-4) - Better resource management in editor.
 	- ✨ [**GDScript Toolkit**](https://github.com/Scony/godot-gdscript-toolkit) - Code style [formatting](https://github.com/ryan-haskell/gdformat-on-save) on save and [linter](https://github.com/el-falso/gdlinter).
 - **Workflow**
-	- 🚀 **Deployment** - TODO: ...
+	- 🚀 **Deployment** - Automatically upload to [itch.io](https://itch.io/) page from Github.
 	- ✅ **Actions** - Verify style and formatting in GDScript code on push to Github.
 
 
@@ -93,6 +93,7 @@ Swap modules with either simpler or advanced alternatives, depending on your pro
 - **.github**
 	- **docs**
 	- **workflows**
+	- FUNDING.yml
 - **godot**
 	- **addons** (Plugins)
 	- **assets** *(.png, .mp3, .csv, .ttf, ...)*
@@ -252,10 +253,13 @@ Scenes are split into following categories:
 
 ### 🚀 Deployment
 
-- **Github Pages**
-	- TODO: ...
 - **Itch.io**
-	- TODO: ...
+	- Project uses `release_master.yml` to automate uploads to [itch.io](https://itch.io/) page.
+	- You can **disable** this by deleting the mentioned file.
+	- You can **enable** this by doing the following:
+		1. Generate new API key in Itch settings, setup `BUTLER_API_KEY` secret in Github.
+		2. Create a new game project page on Itch.
+		3. Setup `ITCHIO_GAME` and `ITCHIO_USERNAME` secrets in Github.
 
 ### ✅ Workflows
 
@@ -276,7 +280,6 @@ List of relevant issues (and current hacks/workarounds/solutions) as of Godot 4.
 	- [x] Issue [#35836](https://github.com/godotengine/godot/issues/35836#issuecomment-581083643) **font size tween lag**. Solved by scale tween instead.
 	- [ ] Issue [#89712](https://github.com/godotengine/godot/issues/89712) **"hicon" is null** sometimes. TODO?
 	- [ ] Issues [#75369](https://github.com/godotengine/godot/issues/75369), [#71182](https://github.com/godotengine/godot/issues/71182), [#61929](https://github.com/godotengine/godot/issues/61929) **large scene lag** sometimes. TODO?
-
 - **Desktop**
 	- [ ] Issues [#3145](https://github.com/godotengine/godot-proposals/issues/3145), [#6247](https://github.com/godotengine/godot-proposals/issues/6247) **boot window mode**. TODO: cfg override.
 - **Web**
@@ -298,21 +301,23 @@ List of relevant issues (and current hacks/workarounds/solutions) as of Godot 4.
 ### 📘 Get Started
 
 After setup, you should have no errors and no warnings.
-
-- Click [Use this template](https://github.com/new?template_name=TakinGodotTemplate&template_owner=TinyTakinTeller) in Github, then open the project in Godot Engine.
+- Either click [Use this template](https://github.com/new?template_name=TakinGodotTemplate&template_owner=TinyTakinTeller) in Github or clone the repository.
 - Setup [GDScript Toolkit](https://github.com/Scony/godot-gdscript-toolkit) python package to use formatter and linter plugins.
 - Open (Import) the project for the first time in the Godot Editor.
 - Enable all plugins, then restart the project "Project > Reload Current Project".
 
 
 On Godot 4.3 you must also:
-
 - Do [font uuid workaround](https://github.com/godotengine/godot/issues/80237) by opening `res://resources/global/theme.tres` and clear then set again the font `noto_sans.woff`.
 - Do [font fallbacks workaround](https://github.com/godotengine/godot/issues/92297) by editing `noto_sans.woff.import` and pasting lines:
 ```
 Fallbacks=null
 fallbacks=[Resource("res://assets/font/noto_sans/woff/noto_sans_arabic.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_hebrew.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_hk.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_jp.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_kr.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_sc.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_tc.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_thai.woff")]
 ```
+
+Optional:
+- See the **CI/CD** section of this README to configure deployment.
+
 
 
 ### ❓ FAQ
