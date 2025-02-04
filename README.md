@@ -13,7 +13,7 @@ Fusion of curated plugins, essential features and best practices to kick-start n
 
 ## ♦️ Examples
 
-Web version: https://tinytakinteller.itch.io/takin-godot-template
+Play here: https://tinytakinteller.itch.io/takin-godot-template
 
 <details>
 <summary> [CLICK HERE] Preview Screenshots </summary>
@@ -62,12 +62,13 @@ Swap modules with either simpler or advanced alternatives, depending on your pro
 	- 🔧 **Options Menu** - Audio, Video (display, vsync), Controls (keybinds), Game.
 	- 📜 **Credits Menu** - Renders [CREDITS.md](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/godot/CREDITS.md) file in-game with formatting.
 	- 📓 **Save Files Menu** - List of files: Play, Import, Export, Delete, Rename.
-	- 🎲 **Game Scene** - Example incremental game mechanics and effects.
+	- 🎲 **Game Scene** - Example incremental game mechanics and particle effects.
 	- ⏸️ **Pause Menu** - Pause gameplay, change options. Esc key shortcut.
 - **Placeholder**
 	- 🎨 **Theme** - Godot default theme. Alternatives at [Kenney](https://kenney.nl/assets/tag:interface?sort=update), [Itch](https://itch.io/c/1473270/themes-for-godot-games), [OGA](https://opengameart.org/art-search-advanced?keys=&title=&field_art_tags_tid_op=or&field_art_tags_tid=ui&name=&field_art_type_tid%5B%5D=9&sort_by=count&sort_order=DESC&items_per_page=24&Collection=), ...
 	- 🖌️ **Images** - [CC0](https://creativecommons.org/publicdomain/zero/1.0/) Public Domain: [Dannya](https://openclipart.org/artist/dannya) save file icon, [Maaack](https://github.com/Maaack/Godot-Menus-Template/tree/main/addons/maaacks_menus_template/base/assets/images) icons.
 	- 🎶 **Music & SFX** - [CC0](https://creativecommons.org/publicdomain/zero/1.0/) Public Domain: [Kenney](https://kenney.nl/assets/category:Audio) SFX and [OGA](https://opengameart.org/content/menu-doodle-2) Music (loop).
+	- 🌪️ **Juice** - UI twist Animation (Tween) on mouse hover or node focus.
 
 ### 💫 Development Modules
 
@@ -192,11 +193,15 @@ Scenes are split into following categories:
 		- **ButtonAudio** - Audio events on signals (focus, click, release).
 		- **SliderAudio** - Audio events on signals (drag start, drag end).
 		- **TreeAudio** - Audio events on signals (cell selected, button clicked).
+	- **Builder**
+		- **UiBuilder** - Spawn components, e.g. an focus animation on all focusable nodes.
 	- **Control**
 		- **ControlExpandStylebox** - Resize target node to fill parent container.
+		- **ControlFocusOnHover** - Grabs focus of node on mouse hover signal.
 		- **ControlGrabFocus** - Grabs focus of node for controller support.
 	- **Motion**
-		- **ScaleMotion** - Animate (tween) scale of Control node(s) when interacted with.
+		- **ScaleMotion** - Animate (tween) scale on interaction. *(Game counter labels.)*
+		- **TwistMotion** - Animate (tween) scale and rotation on interaction. *(UI nodes.)*
 	- **Supplemental**
 		- **ResizeOnDisabledStretchMode** - Custom UI scaling if "stretch mode: disabled".
 - **Node**

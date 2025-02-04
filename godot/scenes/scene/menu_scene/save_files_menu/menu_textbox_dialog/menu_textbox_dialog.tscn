@@ -53,7 +53,7 @@ theme_override_constants/margin_bottom = 8
 [node name="ScrollContainer" type="ScrollContainer" parent="InputVBoxContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="TextEdit" type="TextEdit" parent="InputVBoxContainer/MarginContainer/ScrollContainer"]
+[node name="CodeTextEdit" type="TextEdit" parent="InputVBoxContainer/MarginContainer/ScrollContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 250)
 layout_mode = 2

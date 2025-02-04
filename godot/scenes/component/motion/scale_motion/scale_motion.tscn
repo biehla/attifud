@@ -7,4 +7,5 @@ script = ExtResource("1_0wiwt")
 max_motion_factor = 1.15
 add_motion_default = 0.15
 motion_duration = 0.16
+center_pivot = true
 transition_type = 7

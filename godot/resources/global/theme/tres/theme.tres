@@ -256,6 +256,6 @@ Label/colors/font_color = Color(1, 1, 1, 1)
 OptionButton/styles/normal = SubResource("StyleBoxFlat_hs7yo")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_1n6t5")
 TextEdit/colors/font_color = Color(0.875, 0.875, 0.875, 1)
-TextEdit/constants/line_spacing = 0
+TextEdit/constants/line_spacing = 2
 TextEdit/styles/focus = SubResource("StyleBoxFlat_nsg02")
 TextEdit/styles/normal = SubResource("StyleBoxFlat_84tbq")

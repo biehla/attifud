@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsw2rarqmetlk"]
+[gd_scene load_steps=7 format=3 uid="uid://bsw2rarqmetlk"]
 
 [ext_resource type="Script" path="res://scenes/scene/game_scene/game_scene.gd" id="1_cc2ll"]
 [ext_resource type="PackedScene" uid="uid://d1qehwioaldlb" path="res://scenes/scene/game_scene/game_content/game_content.tscn" id="3_33wd1"]
 [ext_resource type="PackedScene" uid="uid://bo52utxeld0r0" path="res://scenes/scene/game_scene/pause_menu/pause_menu.tscn" id="4_bipq8"]
+[ext_resource type="PackedScene" uid="uid://cvaa73qxuiw6n" path="res://scenes/component/builder/ui_builder/ui_builder.tscn" id="5_4r42l"]
 [ext_resource type="PackedScene" uid="uid://bea1npdsg7ii1" path="res://scenes/scene/menu_scene/options_menu/options_menu.tscn" id="5_4rg8g"]
+[ext_resource type="PackedScene" uid="uid://bdh62o75gsq3g" path="res://scenes/component/supplemental/resize_on_disabled_stretch_mode/resize_on_disabled_stretch_mode.tscn" id="6_i1ory"]
 
 [node name="GameScene" type="Control"]
 process_mode = 3
@@ -34,3 +36,8 @@ visible = false
 z_index = 1001
 z_as_relative = false
 layout_mode = 1
+
+[node name="UiBuilder" parent="." instance=ExtResource("5_4r42l")]
+
+[node name="ResizeOnDisabledStretchMode" parent="." instance=ExtResource("6_i1ory")]
+minimum_width = 682

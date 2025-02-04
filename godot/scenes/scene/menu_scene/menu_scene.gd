@@ -1,6 +1,7 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 ## [br][br]
 ## Holds menu scenes and manages their transitions (listens to menu button pressed signal).
+class_name MenuScene
 extends Control
 
 var _current_menu: Control = null

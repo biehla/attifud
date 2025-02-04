@@ -2,6 +2,14 @@
 class_name NodeUtils
 
 
+## Same as [Node.get_parent(node)] but repeated [levels] amount of times.
+static func get_grandparent(node: Node, levels: int) -> Node:
+	var target: Node = node
+	for i in range(levels):
+		target = target.get_parent()
+	return target
+
+
 ## remove child from node
 static func remove_child(node: Node, child: Node) -> void:
 	node.remove_child(child)

@@ -19,7 +19,7 @@ var index: int = -1
 
 @onready var title_label: Label = %TitleLabel
 @onready var subtitle_label: Label = %SubtitleLabel
-@onready var text_edit: TextEdit = %TextEdit
+@onready var text_edit: TextEdit = %CodeTextEdit
 
 
 func _ready() -> void:
@@ -134,6 +134,7 @@ func _connect_signals() -> void:
 	text_edit.gui_input.connect(_on_textbox_gui_submitted)
 
 	self.confirmed.connect(_on_confirmed)
+	self.canceled.connect(_on_canceled)
 
 
 func _on_textbox_gui_submitted(event: InputEvent) -> void:
@@ -149,3 +150,7 @@ func _on_textbox_gui_submitted(event: InputEvent) -> void:
 func _on_confirmed() -> void:
 	var text: String = StringUtils.sanitize_newline(text_edit.text)
 	confirmed_action.emit(textbox_mode, text, index)
+
+
+func _on_canceled() -> void:
+	pass
