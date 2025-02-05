@@ -75,6 +75,8 @@ Swap modules with either simpler or advanced alternatives, depending on your pro
 - **Singletons**
 	- 📢 **Signal Bus** - Observer pattern for cleaner global signals.
 	- 📖 **References** - Map of preloaded resources for convenience.
+- **Special**
+	- 👷 **Builder** - adds components to nodes, alternative to upcomming [Traits](https://github.com/godotengine/godot/pull/97657).
 - **Scripts**
 	- 🧰 **Utility** - Datetime, File, Marshalls, Math, Node, Number, Random, String, Theme.
 	- 🛠️ **Objects** - ActionHandler, ConfigStorage (INI File), LinkedMap.
