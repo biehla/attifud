@@ -44,7 +44,7 @@ func ready() -> void:
 
 
 func grab_focus() -> void:
-	if target.is_visible_in_tree():
+	if target != null and target.is_visible_in_tree():
 		target.grab_focus()
 
 

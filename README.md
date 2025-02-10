@@ -89,6 +89,13 @@ Swap modules with either simpler or advanced alternatives, depending on your pro
 	- 🚀 **Deployment** - Automatically upload to [itch.io](https://itch.io/) page from Github.
 	- ✅ **Actions** - Verify style and formatting in GDScript code on push to Github.
 
+### 🗿 Additional Examples
+
+The project contains example `game_content` scenes (replace it in `game_scene` scene).
+
+- **2D Incremental Clicker** (default)
+- [**3D First Person Controller**](https://github.com/rbarongr/GodotFirstPersonController) (`/artifacts/example_3d_fp_controller`)
+
 
 
 ## 📂 File Structure
@@ -99,6 +106,7 @@ Swap modules with either simpler or advanced alternatives, depending on your pro
 	- FUNDING.yml
 - **godot**
 	- **addons** (Plugins)
+	- **artifacts** (additional examples)
 	- **assets** *(.png, .mp3, .csv, .ttf, ...)*
 	- **autoload** (Globals)
 	- **resources** *(.tres, .gd)*
@@ -326,7 +334,6 @@ Optional:
 - See the **CI/CD** section of this README to configure deployment.
 
 
-
 ### ❓ FAQ
 
 For questions and help, open a Github Issue or contact my Discord `tiny_takin_teller`.
@@ -367,6 +374,8 @@ dock_filesystem_uncollapsed_paths=PackedStringArray("res://")
 dock_1="FileSystem,Scene,Scene Manager"
 dock_5="Inspector,Node,Import,History"
 ```
+
+For editor features, you can change "Editor > Manage Editor Features..." (e.g. toggle 3D Editor view).
 
 
 

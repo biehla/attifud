@@ -4,6 +4,8 @@
 class_name ConfigurationControlsKeybinds
 extends Node
 
+const TRIM_UI_PREFIX_IN_DISPLAY: bool = false
+
 const INTERNAL_INPUT_PREFIX: StringName = &"ui_"
 const EXPOSED_INTERNAL_INPUTS: Array[StringName] = [
 	&"ui_right",

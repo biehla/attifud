@@ -44,7 +44,8 @@ func refresh_keybinds() -> void:
 
 
 func _get_action_text(action: StringName) -> String:
-	action = action.trim_prefix("ui_")
+	if ConfigurationControlsKeybinds.TRIM_UI_PREFIX_IN_DISPLAY:
+		action = action.trim_prefix("ui_")
 	return action.capitalize()
 
 

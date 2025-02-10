@@ -103,6 +103,15 @@ License: [MIT License](https://github.com/Maaack/Godot-Game-Template/blob/main/L
 [comment]: # (`config_storage_app_log.gd`)
 [comment]: # (`config_storage.gd`)
 
+#### 3D First Person Controller
+Modified by: [TinyTakinTeller](https://github.com/TinyTakinTeller)\
+Created by: [rbarongr](https://github.com/rbarongr)\
+Source: [github: Basic First Person Controller](https://github.com/rbarongr/GodotFirstPersonController)\
+License: [CC0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/)
+
+[comment]: # ()
+[comment]: # (`/artifacts/example_3d_fps_controller/...`)
+
 ### Plugins:
 
 #### Script IDE

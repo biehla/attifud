@@ -1,6 +1,13 @@
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
+## [br][br]
+## Replace "GameContent" child scene with your own. (Keep unique name.)
+## You can modify [_after_unpause], [_after_pause], [_after_leave] functions in this script.
+## [br][br]
+## NOTE: Additional examples: (replace "GameContent" child scene)
+## - 2D Incremental Clicker (default): "scenes/scene/game_scene/game_content/game_content.tscn"
+## - 3D First Person Controller: "artifacts/example_3d_fp_controller/scenes/.../game_content.tscn"
 class_name GameScene
-extends Control
+extends Node
 
 @export_group("Menu Scene")
 @export var scene: SceneManagerEnum.Scene = SceneManagerEnum.Scene.MENU_SCENE
@@ -8,7 +15,7 @@ extends Control
 
 var _action_handler: ActionHandler = ActionHandler.new()
 
-@onready var game_content: GameContent = %GameContent
+@onready var game_content: Node = %GameContent
 @onready var pause_menu: PauseMenu = %PauseMenu
 @onready var options_menu: OptionsMenu = %OptionsMenu
 
@@ -30,6 +37,26 @@ func _ready() -> void:
 	_init_nodes()
 
 	LogWrapper.debug(self, "Ready.")
+
+
+func _after_pause() -> void:
+	if "player" in game_content and game_content.player is Player:
+		var player: Player = game_content.player
+		player.release_mouse()
+
+
+func _after_unpause() -> void:
+	if "control_grab_focus" in game_content and game_content.control_grab_focus is ControlGrabFocus:
+		var control_grab_focus: ControlGrabFocus = game_content.control_grab_focus
+		control_grab_focus.grab_focus()
+
+	if "player" in game_content and game_content.player is Player:
+		var player: Player = game_content.player
+		player.capture_mouse()
+
+
+func _after_leave() -> void:
+	pass
 
 
 func _init_nodes() -> void:
@@ -55,6 +82,7 @@ func _action_game_pause_menu_button() -> void:
 	pause_menu.visible = true
 	options_menu.visible = false
 	get_tree().paused = true
+	_after_pause()
 	LogWrapper.debug(name, "Game paused.")
 
 
@@ -63,7 +91,7 @@ func _action_continue_menu_button() -> void:
 	pause_menu.visible = false
 	options_menu.visible = false
 	get_tree().paused = false
-	game_content.control_grab_focus.grab_focus()
+	_after_unpause()
 	LogWrapper.debug(name, "Game unpaused.")
 
 
@@ -80,9 +108,16 @@ func _action_options_back_menu_button() -> void:
 
 
 func _action_leave_menu_button() -> void:
-	_action_continue_menu_button()
-	process_mode = PROCESS_MODE_DISABLED
+	game_content.process_mode = Node.PROCESS_MODE_DISABLED
+	game_content.visible = true
+	pause_menu.visible = false
+	options_menu.visible = false
+	get_tree().paused = false
+	LogWrapper.debug(name, "Game leave.")
+
+	self.process_mode = PROCESS_MODE_DISABLED
 	Data.exit_save_file()
+	_after_leave()
 	SceneManagerWrapper.change_scene(scene, scene_manager_options_id)
 
 

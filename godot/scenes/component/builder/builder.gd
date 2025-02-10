@@ -90,11 +90,10 @@ func is_matching_condition_properties(node: Node) -> bool:
 			return false
 
 	for not_condition_property: String in not_condition_properties:
-		if not_condition_property not in node:
-			return false
-		var value: Variant = not_condition_properties[not_condition_property]
-		if value != null and value == node.get(not_condition_property):
-			return false
+		if not_condition_property in node:
+			var value: Variant = not_condition_properties[not_condition_property]
+			if value == null or value == node.get(not_condition_property):
+				return false
 
 	return true
 
