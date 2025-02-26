@@ -12,7 +12,6 @@ process_mode = 3
 script = ExtResource("1_cc2ll")
 
 [node name="GameContent" parent="." instance=ExtResource("3_33wd1")]
-unique_name_in_owner = true
 
 [node name="PauseMenu" parent="." instance=ExtResource("4_bipq8")]
 unique_name_in_owner = true

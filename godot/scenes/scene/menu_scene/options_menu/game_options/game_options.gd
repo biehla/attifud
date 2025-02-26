@@ -7,7 +7,9 @@ var _action_handler: ActionHandler = ActionHandler.new()
 
 @onready var autosave_menu_toggle: MenuToggle = %AutosaveMenuToggle
 @onready var number_format_menu_dropdown: MenuDropdown = %NumberFormatMenuDropdown
-@onready var language_menu_dropdown: MenuDropdown = $RootVBoxContainer/LanguageMenuDropdown
+@onready var language_menu_dropdown: MenuDropdown = %LanguageMenuDropdown
+@onready var game_mode_menu_dropdown: MenuDropdown = %GameModeMenuDropdown
+@onready var game_mode_h_separator: HSeparator = $RootVBoxContainer/GameModeHSeparator
 
 
 func _ready() -> void:
@@ -21,10 +23,12 @@ func _load_game_options() -> void:
 	var autosave_enabled: bool = Configuration.game.autosave.get_enabled()
 	var number_format_option_index: int = Configuration.game.number_format.get_option_index()
 	var language_option_index: int = Configuration.locale.get_locale_option_index()
+	var game_mode_option_index: int = Configuration.game.game_mode.get_option_index()
 
 	autosave_menu_toggle.set_value(autosave_enabled)
 	number_format_menu_dropdown.set_option(number_format_option_index)
 	language_menu_dropdown.set_option(language_option_index)
+	game_mode_menu_dropdown.set_option(game_mode_option_index)
 
 
 func _init_action_handler() -> void:
@@ -32,7 +36,8 @@ func _init_action_handler() -> void:
 	_action_handler.register_actions(
 		{
 			MenuDropdownEnum.ID.NUMBER_FORMAT: _action_number_format_menu_dropdown,
-			MenuDropdownEnum.ID.LOCALE: _action_locale_menu_dropdown
+			MenuDropdownEnum.ID.LOCALE: _action_locale_menu_dropdown,
+			MenuDropdownEnum.ID.GAME_MODE: _action_game_mode_menu_dropdown
 		}
 	)
 
@@ -49,6 +54,10 @@ func _action_number_format_menu_dropdown(index: int) -> void:
 
 func _action_locale_menu_dropdown(index: int) -> void:
 	Configuration.locale.set_locale_option_index(index)
+
+
+func _action_game_mode_menu_dropdown(index: int) -> void:
+	Configuration.game.game_mode.set_option_index(index)
 
 
 func _action_autosave_menu_toggle(enabled: bool) -> void:
@@ -68,6 +77,7 @@ func _action_reset_menu_button() -> void:
 func _init_menu_nodes() -> void:
 	_init_number_format_menu_dropdown()
 	_init_locale_menu_dropdown()
+	_init_game_mode_menu_dropdown()
 
 
 func _init_number_format_menu_dropdown() -> void:
@@ -78,6 +88,11 @@ func _init_number_format_menu_dropdown() -> void:
 func _init_locale_menu_dropdown() -> void:
 	var locales: Array[String] = Configuration.locale.get_options()
 	language_menu_dropdown.init_options(locales)
+
+
+func _init_game_mode_menu_dropdown() -> void:
+	var game_modes: Array[String] = Configuration.game.game_mode.options.get_keys()
+	game_mode_menu_dropdown.init_options(game_modes)
 
 
 func _connect_signals() -> void:

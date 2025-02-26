@@ -6,6 +6,7 @@ extends Node
 
 @onready var autosave: ConfigurationGameAutosave = $ConfigurationGameAutosave
 @onready var number_format: ConfigurationGameNumberFormat = $ConfigurationGameNumberFormat
+@onready var game_mode: ConfigurationGameMode = $ConfigurationGameMode
 
 
 func _ready() -> void:
@@ -16,3 +17,4 @@ func reset() -> void:
 	ConfigStorageSettingsGame.delete()
 	autosave.load_autosave()
 	number_format.load_number_format()
+	game_mode.load_game_mode()

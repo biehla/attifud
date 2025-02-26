@@ -15,7 +15,7 @@ extends Node
 
 var _action_handler: ActionHandler = ActionHandler.new()
 
-@onready var game_content: Node = %GameContent
+@onready var game_content: Node = $GameContent
 @onready var pause_menu: PauseMenu = %PauseMenu
 @onready var options_menu: OptionsMenu = %OptionsMenu
 
@@ -33,6 +33,8 @@ func _input(_event: InputEvent) -> void:
 
 
 func _ready() -> void:
+	_load_game_content_scene()
+
 	_connect_signals()
 	_init_nodes()
 
@@ -57,6 +59,16 @@ func _after_unpause() -> void:
 
 func _after_leave() -> void:
 	pass
+
+
+func _load_game_content_scene() -> void:
+	game_content.queue_free()
+
+	var game_content_pck: PackedScene = Configuration.game.game_mode.game_content_scene
+	var game_content_instance: Node = game_content_pck.instantiate()
+	NodeUtils.add_child_front(game_content_instance, self)
+
+	game_content = game_content_instance
 
 
 func _init_nodes() -> void:

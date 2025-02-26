@@ -91,10 +91,14 @@ Swap modules with either simpler or advanced alternatives, depending on your pro
 
 ### 🗿 Additional Examples
 
-The project contains example `game_content` scenes (replace it in `game_scene` scene).
+The project contains example `game_content` scenes (set it in `game_scene` scene).
 
 - **2D Incremental Clicker** (default)
 - [**3D First Person Controller**](https://github.com/rbarongr/GodotFirstPersonController) (`/artifacts/example_3d_fp_controller`)
+
+Default game content scene can be changed in Game Options under "Game Mode".
+
+This is applied via `_load_game_content_scene` function. *(Option 0 is empty project.)*
 
 
 
@@ -297,6 +301,7 @@ List of relevant issues (and current hacks/workarounds/solutions) as of Godot 4.
 	- [ ] Issues [#75369](https://github.com/godotengine/godot/issues/75369), [#71182](https://github.com/godotengine/godot/issues/71182), [#61929](https://github.com/godotengine/godot/issues/61929) **large scene lag** sometimes. TODO?
 - **Desktop**
 	- [ ] Issues [#3145](https://github.com/godotengine/godot-proposals/issues/3145), [#6247](https://github.com/godotengine/godot-proposals/issues/6247) **boot window mode**. TODO: cfg override.
+	- [ ] Issues [#76167](https://github.com/godotengine/godot/issues/76167), [#91543](https://github.com/godotengine/godot/issues/91543) **Boot Splash "leak"**. TODO?
 - **Web**
 	- [x] Issue [#81252](https://github.com/godotengine/godot/issues/81252) **web clipboard**. Solved by native JavaScript dialog.
 	- [x] Issue [#96874](https://github.com/godotengine/godot/issues/96874) **web boot splash**. Solved by CSS in Head Include.
@@ -330,8 +335,51 @@ Fallbacks=null
 fallbacks=[Resource("res://assets/font/noto_sans/woff/noto_sans_arabic.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_hebrew.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_hk.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_jp.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_kr.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_sc.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_tc.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_thai.woff")]
 ```
 
-Optional:
-- See the **CI/CD** section of this README to configure deployment.
+**Optional**:
+- See the **CI/CD** section of this README to configure automated deployment.
+
+
+### 📘 Extend Options
+
+(A) To add a new options setting, recommended steps are as follows.
+1. Create a new option UI Scene
+    - Instantiate UI Scene and extend option enum
+		- First **decide type** as one of: dropdown, slider, toggle.
+		- Under `/scripts/enum/menu/` add a *new ID enum value* for **decided type** (reload project after editing enum script).
+		- Under `/scenes/scene/menu_scene/options_menu/` **select category** scene (audio, controls, game, video).
+		- In the selected scene, from `/scenes/node/menu/` add a new child node for **decided type**.
+	- Customize UI Scene with ID and Name
+		- In added child node, select the *new ID enum value* in the exported `id` property (Inspector tab).
+		- In added child node, set the new "name" in the exported `label` property (Inspector tab).
+		- If you do not want to localize the "name", you do not need to edit the `localization.csv` file.
+2. Extend the script for saving and loading options
+	- Under `/scripts/object/config_storage/` locate script for **selected category**.
+	- Create a new `_KEY` name, `DEFAULT_` value, `get_` and `set_` functions.
+3. Define option values and functions in a new Configuration Scene
+	- New Configuration Scene
+		- Under `/autoload/configuration/` locate directory for **decided type**.
+		- Inside located directory create a new one based on your option "name".
+		- Inside new directory create a new scene and a new script.
+		- Depending on **decided type**, you can copy a similar script and modify it.
+			- Example of simple dropdown is `configuration_video_vsync_mode.gd`.
+			- Example of simple slider is `configuration_video_window_zoom.gd`.
+			- Example of simple toggle is `configuration_video_fps_count.gd`.
+		- Make sure to use the new functions from 2. step.
+	- Create the global variable
+		- Under `/autoload/configuration/` locate directory for **decided type**.
+		- Open the scene script, instantiate your new Configuration Scene as child.
+		- Add the new child as a `@onready` variable and inside the `reset` function.
+4. Implement the option UI functionality
+	- Open the script of the scene where you added the child node (see 1. step).
+	- Give the node a unique name and add it in script as a `@onready` variable.
+	- Update `_load_game_options` function (see similar code for **decided type**).
+	- If your **decided type** is dropdown, also update `_init_menu_nodes` function.
+	- Finally, update the `_init_action_handler` function to handle player input.
+
+For example, the ["Game Mode" dropdown option]()" code changes follow above steps.
+
+(B) To add a whole new category of options, you'll need to modify related scenes and scripts.
+
 
 
 ### ❓ FAQ

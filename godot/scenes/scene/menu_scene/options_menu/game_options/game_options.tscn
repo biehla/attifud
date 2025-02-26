@@ -31,10 +31,17 @@ layout_mode = 2
 id = 6
 label = "NUMBER_FORMAT"
 
-[node name="HSeparator" type="HSeparator" parent="RootVBoxContainer"]
-layout_mode = 2
-
 [node name="LanguageMenuDropdown" parent="RootVBoxContainer" instance=ExtResource("3_ms0q2")]
+unique_name_in_owner = true
 layout_mode = 2
 id = 7
 label = "MENU_LABEL_LANGUAGE"
+
+[node name="GameModeHSeparator" type="HSeparator" parent="RootVBoxContainer"]
+layout_mode = 2
+
+[node name="GameModeMenuDropdown" parent="RootVBoxContainer" instance=ExtResource("3_ms0q2")]
+unique_name_in_owner = true
+layout_mode = 2
+id = 8
+label = "MENU_LABEL_GAME_MODE"

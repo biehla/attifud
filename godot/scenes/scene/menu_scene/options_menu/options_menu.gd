@@ -13,7 +13,6 @@ var _action_handler: ActionHandler = ActionHandler.new()
 @onready var video_options: MarginContainer = %VideoOptions
 @onready var controls_options: MarginContainer = %ControlsOptions
 @onready var game_options: MarginContainer = %GameOptions
-
 @onready var game_menu_button: MenuButtonClass = %GameMenuButton
 
 
@@ -23,6 +22,10 @@ func _ready() -> void:
 	_init_action_handler()
 
 	LogWrapper.debug(self, "MenuScene: Options Menu ready.")
+
+	# cannot change game mode while playing the game
+	if get_parent().name == "GameScene":
+		game_options.game_mode_menu_dropdown.disable()
 
 
 func _init_action_handler() -> void:

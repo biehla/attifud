@@ -32,7 +32,8 @@ func _ready() -> void:
 
 
 func disable(override_value: String = "") -> void:
-	override_value = StringUtils.add_padding(override_value, option_padding)
+	if override_value != "":
+		override_value = StringUtils.add_padding(override_value, option_padding)
 
 	if option_button.disabled:
 		if override_value != "":
@@ -123,7 +124,9 @@ func _on_language_changed(_locale: String) -> void:
 
 
 func _on_option_button_item_selected(index: int) -> void:
-	LogWrapper.debug(self, "Menu dropdown ID '%s' idx '%s'." % [MenuDropdownEnum.ID.keys()[id], index])
+	LogWrapper.debug(
+		self, "Menu dropdown ID '%s' idx '%s'." % [MenuDropdownEnum.ID.keys()[id], index]
+	)
 
 	if id == null or id == MenuDropdownEnum.ID.UNKNOWN:
 		return
