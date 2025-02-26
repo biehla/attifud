@@ -376,7 +376,7 @@ fallbacks=[Resource("res://assets/font/noto_sans/woff/noto_sans_arabic.woff"), R
 	- If your **decided type** is dropdown, also update `_init_menu_nodes` function.
 	- Finally, update the `_init_action_handler` function to handle player input.
 
-For example, the ["Game Mode" dropdown option]()" code changes follow above steps.
+For example, the ["Game Mode" dropdown option](https://github.com/TinyTakinTeller/TakinGodotTemplate/commit/e132389b1c473728e522a4a91cdb153f0d12d751) code changes follow above steps.
 
 (B) To add a whole new category of options, you'll need to modify related scenes and scripts.
 
