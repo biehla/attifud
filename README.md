@@ -294,6 +294,7 @@ Godot Engine [has known issues](https://github.com/godotengine/godot/issues) req
 List of relevant issues (and current hacks/workarounds/solutions) as of Godot 4.3 stable:
 
 - **General**
+	- [x] Issue [#96023](https://github.com/godotengine/godot/issues/96023) **custom theme**. Solved with startup script.
 	- [x] Issue [#66014](https://github.com/godotengine/godot/issues/66014) **suffixed tres files**. Solved with sanitization.
 	- [x] Issue [#65390](https://github.com/godotengine/godot/issues/65390) **defect GPU particles**. Solved with interpolate toggle.
 	- [x] Issue [#35836](https://github.com/godotengine/godot/issues/35836#issuecomment-581083643) **font size tween lag**. Solved by scale tween instead.
