@@ -10,15 +10,20 @@ extends MarginContainer
 @export var min_value: float = 0
 @export var max_value: float = 100
 
+## If true, will not send value update signals when slider, only after slider is released.
 @export var update_on_release: bool = false
 
-@export var value_suffix: String = ""
+@export var value_suffix: String = "":
+	set(value):
+		value_suffix = value
+		_refresh_value()
 
 @export var label: String = "":
 	set(value):
 		label = value
 		_refresh_label()
 
+## Change horizontal UI scaling.
 @export var slider_stretch_ratio: float = 1.0:
 	set(value):
 		slider_stretch_ratio = value
@@ -65,6 +70,10 @@ func _refresh_label() -> void:
 
 
 func _refresh_value() -> void:
+	if value_label == null:
+		value_label = %ValueLabel
+	if h_slider == null:
+		h_slider = %HSlider
 	value_label.text = str(int(h_slider.value)) + value_suffix
 
 
