@@ -291,7 +291,11 @@ Scenes are split into following categories:
 
 Godot Engine [has known issues](https://github.com/godotengine/godot/issues) requiring hacks (workarounds) until officially resolved.
 
-List of relevant issues (and current hacks/workarounds/solutions) as of Godot 4.3 stable:
+Here are listed some of the issues as of Godot 4.3 stable.
+
+Some issues related to project setup are mentioned in [Get Started](https://github.com/TinyTakinTeller/TakinGodotTemplate?tab=readme-ov-file#-get-started) section.
+
+Some issues related to in-game functions (and current hacks/workarounds/solutions) are:
 
 - **General**
 	- [x] Issue [#96023](https://github.com/godotengine/godot/issues/96023) **custom theme**. Solved with startup script.
@@ -328,7 +332,7 @@ After setup, you should have no errors and no warnings.
 - Enable all plugins, then restart the project "Project > Reload Current Project".
 
 
-On Godot 4.3 you must also:
+On Godot 4.3, you must also:
 - Do [font uuid workaround](https://github.com/godotengine/godot/issues/80237) by opening `res://resources/global/theme.tres` and clear then set again the font `noto_sans.woff`.
 - Do [font fallbacks workaround](https://github.com/godotengine/godot/issues/92297) by editing `noto_sans.woff.import` and pasting lines:
 ```
@@ -336,13 +340,18 @@ Fallbacks=null
 fallbacks=[Resource("res://assets/font/noto_sans/woff/noto_sans_arabic.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_hebrew.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_hk.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_jp.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_kr.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_sc.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_tc.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_thai.woff")]
 ```
 
+To resolve "invalid UID" warnings, re-save the scene causing them. (See [FAQ](https://github.com/TinyTakinTeller/TakinGodotTemplate?tab=readme-ov-file#-faq).)
+
 **Optional**:
 - See the **CI/CD** section of this README to configure automated deployment.
 
 
+
 ### 📘 Extend Options
 
-(A) To add a new options setting, recommended steps are as follows.
+<details>
+<summary> To add a new options setting, recommended steps are as follows. </summary>
+
 1. Create a new option UI Scene
     - Instantiate UI Scene and extend option enum
 		- First **decide type** as one of: dropdown, slider, toggle.
@@ -379,7 +388,7 @@ fallbacks=[Resource("res://assets/font/noto_sans/woff/noto_sans_arabic.woff"), R
 
 For example, the ["Game Mode" dropdown option](https://github.com/TinyTakinTeller/TakinGodotTemplate/commit/e132389b1c473728e522a4a91cdb153f0d12d751) code changes follow above steps.
 
-(B) To add a whole new category of options, you'll need to modify related scenes and scripts.
+</details>
 
 
 
