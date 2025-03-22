@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://w1bc8rojm0rb"]
-
-[ext_resource type="Script" path="res://autoload/configuration/configuration_video/configuration_video_vsync_mode/configuration_video_vsync_mode.gd" id="1_34t0u"]
-
-[node name="ConfigurationVideoVsyncMode" type="Node"]
-script = ExtResource("1_34t0u")

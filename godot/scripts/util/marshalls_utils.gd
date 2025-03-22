@@ -1,5 +1,5 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 class_name MarshallsUtils
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 enum CIPHER { NONE, MONOALPHABETIC_SUBSTITUTION }
 
@@ -23,7 +23,7 @@ static func run_cipher(
 			return input
 
 
-## NOTE: substitutions are vulnerable to frequency analysis. (Use for deterrence, not security.)
+# ubstitutions are vulnerable to frequency analysis (use for deterrence, not security)
 static func monoalphabetic_substitution_cipher(
 	input: String, charset: String, secret: String, flag: bool
 ) -> String:

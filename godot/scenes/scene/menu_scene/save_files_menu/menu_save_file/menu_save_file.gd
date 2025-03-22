@@ -1,8 +1,11 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 class_name MenuSaveFile
 extends MarginContainer
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
-signal save_file_button_pressed(index: int)
+signal save_file_pressed(index: int)
+signal save_file_button_pressed(button_type: ButtonType)
+
+enum ButtonType { PLAY, EXPORT, IMPORT, DELETE, RENAME }
 
 const NAME_TITLE: String = "MENU_NAME"
 const TIME_TITLE: String = "GAME_OBJECTIVE_TIME"
@@ -75,7 +78,7 @@ func _refresh_title_labels() -> void:
 
 
 func _connect_signals() -> void:
-	save_file_button.pressed.connect(_on_save_file_button_pressed)
+	save_file_button.pressed.connect(_on_save_file_pressed)
 	save_file_button.toggled.connect(_on_save_file_button_toggled)
 
 	name_value_line_edit.focus_exited.connect(_on_name_value_line_edit_focus_exited)
@@ -83,9 +86,15 @@ func _connect_signals() -> void:
 
 	SignalBus.language_changed.connect(_on_language_changed)
 
+	play_save_menu_button.confirmed.connect(_on_button_confirmed.bind(ButtonType.PLAY))
+	export_save_menu_button.confirmed.connect(_on_button_confirmed.bind(ButtonType.EXPORT))
+	import_save_menu_button.confirmed.connect(_on_button_confirmed.bind(ButtonType.IMPORT))
+	delete_save_menu_button.confirmed.connect(_on_button_confirmed.bind(ButtonType.DELETE))
+	rename_save_menu_button.confirmed.connect(_on_button_confirmed.bind(ButtonType.RENAME))
 
-func _on_save_file_button_pressed() -> void:
-	save_file_button_pressed.emit(index)
+
+func _on_save_file_pressed() -> void:
+	save_file_pressed.emit(index)
 
 
 func _on_save_file_button_toggled(toggled_on: bool) -> void:
@@ -104,3 +113,7 @@ func _on_name_value_line_edit_text_submitted(_new_text: String) -> void:
 
 func _on_language_changed(_locale: String) -> void:
 	_refresh_title_labels()
+
+
+func _on_button_confirmed(button_type: ButtonType) -> void:
+	save_file_button_pressed.emit(button_type)

@@ -1,11 +1,11 @@
-## Modified File MIT License Copyright (c) 2024 TinyTakinTeller
-## Original File MIT License Copyright (c) 2022-present Marek Belski
-## [br][br]
-## Renders credits from .md file, applying some formatting rules.
-## NOTE: Formats title font sizes (h1, h2, h3, h4), URLs and comments.
-## TODO: Parse other .md file syntax when and if needed. (Consider a plugin.)
+# NOTE: Suppported formating rules: title font sizes (h1, h2, h3, h4), URLs and comments.
+# TODO: Extend to parse other .md file syntax if needed. (Consider a plugin.)
 class_name Credits
 extends Control
+## Localized credits rendering from .md file, applying some formatting rules.
+## [br][br]
+## Modified File MIT License Copyright (c) 2024 TinyTakinTeller
+## Original File MIT License Copyright (c) 2022-present Marek Belski
 
 signal end_reached
 

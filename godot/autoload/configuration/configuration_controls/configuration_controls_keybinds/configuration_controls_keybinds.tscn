@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6d46siglrj8x"]
-
-[ext_resource type="Script" path="res://autoload/configuration/configuration_controls/configuration_controls_keybinds/configuration_controls_keybinds.gd" id="1_isdxa"]
-
-[node name="ConfigurationControlsKeybinds" type="Node"]
-script = ExtResource("1_isdxa")

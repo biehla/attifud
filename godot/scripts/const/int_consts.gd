@@ -1,5 +1,5 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 class_name IntConsts
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 const MAX_INT_LENGTH: int = 19
 

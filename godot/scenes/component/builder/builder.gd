@@ -1,44 +1,48 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-## [br][br]
-## Search siblings (parent's children) all the way (recursive), find ones with matching conditions.
-## Attach given component nodes to found targets.
-## NOTE: The [_attach_count] can be used for loading screen progress.
 class_name Builder
 extends Node
+## Instantiate and attach given component nodes [attach_components] to found targets.
+## Recursive search over all nodes below its parent to find targets satisfying some conditions.
+## [br][br]
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
+
+@export_group("Setup")
+## If false, must call [build] function manually.
+@export var build_on_ready: bool = true
+## If true, will search for targets among internal children.
+@export var include_internal: bool = true
 
 @export_group("Conditions")
-## keys are node properties and values are needed target values (leave null for any value).
+## Keys are existing node properties to look for.
+## Values are needed target values (leave null for any value).
 @export var condition_properties: Dictionary
-## keys are node properties and values are forbidden target values (leave null for any value).
+## Keys are existing node properties to look for.
+## Values are forbidden target values (leave null for any value).
 @export var not_condition_properties: Dictionary
+
+@export_group("Exceptions")
+@export var no_condition_classes: Array[Variant]
+@export var no_condition_names: Array[String]
 
 @export_group("Components")
 @export var attach_components: Array[PackedScene]
-## if key matches the node name, value should be a dictionary of form:
-## {TYPE: PROPERTIES} where PROPERTIES is a dictionary of custom values for component instance.
+## If key matches the node name, value should be a dictionary of form:
+## {TYPE: PROPERTIES} where PROPERTIES is a dictionary of custom values to apply to the component.
 @export var customize: Dictionary
-## if key matches the node name, will skip value as a list of attach_components.
+## If key matches the node name, will skip value as a list of attach_components.
 @export var skip: Dictionary
 
+# Will target only [_condition_class] type of nodes.
 var _condition_class: Variant
-var _no_condition_classes: Array[Variant]
-var _no_condition_names: Array[String]
 
 var _attach_count: int = 0
 
 
 func _ready() -> void:
-	initialize()
+	if build_on_ready:
+		build()
 
 
-func initialize(
-	condition_class: Variant = Node,
-	no_condition_classes: Array[Variant] = [],
-	no_condition_names: Array[String] = []
-) -> void:
-	_condition_class = condition_class
-	_no_condition_classes = no_condition_classes
-	_no_condition_names = no_condition_names
+func build() -> void:
 	search_children(self.get_parent())
 
 	LogWrapper.debug(
@@ -48,7 +52,7 @@ func initialize(
 
 
 func search_children(node: Node) -> void:
-	for child: Node in node.get_children(true):
+	for child: Node in node.get_children(include_internal):
 		search_children(child)
 		if is_matching_conditions(child):
 			do_attach_components(child)
@@ -70,11 +74,11 @@ func is_matching_condition_classes(node: Node) -> bool:
 	if not is_instance_of(node, _condition_class):
 		return false
 
-	for no_condition_class: Variant in _no_condition_classes:
+	for no_condition_class: Variant in no_condition_classes:
 		if is_instance_of(node, no_condition_class):
 			return false
 
-	for no_condition_name: Variant in _no_condition_names:
+	for no_condition_name: Variant in no_condition_names:
 		if node.name == no_condition_name:
 			return false
 

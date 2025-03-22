@@ -1,10 +1,10 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-## [br][br]
-## Wraps SceneManager plugin:
-## - uses scene_manager_options.gd resouce id instead of options objects
-## [br][br]
-## TODO: Does not wrap all methods. Wrap other methods from original class if and when needed.
+# TODO: Does not wrap all methods. Wrap other methods from [SceneManager] if and when needed.
 extends Node
+## Wraps SceneManager plugin:
+## - uses [SceneManagerEnum] enum to track available scenes
+## - uses [SceneManagerOptions] resource instead of [SceneManager.Options] object from the plugin
+## [br][br]
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 
 func _ready() -> void:
@@ -15,7 +15,7 @@ func change_scene(scene: SceneManagerEnum.Scene, scene_manager_options_id: Strin
 	var scene_id: String = SceneManagerEnum.scene_name(scene)
 	LogWrapper.debug(self, "Change scene: ", scene_id)
 
-	var scene_manager_options: SceneManagerOptions = Reference.get_scene_manager_options(
+	var scene_manager_options: SceneManagerOptions = ResourceReference.get_scene_manager_options(
 		scene_manager_options_id
 	)
 	SceneManager.change_scene(
@@ -29,7 +29,7 @@ func change_scene(scene: SceneManagerEnum.Scene, scene_manager_options_id: Strin
 func change_scene_to_loaded_scene(scene_manager_options_id: String) -> void:
 	LogWrapper.debug(self, "Change to loaded scene. ")
 
-	var scene_manager_options: SceneManagerOptions = Reference.get_scene_manager_options(
+	var scene_manager_options: SceneManagerOptions = ResourceReference.get_scene_manager_options(
 		scene_manager_options_id
 	)
 	SceneManager.change_scene_to_loaded_scene(
@@ -42,7 +42,7 @@ func change_scene_to_loaded_scene(scene_manager_options_id: String) -> void:
 func change_scene_to_existing_scene_in_scene_tree(scene_manager_options_id: String) -> void:
 	LogWrapper.debug(self, "Change to loaded scene. ")
 
-	var scene_manager_options: SceneManagerOptions = Reference.get_scene_manager_options(
+	var scene_manager_options: SceneManagerOptions = ResourceReference.get_scene_manager_options(
 		scene_manager_options_id
 	)
 	SceneManager.change_scene_to_existing_scene_in_scene_tree(

@@ -91,25 +91,15 @@ layout_mode = 2
 size_flags_vertical = 8
 
 [node name="BackMenuButton" parent="RootMarginContainer/RootVBoxContainer/FooterMarginContainer/HBoxContainer" instance=ExtResource("3_eqnf7")]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "       Back       "
-id = 12
 label = "MENU_LABEL_BACK"
 
 [node name="PaddingMarginContainer" type="MarginContainer" parent="RootMarginContainer/RootVBoxContainer/FooterMarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="ResetMenuButton" parent="RootMarginContainer/RootVBoxContainer/FooterMarginContainer/HBoxContainer" instance=ExtResource("3_eqnf7")]
-visible = false
-layout_mode = 2
-focus_neighbor_left = NodePath("../BackMenuButton")
-focus_neighbor_right = NodePath("../../../TabMarginContainer/TabHBoxContainer/AudioMenuButton")
-theme_override_font_sizes/font_size = 24
-text = "       Reset       "
-id = 6
-label = "MENU_LABEL_RESET"
 
 [node name="MenuTextboxDialog" parent="." instance=ExtResource("6_jkppb")]
 unique_name_in_owner = true

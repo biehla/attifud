@@ -1,6 +1,6 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 class_name GameSaveData
 extends SaveData
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 signal coins_set(value: int)
 signal max_clicks_per_second_set(value: int)

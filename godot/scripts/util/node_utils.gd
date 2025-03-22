@@ -1,8 +1,8 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 class_name NodeUtils
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 
-## Same as [Node.get_parent(node)] but repeated [levels] amount of times.
+## Same as [Node.get_parent(node)] if [levels] is set to 1. Else, repeated [levels] amount of times.
 static func get_grandparent(node: Node, levels: int) -> Node:
 	var target: Node = node
 	for i in range(levels):
@@ -71,3 +71,31 @@ static func add_child_sorted(child: Node, parent: Node, compare_func: Callable) 
 		parent.add_child(child)
 	var position: int = children.bsearch_custom(child, compare_func)
 	add_child_at(child, parent, position)
+
+
+## Iterates all children and their children ... and applies the given function.
+## If [max_depth] is set to 0, iterates recursively all the way down.
+static func apply_function_to_all_children(
+	node: Node, function: Callable, internal: bool = false, max_depth: int = 0, depth: int = 0
+) -> void:
+	if max_depth > 0 and depth >= max_depth:
+		return
+	for child: Node in node.get_children(internal):
+		function.call(child)
+		apply_function_to_all_children(child, function, internal, max_depth, depth + 1)
+
+
+## Checks given node then checks all children and their children ... until valid target is found.
+## If [max_depth] is set to 0, iterates recursively all the way down.
+static func find_descendant(
+	node: Node, is_valid: Callable, internal: bool = false, max_depth: int = 0, depth: int = 0
+) -> Node:
+	if max_depth > 0 and depth >= max_depth:
+		return null
+	if is_valid.call(node):
+		return node
+	for child: Node in node.get_children(internal):
+		var target: Node = find_descendant(child, is_valid, internal, max_depth, depth)
+		if target != null:
+			return target
+	return null

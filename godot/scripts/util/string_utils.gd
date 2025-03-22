@@ -1,5 +1,5 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 class_name StringUtils
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 
 static func is_set(string: String) -> bool:
@@ -8,6 +8,10 @@ static func is_set(string: String) -> bool:
 
 static func is_empty(string: String) -> bool:
 	return string == null or string.is_empty()
+
+
+static func equals_ignore_case(a: String, b: String) -> bool:
+	return a.to_lower() == b.to_lower()
 
 
 static func join(char_array: Array[String]) -> String:
@@ -38,7 +42,7 @@ static func trim_unallowed(text: String, allowed_charset: String) -> String:
 	return output
 
 
-## Remove chars from text that are not in allowed and then shorten it down to max_length.
+## Remove chars from text that are not in allowed and then shorten it down to max_length. [br]
 ## Default allowed charset is ASCII, while default max_length is unlimited.
 static func sanitize_text(
 	text: String,

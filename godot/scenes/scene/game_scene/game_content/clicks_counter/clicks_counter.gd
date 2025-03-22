@@ -1,5 +1,5 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 extends VBoxContainer
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 @onready var clicks_counter_title_label: Label = %ClicksCounterTitleLabel
 @onready var clicks_counter_value_label: Label = %ClicksCounterValueLabel

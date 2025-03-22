@@ -6,7 +6,5 @@
 
 [node name="UiBuilder" type="Node"]
 script = ExtResource("1_il71x")
-not_condition_properties = {
-"focus_mode": 0
-}
-attach_components = Array[PackedScene]([ExtResource("2_l26uk"), ExtResource("3_d3bwu")])
+twist_component = ExtResource("2_l26uk")
+control_focus_on_hover = ExtResource("3_d3bwu")

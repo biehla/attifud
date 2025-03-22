@@ -96,7 +96,6 @@ async function confirmationDialog() {
 			document.body.removeChild(overlay);
 		};
 
-		// Add hover effect for buttons
 		acceptButton.addEventListener('mouseover', function() {
 			acceptButton.style.backgroundColor = "{accept_button_bg_hover_color}";
 			acceptButton.style.outline = "2px solid white"; 

@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://7jxqko2b2kal"]
-
-[ext_resource type="Script" path="res://scenes/node/game/particle_queue/particle_emitter/particle_emitter.gd" id="1_y064q"]
-
-[node name="ParticleEmitter" type="GPUParticles2D"]
-scale = Vector2(0.991233, 1)
-amount = 1
-lifetime = 2.0
-script = ExtResource("1_y064q")

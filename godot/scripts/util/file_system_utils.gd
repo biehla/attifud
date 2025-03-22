@@ -1,5 +1,5 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 class_name FileSystemUtils
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 const NAME: String = "FileSystemUtils"
 
@@ -40,7 +40,7 @@ static func get_paths(path: String, extension: String, recursive: bool = true) -
 
 
 ## Removes appended file extensions, keeping only the original (first) file extension.
-## For example, in Web Exports the Godot Engine will append .remap or .import to some files.
+## For example, in Web Exports the Godot Engine will append .remap or .import to some files. [br]
 ## - https://github.com/godotengine/godot/issues/66014
 static func _sanitize_extension(file: String) -> String:
 	var file_split: PackedStringArray = file.split(EXTENSION_SEPARATOR)

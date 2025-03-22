@@ -1,10 +1,10 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-## [br][br]
-## Connects [mouse_entered] signal of parent control node to action of taking focus if focusable.
 class_name ControlFocusOnHover
 extends Node
+## Connects [mouse_entered] signal of parent control node to action of taking focus if focusable.
+## [br][br]
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
-var target: Control
+var target: Node
 
 
 func _ready() -> void:

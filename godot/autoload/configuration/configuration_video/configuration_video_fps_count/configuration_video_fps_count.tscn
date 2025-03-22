@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cx37ycckfvo7t"]
-
-[ext_resource type="Script" path="res://autoload/configuration/configuration_video/configuration_video_fps_count/configuration_video_fps_count.gd" id="1_o65rr"]
-
-[node name="ConfigurationVideoFpsCount" type="Node"]
-script = ExtResource("1_o65rr")

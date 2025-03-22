@@ -1,8 +1,8 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-## [br][br]
-## Resource script that defines reusable options for scene manager wrapper autoload.
 class_name SceneManagerOptions
 extends Resource
+## Resource script that defines reusable options for [SceneManagerWrapper] autoload.
+## [br][br]
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 @export_group("Fade Out Options")
 @export var fade_out_speed: float = 1.0

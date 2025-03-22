@@ -1,5 +1,5 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 class_name CharsetConsts
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 const DIGITS: String = "0123456789"
 const LOWERCASE: String = "abcdefghijklmnopqrstuvwxyz"

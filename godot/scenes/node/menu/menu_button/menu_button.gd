@@ -1,11 +1,12 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-## [br][br]
-## Localized button that refreshes text on language selected signal, on click emits a global signal.
 @tool
 class_name MenuButtonClass
 extends Button
+## Localized button that refreshes text on language selected signal, emits [confirmed] signal.
+## If [confirm_label] label is not set, the [confirmed] signal acts as regular [pressed] signal.
+## [br][br]
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
-@export var id: MenuButtonEnum.ID = MenuButtonEnum.ID.UNKNOWN
+signal confirmed
 
 @export var label: String = "":
 	set(value):
@@ -23,6 +24,7 @@ extends Button
 		padding_spaces = value
 		_refresh_label()
 
+# tracks confirm state if confirm_label is set
 var confirm: bool = false
 
 
@@ -65,11 +67,9 @@ func _on_button_pressed() -> void:
 			confirm = false
 			_refresh_label()
 
-	LogWrapper.debug(self, "Menu button ID '%s' pressed." % [MenuButtonEnum.ID.keys()[id]])
+	LogWrapper.debug(self, "Menu button pressed.")
 
-	if id == null or id == MenuButtonEnum.ID.UNKNOWN:
-		return
-	SignalBus.menu_button_pressed.emit(id, self)
+	confirmed.emit()
 
 
 func _on_button_focus_exited() -> void:

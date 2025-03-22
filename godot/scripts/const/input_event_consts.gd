@@ -1,9 +1,9 @@
+# TODO: Consider localization of these constants. NOTE: [OS.get_keycode_string()] is not localized.
+class_name InputEventConsts
+## Constants related to [InputEvent].
+## [br][br]
 ## Modified File MIT License Copyright (c) 2024 TinyTakinTeller
 ## Original File MIT License Copyright (c) 2022-present Marek Belski
-## [br][br]
-## Constants related to [InputEvent].
-## TODO: Consider localization of these constants. NOTE: [OS.get_keycode_string()] is not localized.
-class_name InputEventConsts
 
 const NONE: String = "None"
 

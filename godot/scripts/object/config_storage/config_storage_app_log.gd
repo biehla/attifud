@@ -1,8 +1,9 @@
+class_name ConfigStorageAppLog
+## Uses [ConfigStorage] to track information related to the usage of the app. [br]
+## Example: Called at the start of [Configuration].
+## [br][br]
 ## Modified File MIT License Copyright (c) 2024 TinyTakinTeller
 ## Original File MIT License Copyright (c) 2022-present Marek Belski
-## [br][br]
-## Tracks information related to the usage of the app.
-class_name ConfigStorageAppLog
 
 const APP_LOG_SECTION: String = "AppLog"
 

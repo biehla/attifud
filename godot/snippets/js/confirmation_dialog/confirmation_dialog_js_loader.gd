@@ -1,9 +1,9 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-## [br][br]
-## Web export alternative to [ConfirmationDialog] because godot nodes cannot access web clipboard.
-## - https://github.com/godotengine/godot/issues/81252
 class_name ConfirmationDialogJsLoader
 extends Object
+## Web export alternative to [ConfirmationDialog] because Godot cannot access web clipboard. [br]
+## - https://github.com/godotengine/godot/issues/81252
+## [br][br]
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 const NAME: String = "ConfirmationDialogJsLoader"
 
@@ -95,12 +95,12 @@ static func set_snippet_content(
 	_snippet_properties["cancel_button_text"] = cancel_button_text
 
 
-## NOTE: Non-nullable properties will fallback (e.g. Color to Black) if not set in the theme.
+## NOTE: Non-nullable properties use fallback values (e.g. Color to Black) if not set in the theme.
 static func set_snippet_theme_from_resource(theme: Theme) -> void:
 	if theme == null:
 		LogWrapper.debug(NAME, "Theme not set.")
 		return
-	
+
 	var button_normal_stylebox: StyleBox = theme.get("Button/styles/normal") as StyleBox
 	if button_normal_stylebox != null:
 		var button_bg_color: Color = button_normal_stylebox.get("bg_color") as Color

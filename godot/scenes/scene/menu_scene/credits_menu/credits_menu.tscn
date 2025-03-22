@@ -59,10 +59,10 @@ layout_mode = 2
 size_flags_vertical = 8
 
 [node name="BackMenuButton" parent="RootMarginContainer/VBoxContainer/FooterMarginContainer/HBoxContainer" instance=ExtResource("2_vgi8g")]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "       Back       "
-id = 11
 label = "MENU_LABEL_BACK"
 
 [node name="MarginContainer" type="MarginContainer" parent="RootMarginContainer/VBoxContainer/FooterMarginContainer/HBoxContainer"]

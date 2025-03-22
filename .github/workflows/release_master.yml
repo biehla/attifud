@@ -2,7 +2,9 @@
 name: release-master
 
 on:
-  [push, pull_request]
+  push:
+    branches:
+      - master
 
 env:
   GODOT_VERSION: 4.3
