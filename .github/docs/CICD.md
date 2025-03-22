@@ -1,7 +1,7 @@
 
-- Back to [🤖 Code](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/CODE.md) of the project.
+Back to [🤖 Code](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/CODE.md) of the project.
 
-- See [⚡ Hacks](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/HACKS.md) of the project.
+See [⚡ Hacks](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/HACKS.md) of the project.
 
 
 

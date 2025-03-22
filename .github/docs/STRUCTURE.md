@@ -8,7 +8,7 @@ See [⭐ Features](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/ma
 ## 📂 Structure
 
 
-## 📂 File Structure
+### 📂 File Structure
 
 - **.github**
 	- **docs**
@@ -32,10 +32,8 @@ See [⭐ Features](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/ma
 - LICENSE
 - README.md
 
-![](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/image/file_structure.png)
 
-
-## 📜 Conventions
+### 📜 Conventions
 
 - Use **snake_case** for files, folders, variables, functions.
 - Use **PascalCase** for nodes, classes, enums, types.

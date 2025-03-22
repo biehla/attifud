@@ -1,5 +1,5 @@
 
-- Back to [💕 Examples](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/EXAMPLES.md) of the project.
+Back to [💕 Examples](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/EXAMPLES.md) of the project.
 
 
 
