@@ -1,6 +1,6 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 class_name MetaSaveData
 extends SaveData
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 var save_file_name: String
 
@@ -16,7 +16,7 @@ var created_at_timezone: Dictionary
 var created_at_version: String
 
 
-## Metadata updates after save file is saved.
+## Metadata updates itself after save file is saved.
 func saved(_index: int = -1) -> void:
 	var current_datetime: Dictionary = Time.get_datetime_dict_from_system(true)
 	var current_timezone: Dictionary = DatetimeUtils.get_time_zone_from_system()

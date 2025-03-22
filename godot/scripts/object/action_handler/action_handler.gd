@@ -1,12 +1,12 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-## [br][br]
+class_name ActionHandler
+extends Object
 ## Encapsulates a map of callable functions (actions).
 ## Register actions by type and id, then call them by type and id (with or without arguments).
 ## [br][br]
-## This is the (light) command pattern: (use action map instead of if-else/switch/match statements)
-## https://refactoring.guru/design-patterns/command
-class_name ActionHandler
-extends Object
+## This is the (light) command pattern: (use map instead if-else/switch/match statements) [br]
+## - https://refactoring.guru/design-patterns/command
+## [br][br]
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 const NAME: String = "ActionHandler"
 

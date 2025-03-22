@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/scene/menu_scene/main_menu/main_menu.gd" id="1_j1c5u"]
 [ext_resource type="PackedScene" uid="uid://bv7d4vxqjocks" path="res://scenes/component/control/control_grab_focus/control_grab_focus.tscn" id="3_jhg6y"]
 [ext_resource type="PackedScene" uid="uid://k5xt8llrybgm" path="res://scenes/node/menu/menu_button/menu_button.tscn" id="3_u405l"]
-[ext_resource type="PackedScene" uid="uid://cjo0dka4vld2w" path="res://scenes/scene/menu_scene/main_menu/language_option_button/language_option_button.tscn" id="5_b23r4"]
+[ext_resource type="PackedScene" uid="uid://cqg5p86vdf7ea" path="res://scenes/node/menu/menu_configuration/menu_dropdown_node/menu_dropdown_node.tscn" id="4_0aswu"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -99,28 +99,27 @@ size_flags_vertical = 4
 theme_override_constants/separation = 16
 
 [node name="PlayMenuButton" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("3_u405l")]
+unique_name_in_owner = true
 layout_mode = 2
 text = "       Play       "
-id = 1
 label = "MENU_LABEL_PLAY"
 
 [node name="OptionsMenuButton" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("3_u405l")]
+unique_name_in_owner = true
 layout_mode = 2
 text = "       Options       "
-id = 2
 label = "MENU_OPTIONS"
 
 [node name="CreditsMenuButton" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("3_u405l")]
+unique_name_in_owner = true
 layout_mode = 2
 text = "       Credits       "
-id = 3
 label = "MENU_LABEL_CREDITS"
 
 [node name="QuitMenuButton" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("3_u405l")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "       Quit       "
-id = 4
 label = "MENU_LABEL_QUIT"
 
 [node name="ControlGrabFocus" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("3_jhg6y")]
@@ -142,6 +141,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="LanguageOptionButton" parent="RootMarginContainer/HeaderMarginContainer/HeaderBoxContainer" instance=ExtResource("5_b23r4")]
+[node name="MenuDropdownNode" parent="RootMarginContainer/HeaderMarginContainer/HeaderBoxContainer" instance=ExtResource("4_0aswu")]
 layout_mode = 2
-allow_reselect = true
+list_cfg = 8

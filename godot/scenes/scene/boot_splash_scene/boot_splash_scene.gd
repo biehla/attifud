@@ -1,6 +1,6 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 @tool
 extends Control
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 @export_group("Next Scene")
 @export var scene: SceneManagerEnum.Scene = SceneManagerEnum.Scene.MENU_SCENE

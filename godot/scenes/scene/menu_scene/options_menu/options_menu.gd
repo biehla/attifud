@@ -1,62 +1,39 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-## [br][br]
-## Holds options scenes and manages their transitions (listens to menu button pressed signal).
 class_name OptionsMenu
 extends Control
+## Holds options scenes and manages their transitions (listens to menu button signal).
+## [br][br]
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
-var _current_menu: Control = null
-var _action_handler: ActionHandler = ActionHandler.new()
+var _current_menu: OptionsContainer = null
 
 @onready var tab_h_box_container: HBoxContainer = %TabHBoxContainer
 
-@onready var audio_options: MarginContainer = %AudioOptions
-@onready var video_options: MarginContainer = %VideoOptions
-@onready var controls_options: MarginContainer = %ControlsOptions
-@onready var game_options: MarginContainer = %GameOptions
+@onready var audio_options: OptionsContainer = %AudioOptions
+@onready var video_options: OptionsContainer = %VideoOptions
+@onready var controls_options: OptionsContainer = %ControlsOptions
+@onready var game_options: GameOptionsContainer = %GameOptions
+
+@onready var audio_menu_button: MenuButtonClass = %AudioMenuButton
+@onready var video_menu_button: MenuButtonClass = %VideoMenuButton
+@onready var controls_menu_button: MenuButtonClass = %ControlsMenuButton
 @onready var game_menu_button: MenuButtonClass = %GameMenuButton
+
+@onready var back_menu_button: MenuButtonClass = %BackMenuButton
+@onready var reset_menu_button: MenuButtonClass = %ResetMenuButton
 
 
 func _ready() -> void:
 	_connect_signals()
-	_toggle_options(audio_options, tab_h_box_container.get_child(0))
-	_init_action_handler()
-
-	LogWrapper.debug(self, "MenuScene: Options Menu ready.")
+	_toggle(audio_options, tab_h_box_container.get_child(0))
 
 	# cannot change game mode while playing the game
 	if get_parent().name == "GameScene":
-		game_options.game_mode_menu_dropdown.disable()
+		game_options.game_mode_menu_dropdown_node.menu_dropdown_ui.disable()
+
+	LogWrapper.debug(self, "Scene ready.")
 
 
-func _init_action_handler() -> void:
-	_action_handler.set_register_type("MenuButton")
-	_action_handler.register_actions(
-		{
-			MenuButtonEnum.ID.OPTIONS_MENU_AUDIO_TAB: _action_audio_menu_button,
-			MenuButtonEnum.ID.OPTIONS_MENU_VIDEO_TAB: _action_video_menu_button,
-			MenuButtonEnum.ID.OPTIONS_MENU_CONTROLS_TAB: _action_controls_menu_button,
-			MenuButtonEnum.ID.OPTIONS_MENU_GAME_TAB: _action_game_menu_button
-		}
-	)
-
-
-func _action_audio_menu_button(source: MenuButtonClass) -> void:
-	_toggle_options(audio_options, source)
-
-
-func _action_video_menu_button(source: MenuButtonClass) -> void:
-	_toggle_options(video_options, source)
-
-
-func _action_controls_menu_button(source: MenuButtonClass) -> void:
-	_toggle_options(controls_options, source)
-
-
-func _action_game_menu_button(source: MenuButtonClass) -> void:
-	_toggle_options(game_options, source)
-
-
-func _toggle_options(menu: Control, source: MenuButtonClass) -> void:
+func _toggle(menu: Control, source: MenuButtonClass) -> void:
 	if menu == _current_menu:
 		if source != null:
 			source.button_pressed = true
@@ -80,13 +57,21 @@ func _unpress_tabs_except(menu_button: MenuButtonClass) -> void:
 
 func _connect_signals() -> void:
 	self.visibility_changed.connect(_on_visibility_changed)
-	SignalBus.menu_button_pressed.connect(_on_menu_button_pressed)
+
+	audio_menu_button.confirmed.connect(_toggle.bind(audio_options, audio_menu_button))
+	video_menu_button.confirmed.connect(_toggle.bind(video_options, video_menu_button))
+	controls_menu_button.confirmed.connect(_toggle.bind(controls_options, controls_menu_button))
+	game_menu_button.confirmed.connect(_toggle.bind(game_options, game_menu_button))
+
+	reset_menu_button.confirmed.connect(_on_reset_button)
 
 
+# toggle first tab (audio_options) if options menu is re-opened
 func _on_visibility_changed() -> void:
 	if is_visible_in_tree():
-		_toggle_options(audio_options, tab_h_box_container.get_child(0))
+		_toggle(audio_options, tab_h_box_container.get_child(0))
 
 
-func _on_menu_button_pressed(id: MenuButtonEnum.ID, source: MenuButtonClass) -> void:
-	_action_handler.handle_action_args("MenuButton", id, self, [source])
+func _on_reset_button() -> void:
+	var config_group: ConfigurationEnum.Group = _current_menu.get_config_group()
+	Configuration.reset_options(config_group)

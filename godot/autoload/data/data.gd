@@ -1,16 +1,15 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
+extends Node
+## Variables in [GameSaveData] will automatically save and load after [select_save_file] is called.
+## Variables in [GameSaveData] will be paused after [exit_save_file] is called.
+## Variables in [MetaSaveData] are not meant for game data, but for general save file statistics.
 ## [br][br]
-## Persists data in save files. Use this node as follows.
-## Enter game: Use 'select_save_file'. (For example, before returning to the play game scene.)
-## During game: Autosave activated, code can modify variables in children nodes ('meta', 'game').
-## Leave game: Use 'exit_save_file'. (For example, before returning to save file selection.)
-## Outside game: Autosave paused, children nodes will be (re)used for import/export/delete/rename.
-## [br][br]
+## This node contains children of type [SaveData].
 ## Each child of type [SaveData] represents a section of the save file and holds data in variables.
-## If child is [SaveData.is_metadata()], its data is loaded before selecting a save file.
-## Once save file is selected, each child will track and autosave the data in its own variables.
+## Default project contains two such nodes: [GameSaveData] and [MetaSaveData].
+## - If child is [SaveData.is_metadata()], its data is loaded before selecting a save file.
+## - Once save file is selected, each [SaveData] child will autosave the data in its own variables.
 ## [br][br]
-## On filesystem, save files will be saved as a json representing save data. [br]
+## On filesystem, save files will be saved as a json representing save data.
 ## Save files filesystem structure example: [br]
 ##	data [br]
 ##		save_1 [br]
@@ -19,7 +18,8 @@
 ##		save_2 [br]
 ##			save_2_meta.data [br]
 ##			save_2_game.data [br]
-extends Node
+## [br][br]
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 ## Constants determining where to read metadata vars that are displayed in save file selection UI.
 const METADATA_CATEGORY: String = "meta"
@@ -37,6 +37,7 @@ const SIGNATURE = "§§§"
 @export var save_file_root_folder: String = PathConsts.USER + "data/"
 @export var save_file_prefix: String = "save"
 @export var save_file_extension: String = "data"
+@export var autosave_enabled: bool = true
 @export var autosave_seconds: int = 5
 
 @export_category("Security")
@@ -388,5 +389,5 @@ func _connect_signals() -> void:
 
 
 func _on_autosave_timer_timeout() -> void:
-	if Configuration.game.autosave.get_enabled() and is_save_file_selected():
+	if is_save_file_selected() and autosave_enabled:
 		save_save_file()

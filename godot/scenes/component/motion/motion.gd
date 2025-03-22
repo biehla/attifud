@@ -1,35 +1,36 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-## [br][br]
-## Base script for all motion components.
-## Uses a tween to animate some properties of given target nodes.
-## Override _get_target_original_value and _motion_transform to setup custom properties motion.
-## NOTE: Maybe it is better to use [AnimationPlayer] instead of tweens.
-## NOTE: Maybe it is better to use a resource script instead of export variables.
-## [br][br]
-## Set export variables to get a desired animation effect.
-## [br][br]
-## Use [add_motion] func to increment property. It will start returning to the original over time.
+# consider using the [AnimationPlayer] instead of [Tween] to setup animations in editor instead code
 class_name Motion
 extends Node
+## The [Motion] script is a wrapper around [Tween] that allows animation intensity changes anytime.
+## The effect is applied via [add_motion] function or via signals [trigger_signals] to [targets].
+## Properties in motion will start returning to the original value over time.
+## [br][br]
+## Base script for all motion components.
+## Override [_get_target_original_value] and [_motion_transform] to setup custom properties motion.
+## Set export variables to get a desired effect variation.
+## [br][br]
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 signal motion_end
 
 @export_category("Target")
-@export var target_children: bool = false
+## If target list is left empty, will select either the parent or the children of the parent.
+@export var target_parent: bool = true
+## If target list is left empty, will either target the parent or the children of the parent.
 @export var targets: Array[Node] = []
-## If larger than 0, sets target to "parent of the parent" ... (that many levels upwards).
-## Still keeps triggers of "original target" (level 0).
-@export var offset_target_level: int = 0
-
-@export_category("Triggers")
+## If set, will call [add_motion] on those signals. Subscribes to signals of the target.
 @export var trigger_signals: Array[String]
+## If larger than 0, applies motion to "parent of the parent ..." instead of the target.
+## Useful when you want to listen for [trigger_signals] of target but apply motion to other nodes.
+@export var offset_target_level: int = 0
 
 @export_category("Motion")
 @export var min_motion_factor: float = 1.0
 @export var max_motion_factor: float = 1.5
-## If set to 0, will use max motion factor as default.
+## If set to 0, will use max motion factor when calling [add_motion].
 @export var add_motion_default: float = 0.0
 @export var motion_duration: float = 0.4
+## Set to true if the motion would look nicer if centered around the target.
 @export var center_pivot: bool = false
 
 @export_category("Tween")
@@ -51,8 +52,9 @@ func initialize(target_type: Variant) -> void:
 	if target_type == null:
 		return
 
+	# sets target(s) and connects to trigger signals
 	if _is_targets_empty():
-		var filter: Array = get_parent().get_children() if target_children else [get_parent()]
+		var filter: Array = [get_parent()] if target_parent else get_parent().get_children()
 		for child: Node in filter:
 			var target: Node = child
 			if is_instance_of(target, target_type):
@@ -101,7 +103,7 @@ func _motion_tween_method(factor: float) -> void:
 
 
 func _motion_transform(_target: Node) -> void:
-	pass
+	push_error("Not implemented.")
 
 
 func _set_target_original_values(target: Node) -> void:

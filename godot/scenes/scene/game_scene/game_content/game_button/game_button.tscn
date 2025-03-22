@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://byy8027e326wd"]
+[gd_scene load_steps=12 format=3 uid="uid://byy8027e326wd"]
 
 [ext_resource type="Texture2D" uid="uid://b7soluh72vjfa" path="res://assets/image/game/animal/png/round/panda.png" id="1_3e4ed"]
 [ext_resource type="Texture2D" uid="uid://c1bd0fcvhdp" path="res://assets/image/game/animal/png/round_outline/panda.png" id="2_hxejm"]
 [ext_resource type="Script" path="res://scenes/scene/game_scene/game_content/game_button/game_button.gd" id="3_3q41s"]
 [ext_resource type="PackedScene" uid="uid://b4b36g3uhwemg" path="res://scenes/component/audio/button_audio/button_audio.tscn" id="3_4ltph"]
 [ext_resource type="PackedScene" uid="uid://bpci1qpmsjkbg" path="res://scenes/scene/game_scene/game_content/game_button/click_counter/click_counter.tscn" id="4_4d018"]
-[ext_resource type="PackedScene" uid="uid://k6nmnw4kjwjq" path="res://scenes/node/game/particle_queue/particle_queue.tscn" id="6_gyr2f"]
-[ext_resource type="PackedScene" uid="uid://crvdmtowmw2sc" path="res://scenes/node/game/particle_queue/particle_emitter/label_particle_emitter/label_particle_emitter.tscn" id="7_72cr5"]
+[ext_resource type="PackedScene" uid="uid://vlsdtpdj5gw0" path="res://scenes/node/game/spawner_buffer/spawner_buffer.tscn" id="6_1vbam"]
+[ext_resource type="PackedScene" uid="uid://crvdmtowmw2sc" path="res://scenes/component/emitter/particle_emitter/label_particle_emitter/label_particle_emitter.tscn" id="7_72cr5"]
+[ext_resource type="PackedScene" uid="uid://bsp81vca8h8r" path="res://scenes/node/game/label_particle_tween/label_particle_tween.tscn" id="8_2bglp"]
 
 [sub_resource type="Animation" id="Animation_77dwp"]
 length = 0.001
@@ -124,12 +125,28 @@ up = 4
 [node name="ClickCounter" parent="." instance=ExtResource("4_4d018")]
 unique_name_in_owner = true
 
-[node name="ParticleQueue" parent="." instance=ExtResource("6_gyr2f")]
+[node name="Particles" type="Node" parent="."]
+
+[node name="EmitterSpawnerBuffer" parent="Particles" node_paths=PackedStringArray("entity_parent") instance=ExtResource("6_1vbam")]
 unique_name_in_owner = true
-particle_emitter_pck = ExtResource("7_72cr5")
-buffer = true
-buffer_sum_arguments = Array[int]([1])
-lifetime = 3.0
-position_offset = Vector2(0.5, 0.5)
-particles_modulate = Color(1, 0.498039, 1, 1)
-particles_id = "game_button"
+entity_pck = ExtResource("7_72cr5")
+entity_buffer_callable = "buffer"
+entity_flush_callable = "flush"
+entity_finished_signal = "particle_stopped"
+entity_parent = NodePath("EmitterSpawnerEntityParent")
+max_count = 50
+
+[node name="EmitterSpawnerEntityParent" type="Node2D" parent="Particles/EmitterSpawnerBuffer"]
+unique_name_in_owner = true
+
+[node name="TweenSpawnerBuffer" parent="Particles" node_paths=PackedStringArray("entity_parent") instance=ExtResource("6_1vbam")]
+unique_name_in_owner = true
+entity_pck = ExtResource("8_2bglp")
+entity_buffer_callable = "buffer"
+entity_flush_callable = "flush"
+entity_finished_signal = "finished"
+entity_parent = NodePath("TweenSpawnerEntityParent")
+max_count = 50
+
+[node name="TweenSpawnerEntityParent" type="Node2D" parent="Particles/TweenSpawnerBuffer"]
+unique_name_in_owner = true

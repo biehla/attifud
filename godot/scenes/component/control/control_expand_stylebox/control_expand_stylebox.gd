@@ -1,12 +1,13 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-## [br][br]
-## Makes target node theme [StyleBox] expand to fill parent control.
-## [br][br]
-## Modifies the theme override. If not found at node level, will look at the inherited theme.
 class_name ControlExpandStylebox
 extends Node
+## Finds a target node and edits its [StyleBox] height to expand to fill parent container.
+## The resize process will re-trigger on [resized] and [visibility_changed] signals.
+## NOTE: Modifies the theme override. If not found at node level, will look at the inherited theme.
+## [br][br]
+## Example use case is a [HSlider] to expand the height, see [MenuSliderUI].
+## [br][br]
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
-## Uses parent as target if not set. (e.g. [HSlider])
 @export var target: Control
 @export var theme_override_property: String = "theme_override_styles/slider"
 @export var theme_inherited_property: String = "HSlider/styles/slider"
@@ -22,6 +23,9 @@ var _parent_control: Control
 func _ready() -> void:
 	if target == null:
 		target = get_parent()
+	if target == null:
+		LogWrapper.warn(self, "Target not found for parent: ", get_parent().name)
+		return
 
 	_connect_signals()
 
@@ -30,22 +34,23 @@ func _refresh_size() -> void:
 	if _parent_control == null:
 		return
 
-	var override_slider: StyleBox = target.get(theme_override_property) as StyleBox
-	if override_slider != null:
-		return _resize_slider(override_slider)
+	var override_stylebox: StyleBox = target.get(theme_override_property) as StyleBox
+	if override_stylebox != null:
+		return _resize_stylebox(override_stylebox)
 
 	var inherited_theme: Theme = ThemeUtils.get_inherited_theme(target)
 	if inherited_theme == null:
 		return
 
-	var theme_slider: StyleBox = inherited_theme.get(theme_inherited_property) as StyleBox
-	if theme_slider != null:
-		override_slider = theme_slider.duplicate()
-		target.set(theme_override_property, override_slider)
-		return _resize_slider(override_slider)
+	var theme_stylebox: StyleBox = inherited_theme.get(theme_inherited_property) as StyleBox
+	if theme_stylebox != null:
+		override_stylebox = theme_stylebox.duplicate()
+		target.set(theme_override_property, override_stylebox)
+		return _resize_stylebox(override_stylebox)
 
 
-func _resize_slider(stlye_box: StyleBox) -> void:
+# resize the height of the given [StyleBox]
+func _resize_stylebox(stlye_box: StyleBox) -> void:
 	stlye_box.content_margin_top = int(float(_parent_control.size.y) * expand_factor / 2)
 	stlye_box.content_margin_bottom = int(float(_parent_control.size.y) * expand_factor / 2)
 

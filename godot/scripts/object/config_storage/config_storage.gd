@@ -1,11 +1,12 @@
-## Modified File MIT License Copyright (c) 2024 TinyTakinTeller
-## Original File MIT License Copyright (c) 2022-present Marek Belski
-## [br][br]
-## Persists data in a INI-style file.
-## [br][br]
-## Used by Configuration autoload.
 class_name ConfigStorage
 extends Object
+## Persists data in a INI file.
+## [br][br]
+## Used by [Configuration] autoload in [ConfigurationController] nodes. [br]
+## Used by [ConfigStorageAppLog] node.
+## [br][br]
+## Modified File MIT License Copyright (c) 2024 TinyTakinTeller
+## Original File MIT License Copyright (c) 2022-present Marek Belski
 
 const NAME: String = "ConfigStorage"
 

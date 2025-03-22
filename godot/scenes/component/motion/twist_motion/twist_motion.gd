@@ -1,10 +1,11 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-## [br][br]
-## Set export variables to get a desired animation effect. (Inherited from [Motion].)
-## [br][br]
-## Use [add_motion] func to increment scale. It will start returning to the original over time.
 class_name TwistMotion
 extends Motion
+## Extension of [Motion] that animates [scale] and [rotation] properties of target(s).
+## Set export variables to get a desired effect intensity and variation.
+## [br][br]
+## Use [add_motion] func to apply motion or set the trigger signals in export variables.
+## [br][br]
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 @export var max_rotation_degrees: float = 2.5
 

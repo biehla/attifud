@@ -1,8 +1,8 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-## [br][br]
-## Improved getters and setters for theme properties.
-## TODO: Does not expose all properties. Expose other properties if and when needed.
+# TODO: Does not contain functions for all properties. Expose other properties if and when needed.
 class_name ThemeUtils
+## Improved getters and setters for theme properties.
+## [br][br]
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 const DEFAULT_FONT_SIZE: int = 16
 const DEFAULT_SEPARATION: int = 0

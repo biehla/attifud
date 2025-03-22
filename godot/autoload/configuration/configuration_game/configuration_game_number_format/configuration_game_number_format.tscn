@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3i1pp48cas76"]
-
-[ext_resource type="Script" path="res://autoload/configuration/configuration_game/configuration_game_number_format/configuration_game_number_format.gd" id="1_45ldx"]
-
-[node name="ConfigurationGameNumberFormat" type="Node"]
-script = ExtResource("1_45ldx")

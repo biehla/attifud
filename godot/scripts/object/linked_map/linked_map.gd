@@ -1,9 +1,9 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-## [br][br]
-## Data structure representing an ordered map (dictionary).
-## Preserves insertion order of keys and can sort keys by values.
 class_name LinkedMap
 extends Object
+## Data structure representing an ordered map (dictionary).
+## Preserves insertion order of keys and can sort keys by values.
+## [br][br]
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 var keys: Array[String] = []
 var key_value_map: Dictionary = {}
@@ -13,12 +13,17 @@ func get_value(key: String) -> Variant:
 	return key_value_map[key]
 
 
+func get_value_at(index: int) -> Variant:
+	return get_value(get_key_at(index))
+
+
 func get_key_at(index: int) -> Variant:
 	return keys[index]
 
 
-func get_value_at(index: int) -> Variant:
-	return get_value(get_key_at(index))
+func get_key_by_value(value: Variant) -> String:
+	var index: int = find_key_index_by_value(value)
+	return keys[index]
 
 
 func add(key: String, value: Variant) -> void:
@@ -34,9 +39,7 @@ func remove(key: String) -> void:
 
 
 func sort_by_values() -> void:
-	keys.sort_custom(
-		func(a: Variant, b: Variant) -> bool: return key_value_map[a] < key_value_map[b]
-	)
+	keys.sort_custom(func(a: Variant, b: Variant) -> bool: return a < b)
 
 
 func get_keys() -> Array[String]:

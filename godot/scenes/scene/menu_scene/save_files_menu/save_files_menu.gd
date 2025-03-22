@@ -17,6 +17,7 @@ var _action_handler: ActionHandler = ActionHandler.new()
 @onready var control_grab_focus: ControlGrabFocus = %ControlGrabFocus
 @onready var menu_textbox_dialog: MenuTextboxDialog = %MenuTextboxDialog
 
+@onready var back_menu_button: MenuButtonClass = %BackMenuButton
 
 func _ready() -> void:
 	if not menu_save_file_pck:
@@ -35,15 +36,17 @@ func get_toggled_save_file() -> MenuSaveFile:
 	return null
 
 
+# the [ActionHandler] can be a cleaner way to handle some signals
+# (connect 1 signal with X possible enum values instead of connecting X similar signals)
 func _init_action_handler() -> void:
-	_action_handler.set_register_type("MenuButton")
+	_action_handler.set_register_type("MenuSaveFile.ButtonType")
 	_action_handler.register_actions(
 		{
-			MenuButtonEnum.ID.SAVE_FILES_MENU_PLAY: _action_play_save_file_menu_button,
-			MenuButtonEnum.ID.SAVE_FILES_MENU_EXPORT: _action_export_save_file_menu_button,
-			MenuButtonEnum.ID.SAVE_FILES_MENU_IMPORT: _action_import_save_file_menu_button,
-			MenuButtonEnum.ID.SAVE_FILES_MENU_DELETE: _action_delete_save_file_menu_button,
-			MenuButtonEnum.ID.SAVE_FILES_MENU_RENAME: _action_rename_save_file_menu_button
+			MenuSaveFile.ButtonType.PLAY: _action_play_save_file_menu_button,
+			MenuSaveFile.ButtonType.EXPORT: _action_export_save_file_menu_button,
+			MenuSaveFile.ButtonType.IMPORT: _action_import_save_file_menu_button,
+			MenuSaveFile.ButtonType.DELETE: _action_delete_save_file_menu_button,
+			MenuSaveFile.ButtonType.RENAME: _action_rename_save_file_menu_button
 		}
 	)
 
@@ -117,6 +120,7 @@ func _init_menu_save_files() -> void:
 		var save_file_metadatas: Dictionary = save_files_metadatas[index]
 		var menu_save_file: MenuSaveFile = _init_menu_save_file(save_file_metadatas)
 		menu_save_file.set_index(index)
+		menu_save_file.save_file_pressed.connect(_on_save_file_pressed)
 		menu_save_file.save_file_button_pressed.connect(_on_save_file_button_pressed)
 		_menu_save_files.append(menu_save_file)
 
@@ -155,16 +159,19 @@ func _set_menu_save_file(menu_save_file: MenuSaveFile, save_file_metadatas: Dict
 	menu_save_file.set_value_labels(save_file_name, playtime, modified_at_local_time)
 
 
-func _on_save_file_button_pressed(index: int) -> void:
+func _on_save_file_pressed(index: int) -> void:
 	for menu_save_file: MenuSaveFile in _menu_save_files:
 		if menu_save_file.index != index:
 			menu_save_file.save_file_button.button_pressed = false
 
 
+func _on_save_file_button_pressed(button_type: MenuSaveFile.ButtonType) -> void:
+	_action_handler.handle_action("MenuSaveFile.ButtonType", button_type, self)
+
+
 func _connect_signals() -> void:
 	self.visibility_changed.connect(_on_visibility_changed)
 	menu_textbox_dialog.confirmed_action.connect(_on_menu_textbox_dialog_confirmed_action)
-	SignalBus.menu_button_pressed.connect(_on_menu_button_pressed)
 
 
 func _on_visibility_changed() -> void:
@@ -180,7 +187,3 @@ func _on_menu_textbox_dialog_confirmed_action(
 		_import_confirmed(text, index)
 	elif textbox_mode == MenuTextboxDialog.TextboxMode.EXPORT:
 		_export_confirmed(text, index)
-
-
-func _on_menu_button_pressed(id: MenuButtonEnum.ID, _source: MenuButtonClass) -> void:
-	_action_handler.handle_action("MenuButton", id, self)

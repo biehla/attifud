@@ -1,19 +1,18 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-## [br][br]
-## Provides accessibility to keyboard players and controller players.
-## [br][br]
-## Attach to parent node.
-## Set target as first control node child if target is not already set.
-## Grabs focus on target control node if visible in tree.
-## Remembers new focus on another child and grabs it again when parent becomes visible in tree.
 class_name ControlGrabFocus
 extends Node
+## Provides accessibility to keyboard players and controller players.
+## Grabs focus on first focusable child of target control node, if visible in tree.
+## [br][br]
+## Attach to parent node. Sets target as first control node child if target is not already set.
+## [br][br]
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 @export var target: Control
+## Remembers new focus (if changed anytime) and re-grabs it again when target becomes visible again.
 @export var remember_last_focus: bool = true
-## If target is not focusable, searches among their children until a valid ancestor is found.
+## If target is not focusable, searches among children of target until a valid ancestor is found.
 @export var recursive: bool = false
-## Will trigger on ready() method called instead of on _ready() method override.
+## If true, will delay [_ready] function to custom [ready] function call.
 @export var manual: bool = false
 
 var _ready_called: bool = false

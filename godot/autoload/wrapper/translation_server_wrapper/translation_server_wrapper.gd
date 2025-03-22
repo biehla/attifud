@@ -1,10 +1,11 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-## [br][br]
-## Supports [LOCALE_LIST_SEPARATOR] for handling localization concatenations.
-## Supports [translate] working in @tool scripts in the editor (return key if not found).
-## - https://github.com/godotengine/godot/issues/46271
 @tool
 extends Node
+## Extends [TranslationServer] with extra functionality and to fix some issues: [br]
+## - Supports [LOCALE_LIST_SEPARATOR] for handling localization concatenations. [br]
+## - Supports [translate] working in @tool scripts in the editor (return key if not found). [br]
+## - Fixes: https://github.com/godotengine/godot/issues/46271
+## [br][br]
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 const LOCALE_LIST_SEPARATOR: String = "|"
 

@@ -1,5 +1,5 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 class_name NumberUtils
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 enum NumberFormat { STRING, DIGITS, METRIC, SCIENTIFIC }
 
@@ -114,8 +114,9 @@ static func format_scientific_list(
 	)
 
 
-## The built-in function only checks for digits, not if the value will overflow the int value.
-## See: https://github.com/godotengine/godot/issues/75072
+## The built-in function only checks for digits, not if the value will overflow the int value. [br]
+## - https://github.com/godotengine/godot/issues/75072
+## [br][br]
 ## Original Function MIT License Copyright (c) 2024 alexmunoz502
 static func is_valid_int(input_string: String) -> bool:
 	if not input_string.is_valid_int():

@@ -1,26 +1,25 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-## [br][br]
+# NOTE: Additional examples: (replace "GameContent" child scene)
+# - 2D Incremental Clicker (default): "scenes/scene/game_scene/game_content/game_content.tscn"
+# - 3D First Person Controller: "artifacts/example_3d_fp_controller/scenes/.../game_content.tscn"
+class_name GameScene
+extends Node
 ## Replace "GameContent" child scene with your own. (Keep unique name.)
 ## You can modify [_after_unpause], [_after_pause], [_after_leave] functions in this script.
 ## [br][br]
-## NOTE: Additional examples: (replace "GameContent" child scene)
-## - 2D Incremental Clicker (default): "scenes/scene/game_scene/game_content/game_content.tscn"
-## - 3D First Person Controller: "artifacts/example_3d_fp_controller/scenes/.../game_content.tscn"
-class_name GameScene
-extends Node
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 @export_group("Menu Scene")
 @export var scene: SceneManagerEnum.Scene = SceneManagerEnum.Scene.MENU_SCENE
 @export var scene_manager_options_id: String = "fade_play"
 
-var _action_handler: ActionHandler = ActionHandler.new()
-
 @onready var game_content: Node = $GameContent
 @onready var pause_menu: PauseMenu = %PauseMenu
 @onready var options_menu: OptionsMenu = %OptionsMenu
 
+@onready var ui_builder: UiBuilder = %UiBuilder
 
-# Esc key shortcut toggles pause menu or exits from options via back button.
+
+# Esc key shortcut toggles pause menu or exits from options via back button
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("game_pause"):
 		if get_tree().paused:
@@ -35,8 +34,9 @@ func _input(_event: InputEvent) -> void:
 func _ready() -> void:
 	_load_game_content_scene()
 
+	ui_builder.build()
+
 	_connect_signals()
-	_init_nodes()
 
 	LogWrapper.debug(self, "Ready.")
 
@@ -61,32 +61,15 @@ func _after_leave() -> void:
 	pass
 
 
+# remove this function if you remove "Game Mode" from options
 func _load_game_content_scene() -> void:
 	game_content.queue_free()
 
-	var game_content_pck: PackedScene = Configuration.game.game_mode.game_content_scene
+	var game_content_pck: PackedScene = Configuration.get_game_mode_content_scene()
 	var game_content_instance: Node = game_content_pck.instantiate()
 	NodeUtils.add_child_front(game_content_instance, self)
 
 	game_content = game_content_instance
-
-
-func _init_nodes() -> void:
-	_init_action_handler()
-
-
-func _init_action_handler() -> void:
-	_action_handler.set_register_type("MenuButton")
-	_action_handler.register_actions(
-		{
-			MenuButtonEnum.ID.GAME_PAUSE: _action_game_pause_menu_button,
-			MenuButtonEnum.ID.PAUSE_MENU_CONTINUE: _action_continue_menu_button,
-			MenuButtonEnum.ID.PAUSE_MENU_OPTIONS: _action_options_menu_button,
-			MenuButtonEnum.ID.PAUSE_MENU_LEAVE: _action_leave_menu_button,
-			MenuButtonEnum.ID.PAUSE_MENU_QUIT: _action_quit_menu_button,
-			MenuButtonEnum.ID.OPTIONS_MENU_BACK: _action_options_back_menu_button
-		}
-	)
 
 
 func _action_game_pause_menu_button() -> void:
@@ -134,12 +117,17 @@ func _action_leave_menu_button() -> void:
 
 
 func _action_quit_menu_button() -> void:
+	Data.save_save_file()
 	get_tree().quit()
 
 
 func _connect_signals() -> void:
-	SignalBus.menu_button_pressed.connect(_on_menu_button_pressed)
+	if "pause_menu_button" in game_content:
+		game_content.pause_menu_button.confirmed.connect(_action_game_pause_menu_button)
 
+	pause_menu.continue_menu_button.confirmed.connect(_action_continue_menu_button)
+	pause_menu.options_menu_button.confirmed.connect(_action_options_menu_button)
+	pause_menu.leave_menu_button.confirmed.connect(_action_leave_menu_button)
+	pause_menu.quit_menu_button.confirmed.connect(_action_quit_menu_button)
 
-func _on_menu_button_pressed(id: MenuButtonEnum.ID, _source: MenuButtonClass) -> void:
-	_action_handler.handle_action("MenuButton", id, self)
+	options_menu.back_menu_button.confirmed.connect(_action_options_back_menu_button)

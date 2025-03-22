@@ -1,5 +1,5 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 class_name DatetimeUtils
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 
 ## Some OS will return weird symbols in the name field, we want to avoid unexpected parsing errors.

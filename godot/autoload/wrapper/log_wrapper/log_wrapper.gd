@@ -1,9 +1,9 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-## [br][br]
-## Extends logger [Log] plugin with log groups configuration, managed by [ConfigurationLogger].
-## [br][br]
-## TODO: Does not wrap all methods. Wrap other methods from original class if and when needed.
+# TODO: Does not wrap all methods. Wrap other methods from [Log] if and when needed.
+# NOTE: Stack trace is debug only: https://github.com/godotengine/godot-proposals/issues/105
 extends Node
+## Extends logger [Log] plugin with log groups configured by [LoggerWrapperConfiguration].
+## [br][br]
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 const LOG_SOURCE_SEPARATOR: String = "."
 const LOG_LEVEL_DISABLED: int = 9
@@ -79,19 +79,3 @@ func _is_log_group_active(source_log_level: Log.LogLevel, source: String) -> boo
 	)
 
 	return source_log_level >= group_log_level
-
-## Commented lines not useful due to: https://github.com/godotengine/godot-proposals/issues/105
-#
-#func _extract_log_group2(source: String = "") -> String:
-#	var skip_stack: int = 2
-#	var stack: Array[Dictionary] = get_stack()
-#	for index: int in range(stack.size() - 1, skip_stack - 1, -1):
-#		var e: Dictionary = stack[index]
-#		var stack_source_name: String = _stack_source_name(e["source"])
-#		source += stack_source_name + LOG_SOURCE_SEPARATOR + e["function"] + LOG_SOURCE_SEPARATOR
-#	return source.trim_suffix(LOG_SOURCE_SEPARATOR)
-#
-#
-#func _stack_source_name(stack_source: String) -> String:
-#	var packed_string_array: PackedStringArray = stack_source.split("/")
-#	return packed_string_array[packed_string_array.size() - 1].trim_suffix(".gd")

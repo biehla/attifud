@@ -1,5 +1,5 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 extends VBoxContainer
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 @onready var coins_counter_title_label: Label = %CoinsCounterTitleLabel
 @onready var coins_counter_value_label: Label = %CoinsCounterValueLabel
@@ -21,9 +21,8 @@ func _refresh_label() -> void:
 
 
 func _refresh_coins_counter() -> void:
-	coins_counter_value_label.text = NumberUtils.format(
-		Data.game.coins, Configuration.game.number_format.get_number_format()
-	)
+	var number_format: NumberUtils.NumberFormat = Configuration.get_number_format()
+	coins_counter_value_label.text = NumberUtils.format(Data.game.coins, number_format)
 
 
 func _connect_signals() -> void:

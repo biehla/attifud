@@ -1,8 +1,8 @@
-## Original File MIT License Copyright (c) 2024 TinyTakinTeller
-## [br][br]
-## Calculates average clicks in interval.
 class_name ClickCounter
 extends Node
+## Calculates average clicks in interval.
+## [br][br]
+## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 ## Interval to claculate average clicks.
 @export var interval: float = 1.0

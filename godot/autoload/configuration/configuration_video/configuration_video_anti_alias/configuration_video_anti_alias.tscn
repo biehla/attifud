@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cck6oj1r2vecx"]
-
-[ext_resource type="Script" path="res://autoload/configuration/configuration_video/configuration_video_anti_alias/configuration_video_anti_alias.gd" id="1_2gkuw"]
-
-[node name="ConfigurationVideoAntiAlias" type="Node"]
-script = ExtResource("1_2gkuw")
