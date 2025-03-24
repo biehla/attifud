@@ -79,7 +79,7 @@ Scenes are split into following categories:
 		- **GameContent** - Example incremental game mechanics and effects.
 			- **ClicksCounter** - Counts and displays clicks. 
 			- **CoinsCounter** - Counts and displays coins.
-			- **GameButton** - Animated clickable texture button giving coins-
+			- **GameButton** - Animated clickable texture button giving coins.
 		- **PauseMenu** - Pause gameplay, change options. Esc key shortcut.
 
 ### 📄 Scripts
