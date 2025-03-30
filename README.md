@@ -2,9 +2,9 @@
 ![](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/.github/docs/image/readme_logo.png)
 
 
-# Takin - Godot Template [v0.6]
+# Takin - Godot Template [v0.7]
 
-**Godot 4.3** template for game projects (GDScript).
+**Godot 4.4** template for game projects (GDScript).
 
 Fusion of curated plugins, essential features and best practices to kick-start new projects.
 

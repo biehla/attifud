@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dnxbwrgcubbx0"]
 
-[ext_resource type="Script" path="res://scenes/scene/game_scene/game_content/clicks_counter/clicks_counter.gd" id="1_m022q"]
+[ext_resource type="Script" uid="uid://0ya1pjfhg025" path="res://scenes/scene/game_scene/game_content/clicks_counter/clicks_counter.gd" id="1_m022q"]
 [ext_resource type="PackedScene" uid="uid://bif8wd4q6rxty" path="res://scenes/component/motion/scale_motion/scale_motion.tscn" id="2_ts4um"]
 
 [node name="ClicksCounterVBoxContainer" type="VBoxContainer"]

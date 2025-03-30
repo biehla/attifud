@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://blj2ibtiuk6nf"]
 
 [ext_resource type="PackedScene" uid="uid://b4b36g3uhwemg" path="res://scenes/component/audio/button_audio/button_audio.tscn" id="1_hsx5r"]
-[ext_resource type="Script" path="res://scenes/scene/menu_scene/save_files_menu/menu_textbox_dialog/menu_textbox_dialog.gd" id="1_xxhpb"]
+[ext_resource type="Script" uid="uid://dt8q3agctavy0" path="res://scenes/scene/menu_scene/save_files_menu/menu_textbox_dialog/menu_textbox_dialog.gd" id="1_xxhpb"]
 
 [node name="MenuTextboxDialog" type="ConfirmationDialog"]
 title = ""

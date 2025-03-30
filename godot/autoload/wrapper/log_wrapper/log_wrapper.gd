@@ -10,7 +10,7 @@ const LOG_LEVEL_DISABLED: int = 9
 const LOG_LEVEL_NONE: int = -1
 
 var default_log_group: Log.LogLevel
-var log_groups: Dictionary
+var log_groups: Dictionary[String, int]
 var disable_debug_logs: bool = false
 
 

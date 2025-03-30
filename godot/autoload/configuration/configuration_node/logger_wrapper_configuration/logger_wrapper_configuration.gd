@@ -7,10 +7,11 @@ extends Node
 
 @export_group("Debug")
 @export var default_debug_log_group: Log.LogLevel = Log.LogLevel.DEBUG
-@export var debug_log_groups: Dictionary = {
+@export var debug_log_groups: Dictionary[String, int] = {
 	"ParticleQueue": Log.LogLevel.WARN,
 	"Data": Log.LogLevel.DEBUG,
 	#"Reference": LogWrapper.LOG_LEVEL_DISABLED,
+	"TweenSpawnerBuffer": LogWrapper.LOG_LEVEL_DISABLED,
 	"ActionHandler": LogWrapper.LOG_LEVEL_DISABLED,
 	"ButtonAudio": LogWrapper.LOG_LEVEL_DISABLED,
 	"OkButtonAudio": LogWrapper.LOG_LEVEL_DISABLED,

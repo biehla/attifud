@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://dqny02vjtqsld"]
 
-[ext_resource type="Script" path="res://autoload/configuration/configuration.gd" id="1_7lhyf"]
+[ext_resource type="Script" uid="uid://bpr2k78svjb7e" path="res://autoload/configuration/configuration.gd" id="1_7lhyf"]
 [ext_resource type="PackedScene" uid="uid://c0k2ps5m6a6t2" path="res://autoload/configuration/configuration_controller/video/display_mode_list_cfg/display_mode_list_cfg.tscn" id="3_7131m"]
 [ext_resource type="PackedScene" uid="uid://cs5es1chsqnxh" path="res://autoload/configuration/configuration_controller/video/fps_limit_list_cfg/fps_limit_list_cfg.tscn" id="5_6qim6"]
 [ext_resource type="PackedScene" uid="uid://bi1h2mmru75xu" path="res://autoload/configuration/configuration_controller/video/resolution_list_cfg/resolution_list_cfg.tscn" id="6_i3ynv"]

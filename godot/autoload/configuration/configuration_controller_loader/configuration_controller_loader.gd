@@ -12,10 +12,10 @@ extends Node
 
 var _config_group_map: Dictionary = {}
 
-var _list_cfg_map: Dictionary = {}
-var _slider_cfg_map: Dictionary = {}
-var _toggle_cfg_map: Dictionary = {}
-var _tree_cfg_map: Dictionary = {}
+var _list_cfg_map: Dictionary[int, ConfigurationController] = {}
+var _slider_cfg_map: Dictionary[int, ConfigurationController] = {}
+var _toggle_cfg_map: Dictionary[int, ConfigurationController] = {}
+var _tree_cfg_map: Dictionary[int, ConfigurationController] = {}
 
 
 func _ready() -> void:

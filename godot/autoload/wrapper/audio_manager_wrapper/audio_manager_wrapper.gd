@@ -8,7 +8,7 @@ extends Node
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 # tracks already playing music (useful to avoid replaying looped music)
-var _already_playing: Dictionary = {}
+var _already_playing: Dictionary[String, bool] = {}
 
 @onready var audio_banks: AudioBanks = %AudioBanks
 

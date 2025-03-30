@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cnr6k6bc0p03b"]
 
-[ext_resource type="Script" path="res://scenes/node/menu/menu_configuration/menu_dropdown_node/menu_dropdown_ui/menu_dropdown_ui.gd" id="1_yaixh"]
+[ext_resource type="Script" uid="uid://dlupcf7s7wbji" path="res://scenes/node/menu/menu_configuration/menu_dropdown_node/menu_dropdown_ui/menu_dropdown_ui.gd" id="1_yaixh"]
 [ext_resource type="PackedScene" uid="uid://b4b36g3uhwemg" path="res://scenes/component/audio/button_audio/button_audio.tscn" id="2_ixx1j"]
 
 [node name="MenuDropdownUI" type="MarginContainer" node_paths=PackedStringArray("option_button", "title_label")]

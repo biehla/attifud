@@ -52,7 +52,7 @@ func apply_config_value(value: Variant) -> void:
 		_disable_fxaa()
 		if anti_alias == AntiAlias.MSAA_2X:
 			_set_msaa_2d_and_3d(Viewport.MSAA.MSAA_2X)
-		elif anti_alias == AntiAlias.MSAA_8X:
+		elif anti_alias == AntiAlias.MSAA_4X:
 			_set_msaa_2d_and_3d(Viewport.MSAA.MSAA_4X)
 		elif anti_alias == AntiAlias.MSAA_8X:
 			_set_msaa_2d_and_3d(Viewport.MSAA.MSAA_8X)

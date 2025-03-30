@@ -14,7 +14,7 @@ const NAME: String = "Reference"
 const PRELOAD_PATH = PathConsts.RESOURCES + "preload/"
 const RESOURCE_EXTENSION = ".tres"
 
-var _resource_references_map: Dictionary = {}
+var _resource_references_map: Dictionary[String, Resource] = {}
 
 
 func _ready() -> void:
@@ -39,8 +39,8 @@ func get_resource(resource_id: String, type: Variant) -> Resource:
 	return null
 
 
-static func _load_resources(paths: Array[String]) -> Dictionary:
-	var resource_references: Dictionary = {}
+static func _load_resources(paths: Array[String]) -> Dictionary[String, Resource]:
+	var resource_references: Dictionary[String, Resource] = {}
 	for path: String in paths:
 		var resource: Resource = load(path) as Resource
 		if resource != null:

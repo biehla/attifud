@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://crvdmtowmw2sc"]
 
 [ext_resource type="Material" uid="uid://djfj1oxf2lsrm" path="res://resources/preload/particle_process_material/tres/game_button.tres" id="1_iokbb"]
-[ext_resource type="Script" path="res://scenes/component/emitter/particle_emitter/label_particle_emitter/label_particle_emitter.gd" id="2_31wt5"]
+[ext_resource type="Script" uid="uid://cq2xtdebg1i3e" path="res://scenes/component/emitter/particle_emitter/label_particle_emitter/label_particle_emitter.gd" id="2_31wt5"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_54e2o"]
 viewport_path = NodePath("SubViewport")
@@ -9,9 +9,9 @@ viewport_path = NodePath("SubViewport")
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_u26on"]
 
 [node name="LabelParticleEmitter" type="GPUParticles2D" node_paths=PackedStringArray("sub_viewport", "particle")]
-process_material = ExtResource("1_iokbb")
 texture = SubResource("ViewportTexture_54e2o")
 lifetime = 3.0
+process_material = ExtResource("1_iokbb")
 script = ExtResource("2_31wt5")
 particle_process_material_id = "game_button"
 sub_viewport = NodePath("SubViewport")
