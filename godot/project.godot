@@ -24,9 +24,9 @@ Log/break_on_error=false
 [application]
 
 config/name="TakinGodotTemplate"
-config/version="0.6.0"
+config/version="0.7.0"
 run/main_scene="res://scenes/scene/boot_splash_scene/boot_splash_scene.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://assets/image/boot_splash/png/boot_splash_2560_1440.png"
 config/icon="res://assets/image/boot_splash/png/icon_1024_1024.png"

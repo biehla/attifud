@@ -2,7 +2,7 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://csj16ktxs2rej"
+uid="uid://bpb2trceqbnb3"
 path="res://.godot/imported/noto_sans_hk.woff-981a7a84deb15939dc12c3360fb6dde9.fontdata"
 
 [deps]
@@ -22,7 +22,8 @@ msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
 hinting=1
-subpixel_positioning=1
+subpixel_positioning=4
+keep_rounding_remainders=true
 oversampling=0.0
 Fallbacks=null
 fallbacks=[]

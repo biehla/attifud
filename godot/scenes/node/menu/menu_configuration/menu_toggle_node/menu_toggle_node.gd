@@ -1,5 +1,4 @@
 # Encapsulates [MenuToggleUI] instead of extending it, prefers Component Driven Design over OOP.
-@tool
 class_name MenuToggleNode
 extends Control
 ## Persistent (save & load) version of the [MenuToggleUI] node, links to a [Configuration] child.
@@ -74,9 +73,6 @@ func _update_displayed_value() -> void:
 
 
 func _connect_signals() -> void:
-	if Engine.is_editor_hint():
-		return
-
 	menu_toggle_ui.value_updated.connect(_on_value_updated)
 	_get_toggle_configuration_controller().configuration_applied.connect(_on_configuration_applied)
 

@@ -16,15 +16,6 @@ After setup, you should have no errors and no warnings.
 - Open (Import) the project for the first time in the Godot Editor.
 - Enable all plugins, then restart the project "Project > Reload Current Project".
 
-
-On Godot 4.3, you must also:
-- Do [font uuid workaround](https://github.com/godotengine/godot/issues/80237) by opening `res://resources/global/theme.tres` and clear then set again the font `noto_sans.woff`.
-- Do [font fallbacks workaround](https://github.com/godotengine/godot/issues/92297) by editing `noto_sans.woff.import` and pasting lines:
-```
-Fallbacks=null
-fallbacks=[Resource("res://assets/font/noto_sans/woff/noto_sans_arabic.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_hebrew.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_hk.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_jp.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_kr.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_sc.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_tc.woff"), Resource("res://assets/font/noto_sans/woff/noto_sans_thai.woff")]
-```
-
 To resolve "invalid UID" warnings, re-save the scene causing them.
 
 
@@ -44,11 +35,16 @@ For questions and help, open a Github Issue or contact Discord `tiny_takin_telle
 	- Try (re)enable all Plugins and then select "Reload Current Project".
 - Warning "ext_resource, invalid UID" when opening the project?
 	- Resolve by re-saving the mentioned scene (.tscn), e.g. rename root node.
+	- If warning persists, also delete `filesystem_cache` files from `.godot\editor`.
+- Video settings are not working in the Godot Editor?
+	- Disable "Game Embed Mode" in Editor Settings.
 
 
 ### 💼 Editor Layout
 
-Editor layout can be changed via "Editor > Editor Layout > ..." in Godot Editor.
+Notes:
+- You can disable embeded game in "Editor > Editor Settings > Run > Window Placement > Game Embed Mode".
+- Editor layout can be changed via "Editor > Editor Layout > ..." in Godot Editor.
 
 To use my layout, locate `editor_layouts.cfg` in [Editor Data Paths](https://docs.godotengine.org/en/latest/tutorials/io/data_paths.html#editor-data-paths) and add:
 

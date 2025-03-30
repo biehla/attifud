@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://crq7ljoikvhid"]
 
-[ext_resource type="Script" path="res://autoload/configuration/configuration_controller/controls/keybinds_tree_cfg/keybinds_tree_cfg.gd" id="1_464ke"]
+[ext_resource type="Script" uid="uid://nn4felwnta4n" path="res://autoload/configuration/configuration_controller/controls/keybinds_tree_cfg/keybinds_tree_cfg.gd" id="1_464ke"]
 
 [node name="KeybindsTreeCfg" type="Node"]
 script = ExtResource("1_464ke")

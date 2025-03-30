@@ -15,7 +15,7 @@ signal option_disabled(option_label: String)
 ## Some platforms do not support all option values so we track that in "disabled_options"
 class CfgOptions:
 	var options: LinkedMap = LinkedMap.new()
-	var disabled_options: Dictionary = {}
+	var disabled_options: Dictionary[String, bool] = {}
 	var hide_disabled: bool = false
 
 

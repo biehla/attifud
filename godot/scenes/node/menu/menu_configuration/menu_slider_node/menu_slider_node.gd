@@ -1,5 +1,4 @@
 # Encapsulates [MenuSliderUI] instead of extending it, prefers Component Driven Design over OOP.
-@tool
 class_name MenuSliderNode
 extends Control
 ## Persistent (save & load) version of the [MenuSliderUI] node, links to a [Configuration] child.
@@ -96,9 +95,6 @@ func _update_displayed_value() -> void:
 
 
 func _connect_signals() -> void:
-	if Engine.is_editor_hint():
-		return
-
 	menu_slider_ui.value_updated.connect(_on_value_updated)
 	_get_slider_configuration_controller().configuration_applied.connect(_on_configuration_applied)
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cauyngcle8qc1"]
 
-[ext_resource type="Script" path="res://scenes/node/menu/menu_configuration/menu_toggle_node/menu_toggle_node.gd" id="1_8chyw"]
+[ext_resource type="Script" uid="uid://devq2h5is7rqd" path="res://scenes/node/menu/menu_configuration/menu_toggle_node/menu_toggle_node.gd" id="1_8chyw"]
 [ext_resource type="PackedScene" uid="uid://d3ewhk7fks8i2" path="res://scenes/node/menu/menu_configuration/menu_toggle_node/menu_toggle_ui/menu_toggle_ui.tscn" id="2_ol5po"]
 
 [node name="MenuToggleNode" type="MarginContainer" node_paths=PackedStringArray("menu_toggle_ui")]

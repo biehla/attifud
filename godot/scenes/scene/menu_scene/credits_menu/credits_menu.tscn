@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cdpe2qrr0gpen"]
 
-[ext_resource type="Script" path="res://scenes/scene/menu_scene/credits_menu/credits_menu.gd" id="1_lim8x"]
+[ext_resource type="Script" uid="uid://dya1cm8jgtcjw" path="res://scenes/scene/menu_scene/credits_menu/credits_menu.gd" id="1_lim8x"]
 [ext_resource type="PackedScene" uid="uid://k5xt8llrybgm" path="res://scenes/node/menu/menu_button/menu_button.tscn" id="2_vgi8g"]
 [ext_resource type="PackedScene" uid="uid://t2dui8ppm3a4" path="res://scenes/scene/menu_scene/credits_menu/credits/credits.tscn" id="3_b3gxy"]
 [ext_resource type="PackedScene" uid="uid://bv7d4vxqjocks" path="res://scenes/component/control/control_grab_focus/control_grab_focus.tscn" id="3_k32ri"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b7soluh72vjfa" path="res://assets/image/game/animal/png/round/panda.png" id="1_3e4ed"]
 [ext_resource type="Texture2D" uid="uid://c1bd0fcvhdp" path="res://assets/image/game/animal/png/round_outline/panda.png" id="2_hxejm"]
-[ext_resource type="Script" path="res://scenes/scene/game_scene/game_content/game_button/game_button.gd" id="3_3q41s"]
+[ext_resource type="Script" uid="uid://c0l7uq316e250" path="res://scenes/scene/game_scene/game_content/game_button/game_button.gd" id="3_3q41s"]
 [ext_resource type="PackedScene" uid="uid://b4b36g3uhwemg" path="res://scenes/component/audio/button_audio/button_audio.tscn" id="3_4ltph"]
 [ext_resource type="PackedScene" uid="uid://bpci1qpmsjkbg" path="res://scenes/scene/game_scene/game_content/game_button/click_counter/click_counter.tscn" id="4_4d018"]
 [ext_resource type="PackedScene" uid="uid://vlsdtpdj5gw0" path="res://scenes/node/game/spawner_buffer/spawner_buffer.tscn" id="6_1vbam"]
@@ -91,8 +91,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fhghp"]
 _data = {
-"RESET": SubResource("Animation_77dwp"),
-"float": SubResource("Animation_83ivt")
+&"RESET": SubResource("Animation_77dwp"),
+&"float": SubResource("Animation_83ivt")
 }
 
 [node name="GameButton" type="TextureButton"]
@@ -113,7 +113,7 @@ script = ExtResource("3_3q41s")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_fhghp")
+&"": SubResource("AnimationLibrary_fhghp")
 }
 autoplay = "float"
 

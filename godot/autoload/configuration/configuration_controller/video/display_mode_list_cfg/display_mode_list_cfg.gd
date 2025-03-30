@@ -21,7 +21,7 @@ enum DisplayMode {
 	EXCLUSIVE_FULLSCREEN
 }
 
-var _window_mode_map: Dictionary = {
+var _window_mode_map: Dictionary[DisplayServer.WindowMode, DisplayMode] = {
 	DisplayServer.WindowMode.WINDOW_MODE_WINDOWED: DisplayMode.WINDOWED,
 	DisplayServer.WindowMode.WINDOW_MODE_MAXIMIZED: DisplayMode.MAXIMIZED,
 	DisplayServer.WindowMode.WINDOW_MODE_FULLSCREEN: DisplayMode.FULLSCREEN,
@@ -86,9 +86,13 @@ func apply_config_value(value: Variant) -> void:
 		pass
 	_internal_update = false
 
-	# seems [DisplayServer] needs 2 frames to propagate changes ?
+	# seems [DisplayServer] needs 2 frames to propagate changes
 	await get_tree().process_frame
 	await get_tree().process_frame
+
+	# seems some web browsers need time to return new window mode
+	if OS.has_feature("web"):
+		await get_tree().create_timer(0.1).timeout
 
 	configuration_applied.emit()
 

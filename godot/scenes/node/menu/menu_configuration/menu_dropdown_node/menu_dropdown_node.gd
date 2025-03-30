@@ -1,5 +1,4 @@
 # Encapsulates [MenuDropdownUI] instead of extending it, prefers Component Driven Design over OOP.
-@tool
 class_name MenuDropdownNode
 extends Control
 ## Persistent (save & load) version of the [MenuDropdownUI] node, links to a [Configuration] child.
@@ -76,9 +75,6 @@ func _update_displayed_value() -> void:
 
 
 func _connect_signals() -> void:
-	if Engine.is_editor_hint():
-		return
-
 	menu_dropdown_ui.value_updated.connect(_on_value_updated)
 	_get_list_configuration_controller().configuration_applied.connect(_on_configuration_applied)
 	_get_list_configuration_controller().option_disabled.connect(_on_option_disabled)

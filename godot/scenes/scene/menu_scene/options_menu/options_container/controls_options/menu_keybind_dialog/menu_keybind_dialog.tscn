@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b5v0hlvdp1mxx"]
 
-[ext_resource type="Script" path="res://scenes/scene/menu_scene/options_menu/options_container/controls_options/menu_keybind_dialog/menu_keybind_dialog.gd" id="1_yjloi"]
+[ext_resource type="Script" uid="uid://bdih0brfly4nl" path="res://scenes/scene/menu_scene/options_menu/options_container/controls_options/menu_keybind_dialog/menu_keybind_dialog.gd" id="1_yjloi"]
 [ext_resource type="PackedScene" uid="uid://b4b36g3uhwemg" path="res://scenes/component/audio/button_audio/button_audio.tscn" id="2_y1wjw"]
 
 [node name="MenuBindDialog" type="ConfirmationDialog"]

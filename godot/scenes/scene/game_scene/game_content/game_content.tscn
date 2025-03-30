@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://d1qehwioaldlb"]
 
 [ext_resource type="PackedScene" uid="uid://byy8027e326wd" path="res://scenes/scene/game_scene/game_content/game_button/game_button.tscn" id="1_l5ghq"]
-[ext_resource type="Script" path="res://scenes/scene/game_scene/game_content/game_content.gd" id="1_qs7kg"]
+[ext_resource type="Script" uid="uid://c5e23i8a611eb" path="res://scenes/scene/game_scene/game_content/game_content.gd" id="1_qs7kg"]
 [ext_resource type="PackedScene" uid="uid://bv7d4vxqjocks" path="res://scenes/component/control/control_grab_focus/control_grab_focus.tscn" id="2_mc8mw"]
 [ext_resource type="PackedScene" uid="uid://cle6b4qe3nss5" path="res://scenes/scene/game_scene/game_content/coins_counter/coins_counter.tscn" id="3_57dmj"]
 [ext_resource type="PackedScene" uid="uid://dnxbwrgcubbx0" path="res://scenes/scene/game_scene/game_content/clicks_counter/clicks_counter.tscn" id="4_tvsdi"]
