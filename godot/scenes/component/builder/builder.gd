@@ -1,3 +1,4 @@
+# example: [UiBuilder]
 class_name Builder
 extends Node
 ## Instantiate and attach given component nodes [attach_components] to found targets.

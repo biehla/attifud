@@ -1,3 +1,4 @@
+# attaches [TwistMotion], [ControlFocusOnHover] to all [Control] nodes with [focus_mode] property
 class_name UiBuilder
 extends Builder
 ## This is a [Builder] script that builds ui scenes: [MenuScene], [GameScene].
