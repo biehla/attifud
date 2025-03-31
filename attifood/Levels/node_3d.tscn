@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5dmpwtdlk5ne"]
+
+[ext_resource type="PackedScene" uid="uid://fr4aqdk7fose" path="res://zz_person.fbx" id="1_byhf8"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="zz_person" parent="." instance=ExtResource("1_byhf8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0166756, 0, -0.0125985)
