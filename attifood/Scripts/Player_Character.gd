@@ -164,6 +164,9 @@ func RotationPressed():
 	if Input.is_action_just_released("Inspect"):
 		IsRotatingObject = false
 
+func PlayerArmDistance():
+	pass
+
 func TrackedPhysicsObjects():
 	#$CollisionShape3D.
 	pass
