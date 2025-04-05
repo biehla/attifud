@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://5ce6wghy0kom"]
+
+[ext_resource type="ArrayMesh" uid="uid://lusfhendyjb5" path="res://attifood/Assets/Dev_Meshes/Arrow.obj" id="1_ipf2b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_12vjc"]
+size = Vector3(0.242188, 0.238281, 0.248047)
+
+[sub_resource type="BoxMesh" id="BoxMesh_elhrt"]
+
+[node name="RigidBody3D4" type="RigidBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.04188, 0, 0, 0, 1.04188, 0, 0, 0, 1.04188, 0, 0, 0)
+shape = SubResource("BoxShape3D_12vjc")
+debug_color = Color(0.4, 0, 0.186667, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+mesh = SubResource("BoxMesh_elhrt")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+mesh = ExtResource("1_ipf2b")
+skeleton = NodePath("../MeshInstance3D")

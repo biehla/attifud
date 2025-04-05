@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="attifood"
-run/main_scene="uid://cbf6f6ar5mplh"
+run/main_scene="uid://xdsrwrp0vkh6"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -3,6 +3,7 @@
 # make player not interact physically with objects in players sphere of influence. without a solution to this players can launch themselves picking up objects underneath them
 
 extends CharacterBody3D
+class_name Player
 
 var Speed
 const SprintSpeed = 10
