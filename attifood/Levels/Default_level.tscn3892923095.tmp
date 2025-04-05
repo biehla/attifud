@@ -1,8 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://cbf6f6ar5mplh"]
+[gd_scene load_steps=13 format=3 uid="uid://cbf6f6ar5mplh"]
 
 [ext_resource type="PackedScene" uid="uid://fr4aqdk7fose" path="res://zz_person.fbx" id="1_ngl7a"]
-[ext_resource type="Script" uid="uid://c2c23qu57bjk0" path="res://attifood/Levels/character_body_3d.gd" id="2_hnavg"]
-[ext_resource type="ArrayMesh" uid="uid://lusfhendyjb5" path="res://attifood/Assets/Dev_Meshes/Arrow.obj" id="3_7h6dm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_74r8l"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -26,13 +24,85 @@ albedo_color = Color(0.418491, 0.596593, 0.548474, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7h6dm"]
 albedo_color = Color(0.899456, 6.93083e-06, 0.57092, 1)
 
+[sub_resource type="GDScript" id="GDScript_ngl7a"]
+script/source = "extends CharacterBody3D
+
+var Speed
+const SprintSpeed = 10
+const WalkSpeed = 5.0
+const JUMP_VELOCITY = 4.5
+const SENSITIVITY = .002
+
+@export_category(\"Camera\")
+@onready var head = $Head
+@onready var camera = $Head/Camera3D
+
+@export_category(\"Holding Object\")
+@export var ThrowForce = 7.5
+@export var FollowSpeed = 5.0
+@export var FollowDistance = 2.5
+@export var MaxDistanceFromCamera = 5.0
+@export var DropBelowPlayer = false
+@export var GroundRay: RayCast3D
+
+@export var interactRay = $Head/Camera3D/InteractRay
+var heldObject: RigidBody3D
+
+
+func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+func _unhandled_input(event):
+	if event is InputEventMouseMotion:
+		head.rotate_y(-event.relative.x * SENSITIVITY)
+		camera.rotate_x(-event.relative.y * SENSITIVITY)
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+	
+	
+	
+	
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	# Handle jump.
+	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	if Input.is_action_pressed(\"Sprint\"):
+		Speed = SprintSpeed
+		
+	else:
+		Speed = WalkSpeed
+		
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var input_dir = Input.get_vector(\"Left\", \"Right\", \"Forward\", \"Backward\")
+	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if is_on_floor():
+		if direction:
+			velocity.x = direction.x * Speed
+			velocity.z = direction.z * Speed
+		else:
+			velocity.x = lerp(velocity.x, direction.x * Speed, delta * 10)
+			velocity.z = lerp(velocity.z, direction.z * Speed, delta * 10)
+	else:
+		velocity.x = lerp(velocity.x, direction.x * Speed, delta * 3)
+		velocity.z = lerp(velocity.z, direction.z * Speed, delta * 3)
+	move_and_slide()
+
+func set_held_object(body):
+	if body is RigidBody3D:
+		heldObject = body
+"
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ngl7a"]
-radius = 0.25
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_ngl7a"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_7h6dm"]
-size = Vector3(0.242188, 0.238281, 0.248047)
+[sub_resource type="BoxShape3D" id="BoxShape3D_ngl7a"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_hnavg"]
 
@@ -48,7 +118,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.6169
 transform = Transform3D(0.12954, 0.777441, -0.615471, -0.498207, 0.587696, 0.637498, 0.857327, 0.22405, 0.463457, 0, 2.79257, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1.01332, 0, 0, 0, 1.01332, 0, 0, 0, 1.01332, 0.396616, -0.544313, -0.126707)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.396616, -0.544313, -0.126707)
 material_override = SubResource("StandardMaterial3D_ngl7a")
 use_collision = true
 size = Vector3(147.627, 1, 134.353)
@@ -66,9 +136,12 @@ size = Vector3(10.958, 5.13477, 8.60449)
 material = SubResource("StandardMaterial3D_7h6dm")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-collision_layer = 8
-script = ExtResource("2_hnavg")
-FollowSpeed = 20.0
+script = SubResource("GDScript_ngl7a")
+ThrowForce = null
+FollowSpeed = null
+FollowDistance = null
+MaxDistanceFromCamera = null
+DropBelowPlayer = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
 transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 1, 0)
@@ -84,40 +157,27 @@ debug_color = Color(1, 0, 0.0166664, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00221992, 1.50449, -0.000646934)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CharacterBody3D/Head/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, -1, 1.50996e-07, 0, -1.50996e-07, -1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0)
 shape = SubResource("SeparationRayShape3D_ngl7a")
-spring_length = 1.5
 
 [node name="GrabPoint" type="Node3D" parent="CharacterBody3D/Head/Camera3D/SpringArm3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/Head/Camera3D/SpringArm3D/GrabPoint"]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
-mesh = ExtResource("3_7h6dm")
+[node name="GrabRefPoint" type="Node3D" parent="CharacterBody3D/Head/Camera3D/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 
 [node name="InteractRay" type="RayCast3D" parent="CharacterBody3D/Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 target_position = Vector3(0, -1.5, 0)
 
-[node name="GrabRefPoint" type="Node3D" parent="CharacterBody3D/Head/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
-
 [node name="GroundRay" type="RayCast3D" parent="CharacterBody3D"]
 target_position = Vector3(0, -0.1, 0)
 
-[node name="RigidBody3D4" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.70218, 2.18931, -2.48663)
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.78815, 2.18931, -3.79312)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D4"]
-transform = Transform3D(1.04188, 0, 0, 0, 1.04188, 0, 0, 0, 1.04188, 0, 0, 0)
-shape = SubResource("BoxShape3D_7h6dm")
-debug_color = Color(0.4, 0, 0.186667, 1)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_ngl7a")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D4"]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
 mesh = SubResource("BoxMesh_hnavg")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D4"]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
-mesh = ExtResource("3_7h6dm")
-skeleton = NodePath("../MeshInstance3D")
