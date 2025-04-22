@@ -122,9 +122,6 @@ func _action_quit_menu_button() -> void:
 
 
 func _connect_signals() -> void:
-	if "pause_menu_button" in game_content:
-		game_content.pause_menu_button.confirmed.connect(_action_game_pause_menu_button)
-
 	pause_menu.continue_menu_button.confirmed.connect(_action_continue_menu_button)
 	pause_menu.options_menu_button.confirmed.connect(_action_options_menu_button)
 	pause_menu.leave_menu_button.confirmed.connect(_action_leave_menu_button)
