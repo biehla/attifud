@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkcin4ajwwrxd"]
+
+[ext_resource type="PackedScene" uid="uid://cbsjsnkd73dve" path="res://attifood/Assets/Food_Items/Default_Plate.glb" id="1_pd5yn"]
+[ext_resource type="PackedScene" uid="uid://dh2m6iytuoyb1" path="res://attifood/Actors/Objects/Food/Burger/burger_bun.tscn" id="2_3j2fy"]
+[ext_resource type="PackedScene" uid="uid://c6ainm0pmmasp" path="res://attifood/Actors/Objects/Food/Burger/burger_patty.tscn" id="3_jf5j5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7a8em"]
+albedo_color = Color(0.8, 0.32, 0.328, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3j2fy"]
+albedo_color = Color(1, 0.946667, 0.84, 1)
+
+[node name="Default_Plate" instance=ExtResource("1_pd5yn")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="Node" parent="." index="0"]
+transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, 1.5, 0, -1.5, -6.55671e-08, 0.000716918, 0, 0.000301114)
+
+[node name="Plate_Default" parent="Node" index="0"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_7a8em")
+surface_material_override/1 = SubResource("StandardMaterial3D_3j2fy")
+
+[node name="Burger_Bun" parent="Node" index="1" instance=ExtResource("2_3j2fy")]
+transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0.0353742)
+
+[node name="Burger_Bun2" parent="Node" index="2" instance=ExtResource("2_3j2fy")]
+transform = Transform3D(-1.5, -2.26494e-07, 9.90035e-15, 0, -6.55671e-08, -1.5, 2.26494e-07, -1.5, 6.55671e-08, 0.000147086, -0.000481799, 0.0270047)
+
+[node name="Burger_Patty" parent="Node" index="3" instance=ExtResource("3_jf5j5")]
+transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0.0252937)
+
+[node name="Node2" parent="." index="1"]
+transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, 1.5, 0, -1.5, -6.55671e-08, 0.000716918, 0, 0.000301114)
+
+[node name="Plate_Default" parent="Node2" index="0"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="Node2/Plate_Default" index="0"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx5044vq75i6h"]
+
+[ext_resource type="PackedScene" uid="uid://cswfax5tut06f" path="res://attifood/Assets/Dev_Meshes/Oven.fbx" id="1_bboy4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1nq1c"]
+size = Vector3(1, 0.79248, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Oven" parent="." instance=ExtResource("1_bboy4")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Oven"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Oven/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.398853, 0)
+shape = SubResource("BoxShape3D_1nq1c")
+debug_fill = false

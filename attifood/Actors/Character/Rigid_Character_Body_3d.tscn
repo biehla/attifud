@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://iuytikrwsl2b"]
+
+[ext_resource type="ArrayMesh" uid="uid://lusfhendyjb5" path="res://attifood/Assets/Dev_Meshes/Arrow.obj" id="1_8cni0"]
+[ext_resource type="Script" uid="uid://x220rtcupl0i" path="res://attifood/Actors/Character/rigid_character_body_3d.gd" id="1_ux4h0"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ux4h0"]
+friction = 0.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ux4h0"]
+radius = 0.25
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_opyub"]
+radius = 0.25
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_o5iht"]
+
+[node name="RigidBody3D" type="RigidBody3D"]
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+physics_material_override = SubResource("PhysicsMaterial_ux4h0")
+script = ExtResource("1_ux4h0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_ux4h0")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00107574, 1.00411, -0.00196958)
+shape = SubResource("CapsuleShape3D_opyub")
+debug_color = Color(1, 0, 0.0166664, 1)
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00107574, 0.00410849, -0.00196958)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00221992, 1.50449, -0.000646934)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, -1, 1.50996e-07, 0, -1.50996e-07, -1, 0, 0, 0)
+shape = SubResource("SeparationRayShape3D_o5iht")
+spring_length = 1.5
+
+[node name="GrabPoint" type="Node3D" parent="Head/Camera3D/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Head/Camera3D/SpringArm3D/GrabPoint"]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+mesh = ExtResource("1_8cni0")
+
+[node name="InteractRay" type="RayCast3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, -1.5, 0)
+
+[node name="GrabRefPoint" type="Node3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
+
+[node name="GroundRay" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00107574, 0.00410849, -0.00196958)
+target_position = Vector3(0, -0.1, 0)
