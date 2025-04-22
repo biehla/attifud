@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://xdsrwrp0vkh6"]
+[gd_scene load_steps=12 format=3 uid="uid://xdsrwrp0vkh6"]
 
 [ext_resource type="PackedScene" uid="uid://5ce6wghy0kom" path="res://attifood/Actors/TestPhysicsBlock.tscn" id="2_773ns"]
 [ext_resource type="PackedScene" uid="uid://ylav1sqxcsdx" path="res://attifood/Assets/Food_Items/PlateAndHolders/Default_Plate.glb" id="3_773ns"]
 [ext_resource type="PackedScene" uid="uid://cm2su8iv4xqux" path="res://attifood/Assets/Food_Items/Burger/Burger_Bun.glb" id="3_nbxvb"]
 [ext_resource type="PackedScene" uid="uid://bdawqx8jg7uy1" path="res://attifood/Assets/Food_Items/Burger/Burger_Patty.glb" id="4_7qs17"]
 [ext_resource type="PackedScene" uid="uid://bto28f1ksn0ba" path="res://attifood/Actors/Character/character_body_3d.tscn" id="5_nbxvb"]
+[ext_resource type="PackedScene" uid="uid://k5xt8llrybgm" path="res://scenes/node/menu/menu_button/menu_button.tscn" id="6_7qs17"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0ul7o"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -80,3 +81,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.401385, 0.0625, 1.7229)
 
 [node name="Burger_Bun2" parent="." instance=ExtResource("3_nbxvb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.940921, 1.23991, -0.122437)
+
+[node name="PauseMenuButton" parent="." instance=ExtResource("6_7qs17")]
+unique_name_in_owner = true
+focus_neighbor_left = NodePath("../../CenterMarginContainer/GameButton")
+focus_neighbor_bottom = NodePath("../../CenterMarginContainer/GameButton")
+theme_override_font_sizes/font_size = 24
+text = "  "
+label = "MENU_LABEL_PAUSE"
+padding_spaces = 1
