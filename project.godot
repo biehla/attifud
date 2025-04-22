@@ -164,3 +164,7 @@ locale/translations=PackedStringArray("res://assets/i18n/localization.ar.transla
 [rendering]
 
 textures/vram_compression/import_etc2_astc=true
+
+[scene_manager]
+
+scenes/scenes_path="uid://cqhqqsh5oectt"

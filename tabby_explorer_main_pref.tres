@@ -1,14 +1,23 @@
-[gd_resource type="Resource" load_steps=5 format=3 uid="uid://c76rpxm6bv5tn"]
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://c76rpxm6bv5tn"]
 
 [ext_resource type="Script" uid="uid://b10hv32uro0hn" path="res://addons/tabby_explorer/editor/dock_pref.gd" id="1_1mg0j"]
 [ext_resource type="Script" uid="uid://c54nbbiuc7gpx" path="res://addons/tabby_explorer/editor/main_pref.gd" id="2_2wbi7"]
 [ext_resource type="Script" uid="uid://coucjcfsonn11" path="res://addons/tabby_explorer/editor/dock_tab_pref.gd" id="2_8tqga"]
 
+[sub_resource type="Resource" id="Resource_2wbi7"]
+script = ExtResource("2_8tqga")
+tab_id = 7089082885354939570
+name = "Tab 1"
+pinned_path = ""
+sel_info_expand = false
+always_post_selection_to_fs_dock = false
+fav_path = ""
+
 [sub_resource type="Resource" id="Resource_hsmaw"]
 script = ExtResource("1_1mg0j")
 name = "Tabby Explorer"
 selected_tab = 0
-tabs = Array[ExtResource("2_8tqga")]([])
+tabs = Array[ExtResource("2_8tqga")]([SubResource("Resource_2wbi7")])
 dock_pos = 5
 
 [resource]
