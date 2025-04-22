@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://xdsrwrp0vkh6"]
 
-[ext_resource type="PackedScene" uid="uid://5ce6wghy0kom" path="res://attifood/Actors/TestPhysicsBlock.tscn" id="2_773ns"]
+[ext_resource type="PackedScene" path="res://attifood/Actors/TestPhysicsBlock.tscn" id="2_773ns"]
 [ext_resource type="PackedScene" uid="uid://ylav1sqxcsdx" path="res://attifood/Assets/Food_Items/PlateAndHolders/Default_Plate.glb" id="3_773ns"]
 [ext_resource type="PackedScene" uid="uid://cm2su8iv4xqux" path="res://attifood/Assets/Food_Items/Burger/Burger_Bun.glb" id="3_nbxvb"]
 [ext_resource type="PackedScene" uid="uid://bdawqx8jg7uy1" path="res://attifood/Assets/Food_Items/Burger/Burger_Patty.glb" id="4_7qs17"]
