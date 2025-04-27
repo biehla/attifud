@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://xdsrwrp0vkh6"]
 
-[ext_resource type="Script" uid="uid://dyggi7ngdyiqd" path="res://attifood/Levels/dev_test_world_1.gd" id="1_7qs17"]
+[ext_resource type="Script" uid="uid://ctewvi27t4lhd" path="res://attifood/Levels/dev_test_world_1.gd" id="1_7qs17"]
 [ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://scenes/player/player.tscn" id="2_7qs17"]
 [ext_resource type="PackedScene" uid="uid://5ce6wghy0kom" path="res://attifood/Actors/TestPhysicsBlock.tscn" id="2_773ns"]
 [ext_resource type="PackedScene" uid="uid://ylav1sqxcsdx" path="res://attifood/Assets/Food_Items/PlateAndHolders/Default_Plate.glb" id="3_773ns"]
