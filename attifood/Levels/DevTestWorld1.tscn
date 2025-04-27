@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://xdsrwrp0vkh6"]
+[gd_scene load_steps=12 format=3 uid="uid://xdsrwrp0vkh6"]
 
+[ext_resource type="Script" uid="uid://dyggi7ngdyiqd" path="res://attifood/Levels/dev_test_world_1.gd" id="1_7qs17"]
+[ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://scenes/player/player.tscn" id="2_7qs17"]
 [ext_resource type="PackedScene" uid="uid://5ce6wghy0kom" path="res://attifood/Actors/TestPhysicsBlock.tscn" id="2_773ns"]
 [ext_resource type="PackedScene" uid="uid://ylav1sqxcsdx" path="res://attifood/Assets/Food_Items/PlateAndHolders/Default_Plate.glb" id="3_773ns"]
 [ext_resource type="PackedScene" uid="uid://cm2su8iv4xqux" path="res://attifood/Assets/Food_Items/Burger/Burger_Bun.glb" id="3_nbxvb"]
 [ext_resource type="PackedScene" uid="uid://bdawqx8jg7uy1" path="res://attifood/Assets/Food_Items/Burger/Burger_Patty.glb" id="4_7qs17"]
-[ext_resource type="PackedScene" uid="uid://k5xt8llrybgm" path="res://scenes/node/menu/menu_button/menu_button.tscn" id="6_7qs17"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0ul7o"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -26,63 +27,64 @@ albedo_color = Color(0.316993, 0.507092, 0.293406, 1)
 albedo_color = Color(0.318586, 0.622335, 0.790217, 1)
 
 [node name="DevTestWorld1" type="Node3D"]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 5.54319, 0)
-shadow_enabled = true
+script = ExtResource("1_7qs17")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_37y0d")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 5.54319, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("2_7qs17")]
+unique_name_in_owner = true
+
+[node name="StaticPhysics" type="Node3D" parent="."]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 5.54319, 0)
+
+[node name="floor" type="CSGBox3D" parent="StaticPhysics"]
+transform = Transform3D(-0.866024, 0, -0.500003, -0.433016, 0.499998, 0.749999, 0.250001, 0.866027, -0.43301, 0, -2.77158, -4.80055)
 use_collision = true
 size = Vector3(50, 0.125, 50)
 material = SubResource("StandardMaterial3D_773ns")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00453758, 0.564558, -4.59336)
+[node name="box2" type="CSGBox3D" parent="StaticPhysics"]
+transform = Transform3D(-0.866024, 0, -0.500003, -0.433016, 0.499998, 0.749999, 0.250001, 0.866027, -0.43301, 2.29277, -5.93629, -2.32152)
 use_collision = true
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.90024, 1.0376, -0.287088)
+[node name="table" type="CSGBox3D" parent="StaticPhysics"]
+transform = Transform3D(-0.866024, 0, -0.500003, -0.433016, 0.499998, 0.749999, 0.250001, 0.866027, -0.43301, 2.65522, -1.21225, -4.50271)
 use_collision = true
 size = Vector3(1, 0.368164, 2.74219)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.990997, 0.314253, -4.59336)
+[node name="box3" type="CSGBox3D" parent="StaticPhysics"]
+transform = Transform3D(-0.866024, 0, -0.500003, -0.433016, 0.499998, 0.749999, 0.250001, 0.866027, -0.43301, 3.15492, -5.63036, -2.78718)
 use_collision = true
 size = Vector3(1, 0.5, 1)
 material = SubResource("StandardMaterial3D_svpe1")
 
-[node name="RigidBody3D4" parent="." instance=ExtResource("2_773ns")]
+[node name="DynamicPhysics" type="Node3D" parent="."]
+
+[node name="PhysicsTestBox-4" parent="DynamicPhysics" instance=ExtResource("2_773ns")]
 transform = Transform3D(0.0797988, 0, 0.996811, 0, 1, 0, -0.996811, 0, 0.0797988, -2.71599, 1.34669, -1.01172)
 
-[node name="RigidBody3D5" parent="." instance=ExtResource("2_773ns")]
+[node name="PhysicsTestBox-5" parent="DynamicPhysics" instance=ExtResource("2_773ns")]
 transform = Transform3D(-0.335961, 0, 0.941876, 0, 1, 0, -0.941876, 0, -0.335961, -2.71599, 1.34669, 0.315436)
 
-[node name="RigidBody3D6" parent="." instance=ExtResource("2_773ns")]
+[node name="PhysicsTestBox-6" parent="DynamicPhysics" instance=ExtResource("2_773ns")]
 transform = Transform3D(0.774591, -0.632462, -2.76458e-08, 0, -4.37114e-08, 1, -0.632462, -0.774591, -3.38585e-08, -3.18863, 1.34669, -0.117668)
 
-[node name="RigidBody3D7" parent="." instance=ExtResource("2_773ns")]
+[node name="PhysicsTestBox-7" parent="DynamicPhysics" instance=ExtResource("2_773ns")]
 transform = Transform3D(-0.312965, -0.949765, -4.15155e-08, 1.37595e-15, -4.37114e-08, 1, -0.949765, 0.312965, 1.36801e-08, -3.07797, 1.34669, -0.814196)
 
-[node name="Burger_Bun" parent="." instance=ExtResource("3_nbxvb")]
+[node name="Burger_Bun" parent="DynamicPhysics" instance=ExtResource("3_nbxvb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.64937, 1.22279, -0.227914)
 
-[node name="Burger_Patty" parent="." instance=ExtResource("4_7qs17")]
+[node name="Burger_Patty" parent="DynamicPhysics" instance=ExtResource("4_7qs17")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6405, 1.22168, -0.457749)
 
-[node name="Default_Plate" parent="." instance=ExtResource("3_773ns")]
+[node name="Default_Plate" parent="DynamicPhysics" instance=ExtResource("3_773ns")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.60619, 1.22168, 0.000596046)
 
-[node name="Burger_Bun2" parent="." instance=ExtResource("3_nbxvb")]
+[node name="Burger_Bun2" parent="DynamicPhysics" instance=ExtResource("3_nbxvb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.940921, 1.23991, -0.122437)
-
-[node name="PauseMenuButton" parent="." instance=ExtResource("6_7qs17")]
-unique_name_in_owner = true
-focus_neighbor_left = NodePath("../../CenterMarginContainer/GameButton")
-focus_neighbor_bottom = NodePath("../../CenterMarginContainer/GameButton")
-theme_override_font_sizes/font_size = 24
-text = " Pause "
-label = "MENU_LABEL_PAUSE"
-padding_spaces = 1
